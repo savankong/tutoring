@@ -10,9 +10,9 @@ function App() {
   const [cameraReady, setCameraReady] = useState(false);
   const [image, setImage] = useState(null);
   const [ocrText, setOcrText] = useState('');
+  const [ocrPending, setOcrPending] = useState(false);
   const [answer, setAnswer] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, ocr, done
-  const [ocrProgress, setOcrProgress] = useState(0);
+  const [status, setStatus] = useState('idle'); // idle, done
 
   useEffect(() => {
     return () => {
@@ -43,26 +43,24 @@ function App() {
     const dataUrl = canvas.toDataURL('image/jpeg');
 
     setImage(dataUrl);
-    setStatus('ocr');
-    setOcrProgress(0);
+    setOcrText('');
+    setAnswer('');
+    setStatus('done');
     streamRef.current?.getTracks().forEach((track) => track.stop());
     setCameraReady(false);
 
-    Tesseract.recognize(dataUrl, 'eng', {
-      logger: (m) => {
-        if (m.status === 'recognizing text') {
-          setOcrProgress(Math.round(m.progress * 100));
-        }
-      },
-    })
+    // Teacher mode: don't block on OCR — the answer box is usable
+    // immediately, and the extracted text fills in whenever it's ready
+    // (screen photos are often too glare-y/skewed for reliable OCR).
+    setOcrPending(true);
+    Tesseract.recognize(dataUrl, 'eng')
       .then(({ data: { text } }) => {
         setOcrText(text.trim());
-        setStatus('done');
       })
       .catch(() => {
-        alert('OCR failed. Please try again.');
-        setStatus('idle');
-      });
+        setOcrText('');
+      })
+      .finally(() => setOcrPending(false));
   };
 
   const wrapText = (text, maxChars) => {
@@ -128,9 +126,9 @@ function App() {
   const reset = () => {
     setImage(null);
     setOcrText('');
+    setOcrPending(false);
     setAnswer('');
     setStatus('idle');
-    setOcrProgress(0);
   };
 
   return (
@@ -153,25 +151,17 @@ function App() {
         </div>
       )}
 
-      {status === 'ocr' && (
-        <div className="ocr-status">
-          <p>Running OCR... {ocrProgress}%</p>
-          <div className="progress-bar">
-            <div className="progress-bar-fill" style={{ width: `${ocrProgress}%` }} />
-          </div>
-        </div>
-      )}
-
       {status === 'done' && (
         <div>
-          <div className="media-frame">
+          <div className="media-frame media-frame-compact">
             <img src={image} alt="Captured question" />
           </div>
-          <h3>Extracted Question</h3>
+          <h3>Extracted Question {ocrPending && <span className="pending-tag">reading…</span>}</h3>
           <textarea
             value={ocrText}
             onChange={(e) => setOcrText(e.target.value)}
-            rows={5}
+            rows={2}
+            placeholder={ocrPending ? '' : '(no text found — edit or type it in)'}
           />
           <h3>Your Answer</h3>
           <textarea
@@ -179,6 +169,7 @@ function App() {
             onChange={(e) => setAnswer(e.target.value)}
             rows={3}
             placeholder="Type your answer here..."
+            autoFocus
           />
           <div className="actions">
             <button onClick={shareResult}>📤 Share Answer</button>

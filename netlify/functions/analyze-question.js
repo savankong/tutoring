@@ -8,7 +8,7 @@ const RESPONSE_SCHEMA = {
     pattern_analysis: {
       type: 'string',
       description:
-        'Internal scratch notes only, never shown to the user. For a pattern/matrix/sequence/spatial-reasoning question, work through it systematically: describe what changes across each row and each column separately — shape type, count, shading (filled vs. unfilled), size, rotation/orientation — then state the rule each row and each column follows. For any other question, briefly restate what is being asked. 2-4 short sentences, terse.',
+        'Internal scratch notes only, never shown to the user. For a pattern/matrix/sequence/spatial-reasoning question only, briefly note the per-row and per-column pattern (shape, count, shading, rotation) before answering. For any other question, leave this empty. 1 short sentence max — terse.',
     },
     answer: {
       type: 'string',
@@ -38,10 +38,10 @@ function jsonResponse(status, body) {
 async function callClaude(image, mediaType) {
   return client.messages.create({
     model: 'claude-opus-4-8',
-    max_tokens: 3000,
+    max_tokens: 2000,
     thinking: { type: 'adaptive' },
     output_config: {
-      effort: 'high',
+      effort: 'medium',
       format: { type: 'json_schema', schema: RESPONSE_SCHEMA },
     },
     messages: [

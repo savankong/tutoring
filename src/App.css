@@ -33,6 +33,12 @@
   color: var(--text);
 }
 
+.error-text {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #d33;
+}
+
 /* Height is capped in viewport units (not aspect-ratio) so the frame
    never pushes the rest of the flow below the fold on a phone screen. */
 .media-frame {

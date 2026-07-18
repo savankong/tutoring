@@ -5,18 +5,18 @@ const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify envi
 const RESPONSE_SCHEMA = {
   type: 'object',
   properties: {
-    question: {
+    pattern_analysis: {
       type: 'string',
       description:
-        'The question exactly as written in the photo, including multiple-choice options if present. Empty string if no question is visible in the photo.',
+        'Internal scratch notes only, never shown to the user. For a pattern/matrix/sequence/spatial-reasoning question, work through it systematically: describe what changes across each row and each column separately — shape type, count, shading (filled vs. unfilled), size, rotation/orientation — then state the rule each row and each column follows. For any other question, briefly restate what is being asked. 2-4 short sentences, terse.',
     },
     answer: {
       type: 'string',
       description:
-        'The correct answer, worked out and clearly formatted for a tutor to read. For multiple choice, state the letter and the option text, then a brief justification. For open-ended questions, give the full worked answer.',
+        'ONLY the final answer, as short as possible — no reasoning, no explanation, no "because". For multiple choice, output just the letter and the option value, e.g. "C. 96 flight/month". For open-ended questions, output just the final value or result, e.g. "42" or "x = 7". If no question is visible in the photo, output "No question detected."',
     },
   },
-  required: ['question', 'answer'],
+  required: ['pattern_analysis', 'answer'],
   additionalProperties: false,
 };
 
@@ -24,13 +24,42 @@ const PROMPT = [
   'This is a photo of a screen showing a quiz, practice test, or worksheet question.',
   'Ignore browser chrome, tabs, breadcrumbs, and any other page navigation UI.',
   'Find the actual question — it is often preceded by a marker like "81. Question" — and solve it.',
-  'If nothing resembling a question is visible, return an empty "question" and explain that in "answer".',
+  'If it is a pattern/matrix/sequence/spatial-reasoning question (e.g. "which figure completes the pattern"), be rigorous: check every row AND every column of the matrix independently for shape, count, shading, size, and rotation changes before choosing — do not guess from a partial glance.',
+  'Answer as short as possible per the schema — no explanations.',
 ].join(' ');
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
     status,
     headers: { 'content-type': 'application/json' },
+  });
+}
+
+async function callClaude(image, mediaType) {
+  return client.messages.create({
+    model: 'claude-opus-4-8',
+    max_tokens: 3000,
+    thinking: { type: 'adaptive' },
+    output_config: {
+      effort: 'high',
+      format: { type: 'json_schema', schema: RESPONSE_SCHEMA },
+    },
+    messages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'image',
+            source: {
+              type: 'base64',
+              media_type: mediaType || 'image/jpeg',
+              data: image,
+            },
+          },
+          { type: 'text', text: PROMPT },
+        ],
+      },
+    ],
   });
 }
 
@@ -52,31 +81,20 @@ export default async (request) => {
   }
 
   try {
-    const response = await client.messages.create({
-      model: 'claude-opus-4-8',
-      max_tokens: 2048,
-      thinking: { type: 'adaptive' },
-      output_config: {
-        effort: 'high',
-        format: { type: 'json_schema', schema: RESPONSE_SCHEMA },
-      },
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'image',
-              source: {
-                type: 'base64',
-                media_type: mediaType || 'image/jpeg',
-                data: image,
-              },
-            },
-            { type: 'text', text: PROMPT },
-          ],
-        },
-      ],
-    });
+    let response;
+    try {
+      response = await callClaude(image, mediaType);
+    } catch (err) {
+      // 401s aren't normally worth retrying, but a key that's momentarily
+      // unavailable right after a deploy/env-var change looks identical to
+      // a bad key — one quick retry tells them apart cheaply.
+      if (err?.status === 401) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        response = await callClaude(image, mediaType);
+      } else {
+        throw err;
+      }
+    }
 
     if (response.stop_reason === 'refusal') {
       return jsonResponse(422, { error: 'Claude declined to answer this request.' });
@@ -94,10 +112,7 @@ export default async (request) => {
       return jsonResponse(502, { error: 'Could not parse structured response from Claude.' });
     }
 
-    return jsonResponse(200, {
-      question: parsed.question ?? '',
-      answer: parsed.answer ?? '',
-    });
+    return jsonResponse(200, { answer: parsed.answer ?? '' });
   } catch (err) {
     console.error('analyze-question error:', err);
     const status = typeof err?.status === 'number' ? err.status : 500;

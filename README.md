@@ -1,9 +1,8 @@
 # Tutoring
 
-This repo has two versions of the tutor camera/OCR app:
-
-- **/ (this directory)** — React + Vite web app, deployed at https://tutor-camera-app.netlify.app
-- **[/mobile](./mobile)** — Flutter native app (camera, on-device OCR, drawing/annotation, PDF export)
+Tutor camera/OCR app — capture a question, extract text via OCR, type an
+answer, and share it. Mobile-responsive web app, deployed at
+https://tutor-camera-app.netlify.app
 
 ## React + Vite
 

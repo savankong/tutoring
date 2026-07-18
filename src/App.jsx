@@ -139,38 +139,53 @@ function App() {
 
       {status === 'idle' && (
         <div>
-          <video ref={videoRef} playsInline muted style={{ width: '100%', maxWidth: 500 }} />
-          <br />
-          <button onClick={startCamera}>📷 Start Camera</button>
-          <button onClick={captureAndOCR} disabled={!cameraReady}>
-            📸 Capture & OCR
-          </button>
+          <div className="media-frame">
+            <video ref={videoRef} playsInline muted />
+          </div>
+          <div className="actions">
+            <button className="secondary" onClick={startCamera}>
+              📷 Start Camera
+            </button>
+            <button onClick={captureAndOCR} disabled={!cameraReady}>
+              📸 Capture & OCR
+            </button>
+          </div>
         </div>
       )}
 
-      {status === 'ocr' && <p>Running OCR... {ocrProgress}%</p>}
+      {status === 'ocr' && (
+        <div className="ocr-status">
+          <p>Running OCR... {ocrProgress}%</p>
+          <div className="progress-bar">
+            <div className="progress-bar-fill" style={{ width: `${ocrProgress}%` }} />
+          </div>
+        </div>
+      )}
 
       {status === 'done' && (
         <div>
-          <img src={image} alt="Captured question" style={{ width: '100%', maxWidth: 500 }} />
-          <h3>Extracted Question:</h3>
+          <div className="media-frame">
+            <img src={image} alt="Captured question" />
+          </div>
+          <h3>Extracted Question</h3>
           <textarea
             value={ocrText}
             onChange={(e) => setOcrText(e.target.value)}
             rows={5}
-            style={{ width: '100%', maxWidth: 500 }}
           />
-          <h3>Your Answer:</h3>
+          <h3>Your Answer</h3>
           <textarea
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             rows={3}
             placeholder="Type your answer here..."
-            style={{ width: '100%', maxWidth: 500 }}
           />
-          <br />
-          <button onClick={shareResult}>📤 Share Answer (as image)</button>
-          <button onClick={reset}>🔄 New Question</button>
+          <div className="actions">
+            <button onClick={shareResult}>📤 Share Answer</button>
+            <button className="secondary" onClick={reset}>
+              🔄 New Question
+            </button>
+          </div>
         </div>
       )}
 

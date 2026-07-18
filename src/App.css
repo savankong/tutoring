@@ -93,6 +93,12 @@ button:active {
   opacity: 0.85;
 }
 
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #2684ff;
+  outline-offset: 2px;
+}
+
 button:disabled {
   opacity: 0.4;
   cursor: not-allowed;

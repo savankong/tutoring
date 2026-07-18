@@ -7,6 +7,7 @@ function App() {
   const streamRef = useRef(null);
   const answerEditedRef = useRef(false);
   const requestIdRef = useRef(0);
+  const primaryButtonRef = useRef(null);
 
   const [image, setImage] = useState(null);
   const [ocrPending, setOcrPending] = useState(false);
@@ -19,6 +20,14 @@ function App() {
       streamRef.current?.getTracks().forEach((track) => track.stop());
     };
   }, []);
+
+  // Only one button exists on screen at a time; moving focus to it on every
+  // state change means a keyboard, switch, or other assistive input can
+  // drive the whole capture -> answer -> next-question loop by repeatedly
+  // hitting Enter/Space, without needing to Tab to find the next control.
+  useEffect(() => {
+    primaryButtonRef.current?.focus();
+  }, [status]);
 
   const startCamera = async () => {
     try {
@@ -112,16 +121,23 @@ function App() {
             }}
             rows={8}
             placeholder="Claude's answer will appear here — edit as needed..."
-            autoFocus
           />
         </div>
       )}
 
       <div className="actions">
-        {status === 'idle' && <button onClick={startCamera}>📷 Start Camera</button>}
-        {status === 'live' && <button onClick={captureAndAnalyze}>📸 Capture</button>}
+        {status === 'idle' && (
+          <button ref={primaryButtonRef} onClick={startCamera}>
+            📷 Start Camera
+          </button>
+        )}
+        {status === 'live' && (
+          <button ref={primaryButtonRef} onClick={captureAndAnalyze}>
+            📸 Capture
+          </button>
+        )}
         {status === 'done' && (
-          <button className="secondary" onClick={nextQuestion}>
+          <button ref={primaryButtonRef} className="secondary" onClick={nextQuestion}>
             🔄 New Question
           </button>
         )}

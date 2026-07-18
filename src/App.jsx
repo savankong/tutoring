@@ -6,6 +6,7 @@ function App() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const streamRef = useRef(null);
+  const answerEditedRef = useRef(false);
 
   const [cameraReady, setCameraReady] = useState(false);
   const [image, setImage] = useState(null);
@@ -34,6 +35,27 @@ function App() {
     }
   };
 
+  // Question pages have browser chrome / breadcrumbs above the actual
+  // question ("View History Bookmarks... boostprep.com/courses/..."). Cut
+  // everything before the "N. Question" heading so only the question
+  // (and its answer choices) survive.
+  const trimToQuestionMarker = (text) => {
+    const lines = text.split('\n');
+    const startIndex = lines.findIndex((line) => /^\s*\d+\s*\.\s*question\b/i.test(line));
+    return (startIndex === -1 ? lines : lines.slice(startIndex)).join('\n').trim();
+  };
+
+  // Pull out lines that look like multiple-choice options ("A. 16 flight/month")
+  // so the answer field can default to just the choices, not the question body.
+  const extractAnswerChoices = (text) => {
+    return text
+      .split('\n')
+      .map((line) => line.match(/^\s*([A-Ea-e])[.)]\s+(.+)$/))
+      .filter(Boolean)
+      .map((match) => `${match[1].toUpperCase()}. ${match[2].trim()}`)
+      .join('\n');
+  };
+
   const captureAndOCR = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -45,6 +67,7 @@ function App() {
     setImage(dataUrl);
     setOcrText('');
     setAnswer('');
+    answerEditedRef.current = false;
     setStatus('done');
     streamRef.current?.getTracks().forEach((track) => track.stop());
     setCameraReady(false);
@@ -55,7 +78,12 @@ function App() {
     setOcrPending(true);
     Tesseract.recognize(dataUrl, 'eng')
       .then(({ data: { text } }) => {
-        setOcrText(text.trim());
+        const trimmed = trimToQuestionMarker(text);
+        setOcrText(trimmed);
+        if (!answerEditedRef.current) {
+          const choices = extractAnswerChoices(trimmed);
+          if (choices) setAnswer(choices);
+        }
       })
       .catch(() => {
         setOcrText('');
@@ -128,6 +156,7 @@ function App() {
     setOcrText('');
     setOcrPending(false);
     setAnswer('');
+    answerEditedRef.current = false;
     setStatus('idle');
   };
 
@@ -160,14 +189,17 @@ function App() {
           <textarea
             value={ocrText}
             onChange={(e) => setOcrText(e.target.value)}
-            rows={2}
+            rows={3}
             placeholder={ocrPending ? '' : '(no text found — edit or type it in)'}
           />
           <h3>Your Answer</h3>
           <textarea
             value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            rows={3}
+            onChange={(e) => {
+              answerEditedRef.current = true;
+              setAnswer(e.target.value);
+            }}
+            rows={4}
             placeholder="Type your answer here..."
             autoFocus
           />

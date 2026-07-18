@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: sans-serif;
+}
+video,
+img {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+textarea {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  font-size: 14px;
+}

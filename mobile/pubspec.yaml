@@ -1,0 +1,30 @@
+name: tutor_ocr_app
+description: Tutor camera OCR app — capture a question, extract text, annotate, and share the answer.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  camera: ^0.12.0+2
+  google_mlkit_text_recognition: ^0.16.0
+  share_plus: ^13.2.1
+  pdf: ^3.13.0
+  provider: ^6.1.5+1
+  path_provider: ^2.1.6
+  permission_handler: ^12.0.3
+  gal: ^2.3.2
+  uuid: ^4.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true

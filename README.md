@@ -1,4 +1,11 @@
-# React + Vite
+# Tutoring
+
+This repo has two versions of the tutor camera/OCR app:
+
+- **/ (this directory)** — React + Vite web app, deployed at https://tutor-camera-app.netlify.app
+- **[/mobile](./mobile)** — Flutter native app (camera, on-device OCR, drawing/annotation, PDF export)
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

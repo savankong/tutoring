@@ -5,16 +5,14 @@ function App() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const streamRef = useRef(null);
-  const questionEditedRef = useRef(false);
   const answerEditedRef = useRef(false);
+  const requestIdRef = useRef(0);
 
-  const [cameraReady, setCameraReady] = useState(false);
   const [image, setImage] = useState(null);
-  const [ocrText, setOcrText] = useState('');
   const [ocrPending, setOcrPending] = useState(false);
   const [ocrError, setOcrError] = useState('');
   const [answer, setAnswer] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, done
+  const [status, setStatus] = useState('idle'); // idle, live, done
 
   useEffect(() => {
     return () => {
@@ -30,7 +28,7 @@ function App() {
       streamRef.current = stream;
       videoRef.current.srcObject = stream;
       await videoRef.current.play();
-      setCameraReady(true);
+      setStatus('live');
     } catch {
       alert('Camera access denied or not available.');
     }
@@ -44,19 +42,18 @@ function App() {
     canvas.getContext('2d').drawImage(video, 0, 0);
     const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
 
+    const requestId = ++requestIdRef.current;
+
     setImage(dataUrl);
-    setOcrText('');
     setAnswer('');
     setOcrError('');
-    questionEditedRef.current = false;
     answerEditedRef.current = false;
     setStatus('done');
-    streamRef.current?.getTracks().forEach((track) => track.stop());
-    setCameraReady(false);
 
     // Teacher mode: don't block on the analysis call — the answer box is
-    // usable immediately, and Claude's question/answer fill in whenever
-    // they're ready.
+    // usable immediately, and Claude's answer fills in whenever it's ready.
+    // The camera stream stays live in the background so "New Question" can
+    // jump straight back to capturing, no re-prompt needed.
     setOcrPending(true);
     const base64 = dataUrl.split(',')[1];
 
@@ -68,141 +65,70 @@ function App() {
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Request failed');
-        if (!questionEditedRef.current) setOcrText(data.question || '');
+        // Ignore stale responses from a question the tutor already moved past.
+        if (requestIdRef.current !== requestId) return;
         if (!answerEditedRef.current) setAnswer(data.answer || '');
       })
       .catch((err) => {
+        if (requestIdRef.current !== requestId) return;
         setOcrError(err.message || 'Could not analyze the photo.');
       })
-      .finally(() => setOcrPending(false));
-  };
-
-  const wrapText = (text, maxChars) => {
-    const words = text.split(' ');
-    const lines = [];
-    let current = '';
-    for (const word of words) {
-      if ((current + ' ' + word).trim().length > maxChars) {
-        lines.push(current.trim());
-        current = word;
-      } else {
-        current += ' ' + word;
-      }
-    }
-    if (current.trim()) lines.push(current.trim());
-    return lines;
-  };
-
-  const shareResult = () => {
-    if (!image) return;
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const padding = 20;
-      const lineHeight = 26;
-      const answerLines = wrapText(`Answer: ${answer || '(no answer)'}`, 60);
-      const footerHeight = padding * 2 + answerLines.length * lineHeight;
-
-      canvas.width = img.width;
-      canvas.height = img.height + footerHeight;
-
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, img.height, canvas.width, footerHeight);
-      ctx.fillStyle = 'black';
-      ctx.font = '20px Arial';
-      answerLines.forEach((line, i) => {
-        ctx.fillText(line, padding, img.height + padding + (i + 1) * lineHeight - 8);
+      .finally(() => {
+        if (requestIdRef.current === requestId) setOcrPending(false);
       });
-
-      canvas.toBlob(async (blob) => {
-        const file = new File([blob], 'tutor_answer.jpg', { type: 'image/jpeg' });
-        if (navigator.canShare?.({ files: [file] })) {
-          try {
-            await navigator.share({ files: [file], title: 'Tutor Answer' });
-            return;
-          } catch (err) {
-            if (err?.name === 'AbortError') return;
-          }
-        }
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'tutor_answer.jpg';
-        a.click();
-        URL.revokeObjectURL(url);
-      }, 'image/jpeg');
-    };
-    img.src = image;
   };
 
-  const reset = () => {
+  const nextQuestion = () => {
     setImage(null);
-    setOcrText('');
     setOcrPending(false);
     setOcrError('');
     setAnswer('');
-    questionEditedRef.current = false;
     answerEditedRef.current = false;
-    setStatus('idle');
+    setStatus('live');
   };
 
   return (
     <div className="App">
       <h1>📸 Tutor Camera App</h1>
 
-      {status === 'idle' && (
-        <div>
-          <div className="media-frame">
-            <video ref={videoRef} playsInline muted />
-          </div>
-          <div className="actions">
-            <button className="secondary" onClick={startCamera}>
-              📷 Start Camera
-            </button>
-            <button onClick={captureAndAnalyze} disabled={!cameraReady}>
-              📸 Capture & Analyze
-            </button>
-          </div>
+      {status !== 'done' && (
+        <div className="media-frame">
+          <video ref={videoRef} playsInline muted />
+        </div>
+      )}
+
+      {status === 'done' && (
+        <div className="media-frame media-frame-compact">
+          <img src={image} alt="Captured question" />
         </div>
       )}
 
       {status === 'done' && (
         <div>
-          <div className="media-frame media-frame-compact">
-            <img src={image} alt="Captured question" />
-          </div>
-          <h3>Question {ocrPending && <span className="pending-tag">asking Claude…</span>}</h3>
-          <textarea
-            value={ocrText}
-            onChange={(e) => {
-              questionEditedRef.current = true;
-              setOcrText(e.target.value);
-            }}
-            rows={3}
-            placeholder={ocrPending ? '' : '(no question detected — edit or type it in)'}
-          />
+          <h3>Answer {ocrPending && <span className="pending-tag">asking Claude…</span>}</h3>
           {ocrError && <p className="error-text">{ocrError}</p>}
-          <h3>Answer</h3>
           <textarea
             value={answer}
             onChange={(e) => {
               answerEditedRef.current = true;
               setAnswer(e.target.value);
             }}
-            rows={5}
+            rows={8}
             placeholder="Claude's answer will appear here — edit as needed..."
             autoFocus
           />
-          <div className="actions">
-            <button onClick={shareResult}>📤 Share Answer</button>
-            <button className="secondary" onClick={reset}>
-              🔄 New Question
-            </button>
-          </div>
         </div>
       )}
+
+      <div className="actions">
+        {status === 'idle' && <button onClick={startCamera}>📷 Start Camera</button>}
+        {status === 'live' && <button onClick={captureAndAnalyze}>📸 Capture</button>}
+        {status === 'done' && (
+          <button className="secondary" onClick={nextQuestion}>
+            🔄 New Question
+          </button>
+        )}
+      </div>
 
       <canvas ref={canvasRef} style={{ display: 'none' }} />
     </div>

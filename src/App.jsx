@@ -91,17 +91,14 @@ function App() {
     <div className="App">
       <h1>📸 Tutor Camera App</h1>
 
-      {status !== 'done' && (
-        <div className="media-frame">
-          <video ref={videoRef} playsInline muted />
-        </div>
-      )}
-
-      {status === 'done' && (
-        <div className="media-frame media-frame-compact">
-          <img src={image} alt="Captured question" />
-        </div>
-      )}
+      <div className={`media-frame${status === 'done' ? ' media-frame-compact' : ''}`}>
+        {/* Always mounted so its srcObject/playback survives "New Question" —
+            iOS Safari drops a hidden or unmounted <video>'s live stream and
+            won't resume it just by making the element visible again. The
+            captured photo is layered on top instead of swapping video out. */}
+        <video ref={videoRef} playsInline muted />
+        {status === 'done' && <img src={image} alt="Captured question" />}
+      </div>
 
       {status === 'done' && (
         <div>

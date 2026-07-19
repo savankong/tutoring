@@ -121,11 +121,13 @@ function Landing() {
         <div className="site-nav-logo">
           <Logo size={20} wordmark />
         </div>
-        <div className="site-nav-links">
+        <div className="site-nav-center-links">
           <a href="#how">How it works</a>
           <a href="#why">Why tutors</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
+        </div>
+        <div className="site-nav-actions">
           <Link to="/login" className="pill-button pill-button-sm pill-button-outline">
             Log in
           </Link>

@@ -453,9 +453,10 @@ a:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
   padding: 18px 48px;
   background: rgba(230, 231, 234, 0.85);
   backdrop-filter: blur(14px);
@@ -479,16 +480,24 @@ a:focus-visible {
   color: var(--text-h);
 }
 
-.site-nav-links {
+.site-nav-center-links {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 36px;
   font-size: 14.5px;
   color: var(--label);
 }
 
-.site-nav-links a {
+.site-nav-center-links a {
   color: inherit;
+}
+
+.site-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: end;
 }
 
 /* Pill buttons (landing CTAs) */
@@ -1204,13 +1213,12 @@ a:focus-visible {
     padding: 16px 20px;
   }
 
-  .site-nav-links {
-    gap: 16px;
-    font-size: 13px;
+  .site-nav-center-links {
+    display: none;
   }
 
-  .site-nav-links a:not(.pill-button) {
-    display: none;
+  .site-nav-actions {
+    gap: 8px;
   }
 
   .hero-section,

@@ -110,6 +110,23 @@
   margin-top: 14px;
 }
 
+.pill-action-button {
+  background: #f2f3f4;
+  border: 3px solid #a9abaf;
+  border-radius: 100px;
+  color: #1d1d1f;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pill-action-button {
+    background: #3a3b3f;
+    border-color: #6b6c70;
+    color: #f3f4f6;
+  }
+}
+
 .actions button {
   flex: 1 1 140px;
 }
@@ -219,8 +236,16 @@ a:focus-visible {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 28px 24px;
+  padding: 32px 24px 28px;
   box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.3);
+}
+
+.auth-card-logo {
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-h);
+  margin-bottom: 18px;
 }
 
 .auth-form {
@@ -237,6 +262,14 @@ a:focus-visible {
   color: var(--text-h);
 }
 
+.auth-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
 .auth-switch {
   text-align: center;
   margin-top: 16px;
@@ -244,17 +277,30 @@ a:focus-visible {
 }
 
 .auth-divider {
-  text-align: center;
-  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
   color: var(--text);
-  font-size: 13px;
+  font-size: 12.5px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 
 .google-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   min-height: 48px;
   padding: 12px 16px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   border-radius: 10px;
   border: 1px solid var(--border);

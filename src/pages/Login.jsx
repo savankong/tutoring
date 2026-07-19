@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
+import GoogleIcon from '../components/GoogleIcon.jsx';
 
 function Login() {
   const { refresh } = useAuthContext();
@@ -35,11 +36,12 @@ function Login() {
 
   return (
     <div className="auth-page">
-      <h1>Log in</h1>
       <div className="auth-card">
+        <div className="auth-card-logo">📸 Cambo App</div>
+        <h1>Log in</h1>
         <form onSubmit={onSubmit} className="auth-form">
           <label>
-            Email
+            <span className="auth-label">Email</span>
             <input
               type="email"
               value={email}
@@ -49,7 +51,7 @@ function Login() {
             />
           </label>
           <label>
-            Password
+            <span className="auth-label">Password</span>
             <input
               type="password"
               value={password}
@@ -63,8 +65,11 @@ function Login() {
             {submitting ? 'Logging in…' : 'Log in'}
           </button>
         </form>
-        <div className="auth-divider">or</div>
+        <div className="auth-divider">
+          <span>or continue with</span>
+        </div>
         <a className="google-button" href="/.netlify/functions/google-oauth-start">
+          <GoogleIcon />
           Continue with Google
         </a>
       </div>

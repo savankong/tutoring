@@ -148,7 +148,7 @@ function Capture() {
 
       {status === 'done' && (
         <div>
-          <h3>Answer {ocrPending && <span className="pending-tag">asking Claude…</span>}</h3>
+          <h3>Answer {ocrPending && <span className="pending-tag">thinking…</span>}</h3>
           {ocrError && <p className="error-text">{ocrError}</p>}
           {upgradeReason && (
             <p className="error-text">
@@ -165,25 +165,25 @@ function Capture() {
               setAnswer(e.target.value);
             }}
             rows={8}
-            placeholder="Claude's answer will appear here — edit as needed..."
+            placeholder="The answer will appear here — edit as needed..."
           />
         </div>
       )}
 
       <div className="actions">
         {status === 'idle' && (
-          <button ref={primaryButtonRef} onClick={startCamera}>
-            📷 Start Camera
+          <button ref={primaryButtonRef} className="pill-action-button" onClick={startCamera}>
+            Start Camera
           </button>
         )}
         {status === 'live' && (
-          <button ref={primaryButtonRef} onClick={captureAndAnalyze}>
-            📸 Capture
+          <button ref={primaryButtonRef} className="pill-action-button" onClick={captureAndAnalyze}>
+            Capture
           </button>
         )}
         {status === 'done' && (
-          <button ref={primaryButtonRef} className="secondary" onClick={nextQuestion}>
-            🔄 New Question
+          <button ref={primaryButtonRef} className="pill-action-button" onClick={nextQuestion}>
+            New Question
           </button>
         )}
       </div>

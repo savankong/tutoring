@@ -1,5 +1,5 @@
 export default async () => {
-  const keys = ['JWT_SECRET', 'ANTHROPIC_API_KEY', 'STRIPE_SECRET_KEY'];
+  const keys = ['JWT_SECRET', 'ANTHROPIC_API_KEY', 'STRIPE_SECRET_KEY', 'APP_SESSION_SECRET'];
   const status = {};
   for (const key of keys) {
     status[key] = {

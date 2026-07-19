@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import PhoneMockup from '../components/PhoneMockup.jsx';
+import Logo from '../components/Logo.jsx';
 
 const DEMO_QUESTIONS = [
   {
@@ -117,7 +118,9 @@ function Landing() {
   return (
     <div className="landing">
       <nav className="site-nav">
-        <div className="site-nav-logo">Cambo App</div>
+        <div className="site-nav-logo">
+          <Logo size={20} wordmark />
+        </div>
         <div className="site-nav-links">
           <a href="#how">How it works</a>
           <a href="#why">Why tutors</a>

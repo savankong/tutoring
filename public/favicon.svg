@@ -1,10 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#aa3bff" />
-  <g fill="#ffffff">
-    <rect x="96" y="176" width="320" height="216" rx="24" />
-    <rect x="176" y="140" width="90" height="48" rx="10" />
-    <circle cx="256" cy="284" r="70" fill="#aa3bff" />
-    <circle cx="256" cy="284" r="52" fill="#ffffff" />
-    <circle cx="360" cy="212" r="12" fill="#aa3bff" />
+  <defs>
+    <linearGradient id="bg" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#3a3b3f" />
+      <stop offset="70%" stop-color="#0f0f10" />
+    </linearGradient>
+    <radialGradient id="dot" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff6b5e" />
+      <stop offset="100%" stop-color="#d81f0f" />
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  <g fill="none" stroke="#ffffff" stroke-width="28" stroke-linecap="round" opacity="0.9">
+    <path d="M108 208V152a44 44 0 0 1 44-44h56" />
+    <path d="M304 108h56a44 44 0 0 1 44 44v56" />
+    <path d="M404 304v56a44 44 0 0 1-44 44h-56" />
+    <path d="M208 404h-56a44 44 0 0 1-44-44v-56" />
   </g>
+  <circle cx="256" cy="256" r="46" fill="url(#dot)" />
 </svg>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
+import Logo from '../components/Logo.jsx';
 
 function Register() {
   const { refresh } = useAuthContext();
@@ -36,7 +37,9 @@ function Register() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-card-logo">📸 Cambo App</div>
+        <div className="auth-card-logo">
+          <Logo size={18} wordmark />
+        </div>
         <h1>Start your free trial</h1>
         <p className="auth-subhead">7 days free, no card required.</p>
         <form onSubmit={onSubmit} className="auth-form">

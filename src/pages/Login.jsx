@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
+import Logo from '../components/Logo.jsx';
 
 function Login() {
   const { refresh } = useAuthContext();
@@ -37,7 +38,9 @@ function Login() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-card-logo">📸 Cambo App</div>
+        <div className="auth-card-logo">
+          <Logo size={18} wordmark />
+        </div>
         <h1>Log in</h1>
         <form onSubmit={onSubmit} className="auth-form">
           <label>

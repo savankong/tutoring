@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
+import Logo from '../components/Logo.jsx';
 
 function Capture() {
   const { user, refresh } = useAuthContext();
@@ -131,7 +132,9 @@ function Capture() {
         {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
 
-      <h1>📸 Cambo App</h1>
+      <h1>
+        <Logo size={26} wordmark />
+      </h1>
 
       <div className={`media-frame${status === 'done' ? ' media-frame-compact' : ''}`}>
         {/* Always mounted so its srcObject/playback survives "New Question" —

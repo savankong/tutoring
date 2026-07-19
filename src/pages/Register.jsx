@@ -36,37 +36,39 @@ function Register() {
     <div className="auth-page">
       <h1>Start your free trial</h1>
       <p className="auth-subhead">7 days free, no card required.</p>
-      <form onSubmit={onSubmit} className="auth-form">
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={8}
-            autoComplete="new-password"
-          />
-        </label>
-        {error && <p className="error-text">{error}</p>}
-        <button type="submit" disabled={submitting}>
-          {submitting ? 'Creating account…' : 'Start free trial'}
-        </button>
-      </form>
-      <div className="auth-divider">or</div>
-      <a className="google-button" href="/.netlify/functions/google-oauth-start">
-        Continue with Google
-      </a>
+      <div className="auth-card">
+        <form onSubmit={onSubmit} className="auth-form">
+          <label>
+            Email
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={8}
+              autoComplete="new-password"
+            />
+          </label>
+          {error && <p className="error-text">{error}</p>}
+          <button type="submit" disabled={submitting}>
+            {submitting ? 'Creating account…' : 'Start free trial'}
+          </button>
+        </form>
+        <div className="auth-divider">or</div>
+        <a className="google-button" href="/.netlify/functions/google-oauth-start">
+          Continue with Google
+        </a>
+      </div>
       <p className="auth-switch">
         Already have an account? <Link to="/login">Log in</Link>
       </p>

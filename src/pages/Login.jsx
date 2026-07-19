@@ -36,36 +36,38 @@ function Login() {
   return (
     <div className="auth-page">
       <h1>Log in</h1>
-      <form onSubmit={onSubmit} className="auth-form">
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-          />
-        </label>
-        {error && <p className="error-text">{error}</p>}
-        <button type="submit" disabled={submitting}>
-          {submitting ? 'Logging in…' : 'Log in'}
-        </button>
-      </form>
-      <div className="auth-divider">or</div>
-      <a className="google-button" href="/.netlify/functions/google-oauth-start">
-        Continue with Google
-      </a>
+      <div className="auth-card">
+        <form onSubmit={onSubmit} className="auth-form">
+          <label>
+            Email
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </label>
+          {error && <p className="error-text">{error}</p>}
+          <button type="submit" disabled={submitting}>
+            {submitting ? 'Logging in…' : 'Log in'}
+          </button>
+        </form>
+        <div className="auth-divider">or</div>
+        <a className="google-button" href="/.netlify/functions/google-oauth-start">
+          Continue with Google
+        </a>
+      </div>
       <p className="auth-switch">
         No account yet? <Link to="/register">Start your free trial</Link>
       </p>

@@ -131,7 +131,7 @@ function Capture() {
         {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
 
-      <h1>📸 Tutor Camera App</h1>
+      <h1>📸 Cambo App</h1>
 
       <div className={`media-frame${status === 'done' ? ' media-frame-compact' : ''}`}>
         {/* Always mounted so its srcObject/playback survives "New Question" —
@@ -140,6 +140,10 @@ function Capture() {
             captured photo is layered on top instead of swapping video out. */}
         <video ref={videoRef} playsInline muted />
         {status === 'done' && <img src={image} alt="Captured question" />}
+        <div className="media-frame-corner media-frame-corner-tl" />
+        <div className="media-frame-corner media-frame-corner-tr" />
+        <div className="media-frame-corner media-frame-corner-bl" />
+        <div className="media-frame-corner media-frame-corner-br" />
       </div>
 
       {status === 'done' && (

@@ -126,6 +126,9 @@ function Landing() {
           <a href="#why">Why tutors</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
+          <Link to="/login" className="pill-button pill-button-sm pill-button-outline">
+            Log in
+          </Link>
           <Link to="/register" className="pill-button pill-button-sm">
             Start free trial
           </Link>
@@ -194,11 +197,9 @@ function Landing() {
           <div className="steps-list">
             {STEPS.map((step, i) => (
               <div className="step-row" key={step.title}>
-                <div className="step-num">{i + 1}</div>
-                <div>
-                  <div className="step-title">{step.title}</div>
-                  <div className="step-body">{step.body}</div>
-                </div>
+                <div className="step-num">{String(i + 1).padStart(2, '0')}</div>
+                <div className="step-title">{step.title}</div>
+                <div className="step-body">{step.body}</div>
               </div>
             ))}
           </div>

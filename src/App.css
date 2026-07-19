@@ -513,6 +513,13 @@ a:focus-visible {
   font-size: 16px;
 }
 
+.pill-button-outline {
+  background: transparent;
+  color: var(--text-h);
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
 /* Hero */
 .hero-section {
   max-width: 1180px;
@@ -569,6 +576,7 @@ a:focus-visible {
 .mockup-col {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -935,22 +943,18 @@ a:focus-visible {
 
 .step-row {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .step-num {
-  flex: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: linear-gradient(155deg, #f2f3f5, #c2c4c9);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #1d1d1f;
-  font-weight: 700;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-h);
+  opacity: 0.16;
+  margin-bottom: 2px;
 }
 
 .step-title {

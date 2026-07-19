@@ -36,50 +36,58 @@ function Login() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <div className="auth-card-logo">
-          <Logo size={18} wordmark />
+    <>
+      <nav className="auth-nav">
+        <Logo size={20} wordmark />
+        <Link to="/" className="auth-nav-home">
+          ← Home
+        </Link>
+      </nav>
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="auth-card-logo">
+            <Logo size={18} wordmark />
+          </div>
+          <h1>Log in</h1>
+          <form onSubmit={onSubmit} className="auth-form">
+            <label>
+              <span className="auth-label">Email</span>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+              />
+            </label>
+            <label>
+              <span className="auth-label">Password</span>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+              />
+            </label>
+            {error && <p className="error-text">{error}</p>}
+            <button type="submit" disabled={submitting}>
+              {submitting ? 'Logging in…' : 'Log in'}
+            </button>
+          </form>
+          <div className="auth-divider">
+            <span>or continue with</span>
+          </div>
+          <a className="google-button" href="/.netlify/functions/google-oauth-start">
+            <GoogleIcon />
+            Continue with Google
+          </a>
         </div>
-        <h1>Log in</h1>
-        <form onSubmit={onSubmit} className="auth-form">
-          <label>
-            <span className="auth-label">Email</span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoComplete="email"
-            />
-          </label>
-          <label>
-            <span className="auth-label">Password</span>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
-          </label>
-          {error && <p className="error-text">{error}</p>}
-          <button type="submit" disabled={submitting}>
-            {submitting ? 'Logging in…' : 'Log in'}
-          </button>
-        </form>
-        <div className="auth-divider">
-          <span>or continue with</span>
-        </div>
-        <a className="google-button" href="/.netlify/functions/google-oauth-start">
-          <GoogleIcon />
-          Continue with Google
-        </a>
+        <p className="auth-switch">
+          No account yet? <Link to="/register">Start your free trial</Link>
+        </p>
       </div>
-      <p className="auth-switch">
-        No account yet? <Link to="/register">Start your free trial</Link>
-      </p>
-    </div>
+    </>
   );
 }
 

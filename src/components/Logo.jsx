@@ -2,10 +2,10 @@ import { useId } from 'react';
 
 // Viewfinder-bracket mark: frames a focus point, with the red dot doubling
 // as the record indicator — same motif as the capture screen's corner
-// brackets and shutter button.
-function Logo({ size = 22, wordmark = false, dark = false, className = '' }) {
+// brackets and shutter button. Brackets use currentColor so they follow
+// the surrounding text color (and adapt automatically in dark mode).
+function Logo({ size = 22, wordmark = false, className = '' }) {
   const gradientId = useId();
-  const strokeColor = dark ? '#fff' : '#1d1d1f';
 
   return (
     <span className={`logo-lockup ${className}`}>
@@ -16,7 +16,7 @@ function Logo({ size = 22, wordmark = false, dark = false, className = '' }) {
             <stop offset="100%" stopColor="#d81f0f" />
           </radialGradient>
         </defs>
-        <g fill="none" stroke={strokeColor} strokeWidth="5" strokeLinecap="round">
+        <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round">
           <path d="M3 22V11a8 8 0 0 1 8-8h11" />
           <path d="M42 3h11a8 8 0 0 1 8 8v11" />
           <path d="M61 42v11a8 8 0 0 1-8 8H42" />

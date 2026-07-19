@@ -180,8 +180,13 @@ function Capture() {
           </button>
         )}
         {status === 'live' && (
-          <button ref={primaryButtonRef} className="pill-action-button" onClick={captureAndAnalyze}>
-            Capture
+          <button
+            ref={primaryButtonRef}
+            className="shutter-button"
+            onClick={captureAndAnalyze}
+            aria-label="Capture"
+          >
+            <span className="shutter-button-dot" />
           </button>
         )}
         {status === 'done' && (

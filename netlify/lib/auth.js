@@ -5,7 +5,7 @@ const SESSION_COOKIE = 'session';
 const SESSION_MAX_AGE_DAYS = 30;
 
 function jwtSecret() {
-  const secret = Netlify.env.get('JWT_SECRET');
+  const secret = process.env.JWT_SECRET;
   if (!secret) throw new Error('JWT_SECRET is not configured');
   return secret;
 }

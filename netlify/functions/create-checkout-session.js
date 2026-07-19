@@ -18,8 +18,8 @@ export default async (request) => {
   const user = await requireUser(request, db);
   if (!user) return jsonResponse(401, { error: 'Not signed in.' });
 
-  const priceId = Netlify.env.get('STRIPE_PRICE_ID');
-  const secretKey = Netlify.env.get('STRIPE_SECRET_KEY');
+  const priceId = process.env.STRIPE_PRICE_ID;
+  const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!priceId || !secretKey) {
     return jsonResponse(500, { error: 'Billing is not configured yet.' });
   }

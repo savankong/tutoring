@@ -22,8 +22,8 @@ export default async (request) => {
     return jsonResponse(405, { error: 'Method not allowed' });
   }
 
-  const secretKey = Netlify.env.get('STRIPE_SECRET_KEY');
-  const webhookSecret = Netlify.env.get('STRIPE_WEBHOOK_SECRET');
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!secretKey || !webhookSecret) {
     return jsonResponse(500, { error: 'Billing is not configured yet.' });
   }

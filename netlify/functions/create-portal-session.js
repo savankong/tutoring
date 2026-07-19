@@ -22,7 +22,7 @@ export default async (request) => {
     return jsonResponse(400, { error: 'No billing account yet — subscribe first.' });
   }
 
-  const secretKey = Netlify.env.get('STRIPE_SECRET_KEY');
+  const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) {
     return jsonResponse(500, { error: 'Billing is not configured yet.' });
   }

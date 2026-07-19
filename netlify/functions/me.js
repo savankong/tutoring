@@ -17,7 +17,9 @@ export default async (request) => {
   const capturesUsed = await capturesUsedThisPeriod(db, user.id);
 
   return jsonResponse(200, {
+    id: user.id,
     email: user.email,
+    role: user.role,
     trial_ends_at: user.trial_ends_at,
     subscription_status: user.subscription_status,
     has_access: hasAccess(user),

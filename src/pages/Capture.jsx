@@ -36,7 +36,11 @@ function Capture() {
   const startCamera = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment' },
+        video: {
+          facingMode: 'environment',
+          width: { ideal: 1280 },
+          height: { ideal: 720 },
+        },
       });
       streamRef.current = stream;
       videoRef.current.srcObject = stream;
@@ -44,6 +48,7 @@ function Capture() {
       setStatus('live');
     } catch {
       alert('Camera access denied or not available.');
+      setStatus('idle');
     }
   };
 
@@ -54,6 +59,14 @@ function Capture() {
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
     const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+
+    // Release the camera once we have the frame we need — keeping it live
+    // while a slow Claude request is in flight is a memory/CPU load iOS
+    // Safari can react to by reloading the tab. It's reacquired on "New
+    // Question" instead.
+    streamRef.current?.getTracks().forEach((track) => track.stop());
+    streamRef.current = null;
+    videoRef.current.srcObject = null;
 
     const requestId = ++requestIdRef.current;
 
@@ -106,7 +119,7 @@ function Capture() {
     setUpgradeReason('');
     setAnswer('');
     answerEditedRef.current = false;
-    setStatus('live');
+    startCamera(); // stream was released after the last capture — reacquire it
   };
 
   return (
@@ -115,6 +128,7 @@ function Capture() {
         <span className="top-nav-email">{user?.email}</span>
         <Link to="/history">History</Link>
         <Link to="/account">Account</Link>
+        {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
 
       <h1>📸 Tutor Camera App</h1>

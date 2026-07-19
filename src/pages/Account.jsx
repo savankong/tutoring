@@ -45,6 +45,7 @@ function Account() {
       <div className="top-nav">
         <Link to="/app">Capture</Link>
         <Link to="/history">History</Link>
+        {user.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
       <h1>Account</h1>
 

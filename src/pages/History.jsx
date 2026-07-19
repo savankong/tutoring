@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../lib/AuthContext.jsx';
 
 function formatTimestamp(iso) {
   const date = new Date(iso);
@@ -12,6 +13,7 @@ function formatTimestamp(iso) {
 }
 
 function History() {
+  const { user } = useAuthContext();
   const [captures, setCaptures] = useState(null);
   const [error, setError] = useState('');
 
@@ -30,6 +32,7 @@ function History() {
       <div className="top-nav">
         <Link to="/app">Capture</Link>
         <Link to="/account">Account</Link>
+        {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
       <h1>History</h1>
       {error && <p className="error-text">{error}</p>}

@@ -31,7 +31,7 @@ export default async (request) => {
 
   const invalidCredentials = () => jsonResponse(401, { error: 'Incorrect email or password.' });
 
-  if (!user) return invalidCredentials();
+  if (!user || !user.password_hash) return invalidCredentials();
   const valid = await verifyPassword(password, user.password_hash);
   if (!valid) return invalidCredentials();
 

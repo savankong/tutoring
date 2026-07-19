@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 
 function Login() {
   const { refresh } = useAuthContext();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(searchParams.get('error') || '');
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = async (e) => {
@@ -61,6 +62,10 @@ function Login() {
           {submitting ? 'Logging in…' : 'Log in'}
         </button>
       </form>
+      <div className="auth-divider">or</div>
+      <a className="google-button" href="/.netlify/functions/google-oauth-start">
+        Continue with Google
+      </a>
       <p className="auth-switch">
         No account yet? <Link to="/register">Start your free trial</Link>
       </p>

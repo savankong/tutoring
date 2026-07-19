@@ -63,6 +63,10 @@ function Register() {
           {submitting ? 'Creating account…' : 'Start free trial'}
         </button>
       </form>
+      <div className="auth-divider">or</div>
+      <a className="google-button" href="/.netlify/functions/google-oauth-start">
+        Continue with Google
+      </a>
       <p className="auth-switch">
         Already have an account? <Link to="/login">Log in</Link>
       </p>

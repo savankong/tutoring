@@ -5,7 +5,6 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   const refresh = useCallback(async () => {
-    setLoading(true);
     try {
       const res = await fetch('/.netlify/functions/me', { credentials: 'include' });
       if (res.ok) {

@@ -47,11 +47,19 @@ export default async (request) => {
       const session = event.data.object;
       const userId = session.client_reference_id;
       if (userId && session.customer) {
+        let currentPeriodStart = null;
+        try {
+          const subscription = await stripe.subscriptions.retrieve(session.subscription);
+          currentPeriodStart = new Date(subscription.current_period_start * 1000).toISOString();
+        } catch (err) {
+          console.error('Could not retrieve subscription for period start:', err);
+        }
         await db.sql`
           UPDATE users
           SET stripe_customer_id = ${session.customer},
               stripe_subscription_id = ${session.subscription},
-              subscription_status = 'active'
+              subscription_status = 'active',
+              current_period_start = ${currentPeriodStart}
           WHERE id = ${userId}
         `;
       }
@@ -59,10 +67,12 @@ export default async (request) => {
     }
     case 'customer.subscription.updated': {
       const subscription = event.data.object;
+      const currentPeriodStart = new Date(subscription.current_period_start * 1000).toISOString();
       await db.sql`
         UPDATE users
         SET subscription_status = ${mapStripeStatus(subscription.status)},
-            stripe_subscription_id = ${subscription.id}
+            stripe_subscription_id = ${subscription.id},
+            current_period_start = ${currentPeriodStart}
         WHERE stripe_customer_id = ${subscription.customer}
       `;
       break;

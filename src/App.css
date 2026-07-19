@@ -52,6 +52,11 @@
   color: #d33;
 }
 
+/* Deliberately plain — a quiet FYI, not a paywall or warning. */
+.usage-note {
+  color: var(--text);
+}
+
 /* Height is capped in viewport units (not aspect-ratio) so the frame
    never pushes the rest of the flow below the fold on a phone screen. */
 .media-frame {

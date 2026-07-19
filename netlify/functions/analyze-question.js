@@ -1,9 +1,30 @@
 import Anthropic from '@anthropic-ai/sdk';
+import Stripe from 'stripe';
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
-import { CAPTURE_CAP, capturesUsedThisPeriod, hasAccess } from '../lib/access.js';
+import { CAPTURE_CAP, GRACE_BUFFER, OVERAGE_UNIT_CENTS, capturesUsedThisPeriod, hasAccess } from '../lib/access.js';
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
+
+/** Best-effort overage charge — a paying user's capture must never be
+ * blocked by a billing hiccup, so failures here are logged, not thrown. */
+async function billOverageCapture(user, captureNumber) {
+  if (!user.stripe_customer_id || !user.stripe_subscription_id) return;
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) return;
+  try {
+    const stripe = new Stripe(secretKey);
+    await stripe.invoiceItems.create({
+      customer: user.stripe_customer_id,
+      subscription: user.stripe_subscription_id,
+      amount: OVERAGE_UNIT_CENTS,
+      currency: 'usd',
+      description: `Overage capture #${captureNumber}`,
+    });
+  } catch (err) {
+    console.error('billOverageCapture failed:', err);
+  }
+}
 
 const RESPONSE_SCHEMA = {
   type: 'object',
@@ -87,8 +108,12 @@ export default async (request) => {
       reason: 'trial_expired',
     });
   }
-  const capturesUsed = await capturesUsedThisPeriod(db, user.id);
-  if (capturesUsed >= CAPTURE_CAP) {
+  const capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
+  // Active subscribers are never blocked — past CAPTURE_CAP + GRACE_BUFFER
+  // they're billed for overage instead (see billOverageCapture below).
+  // Trial users have no Stripe subscription to bill, so they keep the
+  // original hard cap.
+  if (user.subscription_status !== 'active' && capturesUsedBefore >= CAPTURE_CAP) {
     return jsonResponse(402, {
       error: `You've used all ${CAPTURE_CAP} captures for this month.`,
       reason: 'cap_reached',
@@ -145,6 +170,11 @@ export default async (request) => {
       INSERT INTO captures (user_id, title, answer)
       VALUES (${user.id}, ${title}, ${answer})
     `;
+
+    const captureNumber = capturesUsedBefore + 1;
+    if (user.subscription_status === 'active' && captureNumber > CAPTURE_CAP + GRACE_BUFFER) {
+      await billOverageCapture(user, captureNumber);
+    }
 
     return jsonResponse(200, { answer });
   } catch (err) {

@@ -1,6 +1,6 @@
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
-import { CAPTURE_CAP, capturesUsedThisPeriod, hasAccess } from '../lib/access.js';
+import { CAPTURE_CAP, capturesUsedThisPeriod, hasAccess, isInOverage } from '../lib/access.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -14,7 +14,7 @@ export default async (request) => {
   const user = await requireUser(request, db);
   if (!user) return jsonResponse(401, { error: 'Not signed in.' });
 
-  const capturesUsed = await capturesUsedThisPeriod(db, user.id);
+  const capturesUsed = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
 
   return jsonResponse(200, {
     id: user.id,
@@ -25,5 +25,6 @@ export default async (request) => {
     has_access: hasAccess(user),
     captures_used: capturesUsed,
     captures_cap: CAPTURE_CAP,
+    in_overage: isInOverage(user, capturesUsed),
   });
 };

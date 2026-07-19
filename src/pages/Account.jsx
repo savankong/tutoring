@@ -57,9 +57,15 @@ function Account() {
         <p>Free trial: {daysRemaining(user.trial_ends_at)} day(s) left</p>
       )}
 
-      <p>
-        {user.captures_used} / {user.captures_cap} captures used this month
-      </p>
+      {user.in_overage ? (
+        <p className="usage-note">
+          {user.captures_used} of {user.captures_cap} captures this month
+        </p>
+      ) : (
+        <p>
+          {Math.min(user.captures_used, user.captures_cap)} / {user.captures_cap} captures used this month
+        </p>
+      )}
 
       {error && <p className="error-text">{error}</p>}
 

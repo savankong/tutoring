@@ -2,3 +2,11 @@
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
+
+# SPA fallback so client-side routes (/app, /history, /account, ...) survive
+# a direct load or refresh. Real files and function paths are matched first
+# and are unaffected by this.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -109,7 +109,8 @@ button.secondary {
   color: var(--text-h);
 }
 
-textarea {
+textarea,
+input {
   display: block;
   width: 100%;
   padding: 10px 12px;
@@ -121,5 +122,216 @@ textarea {
   color: var(--text-h);
   box-sizing: border-box;
   resize: vertical;
+}
+
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid #2684ff;
+  outline-offset: 2px;
+}
+
+/* Slim nav row shown on pages behind login */
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.top-nav-email {
+  margin-right: auto;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-nav a {
+  color: var(--text-h);
+}
+
+/* Auth forms (Register / Login) */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: calc(24px + env(safe-area-inset-top)) 16px 24px;
+  box-sizing: border-box;
+}
+
+.auth-page h1 {
+  font-size: 22px;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.auth-subhead {
+  text-align: center;
+  color: var(--text);
+  margin: 0 0 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-h);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* History */
+.history-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-list li {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.history-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.history-answer {
+  color: var(--text-h);
+  white-space: pre-wrap;
+}
+
+.history-time {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* Landing page */
+.landing {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(48px + env(safe-area-inset-top)) 20px 48px;
+  box-sizing: border-box;
+}
+
+.landing-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.landing-hero h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: var(--text-h);
+}
+
+.landing-subhead {
+  font-size: 17px;
+  color: var(--text);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.landing-cta {
+  display: inline-block;
+  min-height: 48px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  line-height: 24px;
+}
+
+.landing-cta:active {
+  opacity: 0.85;
+}
+
+.landing-section {
+  margin: 0 auto 40px;
+  max-width: 560px;
+}
+
+.landing-section h2 {
+  font-size: 20px;
+  margin: 0 0 14px;
+  color: var(--text-h);
+}
+
+.landing-steps,
+.landing-bullets {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-h);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.landing-pricing {
+  text-align: center;
+}
+
+.landing-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 8px;
+}
+
+.landing-faq {
+  margin: 0;
+}
+
+.landing-faq dt {
+  font-weight: 600;
+  color: var(--text-h);
+  margin-top: 16px;
+}
+
+.landing-faq dt:first-child {
+  margin-top: 0;
+}
+
+.landing-faq dd {
+  margin: 6px 0 0;
+  color: var(--text);
+}
+
+.landing-footer-cta {
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.landing-footer-cta p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: var(--text-h);
 }
 

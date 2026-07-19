@@ -1,10 +1,18 @@
 import Anthropic from '@anthropic-ai/sdk';
+import { getDatabase } from '@netlify/database';
+import { requireUser } from '../lib/auth.js';
+import { CAPTURE_CAP, capturesUsedThisPeriod, hasAccess } from '../lib/access.js';
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
 const RESPONSE_SCHEMA = {
   type: 'object',
   properties: {
+    title: {
+      type: 'string',
+      description:
+        '3-6 word label for the question, for a history list, e.g. "CCAT Math & Logic Q31" or "Flights per month word problem". Empty string if no question is visible.',
+    },
     pattern_analysis: {
       type: 'string',
       description:
@@ -16,7 +24,7 @@ const RESPONSE_SCHEMA = {
         'ONLY the final answer, as short as possible — no reasoning, no explanation, no "because". For multiple choice, output just the letter and the option value, e.g. "C. 96 flight/month". For open-ended questions, output just the final value or result, e.g. "42" or "x = 7". If no question is visible in the photo, output "No question detected."',
     },
   },
-  required: ['pattern_analysis', 'answer'],
+  required: ['title', 'pattern_analysis', 'answer'],
   additionalProperties: false,
 };
 
@@ -68,6 +76,25 @@ export default async (request) => {
     return jsonResponse(405, { error: 'Method not allowed' });
   }
 
+  const db = getDatabase();
+  const user = await requireUser(request, db);
+  if (!user) {
+    return jsonResponse(401, { error: 'Not signed in.', reason: 'unauthenticated' });
+  }
+  if (!hasAccess(user)) {
+    return jsonResponse(402, {
+      error: 'Your free trial has ended. Subscribe to keep capturing.',
+      reason: 'trial_expired',
+    });
+  }
+  const capturesUsed = await capturesUsedThisPeriod(db, user.id);
+  if (capturesUsed >= CAPTURE_CAP) {
+    return jsonResponse(402, {
+      error: `You've used all ${CAPTURE_CAP} captures for this month.`,
+      reason: 'cap_reached',
+    });
+  }
+
   let body;
   try {
     body = await request.json();
@@ -112,7 +139,14 @@ export default async (request) => {
       return jsonResponse(502, { error: 'Could not parse structured response from Claude.' });
     }
 
-    return jsonResponse(200, { answer: parsed.answer ?? '' });
+    const answer = parsed.answer ?? '';
+    const title = parsed.title ?? '';
+    await db.sql`
+      INSERT INTO captures (user_id, title, answer)
+      VALUES (${user.id}, ${title}, ${answer})
+    `;
+
+    return jsonResponse(200, { answer });
   } catch (err) {
     console.error('analyze-question error:', err);
     const status = typeof err?.status === 'number' ? err.status : 500;

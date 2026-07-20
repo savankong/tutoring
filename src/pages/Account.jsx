@@ -1,18 +1,41 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
+import Logo from '../components/Logo.jsx';
+import { PLANS } from '../lib/plans.js';
+
+const UPGRADE_PLANS = PLANS.filter((p) => p.key === 'personal' || p.key === 'pro');
 
 function Account() {
   const { user, refresh } = useAuthContext();
   const navigate = useNavigate();
-  const [busy, setBusy] = useState(false);
+  const [busyKey, setBusyKey] = useState(null);
   const [error, setError] = useState('');
 
-  const goToStripe = async (functionName) => {
+  const startCheckout = async (planKey) => {
     setError('');
-    setBusy(true);
+    setBusyKey(planKey);
     try {
-      const res = await fetch(`/.netlify/functions/${functionName}`, {
+      const res = await fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ plan: planKey }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err.message);
+      setBusyKey(null);
+    }
+  };
+
+  const openPortal = async () => {
+    setError('');
+    setBusyKey('portal');
+    try {
+      const res = await fetch('/.netlify/functions/create-portal-session', {
         method: 'POST',
         credentials: 'include',
       });
@@ -21,7 +44,7 @@ function Account() {
       window.location.href = data.url;
     } catch (err) {
       setError(err.message);
-      setBusy(false);
+      setBusyKey(null);
     }
   };
 
@@ -42,7 +65,11 @@ function Account() {
         <Link to="/history">History</Link>
         {user.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
-      <h1>Account</h1>
+
+      <h1>
+        <Logo size={26} wordmark />
+      </h1>
+      <h2 className="page-title">Account</h2>
 
       <p>{user.email}</p>
 
@@ -64,15 +91,33 @@ function Account() {
 
       {error && <p className="error-text">{error}</p>}
 
+      {!isActive && (
+        <>
+          <div className="account-upgrade-grid">
+            {UPGRADE_PLANS.map((plan) => (
+              <div className="account-upgrade-card" key={plan.key}>
+                <div className="account-upgrade-name">{plan.name}</div>
+                <div className="account-upgrade-price">
+                  {plan.price}
+                  <span>{plan.period}</span>
+                </div>
+                <button disabled={busyKey === plan.key} onClick={() => startCheckout(plan.key)}>
+                  {busyKey === plan.key ? 'Loading…' : `Upgrade to ${plan.name}`}
+                </button>
+              </div>
+            ))}
+          </div>
+          <p className="account-cancel-note">
+            <Link to="/pricing">See the full plan comparison</Link>
+          </p>
+        </>
+      )}
+
       <div className="actions">
-        {isActive ? (
-          <button disabled={busy} onClick={() => goToStripe('create-portal-session')}>
-            {busy ? 'Loading…' : 'Manage billing'}
+        {isActive && (
+          <button disabled={busyKey === 'portal'} onClick={openPortal}>
+            {busyKey === 'portal' ? 'Loading…' : 'Manage billing'}
           </button>
-        ) : (
-          <Link to="/pricing" className="pill-button">
-            View plans
-          </Link>
         )}
         {isActive && (
           <Link to="/pricing" className="pill-button pill-button-outline">
@@ -83,6 +128,13 @@ function Account() {
           Log out
         </button>
       </div>
+
+      {isActive && (
+        <p className="account-cancel-note">
+          Manage billing lets you update your payment method, switch plans, or cancel your subscription anytime — no
+          email required.
+        </p>
+      )}
     </div>
   );
 }

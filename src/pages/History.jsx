@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
+import Logo from '../components/Logo.jsx';
 
 function formatTimestamp(iso) {
   const date = new Date(iso);
@@ -34,7 +35,10 @@ function History() {
         <Link to="/account">Account</Link>
         {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>
-      <h1>History</h1>
+      <h1>
+        <Logo size={26} wordmark />
+      </h1>
+      <h2 className="page-title">History</h2>
       {error && <p className="error-text">{error}</p>}
       {!error && !captures && <p>Loading…</p>}
       {captures?.length === 0 && <p>No captures yet.</p>}

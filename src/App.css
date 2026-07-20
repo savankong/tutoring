@@ -50,6 +50,62 @@
   color: var(--text);
 }
 
+.page-title {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.account-upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.account-upgrade-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card-bg);
+  padding: 16px;
+}
+
+.account-upgrade-name {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.account-upgrade-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.account-upgrade-price span {
+  margin-left: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.account-upgrade-card button {
+  margin-top: auto;
+}
+
+.account-cancel-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .account-upgrade-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Height is capped in viewport units (not aspect-ratio) so the frame
    never pushes the rest of the flow below the fold on a phone screen. */
 .media-frame {

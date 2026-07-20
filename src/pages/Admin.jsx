@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
+import Logo from '../components/Logo.jsx';
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
@@ -72,7 +73,10 @@ function Admin() {
         <Link to="/history">History</Link>
         <Link to="/account">Account</Link>
       </div>
-      <h1>Admin — Users</h1>
+      <h1>
+        <Logo size={26} wordmark />
+      </h1>
+      <h2 className="page-title">Admin — Users</h2>
 
       {error && <p className="error-text">{error}</p>}
       {!error && !users && <p>Loading…</p>}

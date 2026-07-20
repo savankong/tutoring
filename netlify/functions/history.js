@@ -20,13 +20,13 @@ export default async (request) => {
 
   const captures = before
     ? await db.sql`
-        SELECT id, title, answer, created_at FROM captures
+        SELECT id, title, answer, explanation, created_at FROM captures
         WHERE user_id = ${user.id} AND created_at < ${before}
         ORDER BY created_at DESC
         LIMIT ${PAGE_SIZE}
       `
     : await db.sql`
-        SELECT id, title, answer, created_at FROM captures
+        SELECT id, title, answer, explanation, created_at FROM captures
         WHERE user_id = ${user.id}
         ORDER BY created_at DESC
         LIMIT ${PAGE_SIZE}

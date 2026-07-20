@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
 
+function answerRows(answer) {
+  return Math.min(6, Math.max(2, Math.ceil(answer.length / 30)));
+}
+
 function Capture() {
   const { user, refresh } = useAuthContext();
 
@@ -18,6 +22,8 @@ function Capture() {
   const [ocrError, setOcrError] = useState('');
   const [upgradeReason, setUpgradeReason] = useState('');
   const [answer, setAnswer] = useState('');
+  const [explanation, setExplanation] = useState('');
+  const [explanationOpen, setExplanationOpen] = useState(false);
   const [status, setStatus] = useState('idle'); // idle, live, done
 
   useEffect(() => {
@@ -26,10 +32,10 @@ function Capture() {
     };
   }, []);
 
-  // Only one button exists on screen at a time; moving focus to it on every
-  // state change means a keyboard, switch, or other assistive input can
-  // drive the whole capture -> answer -> next-question loop by repeatedly
-  // hitting Enter/Space, without needing to Tab to find the next control.
+  // Only one primary button exists on screen at a time; moving focus to it
+  // on every state change means a keyboard, switch, or other assistive
+  // input can drive the whole capture -> answer -> next-question loop by
+  // repeatedly hitting Enter/Space, without needing to Tab to find it.
   useEffect(() => {
     primaryButtonRef.current?.focus();
   }, [status]);
@@ -73,6 +79,8 @@ function Capture() {
 
     setImage(dataUrl);
     setAnswer('');
+    setExplanation('');
+    setExplanationOpen(false);
     setOcrError('');
     setUpgradeReason('');
     answerEditedRef.current = false;
@@ -100,6 +108,7 @@ function Capture() {
         }
         if (!res.ok) throw new Error(data.error || 'Request failed');
         if (!answerEditedRef.current) setAnswer(data.answer || '');
+        setExplanation(data.explanation || '');
       })
       .catch((err) => {
         if (requestIdRef.current !== requestId) return;
@@ -119,6 +128,8 @@ function Capture() {
     setOcrError('');
     setUpgradeReason('');
     setAnswer('');
+    setExplanation('');
+    setExplanationOpen(false);
     answerEditedRef.current = false;
     startCamera(); // stream was released after the last capture — reacquire it
   };
@@ -149,6 +160,17 @@ function Capture() {
         <div className="media-frame-corner media-frame-corner-br" />
       </div>
 
+      {/* "New Question" is the most important control once an answer is up —
+          it goes right after the photo, above the answer text, so the tutor
+          can keep moving without scrolling past a longer explanation. */}
+      {status === 'done' && (
+        <div className="actions">
+          <button ref={primaryButtonRef} className="pill-action-button" onClick={nextQuestion}>
+            New Question
+          </button>
+        </div>
+      )}
+
       {status === 'done' && (
         <div>
           <h3>Answer {ocrPending && <span className="pending-tag">thinking…</span>}</h3>
@@ -162,39 +184,47 @@ function Capture() {
             </p>
           )}
           <textarea
+            className="answer-display"
             value={answer}
             onChange={(e) => {
               answerEditedRef.current = true;
               setAnswer(e.target.value);
             }}
-            rows={8}
+            rows={answerRows(answer)}
             placeholder="The answer will appear here — edit as needed..."
           />
+          {explanation && (
+            <div className="explanation-accordion">
+              <button
+                type="button"
+                className="explanation-toggle"
+                onClick={() => setExplanationOpen((v) => !v)}
+                aria-expanded={explanationOpen}
+                aria-label={explanationOpen ? 'Hide explanation' : 'Show explanation'}
+              >
+                <span>Why?</span>
+                <span className={`faq-toggle-icon${explanationOpen ? ' faq-toggle-icon-open' : ''}`}>+</span>
+              </button>
+              {explanationOpen && <div className="explanation-body">{explanation}</div>}
+            </div>
+          )}
         </div>
       )}
 
-      <div className="actions">
-        {status === 'idle' && (
-          <button ref={primaryButtonRef} className="pill-action-button" onClick={startCamera}>
-            Start Camera
-          </button>
-        )}
-        {status === 'live' && (
-          <button
-            ref={primaryButtonRef}
-            className="shutter-button"
-            onClick={captureAndAnalyze}
-            aria-label="Capture"
-          >
-            <span className="shutter-button-dot" />
-          </button>
-        )}
-        {status === 'done' && (
-          <button ref={primaryButtonRef} className="pill-action-button" onClick={nextQuestion}>
-            New Question
-          </button>
-        )}
-      </div>
+      {status !== 'done' && (
+        <div className="actions">
+          {status === 'idle' && (
+            <button ref={primaryButtonRef} className="pill-action-button" onClick={startCamera}>
+              Start Camera
+            </button>
+          )}
+          {status === 'live' && (
+            <button ref={primaryButtonRef} className="pill-action-button" onClick={captureAndAnalyze}>
+              Capture
+            </button>
+          )}
+        </div>
+      )}
 
       <canvas ref={canvasRef} style={{ display: 'none' }} />
     </div>

@@ -44,8 +44,13 @@ const RESPONSE_SCHEMA = {
       description:
         'ONLY the final answer, as short as possible — no reasoning, no explanation, no "because". For multiple choice, output just the letter and the option value, e.g. "C. 96 flight/month". For open-ended questions, output just the final value or result, e.g. "42" or "x = 7". If no question is visible in the photo, output "No question detected."',
     },
+    explanation: {
+      type: 'string',
+      description:
+        '1-2 sentence explanation of why this is the answer — brief but real reasoning a tutor could read aloud to a student. Optional supporting detail, not the primary output; empty string if no question is visible.',
+    },
   },
-  required: ['title', 'pattern_analysis', 'answer'],
+  required: ['title', 'pattern_analysis', 'answer', 'explanation'],
   additionalProperties: false,
 };
 
@@ -54,7 +59,8 @@ const PROMPT = [
   'Ignore browser chrome, tabs, breadcrumbs, and any other page navigation UI.',
   'Find the actual question — it is often preceded by a marker like "81. Question" — and solve it.',
   'If it is a pattern/matrix/sequence/spatial-reasoning question (e.g. "which figure completes the pattern"), be rigorous: check every row AND every column of the matrix independently for shape, count, shading, size, and rotation changes before choosing — do not guess from a partial glance.',
-  'Answer as short as possible per the schema — no explanations.',
+  'The answer field must be as short as possible — no explanations there.',
+  'Separately, in the explanation field, give a brief 1-2 sentence explanation of the reasoning — short, but real enough for a tutor to read aloud.',
 ].join(' ');
 
 function jsonResponse(status, body) {
@@ -166,9 +172,10 @@ export default async (request) => {
 
     const answer = parsed.answer ?? '';
     const title = parsed.title ?? '';
+    const explanation = parsed.explanation ?? '';
     await db.sql`
-      INSERT INTO captures (user_id, title, answer)
-      VALUES (${user.id}, ${title}, ${answer})
+      INSERT INTO captures (user_id, title, answer, explanation)
+      VALUES (${user.id}, ${title}, ${answer}, ${explanation})
     `;
 
     const captureNumber = capturesUsedBefore + 1;
@@ -176,7 +183,7 @@ export default async (request) => {
       await billOverageCapture(user, captureNumber);
     }
 
-    return jsonResponse(200, { answer });
+    return jsonResponse(200, { answer, explanation });
   } catch (err) {
     console.error('analyze-question error:', err);
     const status = typeof err?.status === 'number' ? err.status : 500;

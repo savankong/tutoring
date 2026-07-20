@@ -1,6 +1,7 @@
 import Stripe from 'stripe';
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
+import { PLANS } from '../lib/plans.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -18,7 +19,16 @@ export default async (request) => {
   const user = await requireUser(request, db);
   if (!user) return jsonResponse(401, { error: 'Not signed in.' });
 
-  const priceId = process.env.STRIPE_PRICE_ID;
+  let body = {};
+  try {
+    body = await request.json();
+  } catch {
+    // no body is fine — falls back to the default plan below
+  }
+
+  const planKey = PLANS[body?.plan]?.priceEnvVar ? body.plan : 'personal';
+  const plan = PLANS[planKey];
+  const priceId = process.env[plan.priceEnvVar] || process.env.STRIPE_PRICE_ID;
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!priceId || !secretKey) {
     return jsonResponse(500, { error: 'Billing is not configured yet.' });

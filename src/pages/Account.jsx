@@ -2,11 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 
-function daysRemaining(trialEndsAt) {
-  const ms = new Date(trialEndsAt).getTime() - Date.now();
-  return Math.max(0, Math.ceil(ms / (24 * 60 * 60 * 1000)));
-}
-
 function Account() {
   const { user, refresh } = useAuthContext();
   const navigate = useNavigate();
@@ -51,11 +46,11 @@ function Account() {
 
       <p>{user.email}</p>
 
-      {isActive ? (
-        <p>Subscription: active — $15/month</p>
-      ) : (
-        <p>Free trial: {daysRemaining(user.trial_ends_at)} day(s) left</p>
-      )}
+      <p>
+        Plan: {user.plan_name}
+        {isActive && ' — active'}
+        {user.subscription_status === 'past_due' && ' — payment past due'}
+      </p>
 
       {user.in_overage ? (
         <p className="usage-note">
@@ -75,9 +70,14 @@ function Account() {
             {busy ? 'Loading…' : 'Manage billing'}
           </button>
         ) : (
-          <button disabled={busy} onClick={() => goToStripe('create-checkout-session')}>
-            {busy ? 'Loading…' : 'Upgrade — $15/month'}
-          </button>
+          <Link to="/pricing" className="pill-button">
+            View plans
+          </Link>
+        )}
+        {isActive && (
+          <Link to="/pricing" className="pill-button pill-button-outline">
+            Change plan
+          </Link>
         )}
         <button className="secondary" onClick={logout}>
           Log out

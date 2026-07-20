@@ -2,7 +2,8 @@ import Anthropic from '@anthropic-ai/sdk';
 import Stripe from 'stripe';
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
-import { CAPTURE_CAP, GRACE_BUFFER, OVERAGE_UNIT_CENTS, capturesUsedThisPeriod, hasAccess } from '../lib/access.js';
+import { OVERAGE_UNIT_CENTS, capturesUsedThisPeriod, isCapped } from '../lib/access.js';
+import { planFor } from '../lib/plans.js';
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
@@ -108,20 +109,14 @@ export default async (request) => {
   if (!user) {
     return jsonResponse(401, { error: 'Not signed in.', reason: 'unauthenticated' });
   }
-  if (!hasAccess(user)) {
-    return jsonResponse(402, {
-      error: 'Your free trial has ended. Subscribe to keep capturing.',
-      reason: 'trial_expired',
-    });
-  }
+  const plan = planFor(user);
   const capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
-  // Active subscribers are never blocked — past CAPTURE_CAP + GRACE_BUFFER
-  // they're billed for overage instead (see billOverageCapture below).
-  // Trial users have no Stripe subscription to bill, so they keep the
-  // original hard cap.
-  if (user.subscription_status !== 'active' && capturesUsedBefore >= CAPTURE_CAP) {
+  // Paid tiers are never blocked — past captureCap + graceBuffer they're
+  // billed for overage instead (see billOverageCapture below). Free tier has
+  // no Stripe subscription to bill, so it keeps a hard cap.
+  if (isCapped(user, capturesUsedBefore)) {
     return jsonResponse(402, {
-      error: `You've used all ${CAPTURE_CAP} captures for this month.`,
+      error: `You've used all ${plan.captureCap} captures for this month.`,
       reason: 'cap_reached',
     });
   }
@@ -179,7 +174,7 @@ export default async (request) => {
     `;
 
     const captureNumber = capturesUsedBefore + 1;
-    if (user.subscription_status === 'active' && captureNumber > CAPTURE_CAP + GRACE_BUFFER) {
+    if (plan.overageAllowed && captureNumber > plan.captureCap + plan.graceBuffer) {
       await billOverageCapture(user, captureNumber);
     }
 

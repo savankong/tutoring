@@ -38,7 +38,7 @@ export default async (request) => {
   const token = signSession(user.id);
   return jsonResponse(
     200,
-    { email: user.email, trial_ends_at: user.trial_ends_at, subscription_status: user.subscription_status },
+    { email: user.email, plan: user.plan, subscription_status: user.subscription_status },
     { 'set-cookie': sessionCookieHeader(token) },
   );
 };

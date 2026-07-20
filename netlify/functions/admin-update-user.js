@@ -43,11 +43,19 @@ export default async (request) => {
     await db.sql`UPDATE users SET role = ${role} WHERE id = ${userId}`;
   }
   if (subscriptionStatus !== undefined) {
-    await db.sql`UPDATE users SET subscription_status = ${subscriptionStatus} WHERE id = ${userId}`;
+    // Keep `plan` in sync with an admin comp: active -> Personal tier caps,
+    // none/canceled -> back to Free. past_due is left alone (a Stripe-driven
+    // grace state, not something an admin sets directly).
+    const plan = subscriptionStatus === 'active' ? 'personal' : subscriptionStatus === 'past_due' ? undefined : 'free';
+    if (plan !== undefined) {
+      await db.sql`UPDATE users SET subscription_status = ${subscriptionStatus}, plan = ${plan} WHERE id = ${userId}`;
+    } else {
+      await db.sql`UPDATE users SET subscription_status = ${subscriptionStatus} WHERE id = ${userId}`;
+    }
   }
 
   const [user] = await db.sql`
-    SELECT id, email, role, subscription_status, trial_ends_at, created_at
+    SELECT id, email, role, subscription_status, plan, created_at
     FROM users WHERE id = ${userId}
   `;
   if (!user) return jsonResponse(404, { error: 'User not found.' });

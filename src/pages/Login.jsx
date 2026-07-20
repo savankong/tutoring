@@ -84,7 +84,7 @@ function Login() {
           </a>
         </div>
         <p className="auth-switch">
-          No account yet? <Link to="/register">Start your free trial</Link>
+          No account yet? <Link to="/register">Sign up free</Link>
         </p>
       </div>
     </>

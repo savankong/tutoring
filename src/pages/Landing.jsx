@@ -124,7 +124,7 @@ function Landing() {
         <div className="site-nav-center-links">
           <a href="#how">How it works</a>
           <a href="#why">Why tutors</a>
-          <a href="#pricing">Pricing</a>
+          <Link to="/pricing">Pricing</Link>
           <a href="#faq">FAQ</a>
         </div>
         <div className="site-nav-actions">
@@ -132,7 +132,7 @@ function Landing() {
             Log in
           </Link>
           <Link to="/register" className="pill-button pill-button-sm">
-            Start free trial
+            Sign up free
           </Link>
         </div>
       </nav>
@@ -147,9 +147,9 @@ function Landing() {
           </p>
           <div className="hero-cta-row" id="start">
             <Link to="/register" className="pill-button pill-button-lg">
-              Start your free trial
+              Get started free
             </Link>
-            <span className="hero-microcopy">7 days free · no card required</span>
+            <span className="hero-microcopy">Free forever · no card required</span>
           </div>
         </div>
 
@@ -272,29 +272,29 @@ function Landing() {
 
       <section id="pricing" className="pricing-section">
         <div className="section-eyebrow">Pricing</div>
-        <h2>Simple, and it pays for itself fast.</h2>
+        <h2>Build free. Scale when you need it.</h2>
         <div className="pricing-card">
           <div className="pricing-amount-row">
-            <span className="pricing-amount">$15</span>
-            <span className="pricing-period">/ month</span>
+            <span className="pricing-amount">$0</span>
+            <span className="pricing-period">to start</span>
           </div>
-          <div className="pricing-sub">Cancel anytime, no contract</div>
+          <div className="pricing-sub">Free forever, no card required — upgrade whenever you outgrow it</div>
           <div className="pricing-features">
             <div className="pricing-feature">
               <span className="pricing-feature-check">✓</span>
-              200 captures a month — plenty for daily tutoring use
+              Free tier: 20 captures a month
             </div>
             <div className="pricing-feature">
               <span className="pricing-feature-check">✓</span>
-              Free 7-day trial, no card required
+              Paid plans from $9/month for daily tutoring use
             </div>
             <div className="pricing-feature">
               <span className="pricing-feature-check">✓</span>
-              One login across your phone and any other device
+              Cancel anytime, no contract
             </div>
           </div>
-          <Link to="/register" className="pill-button pill-button-lg">
-            Start your free trial
+          <Link to="/pricing" className="pill-button pill-button-lg">
+            See full pricing
           </Link>
         </div>
       </section>
@@ -318,13 +318,13 @@ function Landing() {
       <section className="footer-cta-section">
         <h2>Stop losing the moment mid-session.</h2>
         <Link to="/register" className="pill-button pill-button-lg">
-          Start your free trial
+          Get started free
         </Link>
         <div className="footer-bottom">
           <div>© 2026 Cambo App</div>
           <div className="footer-links">
             <a href="#how">How it works</a>
-            <a href="#pricing">Pricing</a>
+            <Link to="/pricing">Pricing</Link>
             <a href="#faq">FAQ</a>
           </div>
         </div>

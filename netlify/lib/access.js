@@ -1,28 +1,21 @@
-export const CAPTURE_CAP = 200;
+import { OVERAGE_UNIT_CENTS, planFor } from './plans.js';
 
-// Invisible cushion beyond CAPTURE_CAP before overage billing kicks in —
-// no warning, no UI change, purely so nobody gets blocked mid-session.
-export const GRACE_BUFFER = 20;
+export { OVERAGE_UNIT_CENTS };
 
-// Price per capture once a user is past CAPTURE_CAP + GRACE_BUFFER, billed
-// as a Stripe invoice item (see analyze-question.js).
-export const OVERAGE_UNIT_CENTS = 12;
-
-/** Trial access is governed by trial_ends_at; once a real subscription
- * exists, Stripe webhooks own subscription_status instead. */
-export function hasAccess(user) {
-  if (user.subscription_status === 'active') return true;
-  if (user.subscription_status === 'none') {
-    return new Date(user.trial_ends_at).getTime() > Date.now();
-  }
-  return false;
+/** True once a user has hit their plan's cap with no overage billing to
+ * fall back on (Free tier only — every paid tier bills overage instead of
+ * blocking). */
+export function isCapped(user, capturesUsed) {
+  const plan = planFor(user);
+  return !plan.overageAllowed && capturesUsed >= plan.captureCap;
 }
 
-/** True once an active subscriber has used more than the plan cap plus the
+/** True once a paid subscriber has used more than their plan's cap plus its
  * grace buffer — this is when the usage indicator should appear and when
  * overage billing has started. */
 export function isInOverage(user, capturesUsed) {
-  return user.subscription_status === 'active' && capturesUsed > CAPTURE_CAP + GRACE_BUFFER;
+  const plan = planFor(user);
+  return plan.overageAllowed && capturesUsed > plan.captureCap + plan.graceBuffer;
 }
 
 export async function capturesUsedThisPeriod(db, userId, periodStart) {

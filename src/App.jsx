@@ -6,6 +6,7 @@ import Capture from './pages/Capture.jsx';
 import History from './pages/History.jsx';
 import Landing from './pages/Landing.jsx';
 import Login from './pages/Login.jsx';
+import Pricing from './pages/Pricing.jsx';
 import Register from './pages/Register.jsx';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/pricing" element={<Pricing />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route

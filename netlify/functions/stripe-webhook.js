@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import { getDatabase } from '@netlify/database';
+import { planKeyForPriceId } from '../lib/plans.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -48,9 +49,11 @@ export default async (request) => {
       const userId = session.client_reference_id;
       if (userId && session.customer) {
         let currentPeriodStart = null;
+        let plan = 'personal';
         try {
           const subscription = await stripe.subscriptions.retrieve(session.subscription);
           currentPeriodStart = new Date(subscription.current_period_start * 1000).toISOString();
+          plan = planKeyForPriceId(subscription.items.data[0]?.price?.id) || 'personal';
         } catch (err) {
           console.error('Could not retrieve subscription for period start:', err);
         }
@@ -59,7 +62,8 @@ export default async (request) => {
           SET stripe_customer_id = ${session.customer},
               stripe_subscription_id = ${session.subscription},
               subscription_status = 'active',
-              current_period_start = ${currentPeriodStart}
+              current_period_start = ${currentPeriodStart},
+              plan = ${plan}
           WHERE id = ${userId}
         `;
       }
@@ -68,20 +72,25 @@ export default async (request) => {
     case 'customer.subscription.updated': {
       const subscription = event.data.object;
       const currentPeriodStart = new Date(subscription.current_period_start * 1000).toISOString();
+      const plan = planKeyForPriceId(subscription.items.data[0]?.price?.id) || 'personal';
       await db.sql`
         UPDATE users
         SET subscription_status = ${mapStripeStatus(subscription.status)},
             stripe_subscription_id = ${subscription.id},
-            current_period_start = ${currentPeriodStart}
+            current_period_start = ${currentPeriodStart},
+            plan = ${plan}
         WHERE stripe_customer_id = ${subscription.customer}
       `;
       break;
     }
     case 'customer.subscription.deleted': {
       const subscription = event.data.object;
+      // Cancellation drops back to Free rather than cutting off access
+      // entirely — same as Netlify: stop paying, keep a capped free tier.
       await db.sql`
         UPDATE users
-        SET subscription_status = 'canceled'
+        SET subscription_status = 'canceled',
+            plan = 'free'
         WHERE stripe_customer_id = ${subscription.customer}
       `;
       break;

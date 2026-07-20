@@ -84,6 +84,7 @@ function Admin() {
               <tr>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Plan</th>
                 <th>Subscription</th>
                 <th>Joined</th>
                 <th></th>
@@ -99,6 +100,7 @@ function Admin() {
                   <tr key={u.id}>
                     <td>{u.email}</td>
                     <td>{u.role}</td>
+                    <td>{u.plan}</td>
                     <td>{u.subscription_status}</td>
                     <td>{formatDate(u.created_at)}</td>
                     <td className="admin-row-actions">

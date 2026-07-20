@@ -1,16 +1,23 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
+import { PLANS } from '../lib/plans.js';
+
+const PAID_PLAN_KEYS = new Set(['personal', 'pro']);
 
 function Register() {
   const { refresh } = useAuthContext();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  const requestedPlan = searchParams.get('plan');
+  const plan = PAID_PLAN_KEYS.has(requestedPlan) ? PLANS.find((p) => p.key === requestedPlan) : null;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +33,23 @@ function Register() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Could not create account.');
       await refresh();
+
+      if (plan) {
+        const checkoutRes = await fetch('/.netlify/functions/create-checkout-session', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ plan: plan.key }),
+        });
+        const checkoutData = await checkoutRes.json();
+        if (checkoutRes.ok && checkoutData.url) {
+          window.location.href = checkoutData.url;
+          return;
+        }
+        // Account was created either way — just land on the app instead of
+        // blocking signup on a checkout hiccup; they can upgrade from there.
+      }
+
       navigate('/app');
     } catch (err) {
       setError(err.message);
@@ -47,8 +71,12 @@ function Register() {
           <div className="auth-card-logo">
             <Logo size={18} wordmark />
           </div>
-          <h1>Start your free trial</h1>
-          <p className="auth-subhead">7 days free, no card required.</p>
+          <h1>{plan ? `Sign up for ${plan.name}` : 'Create your free account'}</h1>
+          <p className="auth-subhead">
+            {plan
+              ? `${plan.price}${plan.period} — you'll finish checkout right after this.`
+              : 'No card required. Upgrade any time.'}
+          </p>
           <form onSubmit={onSubmit} className="auth-form">
             <label>
               <span className="auth-label">Email</span>
@@ -73,7 +101,7 @@ function Register() {
             </label>
             {error && <p className="error-text">{error}</p>}
             <button type="submit" disabled={submitting}>
-              {submitting ? 'Creating account…' : 'Start free trial'}
+              {submitting ? 'Creating account…' : plan ? 'Continue to payment' : 'Create account'}
             </button>
           </form>
           <div className="auth-divider">

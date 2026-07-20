@@ -6,8 +6,6 @@ import {
   signSession,
 } from '../lib/auth.js';
 
-const TRIAL_DAYS = 7;
-
 function redirectToLogin(origin, message) {
   const url = new URL('/login', origin);
   url.searchParams.set('error', message);
@@ -75,10 +73,10 @@ export default async (request) => {
         RETURNING *
       `;
     } else {
-      const trialEndsAt = new Date(Date.now() + TRIAL_DAYS * 24 * 60 * 60 * 1000).toISOString();
+      // plan defaults to 'free' — no trial clock, no card required.
       [user] = await db.sql`
-        INSERT INTO users (email, google_id, trial_ends_at)
-        VALUES (${email}, ${googleId}, ${trialEndsAt})
+        INSERT INTO users (email, google_id)
+        VALUES (${email}, ${googleId})
         RETURNING *
       `;
     }

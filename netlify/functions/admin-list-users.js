@@ -14,7 +14,7 @@ export default async (request) => {
   if (!admin) return jsonResponse(403, { error: 'Admin access required.' });
 
   const users = await db.sql`
-    SELECT id, email, role, subscription_status, trial_ends_at, created_at
+    SELECT id, email, role, subscription_status, plan, created_at
     FROM users
     ORDER BY created_at DESC
   `;

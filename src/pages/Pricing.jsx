@@ -1,0 +1,90 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../lib/AuthContext.jsx';
+import SiteNav from '../components/SiteNav.jsx';
+import { PLANS } from '../lib/plans.js';
+
+function Pricing() {
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
+  const [busyKey, setBusyKey] = useState(null);
+  const [error, setError] = useState('');
+
+  const choosePlan = async (planKey) => {
+    if (planKey === 'free') {
+      navigate(user ? '/app' : '/register');
+      return;
+    }
+    if (!user) {
+      navigate(`/register?plan=${planKey}`);
+      return;
+    }
+    setError('');
+    setBusyKey(planKey);
+    try {
+      const res = await fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ plan: planKey }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err.message);
+      setBusyKey(null);
+    }
+  };
+
+  return (
+    <div className="landing">
+      <SiteNav />
+
+      <section className="pricing-page">
+        <div className="pricing-page-head">
+          <div className="section-eyebrow">Pricing</div>
+          <h1>Build free. Scale when you need it.</h1>
+          <p>From an occasional session to a full tutoring practice — plans that grow with how you use it.</p>
+        </div>
+
+        {error && <p className="pricing-page-error error-text">{error}</p>}
+
+        <div className="tier-grid">
+          {PLANS.map((tier) => (
+            <div className={`tier-card${tier.featured ? ' tier-card-featured' : ''}`} key={tier.key}>
+              {tier.featured && <span className="tier-badge">Best value</span>}
+              <div className="tier-name">{tier.name}</div>
+              <div className="tier-tagline">{tier.tagline}</div>
+              <div className="tier-price-row">
+                <span className="tier-price">{tier.price}</span>
+                <span className="tier-period">{tier.period}</span>
+              </div>
+              <div className="tier-features">
+                {tier.features.map((f) => (
+                  <div className="tier-feature" key={f}>
+                    <span className="tier-feature-check">✓</span>
+                    <span>{f}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="tier-cta">
+                {tier.key === 'team' ? (
+                  <a className="tier-cta-link" href="mailto:savankong@gmail.com?subject=Cambo%20App%20Team%20plan">
+                    {tier.cta}
+                  </a>
+                ) : (
+                  <button disabled={busyKey === tier.key} onClick={() => choosePlan(tier.key)}>
+                    {busyKey === tier.key ? 'Loading…' : tier.cta}
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default Pricing;

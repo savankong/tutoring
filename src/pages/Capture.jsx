@@ -128,7 +128,7 @@ function Capture() {
         const data = await res.json();
         if (requestIdRef.current !== requestId) return; // stale, tutor moved on
         if (res.status === 402) {
-          setUpgradeReason(data.reason === 'cap_reached' ? 'cap_reached' : 'trial_expired');
+          setUpgradeReason('cap_reached');
           return;
         }
         if (!res.ok) throw new Error(data.error || 'Request failed');
@@ -309,10 +309,7 @@ function Capture() {
             {ocrError && <p className="error-text">{ocrError}</p>}
             {upgradeReason && (
               <p className="error-text">
-                {upgradeReason === 'cap_reached'
-                  ? "You've used all your captures for this month."
-                  : 'Your free trial has ended.'}{' '}
-                <Link to="/account">Upgrade to keep going</Link>
+                You've used all your captures for this month. <Link to="/account">Upgrade to keep going</Link>
               </p>
             )}
 

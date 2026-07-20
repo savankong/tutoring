@@ -12,15 +12,24 @@ export const PLANS = [
     cta: 'Start for free',
   },
   {
+    key: 'starter',
+    name: 'Starter',
+    price: '$4.99',
+    period: '/month',
+    tagline: 'A cheap way to go beyond Free',
+    features: ['Everything in Free, plus:', '45 captures a month', 'Grace buffer, then buy credits as needed', 'Priority email support'],
+    cta: 'Get started',
+  },
+  {
     key: 'personal',
     name: 'Personal',
-    price: '$9',
+    price: '$9.99',
     period: '/month',
     tagline: 'Ready for daily tutoring sessions',
     features: [
-      'Everything in Free, plus:',
-      '200 captures a month',
-      'Grace buffer before overage billing',
+      'Everything in Starter, plus:',
+      '90 captures a month',
+      'Larger grace buffer',
       'Priority email support',
     ],
     cta: 'Get started',
@@ -29,10 +38,10 @@ export const PLANS = [
   {
     key: 'pro',
     name: 'Pro',
-    price: '$20',
+    price: '$19.99',
     period: '/month',
     tagline: 'For high-volume tutors',
-    features: ['Everything in Personal, plus:', '600 captures a month', 'Larger grace buffer', 'Priority support'],
+    features: ['Everything in Personal, plus:', '180 captures a month', 'Largest grace buffer', 'Priority support'],
     cta: 'Get started',
   },
   {
@@ -45,3 +54,10 @@ export const PLANS = [
     cta: 'Contact sales',
   },
 ];
+
+// Add-on credit pack — buyable by any paid-plan subscriber once they run
+// past their cap + grace buffer. Rolls over indefinitely while on a paid
+// plan; forfeited on downgrade to Free.
+export const CREDIT_PACK_SIZE = 100;
+export const CREDIT_PACK_PRICE = '$15.00';
+export const CREDIT_PACK_PRICE_CENTS = 1500;

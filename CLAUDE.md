@@ -39,14 +39,19 @@ AI camera-capture app for tutors: point your phone at a practice question, get t
 
 `netlify/lib/plans.js` is the source of truth; `src/lib/plans.js` is a display-only mirror for the frontend (never import backend-only code into the client bundle).
 
-| Plan | Price | Cap | Grace buffer | Overage |
+| Plan | Price | Cap | Grace buffer | Beyond cap+grace |
 |---|---|---|---|---|
-| Free | $0 forever, no card | 20 captures/mo | — | hard block at cap |
-| Personal | $9/mo (`STRIPE_PRICE_PERSONAL`) | 200/mo | 20 | $0.12/capture |
-| Pro | $20/mo (`STRIPE_PRICE_PRO`) | 600/mo | 30 | $0.12/capture |
+| Free | $0 forever, no card | 20 captures/mo | — | hard block |
+| Starter | $4.99/mo (`STRIPE_PRICE_STARTER`) | 45/mo | 5 | draw down credits, then block |
+| Personal | $9.99/mo (`STRIPE_PRICE_PERSONAL`) | 90/mo | 10 | draw down credits, then block |
+| Pro | $19.99/mo (`STRIPE_PRICE_PRO`) | 180/mo | 20 | draw down credits, then block |
 | Team | contact sales, no Stripe price | — | — | — |
 
-The legacy `STRIPE_PRICE_ID` (old $15/mo plan) is still honored in `stripe-webhook.js`'s price→plan mapping for existing subscribers, treated as Personal-tier caps — don't remove it. Overage bills as a pending Stripe invoice item that auto-sweeps into the customer's next invoice; no cron job or scheduled function involved.
+Cap + grace per paid tier is sized so worst-case per-capture cost (~$0.075 at `claude-opus-4-8` rates: large gallery image + hardest reasoning) never exceeds ~75% of the plan price — do the same math before changing any cap or price (see `netlify/lib/plans.js` comment for the derivation).
+
+The legacy `STRIPE_PRICE_ID` (old $15/mo plan) is still honored in `stripe-webhook.js`'s price→plan mapping for existing subscribers, treated as Personal-tier caps — don't remove it.
+
+**Add-on credits replace automatic overage billing.** Once a paid subscriber passes cap + grace, further captures debit `users.credit_balance` (1 credit = 1 capture) instead of triggering a Stripe invoice item. If the balance hits 0, captures are blocked (`analyze-question.js` → `isCapped`) until they buy more via `create-credit-checkout-session.js` (`STRIPE_PRICE_CREDIT_PACK`, `CREDIT_PACK_SIZE` = 100 credits / `CREDIT_PACK_PRICE_CENTS` = $15.00 — deliberately priced above the old $0.12/capture rate since credits are now the profit center). Credits roll over indefinitely while the user stays on a paid plan; `customer.subscription.deleted` resets `credit_balance` to 0 on downgrade to Free. Free-tier users cannot buy credits (`plan.creditsAllowed`). Purchases are recorded in `credit_purchases`, keyed on the Stripe checkout session id for webhook idempotency.
 
 Cancellation (`customer.subscription.deleted`) drops a user back to `plan = 'free'` rather than cutting off access entirely.
 
@@ -54,7 +59,7 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 
 ## Required env vars (Netlify dashboard — names only, never commit or print actual values)
 
-`JWT_SECRET`, `APP_SESSION_SECRET`, `ANTHROPIC_API_KEY`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
+`JWT_SECRET`, `APP_SESSION_SECRET`, `ANTHROPIC_API_KEY`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
 
 ## Verification patterns that work here
 

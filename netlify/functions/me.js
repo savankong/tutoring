@@ -1,6 +1,6 @@
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
-import { capturesUsedThisPeriod, isInOverage } from '../lib/access.js';
+import { capturesUsedThisPeriod, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
 
 function jsonResponse(status, body) {
@@ -27,6 +27,9 @@ export default async (request) => {
     subscription_status: user.subscription_status,
     captures_used: capturesUsed,
     captures_cap: plan.captureCap,
-    in_overage: isInOverage(user, capturesUsed),
+    grace_buffer: plan.graceBuffer,
+    credits_allowed: plan.creditsAllowed,
+    credit_balance: user.credit_balance ?? 0,
+    using_credits: isDrawingOnCredits(user, capturesUsed),
   });
 };

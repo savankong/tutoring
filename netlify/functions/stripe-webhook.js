@@ -46,6 +46,27 @@ export default async (request) => {
   switch (event.type) {
     case 'checkout.session.completed': {
       const session = event.data.object;
+
+      if (session.mode === 'payment' && session.metadata?.type === 'credit_purchase') {
+        const userId = session.metadata.user_id;
+        const credits = parseInt(session.metadata.credits, 10);
+        if (userId && Number.isFinite(credits) && credits > 0) {
+          // ON CONFLICT DO NOTHING makes this idempotent — if Stripe retries
+          // the event, the second insert is skipped and the balance isn't
+          // double-credited.
+          const [inserted] = await db.sql`
+            INSERT INTO credit_purchases (user_id, stripe_checkout_session_id, credits, amount_cents)
+            VALUES (${userId}, ${session.id}, ${credits}, ${session.amount_total ?? 0})
+            ON CONFLICT (stripe_checkout_session_id) DO NOTHING
+            RETURNING id
+          `;
+          if (inserted) {
+            await db.sql`UPDATE users SET credit_balance = credit_balance + ${credits} WHERE id = ${userId}`;
+          }
+        }
+        break;
+      }
+
       const userId = session.client_reference_id;
       if (userId && session.customer) {
         let currentPeriodStart = null;
@@ -87,10 +108,13 @@ export default async (request) => {
       const subscription = event.data.object;
       // Cancellation drops back to Free rather than cutting off access
       // entirely — same as Netlify: stop paying, keep a capped free tier.
+      // Purchased credits are a paid-plan perk (they roll over "as long as
+      // you remain on a paid plan"), so they're forfeited on downgrade.
       await db.sql`
         UPDATE users
         SET subscription_status = 'canceled',
-            plan = 'free'
+            plan = 'free',
+            credit_balance = 0
         WHERE stripe_customer_id = ${subscription.customer}
       `;
       break;

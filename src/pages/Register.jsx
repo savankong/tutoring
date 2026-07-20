@@ -5,7 +5,7 @@ import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
 import { PLANS } from '../lib/plans.js';
 
-const PAID_PLAN_KEYS = new Set(['personal', 'pro']);
+const PAID_PLAN_KEYS = new Set(['starter', 'personal', 'pro']);
 
 function Register() {
   const { refresh } = useAuthContext();

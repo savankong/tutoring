@@ -1,29 +1,23 @@
 import Anthropic from '@anthropic-ai/sdk';
-import Stripe from 'stripe';
 import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
-import { OVERAGE_UNIT_CENTS, capturesUsedThisPeriod, isCapped } from '../lib/access.js';
+import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
-/** Best-effort overage charge — a paying user's capture must never be
- * blocked by a billing hiccup, so failures here are logged, not thrown. */
-async function billOverageCapture(user, captureNumber) {
-  if (!user.stripe_customer_id || !user.stripe_subscription_id) return;
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) return;
+/** Best-effort credit debit — a capture that's already been allowed through
+ * isCapped must never be blocked by a billing hiccup after the fact, so
+ * failures here are logged, not thrown. Guarded by credit_balance > 0 so
+ * concurrent requests can't drive the balance negative. */
+async function debitCredit(db, user) {
   try {
-    const stripe = new Stripe(secretKey);
-    await stripe.invoiceItems.create({
-      customer: user.stripe_customer_id,
-      subscription: user.stripe_subscription_id,
-      amount: OVERAGE_UNIT_CENTS,
-      currency: 'usd',
-      description: `Overage capture #${captureNumber}`,
-    });
+    await db.sql`
+      UPDATE users SET credit_balance = credit_balance - 1
+      WHERE id = ${user.id} AND credit_balance > 0
+    `;
   } catch (err) {
-    console.error('billOverageCapture failed:', err);
+    console.error('debitCredit failed:', err);
   }
 }
 
@@ -111,14 +105,14 @@ export default async (request) => {
   }
   const plan = planFor(user);
   const capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
-  // Paid tiers are never blocked — past captureCap + graceBuffer they're
-  // billed for overage instead (see billOverageCapture below). Free tier has
-  // no Stripe subscription to bill, so it keeps a hard cap.
+  // Free tier hits a hard cap. Paid tiers get a grace buffer beyond their
+  // cap, then draw down purchased credits (see debitCredit below) — once
+  // both are exhausted they're capped too.
   if (isCapped(user, capturesUsedBefore)) {
-    return jsonResponse(402, {
-      error: `You've used all ${plan.captureCap} captures for this month.`,
-      reason: 'cap_reached',
-    });
+    const error = plan.creditsAllowed
+      ? `You've used all ${plan.captureCap + plan.graceBuffer} captures (including your grace buffer) for this month. Buy credits to keep going.`
+      : `You've used all ${plan.captureCap} captures for this month.`;
+    return jsonResponse(402, { error, reason: 'cap_reached' });
   }
 
   let body;
@@ -173,9 +167,8 @@ export default async (request) => {
       VALUES (${user.id}, ${title}, ${answer}, ${explanation})
     `;
 
-    const captureNumber = capturesUsedBefore + 1;
-    if (plan.overageAllowed && captureNumber > plan.captureCap + plan.graceBuffer) {
-      await billOverageCapture(user, captureNumber);
+    if (isDrawingOnCredits(user, capturesUsedBefore)) {
+      await debitCredit(db, user);
     }
 
     return jsonResponse(200, { answer, explanation });

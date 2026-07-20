@@ -106,6 +106,145 @@
   }
 }
 
+.account-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card-bg);
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.account-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.account-card-title {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.account-card-sub {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.account-plan-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.account-plan-price span {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.account-card-actions {
+  margin-top: 14px;
+}
+
+.account-usage-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--text-h);
+}
+
+.account-usage-credits-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+.account-progress {
+  margin-top: 8px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  overflow: hidden;
+}
+
+.account-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.account-credit-balance {
+  margin: 10px 0 14px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.modal-card h3 {
+  margin: 0 0 8px;
+  color: var(--text-h);
+}
+
+.modal-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--text-h);
+}
+
+.modal-qty-row input {
+  width: 64px;
+  text-align: center;
+}
+
+.modal-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.modal-summary-row:last-of-type {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
 /* Height is capped in viewport units (not aspect-ratio) so the frame
    never pushes the rest of the flow below the fold on a phone screen. */
 .media-frame {

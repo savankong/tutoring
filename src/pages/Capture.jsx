@@ -23,7 +23,8 @@ function Capture() {
   const [upgradeReason, setUpgradeReason] = useState('');
   const [answer, setAnswer] = useState('');
   const [explanation, setExplanation] = useState('');
-  const [explanationOpen, setExplanationOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('answer'); // answer, explanation
+  const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
 
   useEffect(() => {
@@ -39,6 +40,16 @@ function Capture() {
   useEffect(() => {
     primaryButtonRef.current?.focus();
   }, [status]);
+
+  // Real elapsed time, not a fake typing animation — we only get the full
+  // answer once Claude's done, so "Thinking... Ns" / "Thought for Ns" is
+  // the honest version of the streaming indicator this is modeled on.
+  useEffect(() => {
+    if (!ocrPending) return;
+    setThinkingSeconds(0);
+    const interval = setInterval(() => setThinkingSeconds((s) => s + 1), 1000);
+    return () => clearInterval(interval);
+  }, [ocrPending]);
 
   const startCamera = async () => {
     try {
@@ -80,7 +91,7 @@ function Capture() {
     setImage(dataUrl);
     setAnswer('');
     setExplanation('');
-    setExplanationOpen(false);
+    setActiveTab('answer');
     setOcrError('');
     setUpgradeReason('');
     answerEditedRef.current = false;
@@ -129,13 +140,13 @@ function Capture() {
     setUpgradeReason('');
     setAnswer('');
     setExplanation('');
-    setExplanationOpen(false);
+    setActiveTab('answer');
     answerEditedRef.current = false;
     startCamera(); // stream was released after the last capture — reacquire it
   };
 
   return (
-    <div className="App">
+    <div className={`App${status === 'done' ? ' has-sticky-actions' : ''}`}>
       <div className="top-nav">
         <span className="top-nav-email">{user?.email}</span>
         <Link to="/history">History</Link>
@@ -160,20 +171,42 @@ function Capture() {
         <div className="media-frame-corner media-frame-corner-br" />
       </div>
 
-      {/* "New Question" is the most important control once an answer is up —
-          it goes right after the photo, above the answer text, so the tutor
-          can keep moving without scrolling past a longer explanation. */}
-      {status === 'done' && (
-        <div className="actions">
-          <button ref={primaryButtonRef} className="pill-action-button" onClick={nextQuestion}>
-            New Question
-          </button>
-        </div>
-      )}
-
       {status === 'done' && (
         <div>
-          <h3>Answer {ocrPending && <span className="pending-tag">thinking…</span>}</h3>
+          <div className="capture-tabs">
+            <button
+              type="button"
+              className={`capture-tab${activeTab === 'answer' ? ' capture-tab-active' : ''}`}
+              onClick={() => setActiveTab('answer')}
+            >
+              Answer
+            </button>
+            <button
+              type="button"
+              className={`capture-tab${activeTab === 'explanation' ? ' capture-tab-active' : ''}`}
+              onClick={() => setActiveTab('explanation')}
+            >
+              Explanation
+            </button>
+          </div>
+
+          <div className="thinking-indicator">
+            {ocrPending ? (
+              <>
+                <span className="thinking-spinner" />
+                <span>Thinking… {thinkingSeconds}s</span>
+              </>
+            ) : (
+              !ocrError &&
+              !upgradeReason && (
+                <>
+                  <span className="thinking-check">✓</span>
+                  <span>Thought for {thinkingSeconds}s</span>
+                </>
+              )
+            )}
+          </div>
+
           {ocrError && <p className="error-text">{ocrError}</p>}
           {upgradeReason && (
             <p className="error-text">
@@ -183,35 +216,37 @@ function Capture() {
               <Link to="/account">Upgrade to keep going</Link>
             </p>
           )}
-          <textarea
-            className="answer-display"
-            value={answer}
-            onChange={(e) => {
-              answerEditedRef.current = true;
-              setAnswer(e.target.value);
-            }}
-            rows={answerRows(answer)}
-            placeholder="The answer will appear here — edit as needed..."
-          />
-          {explanation && (
-            <div className="explanation-accordion">
-              <button
-                type="button"
-                className="explanation-toggle"
-                onClick={() => setExplanationOpen((v) => !v)}
-                aria-expanded={explanationOpen}
-                aria-label={explanationOpen ? 'Hide explanation' : 'Show explanation'}
-              >
-                <span>Why?</span>
-                <span className={`faq-toggle-icon${explanationOpen ? ' faq-toggle-icon-open' : ''}`}>+</span>
-              </button>
-              {explanationOpen && <div className="explanation-body">{explanation}</div>}
+
+          {activeTab === 'answer' ? (
+            <div className="tab-content" key={`answer-${image}`}>
+              <textarea
+                className="answer-display"
+                value={answer}
+                onChange={(e) => {
+                  answerEditedRef.current = true;
+                  setAnswer(e.target.value);
+                }}
+                rows={answerRows(answer)}
+                placeholder="The answer will appear here — edit as needed..."
+              />
+            </div>
+          ) : (
+            <div className="tab-content explanation-body" key={`explanation-${image}`}>
+              {explanation || (ocrPending ? 'Working it out…' : 'No additional explanation for this one.')}
             </div>
           )}
         </div>
       )}
 
-      {status !== 'done' && (
+      {status === 'done' ? (
+        <div className="sticky-actions">
+          <div className="actions">
+            <button ref={primaryButtonRef} className="pill-action-button" onClick={nextQuestion}>
+              New Question
+            </button>
+          </div>
+        </div>
+      ) : (
         <div className="actions">
           {status === 'idle' && (
             <button ref={primaryButtonRef} className="pill-action-button" onClick={startCamera}>

@@ -106,6 +106,164 @@
   }
 }
 
+/* Usage & billing summary — mobile-first: stat tiles stack in a single
+   column by default and wrap into a row once there's room via auto-fit,
+   no explicit breakpoint needed. */
+.billing-summary-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card-bg);
+  padding: 16px;
+  margin: 18px 0 12px;
+}
+
+.billing-summary-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-h);
+  word-break: break-word;
+}
+
+.billing-plan-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.billing-summary-sub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.billing-stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 14px 0 12px;
+}
+
+.billing-stat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--accent-bg);
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.billing-stat-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.billing-stat-arrow {
+  opacity: 0.55;
+}
+
+.billing-stat-value {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.billing-learn-more {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--text-h);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.account-section-head {
+  margin: 20px 0 4px;
+}
+
+.account-section-head h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.account-section-head p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.account-feature-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--text);
+}
+
+.account-feature-list li::before {
+  content: '✓ ';
+  color: var(--text-h);
+}
+
+.account-credit-balance-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 4px;
+}
+
+.account-balance-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+.account-breakdown {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account-breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.account-breakdown-row span:last-child {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
 .account-card {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -185,7 +343,6 @@
 }
 
 .account-credit-balance {
-  margin: 10px 0 14px;
   font-size: 26px;
   font-weight: 700;
   color: var(--text-h);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
@@ -6,6 +6,24 @@ import { PLANS, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.j
 
 const UPGRADE_PLANS = PLANS.filter((p) => p.key === 'starter' || p.key === 'personal' || p.key === 'pro');
 const PACK_PRICE = CREDIT_PACK_PRICE_CENTS / 100;
+const SHORT_DATE = { month: 'short', day: 'numeric' };
+const LONG_DATE = { month: 'long', day: 'numeric', year: 'numeric' };
+
+function currentPeriodBounds(periodStartIso) {
+  if (periodStartIso) {
+    const start = new Date(periodStartIso);
+    const end = new Date(start);
+    end.setMonth(end.getMonth() + 1);
+    return { start, end };
+  }
+  // No subscription period on record (Free tier) — usage resets on the
+  // calendar month instead, so mirror that here for display.
+  const now = new Date();
+  return {
+    start: new Date(now.getFullYear(), now.getMonth(), 1),
+    end: new Date(now.getFullYear(), now.getMonth() + 1, 0),
+  };
+}
 
 function Account() {
   const { user, refresh } = useAuthContext();
@@ -15,6 +33,11 @@ function Account() {
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [packQty, setPackQty] = useState(1);
   const [purchasing, setPurchasing] = useState(false);
+
+  const planSectionRef = useRef(null);
+  const usageSectionRef = useRef(null);
+  const creditsSectionRef = useRef(null);
+  const scrollToSection = (ref) => ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   const startCheckout = async (planKey) => {
     setError('');
@@ -85,6 +108,15 @@ function Account() {
   const totalCredits = packQty * CREDIT_PACK_SIZE;
   const totalCost = (packQty * PACK_PRICE).toFixed(2);
 
+  const { start: periodStart, end: periodEnd } = currentPeriodBounds(user.current_period_start);
+  const inPlanUsed = Math.min(user.captures_used, user.captures_cap);
+  const graceUsed = user.credits_allowed
+    ? Math.max(0, Math.min(user.captures_used - user.captures_cap, user.grace_buffer))
+    : 0;
+  const creditsUsed = user.credits_allowed
+    ? Math.max(0, user.captures_used - user.captures_cap - user.grace_buffer)
+    : 0;
+
   const closeModal = () => {
     if (purchasing) return;
     setShowPurchaseModal(false);
@@ -104,11 +136,48 @@ function Account() {
       </h1>
       <h2 className="page-title">Account</h2>
 
-      <p>{user.email}</p>
-
       {error && <p className="error-text">{error}</p>}
 
-      <div className="account-card">
+      <div className="billing-summary-card">
+        <div className="billing-summary-title">
+          Usage &amp; billing for {user.email}
+          <span className="billing-plan-badge">{user.plan_name}</span>
+        </div>
+        <div className="billing-summary-sub">
+          Current period runs from {periodStart.toLocaleDateString(undefined, SHORT_DATE)} to{' '}
+          {periodEnd.toLocaleDateString(undefined, SHORT_DATE)}.
+        </div>
+
+        <div className="billing-stat-row">
+          <button className="billing-stat-tile" onClick={() => scrollToSection(usageSectionRef)}>
+            <span className="billing-stat-label">
+              Captures used <span className="billing-stat-arrow">→</span>
+            </span>
+            <span className="billing-stat-value">
+              {inPlanUsed}/{user.captures_cap}
+            </span>
+          </button>
+          {user.credits_allowed && (
+            <button className="billing-stat-tile" onClick={() => scrollToSection(creditsSectionRef)}>
+              <span className="billing-stat-label">
+                Credits available <span className="billing-stat-arrow">→</span>
+              </span>
+              <span className="billing-stat-value">{user.credit_balance.toLocaleString()}</span>
+            </button>
+          )}
+        </div>
+
+        <Link to="/pricing" className="billing-learn-more">
+          Learn more about plans on the pricing page ↗
+        </Link>
+      </div>
+
+      <div className="account-section-head">
+        <h3>Current services</h3>
+        <p>Plan details and usage for your Cambo App account</p>
+      </div>
+
+      <div className="account-card" id="plan" ref={planSectionRef}>
         <div className="account-card-head">
           <div>
             <div className="account-card-title">Plan details</div>
@@ -125,48 +194,88 @@ function Account() {
             </div>
           )}
         </div>
-        {isActive && (
-          <div className="actions account-card-actions">
-            <button disabled={busyKey === 'portal'} onClick={openPortal}>
-              {busyKey === 'portal' ? 'Loading…' : 'Manage billing'}
-            </button>
-            <Link to="/pricing" className="pill-button pill-button-outline pill-button-sm">
-              Change plan
-            </Link>
-          </div>
+        {currentPlan && (
+          <ul className="account-feature-list">
+            {currentPlan.features.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
         )}
+        <div className="actions account-card-actions">
+          {isActive ? (
+            <>
+              <button disabled={busyKey === 'portal'} onClick={openPortal}>
+                {busyKey === 'portal' ? 'Loading…' : 'Manage billing'}
+              </button>
+              <Link to="/pricing" className="pill-button pill-button-outline pill-button-sm">
+                Change plan
+              </Link>
+            </>
+          ) : (
+            <Link to="/pricing" className="pill-button pill-button-sm">
+              Upgrade plan
+            </Link>
+          )}
+        </div>
       </div>
 
-      <div className="account-card">
-        <div className="account-card-title">Usage this month</div>
+      <div className="account-card" id="usage" ref={usageSectionRef}>
+        <div className="account-card-title">Usage this period</div>
+        <div className="account-card-sub">Capture consumption may take a minute to reflect.</div>
         <div className="account-usage-row">
           <span>
-            {Math.min(user.captures_used, user.captures_cap)} / {user.captures_cap} captures
+            {inPlanUsed} / {user.captures_cap} captures
           </span>
           {user.using_credits && <span className="account-usage-credits-tag">using credits</span>}
         </div>
         <div className="account-progress">
           <div className="account-progress-bar" style={{ width: `${capPercent}%` }} />
         </div>
-        {user.credits_allowed && user.grace_buffer > 0 && (
-          <p className="account-cancel-note">
-            Includes a {user.grace_buffer}-capture grace buffer before credits are used.
-          </p>
-        )}
+
+        <div className="account-breakdown">
+          <div className="account-breakdown-row">
+            <span>Included in plan</span>
+            <span>
+              {inPlanUsed} / {user.captures_cap}
+            </span>
+          </div>
+          {user.credits_allowed && user.grace_buffer > 0 && (
+            <div className="account-breakdown-row">
+              <span>Grace buffer</span>
+              <span>
+                {graceUsed} / {user.grace_buffer}
+              </span>
+            </div>
+          )}
+          {user.credits_allowed && creditsUsed > 0 && (
+            <div className="account-breakdown-row">
+              <span>From credits</span>
+              <span>{creditsUsed}</span>
+            </div>
+          )}
+        </div>
       </div>
 
       {user.credits_allowed && (
-        <div className="account-card">
-          <div className="account-card-head">
-            <div>
-              <div className="account-card-title">Credit balance</div>
-              <div className="account-card-sub">Rolls over every month while you're on a paid plan.</div>
-            </div>
+        <div className="account-card" id="credits" ref={creditsSectionRef}>
+          <div className="account-card-title">Credit balance</div>
+          <div className="account-card-sub">
+            Credits are spent once your monthly cap and grace buffer run out, in the order they were purchased.
           </div>
-          <div className="account-credit-balance">{user.credit_balance.toLocaleString()} credits</div>
-          <button className="pill-button pill-button-sm" onClick={() => setShowPurchaseModal(true)}>
-            Purchase credits
-          </button>
+          <div className="account-credit-balance-row">
+            <span className="account-credit-balance">{user.credit_balance.toLocaleString()}</span>
+            <span className="account-balance-tag">No expiration on a paid plan</span>
+          </div>
+          {user.last_credit_purchase && (
+            <div className="account-card-sub">
+              Last purchased {new Date(user.last_credit_purchase).toLocaleDateString(undefined, LONG_DATE)}
+            </div>
+          )}
+          <div className="actions account-card-actions">
+            <button className="pill-button pill-button-sm" onClick={() => setShowPurchaseModal(true)}>
+              Purchase credits
+            </button>
+          </div>
         </div>
       )}
 

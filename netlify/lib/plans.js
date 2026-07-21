@@ -57,6 +57,23 @@ export const PLANS = {
     priceEnvVar: 'STRIPE_PRICE_PRO',
     features: ['Everything in Personal, plus:', '180 captures a month', 'Largest grace buffer', 'Priority support'],
   },
+  // Admin-granted only — never sold, no Stripe price, not shown on the
+  // public pricing page (absent from src/lib/plans.js on purpose).
+  // captureCap: Infinity makes isCapped() in access.js always false, and
+  // creditsAllowed: false means captures never draw down a credit balance
+  // either — a true "no cap, no credits needed" comp tier.
+  unlimited: {
+    key: 'unlimited',
+    name: 'Unlimited',
+    priceLabel: 'Comp',
+    periodLabel: '',
+    tagline: 'Admin-granted — no cap, no credits needed',
+    captureCap: Infinity,
+    graceBuffer: 0,
+    creditsAllowed: false,
+    priceEnvVar: null,
+    features: ['Unlimited captures', 'No credits required', 'Admin-granted only'],
+  },
 };
 
 export const PLAN_ORDER = ['free', 'starter', 'personal', 'pro'];

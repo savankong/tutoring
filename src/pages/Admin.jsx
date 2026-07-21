@@ -7,6 +7,17 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
+// Mirrors the keys in netlify/lib/plans.js — kept as a small local list
+// (not imported) since that file is backend-only. "Unlimited" is the
+// admin-only comp tier: no cap, no credits ever required.
+const PLAN_OPTIONS = [
+  { key: 'free', label: 'Free' },
+  { key: 'starter', label: 'Starter' },
+  { key: 'personal', label: 'Personal' },
+  { key: 'pro', label: 'Pro' },
+  { key: 'unlimited', label: 'Unlimited (comp)' },
+];
+
 function Admin() {
   const { user: me } = useAuthContext();
   const [users, setUsers] = useState(null);
@@ -89,6 +100,7 @@ function Admin() {
                 <th>Email</th>
                 <th>Role</th>
                 <th>Plan</th>
+                <th>Credits</th>
                 <th>Subscription</th>
                 <th>Joined</th>
                 <th></th>
@@ -98,13 +110,25 @@ function Admin() {
               {users.map((u) => {
                 const isSelf = u.id === me.id;
                 const isAdmin = u.role === 'admin';
-                const isPaid = u.subscription_status === 'active';
                 const busy = busyId === u.id;
                 return (
                   <tr key={u.id}>
                     <td>{u.email}</td>
                     <td>{u.role}</td>
-                    <td>{u.plan}</td>
+                    <td>
+                      <select
+                        value={u.plan}
+                        disabled={busy}
+                        onChange={(e) => updateUser(u.id, { plan: e.target.value })}
+                      >
+                        {PLAN_OPTIONS.map((p) => (
+                          <option key={p.key} value={p.key}>
+                            {p.label}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
+                    <td>{u.credit_balance ?? 0}</td>
                     <td>{u.subscription_status}</td>
                     <td>{formatDate(u.created_at)}</td>
                     <td className="admin-row-actions">
@@ -118,9 +142,15 @@ function Admin() {
                       <button
                         className="secondary"
                         disabled={busy}
-                        onClick={() => updateUser(u.id, { subscription_status: isPaid ? 'none' : 'active' })}
+                        onClick={() => {
+                          const input = prompt(`Add how many credits to ${u.email}? (negative to deduct)`, '100');
+                          if (input === null) return;
+                          const amount = parseInt(input, 10);
+                          if (!Number.isInteger(amount) || amount === 0) return;
+                          updateUser(u.id, { add_credits: amount });
+                        }}
                       >
-                        {isPaid ? 'Revoke paid' : 'Grant paid'}
+                        Add credits
                       </button>
                       <button
                         className="secondary"

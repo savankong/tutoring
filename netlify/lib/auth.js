@@ -2,7 +2,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const SESSION_COOKIE = 'session';
-const SESSION_MAX_AGE_DAYS = 30;
+// Long-lived on purpose — me.js reissues this cookie with a fresh expiry on
+// every authenticated load, so an active tutor effectively never gets
+// logged out; only someone who doesn't open the app for 90 straight days
+// falls back to signing in again.
+const SESSION_MAX_AGE_DAYS = 90;
 const OAUTH_STATE_COOKIE = 'oauth_state';
 const OAUTH_STATE_MAX_AGE_SECONDS = 600;
 

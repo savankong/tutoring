@@ -1,12 +1,12 @@
 import { getDatabase } from '@netlify/database';
-import { requireUser } from '../lib/auth.js';
+import { requireUser, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
 
-function jsonResponse(status, body) {
+function jsonResponse(status, body, extraHeaders) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', ...extraHeaders },
   });
 }
 
@@ -29,20 +29,29 @@ export default async (request) => {
     lastCreditPurchase = row?.created_at ?? null;
   }
 
-  return jsonResponse(200, {
-    id: user.id,
-    email: user.email,
-    role: user.role,
-    plan: plan.key,
-    plan_name: plan.name,
-    subscription_status: user.subscription_status,
-    current_period_start: user.current_period_start,
-    captures_used: capturesUsed,
-    captures_cap: plan.captureCap,
-    grace_buffer: plan.graceBuffer,
-    credits_allowed: plan.creditsAllowed,
-    credit_balance: user.credit_balance ?? 0,
-    using_credits: isDrawingOnCredits(user, capturesUsed),
-    last_credit_purchase: lastCreditPurchase,
-  });
+  // Every authenticated load reissues the session cookie with a fresh
+  // expiry — a sliding window so an active tutor never gets logged out,
+  // instead of a fixed expiry counted from the original sign-in.
+  const refreshedToken = signSession(user.id);
+
+  return jsonResponse(
+    200,
+    {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+      plan: plan.key,
+      plan_name: plan.name,
+      subscription_status: user.subscription_status,
+      current_period_start: user.current_period_start,
+      captures_used: capturesUsed,
+      captures_cap: plan.captureCap,
+      grace_buffer: plan.graceBuffer,
+      credits_allowed: plan.creditsAllowed,
+      credit_balance: user.credit_balance ?? 0,
+      using_credits: isDrawingOnCredits(user, capturesUsed),
+      last_credit_purchase: lastCreditPurchase,
+    },
+    { 'set-cookie': sessionCookieHeader(refreshedToken) },
+  );
 };

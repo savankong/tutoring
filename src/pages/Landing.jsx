@@ -55,6 +55,14 @@ const REASONS = [
     body: "No fluff, no extra screens — just capture and answer. Nothing you don't need in the middle of a session.",
   },
   {
+    title: 'Works on any phone',
+    body: 'iPhone or Android, new or old — if it has a camera, Cambo runs right in the browser. No app store, no install.',
+  },
+  {
+    title: 'Less fumbling, more teaching',
+    body: 'One big shutter button and nothing else to hunt for, so you spend less time tapping around and more time with your student.',
+  },
+  {
     title: 'Hands-free capture',
     body: 'Pair a Bluetooth keyboard and trigger Capture without touching the screen, so you can stay focused on your student.',
   },
@@ -66,12 +74,8 @@ const REASONS = [
 
 const FAQS = [
   {
-    q: 'Is this for students?',
-    a: "It's built for tutors running live sessions, not for students doing homework alone. Session history and review features are designed around how tutors work with a student in the room.",
-  },
-  {
     q: 'What subjects does it cover?',
-    a: 'Anything you can photograph: math, science, reading comprehension, test prep. Answer quality is strongest for structured problems with a clear question.',
+    a: 'Any standardized test you can photograph — SAT, ACT, state assessments, entrance exams, professional certification tests, and more. Answer quality is strongest for structured problems with a clear question.',
   },
   {
     q: 'Do I need an account for each device?',
@@ -89,7 +93,7 @@ function Landing() {
   const [screenIndex, setScreenIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
-  const [faqOpen, setFaqOpen] = useState([true, true, false, false]);
+  const [faqOpen, setFaqOpen] = useState([true, false, false]);
 
   if (!loading && user) return <Navigate to="/app" replace />;
 
@@ -140,7 +144,7 @@ function Landing() {
       <section className="hero-section">
         <div className="hero-copy">
           <div className="landing-eyebrow">Built for live tutoring sessions</div>
-          <h1>The answer key in your pocket. Point, tap, keep teaching.</h1>
+          <h1>The answer key in your pocket. Point, tap, keep moving.</h1>
           <p>
             Point your phone at any practice question. Get the answer in seconds. Stay in the room
             with your student instead of working the problem out yourself.
@@ -272,7 +276,7 @@ function Landing() {
 
       <section id="pricing" className="pricing-section">
         <div className="section-eyebrow">Pricing</div>
-        <h2>Build free. Scale when you need it.</h2>
+        <h2>Start using it for free today — no credit card needed.</h2>
         <div className="pricing-card">
           <div className="pricing-amount-row">
             <span className="pricing-amount">$0</span>

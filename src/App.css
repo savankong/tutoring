@@ -504,11 +504,11 @@ button {
   font-weight: 600;
   border-radius: 11px;
   border: 1px solid var(--border);
-  background: var(--accent);
-  color: var(--accent-contrast);
+  background: var(--cta);
+  color: var(--cta-contrast);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(229, 67, 44, 0.45);
 }
 
 button:active {
@@ -529,6 +529,7 @@ button:disabled {
 button.secondary {
   background: transparent;
   color: var(--text-h);
+  border: 1.5px dashed var(--border);
   box-shadow: none;
 }
 
@@ -728,32 +729,6 @@ a:focus-visible {
   margin: 18px 0 14px;
 }
 
-.aspect-toggle {
-  flex: none;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.aspect-toggle-btn {
-  min-height: 32px;
-  padding: 6px 14px;
-  font-size: 12.5px;
-  font-weight: 600;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: none;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.aspect-toggle-btn-active {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(255, 255, 255, 0.92);
-  color: #1d1d1f;
-}
-
 .camera-viewfinder {
   position: relative;
   flex: 1;
@@ -762,20 +737,6 @@ a:focus-visible {
   overflow: hidden;
   background: linear-gradient(160deg, #3a3c40, #0f1012 75%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.camera-viewfinder-square,
-.camera-viewfinder-landscape {
-  flex: none;
-  width: 100%;
-}
-
-.camera-viewfinder-square {
-  aspect-ratio: 1 / 1;
-}
-
-.camera-viewfinder-landscape {
-  aspect-ratio: 4 / 3;
 }
 
 .camera-viewfinder video {
@@ -787,30 +748,55 @@ a:focus-visible {
   display: block;
 }
 
-.camera-viewfinder .media-frame-corner {
-  width: 22px;
-  height: 22px;
-  border-color: rgba(255, 255, 255, 0.85);
+/* Draggable free-form crop — the box-shadow trick dims everything outside
+   the rect without a separate overlay element, clipped to the rounded
+   viewfinder by its overflow: hidden. */
+.crop-rect {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  touch-action: none;
 }
 
-.camera-viewfinder .media-frame-corner-tl,
-.camera-viewfinder .media-frame-corner-tr {
-  top: 18px;
+.crop-handle {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  margin: -14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  touch-action: none;
 }
 
-.camera-viewfinder .media-frame-corner-bl,
-.camera-viewfinder .media-frame-corner-br {
-  bottom: 18px;
+.crop-handle-tl {
+  left: 0;
+  top: 0;
+  cursor: nwse-resize;
 }
 
-.camera-viewfinder .media-frame-corner-tl,
-.camera-viewfinder .media-frame-corner-bl {
-  left: 18px;
+.crop-handle-tr {
+  right: 0;
+  top: 0;
+  left: auto;
+  cursor: nesw-resize;
 }
 
-.camera-viewfinder .media-frame-corner-tr,
-.camera-viewfinder .media-frame-corner-br {
-  right: 18px;
+.crop-handle-bl {
+  left: 0;
+  bottom: 0;
+  top: auto;
+  cursor: nesw-resize;
+}
+
+.crop-handle-br {
+  right: 0;
+  bottom: 0;
+  left: auto;
+  top: auto;
+  cursor: nwse-resize;
 }
 
 .camera-controls {
@@ -1193,23 +1179,36 @@ a:focus-visible {
 }
 
 /* Pill buttons (landing CTAs) */
+/* Same height + padding as the base <button> element by default, so a
+   Link styled as a pill-button always matches a real <button> next to it
+   — pill-button-sm/-lg are deliberate, self-consistent size tiers for
+   tighter contexts (nav) or bigger contexts (hero CTA), not exceptions
+   that leave the button unstyled. */
 .pill-button {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--accent-contrast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background: var(--cta);
+  color: var(--cta-contrast);
   border-radius: 11px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   line-height: 1;
-  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(229, 67, 44, 0.45);
 }
 
 .pill-button-sm {
+  min-height: 38px;
   padding: 9px 18px;
   font-size: 14px;
 }
 
 .pill-button-lg {
+  min-height: 52px;
   padding: 15px 26px;
   font-size: 16px;
 }
@@ -1218,7 +1217,7 @@ a:focus-visible {
   background: transparent;
   color: var(--text-h);
   box-shadow: none;
-  border: 1px solid var(--border);
+  border: 1.5px dashed var(--border);
 }
 
 /* Hero */
@@ -1864,10 +1863,7 @@ a:focus-visible {
 }
 
 .tier-cta a.pill-button {
-  display: block;
   width: 100%;
-  box-sizing: border-box;
-  text-align: center;
 }
 
 .tier-name {

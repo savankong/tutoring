@@ -44,7 +44,7 @@ function Pricing() {
       <section className="pricing-page">
         <div className="pricing-page-head">
           <div className="section-eyebrow">Pricing</div>
-          <h1>Build free. Scale when you need it.</h1>
+          <h1>Start using it for free today — no credit card needed.</h1>
           <p>From an occasional session to a full tutoring practice — plans that grow with how you use it.</p>
         </div>
 

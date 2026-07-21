@@ -12,6 +12,13 @@
   --accent-bg: rgba(29, 29, 31, 0.06);
   --accent-border: rgba(29, 29, 31, 0.3);
   --social-bg: rgba(244, 243, 236, 0.5);
+
+  /* Primary CTA color — pulled from the logo mark's red-orange dot, kept
+     separate from --accent (which drives neutral chrome like badges and
+     borders) so recoloring buttons doesn't ripple into unrelated UI. */
+  --cta: #e5432c;
+  --cta-hover: #cf3a25;
+  --cta-contrast: #fff;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 

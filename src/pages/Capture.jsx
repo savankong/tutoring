@@ -7,21 +7,34 @@ function answerRows(answer) {
   return Math.min(6, Math.max(2, Math.ceil(answer.length / 30)));
 }
 
-// Portrait has no fixed ratio — the viewfinder just fills the available
-// space, matching the original behavior. Square/landscape crop the native
-// video frame to that exact ratio so the captured photo's dimensions match
-// what's actually framed on screen, instead of always saving the full
-// uncropped camera frame regardless of what the viewfinder shows.
-const ASPECT_RATIOS = { portrait: null, square: 1, landscape: 4 / 3 };
+// Free-form crop, expressed as a percentage of the viewfinder box (not the
+// native video frame) so it's independent of device/camera resolution.
+// Defaults to the full frame — dragging a corner narrows it to whatever
+// size/ratio the tutor wants, no fixed presets.
+const DEFAULT_CROP_RECT = { x: 0, y: 0, w: 100, h: 100 };
+const MIN_CROP_PERCENT = 15;
 
-function cropRectForAspect(video, ratio) {
+// The video fills the viewfinder via object-fit: cover, which crops it to
+// the container's aspect ratio. This maps the on-screen crop rectangle
+// (in viewfinder percentages) to actual source pixels in the native video
+// frame, so the captured photo matches exactly what's inside the
+// rectangle on screen — not just the full uncropped camera frame.
+function nativeCropFromRect(video, containerRect, cropRect) {
   const vw = video.videoWidth;
   const vh = video.videoHeight;
-  if (!ratio) return { sx: 0, sy: 0, sw: vw, sh: vh };
-  const videoRatio = vw / vh;
-  const sw = videoRatio > ratio ? vh * ratio : vw;
-  const sh = videoRatio > ratio ? vh : vw / ratio;
-  return { sx: (vw - sw) / 2, sy: (vh - sh) / 2, sw, sh };
+  const cw = containerRect.width;
+  const ch = containerRect.height;
+  const scale = Math.max(cw / vw, ch / vh);
+  const visibleW = cw / scale;
+  const visibleH = ch / scale;
+  const offsetX = (vw - visibleW) / 2;
+  const offsetY = (vh - visibleH) / 2;
+  return {
+    sx: offsetX + (cropRect.x / 100) * visibleW,
+    sy: offsetY + (cropRect.y / 100) * visibleH,
+    sw: (cropRect.w / 100) * visibleW,
+    sh: (cropRect.h / 100) * visibleH,
+  };
 }
 
 function CameraIcon() {
@@ -64,6 +77,8 @@ function Capture() {
   const answerEditedRef = useRef(false);
   const requestIdRef = useRef(0);
   const primaryButtonRef = useRef(null);
+  const viewfinderRef = useRef(null);
+  const dragCornerRef = useRef(null); // 'tl' | 'tr' | 'bl' | 'br' | null
 
   const [image, setImage] = useState(null);
   const [ocrPending, setOcrPending] = useState(false);
@@ -75,7 +90,7 @@ function Capture() {
   const [activeTab, setActiveTab] = useState('answer'); // answer, explanation
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
-  const [aspect, setAspect] = useState('portrait'); // portrait, square, landscape
+  const [cropRect, setCropRect] = useState(DEFAULT_CROP_RECT);
 
   useEffect(() => {
     return () => {
@@ -168,10 +183,55 @@ function Capture() {
       });
   };
 
+  // Dragging a corner moves that corner while its opposite edge stays put,
+  // clamped so the box can't invert or shrink past a usable minimum.
+  const dragCropCorner = (corner, clientX, clientY) => {
+    const containerRect = viewfinderRef.current?.getBoundingClientRect();
+    if (!containerRect) return;
+    const px = Math.min(100, Math.max(0, ((clientX - containerRect.left) / containerRect.width) * 100));
+    const py = Math.min(100, Math.max(0, ((clientY - containerRect.top) / containerRect.height) * 100));
+
+    setCropRect((prev) => {
+      const right = prev.x + prev.w;
+      const bottom = prev.y + prev.h;
+      if (corner === 'tl') {
+        const x = Math.min(px, right - MIN_CROP_PERCENT);
+        const y = Math.min(py, bottom - MIN_CROP_PERCENT);
+        return { x, y, w: right - x, h: bottom - y };
+      }
+      if (corner === 'tr') {
+        const y = Math.min(py, bottom - MIN_CROP_PERCENT);
+        return { x: prev.x, y, w: Math.max(MIN_CROP_PERCENT, px - prev.x), h: bottom - y };
+      }
+      if (corner === 'bl') {
+        const x = Math.min(px, right - MIN_CROP_PERCENT);
+        return { x, y: prev.y, w: right - x, h: Math.max(MIN_CROP_PERCENT, py - prev.y) };
+      }
+      // br
+      return { x: prev.x, y: prev.y, w: Math.max(MIN_CROP_PERCENT, px - prev.x), h: Math.max(MIN_CROP_PERCENT, py - prev.y) };
+    });
+  };
+
+  const startCornerDrag = (corner) => (e) => {
+    e.preventDefault();
+    dragCornerRef.current = corner;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const onCornerPointerMove = (corner) => (e) => {
+    if (dragCornerRef.current !== corner) return;
+    dragCropCorner(corner, e.clientX, e.clientY);
+  };
+
+  const endCornerDrag = () => {
+    dragCornerRef.current = null;
+  };
+
   const captureAndAnalyze = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    const { sx, sy, sw, sh } = cropRectForAspect(video, ASPECT_RATIOS[aspect]);
+    const containerRect = viewfinderRef.current.getBoundingClientRect();
+    const { sx, sy, sw, sh } = nativeCropFromRect(video, containerRect, cropRect);
     canvas.width = sw;
     canvas.height = sh;
     canvas.getContext('2d').drawImage(video, sx, sy, sw, sh, 0, 0, sw, sh);
@@ -216,6 +276,7 @@ function Capture() {
     setWhyOthersWrong('');
     setActiveTab('answer');
     answerEditedRef.current = false;
+    setCropRect(DEFAULT_CROP_RECT);
     startCamera(); // stream was released after the last capture — reacquire it
   };
 
@@ -233,28 +294,33 @@ function Capture() {
           </div>
 
           <p className="camera-instruction">
-            {status === 'live' ? 'Frame the question. Hold steady.' : 'Start your camera to scan a question.'}
+            {status === 'live'
+              ? 'Frame the question. Drag a corner to resize.'
+              : 'Start your camera to scan a question.'}
           </p>
 
-          <div className="aspect-toggle" role="group" aria-label="Capture dimensions">
-            {Object.keys(ASPECT_RATIOS).map((key) => (
-              <button
-                key={key}
-                type="button"
-                className={`aspect-toggle-btn${aspect === key ? ' aspect-toggle-btn-active' : ''}`}
-                onClick={() => setAspect(key)}
-              >
-                {key === 'portrait' ? 'Portrait' : key === 'square' ? 'Square' : 'Landscape'}
-              </button>
-            ))}
-          </div>
-
-          <div className={`camera-viewfinder camera-viewfinder-${aspect}`}>
+          <div className="camera-viewfinder" ref={viewfinderRef}>
             <video ref={videoRef} playsInline muted />
-            <div className="media-frame-corner media-frame-corner-tl" />
-            <div className="media-frame-corner media-frame-corner-tr" />
-            <div className="media-frame-corner media-frame-corner-bl" />
-            <div className="media-frame-corner media-frame-corner-br" />
+            <div
+              className="crop-rect"
+              style={{
+                left: `${cropRect.x}%`,
+                top: `${cropRect.y}%`,
+                width: `${cropRect.w}%`,
+                height: `${cropRect.h}%`,
+              }}
+            >
+              {['tl', 'tr', 'bl', 'br'].map((corner) => (
+                <div
+                  key={corner}
+                  className={`crop-handle crop-handle-${corner}`}
+                  onPointerDown={startCornerDrag(corner)}
+                  onPointerMove={onCornerPointerMove(corner)}
+                  onPointerUp={endCornerDrag}
+                  onPointerCancel={endCornerDrag}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="camera-controls">
@@ -359,7 +425,7 @@ function Capture() {
                     setAnswer(e.target.value);
                   }}
                   rows={answerRows(answer)}
-                  placeholder="The answer will appear here — edit as needed..."
+                  placeholder="The answer will appear here…"
                 />
               </div>
             ) : (

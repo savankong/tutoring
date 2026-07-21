@@ -71,6 +71,6 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 
 ## House rules
 
-- Never push to git remote or deploy destructively without asking.
+- **Deploys are automatic — don't ask first.** Once a change is implemented and verified (build passes, `node --check` on modified functions, UI driven in the Browser pane where applicable), commit locally and run the `netlify deploy --prod` command above without stopping to confirm. This does not extend to git remote pushes/PRs (still never do that unless explicitly asked) or to creating/editing live Stripe Products or Prices (still needs explicit confirmation of exact numbers every time).
 - Never enter real payment/financial credentials anywhere, and never complete a real money transaction.
 - When something is ambiguous or costly to get wrong (pricing, tier structure, copy), ask before building. If there's no immediate answer, state the assumption clearly and proceed rather than blocking.

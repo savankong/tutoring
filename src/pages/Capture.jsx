@@ -54,6 +54,7 @@ function Capture() {
   const [upgradeReason, setUpgradeReason] = useState('');
   const [answer, setAnswer] = useState('');
   const [explanation, setExplanation] = useState('');
+  const [whyOthersWrong, setWhyOthersWrong] = useState('');
   const [activeTab, setActiveTab] = useState('answer'); // answer, explanation
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
@@ -107,6 +108,7 @@ function Capture() {
     setImage(dataUrl);
     setAnswer('');
     setExplanation('');
+    setWhyOthersWrong('');
     setActiveTab('answer');
     setOcrError('');
     setUpgradeReason('');
@@ -134,6 +136,7 @@ function Capture() {
         if (!res.ok) throw new Error(data.error || 'Request failed');
         if (!answerEditedRef.current) setAnswer(data.answer || '');
         setExplanation(data.explanation || '');
+        setWhyOthersWrong(data.why_others_wrong || '');
       })
       .catch((err) => {
         if (requestIdRef.current !== requestId) return;
@@ -191,6 +194,7 @@ function Capture() {
     setUpgradeReason('');
     setAnswer('');
     setExplanation('');
+    setWhyOthersWrong('');
     setActiveTab('answer');
     answerEditedRef.current = false;
     startCamera(); // stream was released after the last capture — reacquire it
@@ -328,7 +332,22 @@ function Capture() {
               </div>
             ) : (
               <div className="tab-content explanation-body" key={`explanation-${image}`}>
-                {explanation || (ocrPending ? 'Working it out…' : 'No additional explanation for this one.')}
+                {explanation ? (
+                  <>
+                    <div className="explanation-section">
+                      <div className="explanation-section-title">Why "{answer}" is correct</div>
+                      <p>{explanation}</p>
+                    </div>
+                    {whyOthersWrong && (
+                      <div className="explanation-section">
+                        <div className="explanation-section-title">Why the other answers aren't correct</div>
+                        <p>{whyOthersWrong}</p>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <p>{ocrPending ? 'Working it out…' : 'No additional explanation for this one.'}</p>
+                )}
               </div>
             )}
           </div>

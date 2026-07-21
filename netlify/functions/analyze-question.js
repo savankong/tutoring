@@ -42,10 +42,15 @@ const RESPONSE_SCHEMA = {
     explanation: {
       type: 'string',
       description:
-        '1-2 sentence explanation of why this is the answer — brief but real reasoning a tutor could read aloud to a student. Optional supporting detail, not the primary output; empty string if no question is visible.',
+        'A thorough explanation of why the answer is correct — full step-by-step reasoning a tutor could walk a student through, not a one-liner. Lead with what makes this the right answer, then justify it completely (the relevant rule, calculation, or pattern, worked through in full). Empty string if no question is visible.',
+    },
+    why_others_wrong: {
+      type: 'string',
+      description:
+        'For multiple-choice questions only: a thorough, separate explanation of why each of the OTHER options is incorrect. Go through every remaining option one at a time (e.g. "A is wrong because...", "B is wrong because...") and give the full reasoning for why each fails — not just "doesn\'t match," explain the specific error, miscalculation, or broken rule in that option. Leave empty for open-ended/non-multiple-choice questions, or if no question is visible.',
     },
   },
-  required: ['title', 'pattern_analysis', 'answer', 'explanation'],
+  required: ['title', 'pattern_analysis', 'answer', 'explanation', 'why_others_wrong'],
   additionalProperties: false,
 };
 
@@ -55,7 +60,8 @@ const PROMPT = [
   'Find the actual question — it is often preceded by a marker like "81. Question" — and solve it.',
   'If it is a pattern/matrix/sequence/spatial-reasoning question (e.g. "which figure completes the pattern"), be rigorous: check every row AND every column of the matrix independently for shape, count, shading, size, and rotation changes before choosing — do not guess from a partial glance.',
   'The answer field must be as short as possible — no explanations there.',
-  'Separately, in the explanation field, give a brief 1-2 sentence explanation of the reasoning — short, but real enough for a tutor to read aloud.',
+  'The explanation field leads with the answer already given, then gives the complete, thorough reasoning for why it is correct — show the logic in full, as if teaching it, not a quick summary.',
+  'If the question is multiple choice, separately fill in why_others_wrong: go through every other option individually and explain in full, logical detail exactly why each one is incorrect (the specific mistake, miscalculation, or broken rule it represents), with the same rigor as the correct-answer explanation. If the question is not multiple choice, leave why_others_wrong as an empty string.',
 ].join(' ');
 
 function jsonResponse(status, body) {
@@ -162,16 +168,17 @@ export default async (request) => {
     const answer = parsed.answer ?? '';
     const title = parsed.title ?? '';
     const explanation = parsed.explanation ?? '';
+    const whyOthersWrong = parsed.why_others_wrong ?? '';
     await db.sql`
-      INSERT INTO captures (user_id, title, answer, explanation)
-      VALUES (${user.id}, ${title}, ${answer}, ${explanation})
+      INSERT INTO captures (user_id, title, answer, explanation, why_others_wrong)
+      VALUES (${user.id}, ${title}, ${answer}, ${explanation}, ${whyOthersWrong})
     `;
 
     if (isDrawingOnCredits(user, capturesUsedBefore)) {
       await debitCredit(db, user);
     }
 
-    return jsonResponse(200, { answer, explanation });
+    return jsonResponse(200, { answer, explanation, why_others_wrong: whyOthersWrong });
   } catch (err) {
     console.error('analyze-question error:', err);
     const status = typeof err?.status === 'number' ? err.status : 500;

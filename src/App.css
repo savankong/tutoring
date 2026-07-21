@@ -571,6 +571,23 @@ a:focus-visible {
   min-height: 90px;
 }
 
+.explanation-body p {
+  margin: 0;
+}
+
+.explanation-section + .explanation-section {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.explanation-section-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-h);
+  margin-bottom: 6px;
+}
+
 .capture-tabs {
   display: flex;
   gap: 4px;

@@ -44,15 +44,6 @@ export const PLANS = [
     features: ['Everything in Personal, plus:', '180 captures a month', 'Largest grace buffer', 'Priority support'],
     cta: 'Get started',
   },
-  {
-    key: 'team',
-    name: 'Team',
-    price: 'Custom',
-    period: 'contact us',
-    tagline: 'Multiple tutors, one account',
-    features: ['Everything in Pro, plus:', 'Multiple tutor seats', 'Centralized billing', 'Dedicated support'],
-    cta: 'Contact sales',
-  },
 ];
 
 // Add-on credit pack — buyable by any paid-plan subscriber once they run

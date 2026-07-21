@@ -45,7 +45,8 @@ AI camera-capture app for tutors: point your phone at a practice question, get t
 | Starter | $4.99/mo (`STRIPE_PRICE_STARTER`) | 45/mo | 5 | draw down credits, then block |
 | Personal | $9.99/mo (`STRIPE_PRICE_PERSONAL`) | 90/mo | 10 | draw down credits, then block |
 | Pro | $19.99/mo (`STRIPE_PRICE_PRO`) | 180/mo | 20 | draw down credits, then block |
-| Team | contact sales, no Stripe price | — | — | — |
+
+No Team/Enterprise tier — Free/Starter/Personal/Pro is the whole ladder.
 
 Cap + grace per paid tier is sized so worst-case per-capture cost (~$0.075 at `claude-opus-4-8` rates: large gallery image + hardest reasoning) never exceeds ~75% of the plan price — do the same math before changing any cap or price (see `netlify/lib/plans.js` comment for the derivation).
 

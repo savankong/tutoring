@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import SiteNav from '../components/SiteNav.jsx';
 import { PLANS } from '../lib/plans.js';
@@ -51,36 +51,46 @@ function Pricing() {
         {error && <p className="pricing-page-error error-text">{error}</p>}
 
         <div className="tier-grid">
-          {PLANS.map((tier) => (
-            <div className={`tier-card${tier.featured ? ' tier-card-featured' : ''}`} key={tier.key}>
-              {tier.featured && <span className="tier-badge">Best value</span>}
-              <div className="tier-name">{tier.name}</div>
-              <div className="tier-tagline">{tier.tagline}</div>
-              <div className="tier-price-row">
-                <span className="tier-price">{tier.price}</span>
-                <span className="tier-period">{tier.period}</span>
-              </div>
-              <div className="tier-features">
-                {tier.features.map((f) => (
-                  <div className="tier-feature" key={f}>
-                    <span className="tier-feature-check">✓</span>
-                    <span>{f}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="tier-cta">
-                {tier.key === 'team' ? (
-                  <a className="tier-cta-link" href="mailto:savankong@gmail.com?subject=Cambo%20App%20Team%20plan">
-                    {tier.cta}
-                  </a>
+          {PLANS.map((tier) => {
+            const isCurrentPlan = user && user.plan === tier.key;
+            return (
+              <div
+                className={`tier-card${tier.featured ? ' tier-card-featured' : ''}`}
+                key={tier.key}
+              >
+                {isCurrentPlan ? (
+                  <span className="tier-badge tier-badge-current">Current plan</span>
                 ) : (
-                  <button disabled={busyKey === tier.key} onClick={() => choosePlan(tier.key)}>
-                    {busyKey === tier.key ? 'Loading…' : tier.cta}
-                  </button>
+                  tier.featured && <span className="tier-badge">Best value</span>
                 )}
+                <div className="tier-name">{tier.name}</div>
+                <div className="tier-tagline">{tier.tagline}</div>
+                <div className="tier-price-row">
+                  <span className="tier-price">{tier.price}</span>
+                  <span className="tier-period">{tier.period}</span>
+                </div>
+                <div className="tier-features">
+                  {tier.features.map((f) => (
+                    <div className="tier-feature" key={f}>
+                      <span className="tier-feature-check">✓</span>
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="tier-cta">
+                  {isCurrentPlan ? (
+                    <Link to="/account" className="pill-button pill-button-outline">
+                      Manage this plan
+                    </Link>
+                  ) : (
+                    <button disabled={busyKey === tier.key} onClick={() => choosePlan(tier.key)}>
+                      {busyKey === tier.key ? 'Loading…' : tier.cta}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>

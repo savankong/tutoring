@@ -2,9 +2,7 @@
 // unlock a higher capture cap and a grace buffer. Once a paid user runs past
 // cap + grace, further captures draw down their purchased credit balance
 // instead of triggering automatic overage billing — see CREDIT_PACK_* below
-// and netlify/lib/access.js. Team/Enterprise has no Stripe price — it's a
-// contact-sales tier handled entirely on the pricing page, same as Netlify's
-// own Enterprise.
+// and netlify/lib/access.js.
 //
 // Cap + grace on every paid tier is sized so that even worst-case per-capture
 // cost (large gallery image + hardest reasoning, ~$0.075/capture at

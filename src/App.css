@@ -728,6 +728,32 @@ a:focus-visible {
   margin: 18px 0 14px;
 }
 
+.aspect-toggle {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.aspect-toggle-btn {
+  min-height: 32px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.aspect-toggle-btn-active {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: #1d1d1f;
+}
+
 .camera-viewfinder {
   position: relative;
   flex: 1;
@@ -736,6 +762,20 @@ a:focus-visible {
   overflow: hidden;
   background: linear-gradient(160deg, #3a3c40, #0f1012 75%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.camera-viewfinder-square,
+.camera-viewfinder-landscape {
+  flex: none;
+  width: 100%;
+}
+
+.camera-viewfinder-square {
+  aspect-ratio: 1 / 1;
+}
+
+.camera-viewfinder-landscape {
+  aspect-ratio: 4 / 3;
 }
 
 .camera-viewfinder video {
@@ -1027,6 +1067,36 @@ a:focus-visible {
 }
 
 /* History */
+.history-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 12px 0 4px;
+}
+
+.history-filter label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.history-filter-label {
+  color: var(--text);
+}
+
+.history-filter input[type='date'] {
+  min-height: 38px;
+  padding: 8px 10px;
+  font-size: 13.5px;
+}
+
+.history-filter-clear {
+  min-height: 38px;
+  padding: 0 14px;
+}
+
 .history-list {
   list-style: none;
   margin: 8px 0 0;
@@ -1787,6 +1857,19 @@ a:focus-visible {
   border-radius: 100px;
 }
 
+.tier-badge-current {
+  background: var(--card-bg);
+  color: var(--text-h);
+  border: 1px solid var(--accent);
+}
+
+.tier-cta a.pill-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .tier-name {
   font-size: 18px;
   font-weight: 700;
@@ -1843,20 +1926,6 @@ a:focus-visible {
 
 .tier-cta button {
   width: 100%;
-}
-
-.tier-cta-link {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: center;
-  padding: 12px 16px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 11px;
-  background: var(--accent);
-  color: var(--accent-contrast);
-  text-decoration: none;
 }
 
 @media (max-width: 900px) {

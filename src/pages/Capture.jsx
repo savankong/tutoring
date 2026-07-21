@@ -7,6 +7,23 @@ function answerRows(answer) {
   return Math.min(6, Math.max(2, Math.ceil(answer.length / 30)));
 }
 
+// Portrait has no fixed ratio — the viewfinder just fills the available
+// space, matching the original behavior. Square/landscape crop the native
+// video frame to that exact ratio so the captured photo's dimensions match
+// what's actually framed on screen, instead of always saving the full
+// uncropped camera frame regardless of what the viewfinder shows.
+const ASPECT_RATIOS = { portrait: null, square: 1, landscape: 4 / 3 };
+
+function cropRectForAspect(video, ratio) {
+  const vw = video.videoWidth;
+  const vh = video.videoHeight;
+  if (!ratio) return { sx: 0, sy: 0, sw: vw, sh: vh };
+  const videoRatio = vw / vh;
+  const sw = videoRatio > ratio ? vh * ratio : vw;
+  const sh = videoRatio > ratio ? vh : vw / ratio;
+  return { sx: (vw - sw) / 2, sy: (vh - sh) / 2, sw, sh };
+}
+
 function CameraIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -58,6 +75,7 @@ function Capture() {
   const [activeTab, setActiveTab] = useState('answer'); // answer, explanation
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
+  const [aspect, setAspect] = useState('portrait'); // portrait, square, landscape
 
   useEffect(() => {
     return () => {
@@ -153,9 +171,10 @@ function Capture() {
   const captureAndAnalyze = () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
+    const { sx, sy, sw, sh } = cropRectForAspect(video, ASPECT_RATIOS[aspect]);
+    canvas.width = sw;
+    canvas.height = sh;
+    canvas.getContext('2d').drawImage(video, sx, sy, sw, sh, 0, 0, sw, sh);
     const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
 
     // Release the camera once we have the frame we need — keeping it live
@@ -217,7 +236,20 @@ function Capture() {
             {status === 'live' ? 'Frame the question. Hold steady.' : 'Start your camera to scan a question.'}
           </p>
 
-          <div className="camera-viewfinder">
+          <div className="aspect-toggle" role="group" aria-label="Capture dimensions">
+            {Object.keys(ASPECT_RATIOS).map((key) => (
+              <button
+                key={key}
+                type="button"
+                className={`aspect-toggle-btn${aspect === key ? ' aspect-toggle-btn-active' : ''}`}
+                onClick={() => setAspect(key)}
+              >
+                {key === 'portrait' ? 'Portrait' : key === 'square' ? 'Square' : 'Landscape'}
+              </button>
+            ))}
+          </div>
+
+          <div className={`camera-viewfinder camera-viewfinder-${aspect}`}>
             <video ref={videoRef} playsInline muted />
             <div className="media-frame-corner media-frame-corner-tl" />
             <div className="media-frame-corner media-frame-corner-tr" />

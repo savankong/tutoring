@@ -3,7 +3,11 @@ import { Helmet } from 'react-helmet-async';
 const SITE_URL = 'https://camboapp.com';
 
 function Seo({ title, description, path = '/', noindex = false, children }) {
-  const url = `${SITE_URL}${path}`;
+  // Netlify's pretty-URL resolution 301s "/pricing" -> "/pricing/" — point
+  // canonical/OG URLs straight at the trailing-slash form that actually
+  // serves 200, so crawlers don't take an extra redirect hop.
+  const normalizedPath = path === '/' ? '/' : `${path.replace(/\/$/, '')}/`;
+  const url = `${SITE_URL}${normalizedPath}`;
 
   return (
     <Helmet>

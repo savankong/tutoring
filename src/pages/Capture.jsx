@@ -70,12 +70,13 @@ function GalleryIcon() {
 function SettingsIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="3.2" stroke="#fff" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="3" stroke="#1d1d1f" strokeWidth="1.7" />
       <path
-        d="M12 3.5v2.2M12 18.3v2.2M20.5 12h-2.2M5.7 12H3.5M17.8 6.2l-1.55 1.55M7.75 16.25 6.2 17.8M17.8 17.8l-1.55-1.55M7.75 7.75 6.2 6.2"
-        stroke="#fff"
-        strokeWidth="1.6"
+        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+        stroke="#1d1d1f"
+        strokeWidth="1.7"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -105,7 +106,6 @@ function Capture() {
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
   const [cropRect, setCropRect] = useState(DEFAULT_CROP_RECT);
-  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -362,34 +362,9 @@ function Capture() {
             >
               <CameraIcon />
             </button>
-            <div className="camera-settings-wrap">
-              <button
-                type="button"
-                className="camera-icon-button"
-                onClick={() => setShowMenu((v) => !v)}
-                aria-label="Menu"
-              >
-                <SettingsIcon />
-              </button>
-              {showMenu && (
-                <>
-                  <div className="camera-settings-backdrop" onClick={() => setShowMenu(false)} />
-                  <div className="camera-settings-menu">
-                    <Link to="/history" onClick={() => setShowMenu(false)}>
-                      History
-                    </Link>
-                    <Link to="/account" onClick={() => setShowMenu(false)}>
-                      Account
-                    </Link>
-                    {user?.role === 'admin' && (
-                      <Link to="/admin" onClick={() => setShowMenu(false)}>
-                        Admin
-                      </Link>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
+            <Link to="/account" className="camera-settings-button" aria-label="Account">
+              <SettingsIcon />
+            </Link>
           </div>
 
           <input

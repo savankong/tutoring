@@ -67,6 +67,20 @@ function GalleryIcon() {
   );
 }
 
+function SettingsIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.2" stroke="#fff" strokeWidth="1.6" />
+      <path
+        d="M12 3.5v2.2M12 18.3v2.2M20.5 12h-2.2M5.7 12H3.5M17.8 6.2l-1.55 1.55M7.75 16.25 6.2 17.8M17.8 17.8l-1.55-1.55M7.75 7.75 6.2 6.2"
+        stroke="#fff"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 function Capture() {
   const { user, refresh } = useAuthContext();
 
@@ -91,6 +105,7 @@ function Capture() {
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
   const [cropRect, setCropRect] = useState(DEFAULT_CROP_RECT);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -286,11 +301,11 @@ function Capture() {
         <div className="camera-view">
           <div className="camera-topbar">
             <Logo size={24} />
-            <div className="camera-topbar-links">
-              <Link to="/history">History</Link>
-              <Link to="/account">Account</Link>
-              {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
-            </div>
+            {Number.isFinite(user?.captures_cap) && (
+              <span className="camera-usage-faded">
+                {user.captures_used}/{user.captures_cap} captures
+              </span>
+            )}
           </div>
 
           <p className="camera-instruction">
@@ -310,6 +325,12 @@ function Capture() {
                 height: `${cropRect.h}%`,
               }}
             >
+              <div className="crop-grid" aria-hidden="true">
+                <span className="crop-grid-line crop-grid-v" style={{ left: '33.333%' }} />
+                <span className="crop-grid-line crop-grid-v" style={{ left: '66.666%' }} />
+                <span className="crop-grid-line crop-grid-h" style={{ top: '33.333%' }} />
+                <span className="crop-grid-line crop-grid-h" style={{ top: '66.666%' }} />
+              </div>
               {['tl', 'tr', 'bl', 'br'].map((corner) => (
                 <div
                   key={corner}
@@ -341,7 +362,34 @@ function Capture() {
             >
               <CameraIcon />
             </button>
-            <span className="camera-icon-spacer" aria-hidden="true" />
+            <div className="camera-settings-wrap">
+              <button
+                type="button"
+                className="camera-icon-button"
+                onClick={() => setShowMenu((v) => !v)}
+                aria-label="Menu"
+              >
+                <SettingsIcon />
+              </button>
+              {showMenu && (
+                <>
+                  <div className="camera-settings-backdrop" onClick={() => setShowMenu(false)} />
+                  <div className="camera-settings-menu">
+                    <Link to="/history" onClick={() => setShowMenu(false)}>
+                      History
+                    </Link>
+                    <Link to="/account" onClick={() => setShowMenu(false)}>
+                      Account
+                    </Link>
+                    {user?.role === 'admin' && (
+                      <Link to="/admin" onClick={() => setShowMenu(false)}>
+                        Admin
+                      </Link>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           <input

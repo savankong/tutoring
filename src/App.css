@@ -711,14 +711,11 @@ a:focus-visible {
   color: #fff;
 }
 
-.camera-topbar-links {
-  display: flex;
-  gap: 16px;
-  font-size: 13px;
-}
-
-.camera-topbar-links a {
-  color: rgba(255, 255, 255, 0.7);
+/* Deliberately low-emphasis — usage isn't something a tutor needs to
+   think about mid-session, just have available if they glance at it. */
+.camera-usage-faded {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .camera-instruction {
@@ -753,28 +750,63 @@ a:focus-visible {
    viewfinder by its overflow: hidden. */
 .crop-rect {
   position: absolute;
-  border: 2px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
   box-sizing: border-box;
   touch-action: none;
 }
 
+/* Rule-of-thirds grid, scoped to the crop rect so it resizes with it. */
+.crop-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crop-grid-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.crop-grid-v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.crop-grid-h {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+/* Viewfinder-bracket corners (not a solid outline) — the handle itself is
+   an oversized transparent hit target for dragging; the visible L-bracket
+   is drawn with ::before, inset from the edges. */
 .crop-handle {
   position: absolute;
-  width: 28px;
-  height: 28px;
-  margin: -14px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 32px;
+  height: 32px;
+  margin: -16px;
   touch-action: none;
+}
+
+.crop-handle::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 3px solid #fff;
+  border-radius: 3px;
 }
 
 .crop-handle-tl {
   left: 0;
   top: 0;
   cursor: nwse-resize;
+}
+
+.crop-handle-tl::before {
+  border-right: none;
+  border-bottom: none;
 }
 
 .crop-handle-tr {
@@ -784,11 +816,21 @@ a:focus-visible {
   cursor: nesw-resize;
 }
 
+.crop-handle-tr::before {
+  border-left: none;
+  border-bottom: none;
+}
+
 .crop-handle-bl {
   left: 0;
   bottom: 0;
   top: auto;
   cursor: nesw-resize;
+}
+
+.crop-handle-bl::before {
+  border-right: none;
+  border-top: none;
 }
 
 .crop-handle-br {
@@ -797,6 +839,11 @@ a:focus-visible {
   left: auto;
   top: auto;
   cursor: nwse-resize;
+}
+
+.crop-handle-br::before {
+  border-left: none;
+  border-top: none;
 }
 
 .camera-controls {
@@ -823,12 +870,6 @@ a:focus-visible {
   justify-content: center;
 }
 
-.camera-icon-spacer {
-  width: 46px;
-  height: 46px;
-  flex: none;
-}
-
 .camera-shutter-button {
   flex: none;
   width: 72px;
@@ -846,6 +887,47 @@ a:focus-visible {
 
 .camera-shutter-button:active {
   opacity: 0.85;
+}
+
+.camera-settings-wrap {
+  position: relative;
+  flex: none;
+}
+
+.camera-settings-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+
+.camera-settings-menu {
+  position: absolute;
+  z-index: 61;
+  bottom: calc(100% + 12px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 140px;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(38, 39, 43, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.camera-settings-menu a {
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f3f4f6;
+}
+
+.camera-settings-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f3f4f6;
 }
 
 /* Slim nav row shown on pages behind login */

@@ -104,18 +104,26 @@ function Account() {
 
   const isActive = user.subscription_status === 'active';
   const currentPlan = PLANS.find((p) => p.key === user.plan);
-  const capPercent = Math.min(100, Math.round((user.captures_used / user.captures_cap) * 100));
+  const capPercent = Number.isFinite(user.captures_cap)
+    ? Math.min(100, Math.round((user.captures_used / user.captures_cap) * 100))
+    : 0;
   const totalCredits = packQty * CREDIT_PACK_SIZE;
   const totalCost = (packQty * PACK_PRICE).toFixed(2);
 
   const { start: periodStart, end: periodEnd } = currentPeriodBounds(user.current_period_start);
-  const inPlanUsed = Math.min(user.captures_used, user.captures_cap);
-  const graceUsed = user.credits_allowed
-    ? Math.max(0, Math.min(user.captures_used - user.captures_cap, user.grace_buffer))
-    : 0;
-  const creditsUsed = user.credits_allowed
-    ? Math.max(0, user.captures_used - user.captures_cap - user.grace_buffer)
-    : 0;
+  // The Unlimited (admin-comp) plan has no cap — captures_cap comes back as
+  // null once Infinity round-trips through JSON, so every cap-based number
+  // here needs a guard rather than dividing/comparing against it directly.
+  const isUnlimited = !Number.isFinite(user.captures_cap);
+  const inPlanUsed = isUnlimited ? user.captures_used : Math.min(user.captures_used, user.captures_cap);
+  const graceUsed =
+    user.credits_allowed && !isUnlimited
+      ? Math.max(0, Math.min(user.captures_used - user.captures_cap, user.grace_buffer))
+      : 0;
+  const creditsUsed =
+    user.credits_allowed && !isUnlimited
+      ? Math.max(0, user.captures_used - user.captures_cap - user.grace_buffer)
+      : 0;
 
   const closeModal = () => {
     if (purchasing) return;
@@ -153,9 +161,7 @@ function Account() {
             <span className="billing-stat-label">
               Captures used <span className="billing-stat-arrow">→</span>
             </span>
-            <span className="billing-stat-value">
-              {inPlanUsed}/{user.captures_cap}
-            </span>
+            <span className="billing-stat-value">{isUnlimited ? `${inPlanUsed}` : `${inPlanUsed}/${user.captures_cap}`}</span>
           </button>
           {user.credits_allowed && (
             <button className="billing-stat-tile" onClick={() => scrollToSection(creditsSectionRef)}>
@@ -221,39 +227,50 @@ function Account() {
 
       <div className="account-card" id="usage" ref={usageSectionRef}>
         <div className="account-card-title">Usage this period</div>
-        <div className="account-card-sub">Capture consumption may take a minute to reflect.</div>
-        <div className="account-usage-row">
-          <span>
-            {inPlanUsed} / {user.captures_cap} captures
-          </span>
-          {user.using_credits && <span className="account-usage-credits-tag">using credits</span>}
-        </div>
-        <div className="account-progress">
-          <div className="account-progress-bar" style={{ width: `${capPercent}%` }} />
-        </div>
-
-        <div className="account-breakdown">
-          <div className="account-breakdown-row">
-            <span>Included in plan</span>
-            <span>
-              {inPlanUsed} / {user.captures_cap}
-            </span>
-          </div>
-          {user.credits_allowed && user.grace_buffer > 0 && (
-            <div className="account-breakdown-row">
-              <span>Grace buffer</span>
+        {isUnlimited ? (
+          <>
+            <div className="account-card-sub">No monthly cap on this plan.</div>
+            <div className="account-usage-row">
+              <span>{inPlanUsed} captures</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="account-card-sub">Capture consumption may take a minute to reflect.</div>
+            <div className="account-usage-row">
               <span>
-                {graceUsed} / {user.grace_buffer}
+                {inPlanUsed} / {user.captures_cap} captures
               </span>
+              {user.using_credits && <span className="account-usage-credits-tag">using credits</span>}
             </div>
-          )}
-          {user.credits_allowed && creditsUsed > 0 && (
-            <div className="account-breakdown-row">
-              <span>From credits</span>
-              <span>{creditsUsed}</span>
+            <div className="account-progress">
+              <div className="account-progress-bar" style={{ width: `${capPercent}%` }} />
             </div>
-          )}
-        </div>
+
+            <div className="account-breakdown">
+              <div className="account-breakdown-row">
+                <span>Included in plan</span>
+                <span>
+                  {inPlanUsed} / {user.captures_cap}
+                </span>
+              </div>
+              {user.credits_allowed && user.grace_buffer > 0 && (
+                <div className="account-breakdown-row">
+                  <span>Grace buffer</span>
+                  <span>
+                    {graceUsed} / {user.grace_buffer}
+                  </span>
+                </div>
+              )}
+              {user.credits_allowed && creditsUsed > 0 && (
+                <div className="account-breakdown-row">
+                  <span>From credits</span>
+                  <span>{creditsUsed}</span>
+                </div>
+              )}
+            </div>
+          </>
+        )}
       </div>
 
       {user.credits_allowed && (

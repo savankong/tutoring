@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import PhoneMockup from '../components/PhoneMockup.jsx';
 import Logo from '../components/Logo.jsx';
+import Seo from '../components/Seo.jsx';
 
 const DEMO_QUESTIONS = [
   {
@@ -87,6 +88,34 @@ const FAQS = [
   },
 ];
 
+const SOFTWARE_APP_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Cambo App',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Any (web-based)',
+  url: 'https://camboapp.com/',
+  description: 'Point your phone at any practice question and get the answer in seconds. Built for live tutoring sessions.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+
 function Landing() {
   const { user, loading } = useAuthContext();
 
@@ -121,6 +150,14 @@ function Landing() {
 
   return (
     <div className="landing">
+      <Seo
+        title="Cambo App — Snap a Photo, Get the Answer | Camera App for Tutors"
+        description="Point your phone at any practice question and get the answer in seconds. Built for live tutoring sessions — no app install, works on any phone."
+        path="/"
+      >
+        <script type="application/ld+json">{JSON.stringify(SOFTWARE_APP_SCHEMA)}</script>
+        <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
+      </Seo>
       <nav className="site-nav">
         <div className="site-nav-logo">
           <Logo size={20} wordmark />
@@ -313,7 +350,9 @@ function Landing() {
                 <span className="faq-question-text">{faq.q}</span>
                 <span className={`faq-toggle-icon${faqOpen[i] ? ' faq-toggle-icon-open' : ''}`}>+</span>
               </button>
-              {faqOpen[i] && <div className="faq-answer">{faq.a}</div>}
+              <div className="faq-answer" hidden={!faqOpen[i]}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
+import Seo from '../components/Seo.jsx';
 
 function Login() {
   const { refresh } = useAuthContext();
@@ -37,6 +38,12 @@ function Login() {
 
   return (
     <>
+      <Seo
+        title="Log In — Cambo App"
+        description="Log in to your Cambo App account."
+        path="/login"
+        noindex
+      />
       <nav className="auth-nav">
         <Logo size={20} wordmark />
         <Link to="/" className="auth-nav-home">

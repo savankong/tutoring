@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Fallback title/description for routes that don't render a <Seo> block
+         (protected app pages) and for the pre-hydration paint. Public marketing
+         routes (/, /pricing, /login, /register) override these via <Seo>. -->
     <title>Cambo App</title>
+    <meta name="description" content="Snap a photo of any problem, get answers, and explanations." />
 
-    <!-- Open Graph / social link previews -->
+    <!-- Open Graph / social link previews. Page-specific title/description/url
+         are supplied per-route by <Seo>; only page-independent fields live here. -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.camboapp.com/" />
-    <meta property="og:title" content="Cambo App" />
-    <meta property="og:description" content="Snap a photo of any problem, get answers, and explanations." />
-    <meta property="og:image" content="https://www.camboapp.com/og-image.png" />
+    <meta property="og:image" content="https://camboapp.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cambo App" />
-    <meta name="twitter:description" content="Snap a photo of any problem, get answers, and explanations." />
-    <meta name="twitter:image" content="https://www.camboapp.com/og-image.png" />
+    <meta name="twitter:image" content="https://camboapp.com/og-image.png" />
 
     <!-- Add to Home Screen -> launches full screen, no browser chrome.
          No page can force this for a regular browser tab; this is the

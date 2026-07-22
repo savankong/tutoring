@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
+import Seo from '../components/Seo.jsx';
 import { PLANS } from '../lib/plans.js';
 
 const PAID_PLAN_KEYS = new Set(['starter', 'personal', 'pro']);
@@ -60,6 +61,12 @@ function Register() {
 
   return (
     <>
+      <Seo
+        title={plan ? `Sign up for ${plan.name} — Cambo App` : 'Sign Up Free — Cambo App'}
+        description="Create a free Cambo App account — no credit card required."
+        path="/register"
+        noindex
+      />
       <nav className="auth-nav">
         <Logo size={20} wordmark />
         <Link to="/" className="auth-nav-home">

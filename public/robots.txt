@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /history
+Disallow: /account
+Disallow: /admin
+
+Sitemap: https://camboapp.com/sitemap.xml

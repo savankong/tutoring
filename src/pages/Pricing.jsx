@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import SiteNav from '../components/SiteNav.jsx';
+import Seo from '../components/Seo.jsx';
 import { PLANS } from '../lib/plans.js';
 
 function Pricing() {
@@ -39,6 +40,11 @@ function Pricing() {
 
   return (
     <div className="landing">
+      <Seo
+        title="Pricing — Cambo App"
+        description="Free forever up to 20 captures a month. Paid plans from $4.99/mo for daily tutoring use. Cancel anytime, no contract."
+        path="/pricing"
+      />
       <SiteNav />
 
       <section className="pricing-page">

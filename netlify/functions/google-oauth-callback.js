@@ -1,18 +1,21 @@
 import { getDatabase } from '@netlify/database';
 import {
+  clearedOauthRefCookieHeader,
   clearedOauthStateCookieHeader,
+  readOauthRefCookie,
   readOauthStateCookie,
   sessionCookieHeader,
   signSession,
 } from '../lib/auth.js';
+import { sanitizeRef } from '../lib/referral.js';
 
 function redirectToLogin(origin, message) {
   const url = new URL('/login', origin);
   url.searchParams.set('error', message);
-  return new Response(null, {
-    status: 302,
-    headers: { location: url.toString(), 'set-cookie': clearedOauthStateCookieHeader() },
-  });
+  const headers = new Headers({ location: url.toString() });
+  headers.append('set-cookie', clearedOauthStateCookieHeader());
+  headers.append('set-cookie', clearedOauthRefCookieHeader());
+  return new Response(null, { status: 302, headers });
 }
 
 export default async (request) => {
@@ -63,6 +66,7 @@ export default async (request) => {
   }
 
   const db = getDatabase();
+  const signupRef = sanitizeRef(readOauthRefCookie(request));
 
   let [user] = await db.sql`SELECT * FROM users WHERE google_id = ${googleId}`;
   if (!user) {
@@ -75,8 +79,8 @@ export default async (request) => {
     } else {
       // plan defaults to 'free' — no trial clock, no card required.
       [user] = await db.sql`
-        INSERT INTO users (email, google_id)
-        VALUES (${email}, ${googleId})
+        INSERT INTO users (email, google_id, signup_ref)
+        VALUES (${email}, ${googleId}, ${signupRef})
         RETURNING *
       `;
     }
@@ -84,8 +88,8 @@ export default async (request) => {
 
   const token = signSession(user.id);
   const appUrl = new URL('/app', origin);
-  return new Response(null, {
-    status: 302,
-    headers: { location: appUrl.toString(), 'set-cookie': sessionCookieHeader(token) },
-  });
+  const headers = new Headers({ location: appUrl.toString() });
+  headers.append('set-cookie', sessionCookieHeader(token));
+  headers.append('set-cookie', clearedOauthRefCookieHeader());
+  return new Response(null, { status: 302, headers });
 };

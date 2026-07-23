@@ -1,5 +1,6 @@
 import { getDatabase } from '@netlify/database';
 import { hashPassword, signSession, sessionCookieHeader } from '../lib/auth.js';
+import { sanitizeRef } from '../lib/referral.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -24,6 +25,7 @@ export default async (request) => {
 
   const email = (body?.email || '').trim().toLowerCase();
   const password = body?.password || '';
+  const signupRef = sanitizeRef(body?.ref);
 
   if (!EMAIL_RE.test(email)) {
     return jsonResponse(400, { error: 'Enter a valid email address.' });
@@ -44,8 +46,8 @@ export default async (request) => {
   // plan defaults to 'free' — everyone starts on the free tier, no trial
   // clock, no card required (see netlify/lib/plans.js).
   const [user] = await db.sql`
-    INSERT INTO users (email, password_hash)
-    VALUES (${email}, ${passwordHash})
+    INSERT INTO users (email, password_hash, signup_ref)
+    VALUES (${email}, ${passwordHash}, ${signupRef})
     RETURNING id, email, plan, subscription_status
   `;
 

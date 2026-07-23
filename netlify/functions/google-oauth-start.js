@@ -1,8 +1,11 @@
-import { oauthStateCookieHeader } from '../lib/auth.js';
+import { oauthRefCookieHeader, oauthStateCookieHeader } from '../lib/auth.js';
+import { sanitizeRef } from '../lib/referral.js';
 
 export default async (request) => {
-  const origin = new URL(request.url).origin;
+  const url = new URL(request.url);
+  const origin = url.origin;
   const state = crypto.randomUUID();
+  const ref = sanitizeRef(url.searchParams.get('ref'));
 
   const authorizeUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');
   authorizeUrl.searchParams.set('client_id', process.env.GOOGLE_CLIENT_ID);
@@ -11,11 +14,9 @@ export default async (request) => {
   authorizeUrl.searchParams.set('scope', 'openid email profile');
   authorizeUrl.searchParams.set('state', state);
 
-  return new Response(null, {
-    status: 302,
-    headers: {
-      location: authorizeUrl.toString(),
-      'set-cookie': oauthStateCookieHeader(state),
-    },
-  });
+  const headers = new Headers({ location: authorizeUrl.toString() });
+  headers.append('set-cookie', oauthStateCookieHeader(state));
+  if (ref) headers.append('set-cookie', oauthRefCookieHeader(ref));
+
+  return new Response(null, { status: 302, headers });
 };

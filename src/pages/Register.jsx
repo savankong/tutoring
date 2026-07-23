@@ -19,6 +19,10 @@ function Register() {
 
   const requestedPlan = searchParams.get('plan');
   const plan = PAID_PLAN_KEYS.has(requestedPlan) ? PLANS.find((p) => p.key === requestedPlan) : null;
+  const ref = searchParams.get('ref');
+  const googleStartUrl = ref
+    ? `/.netlify/functions/google-oauth-start?ref=${encodeURIComponent(ref)}`
+    : '/.netlify/functions/google-oauth-start';
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +33,7 @@ function Register() {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, ref }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Could not create account.');
@@ -114,7 +118,7 @@ function Register() {
           <div className="auth-divider">
             <span>or continue with</span>
           </div>
-          <a className="google-button" href="/.netlify/functions/google-oauth-start">
+          <a className="google-button" href={googleStartUrl}>
             <GoogleIcon />
             Continue with Google
           </a>

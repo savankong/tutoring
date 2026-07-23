@@ -9,6 +9,7 @@ const SESSION_COOKIE = 'session';
 const SESSION_MAX_AGE_DAYS = 90;
 const OAUTH_STATE_COOKIE = 'oauth_state';
 const OAUTH_STATE_MAX_AGE_SECONDS = 600;
+const OAUTH_REF_COOKIE = 'oauth_ref';
 
 function jwtSecret() {
   const secret = process.env.JWT_SECRET;
@@ -71,6 +72,21 @@ export function oauthStateCookieHeader(state) {
 
 export function clearedOauthStateCookieHeader() {
   return `${OAUTH_STATE_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
+}
+
+// Carries the landing-page ref (see netlify/lib/referral.js) across the
+// Google redirect round-trip, same lifetime as the CSRF state cookie —
+// there's no request body on an OAuth redirect to put it in otherwise.
+export function readOauthRefCookie(request) {
+  return parseCookies(request)[OAUTH_REF_COOKIE] || null;
+}
+
+export function oauthRefCookieHeader(ref) {
+  return `${OAUTH_REF_COOKIE}=${ref}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${OAUTH_STATE_MAX_AGE_SECONDS}`;
+}
+
+export function clearedOauthRefCookieHeader() {
+  return `${OAUTH_REF_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 }
 
 /** Returns the logged-in user's row, or null if there's no valid session. */

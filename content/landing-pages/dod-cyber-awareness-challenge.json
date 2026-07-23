@@ -41,5 +41,9 @@
       "a": "Most versions let you review the material and retake the check — there's usually no limit on attempts, just a requirement to pass before you get your completion certificate."
     }
   ],
-  "internalLinks": ["opsec-training", "information-assurance-training"]
+  "internalLinks": ["opsec-training", "information-assurance-training"],
+  "officialSource": {
+    "label": "cyber.mil — Cyber Awareness Challenge",
+    "url": "https://www.cyber.mil/cyber-awareness-challenge/"
+  }
 }

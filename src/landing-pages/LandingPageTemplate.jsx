@@ -6,6 +6,7 @@ import LpHowItWorks from './components/LpHowItWorks.jsx';
 import LpWhyItWorks from './components/LpWhyItWorks.jsx';
 import LpSampleQA from './components/LpSampleQA.jsx';
 import LpFaq from './components/LpFaq.jsx';
+import LpOfficialSource from './components/LpOfficialSource.jsx';
 import LpRelatedLinks from './components/LpRelatedLinks.jsx';
 import LpCtaFooter from './components/LpCtaFooter.jsx';
 
@@ -19,6 +20,7 @@ function LandingPageTemplate({ content, allContent }) {
       <LpWhyItWorks content={content} />
       <LpSampleQA content={content} />
       <LpFaq content={content} />
+      <LpOfficialSource content={content} />
       <LpRelatedLinks content={content} allContent={allContent} />
       <LpCtaFooter content={content} />
       <LpFooter />

@@ -2232,6 +2232,20 @@ a:focus-visible {
   padding: 40px 48px 100px;
 }
 
+.lp-official-source {
+  max-width: 1180px;
+  margin: -60px auto 0;
+  padding: 0 48px 40px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: center;
+}
+
+.lp-official-source a {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
 .lp-sample-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

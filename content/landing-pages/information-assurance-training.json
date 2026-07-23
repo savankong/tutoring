@@ -41,5 +41,9 @@
       "a": "Most IA training requirements are annual, though the exact cadence depends on your role and your organization's policy."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "opsec-training"]
+  "internalLinks": ["dod-cyber-awareness-challenge", "opsec-training"],
+  "officialSource": {
+    "label": "cdse.edu — eLearning courses",
+    "url": "https://www.cdse.edu/Training/eLearning/"
+  }
 }

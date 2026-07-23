@@ -41,5 +41,9 @@
       "a": "A piece of information or behavior that, on its own or combined with others, could reveal something an adversary shouldn't know — like a pattern of activity, a visible location marker, or a schedule detail."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "information-assurance-training"]
+  "internalLinks": ["dod-cyber-awareness-challenge", "information-assurance-training"],
+  "officialSource": {
+    "label": "cdse.edu — Operations Security",
+    "url": "https://www.cdse.edu/Training/Operations-Security/"
+  }
 }

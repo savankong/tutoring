@@ -1,0 +1,45 @@
+{
+  "slug": "opsec-training",
+  "h1": "OPSEC Training Practice Questions & Answers",
+  "subhead": "Get instant, explained answers to OPSEC training questions — identify critical information, spot vulnerabilities, and finish your annual refresher without the guesswork.",
+  "metaTitle": "OPSEC Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice OPSEC (Operations Security) training questions with instant answers and explanations. Get through your annual refresher faster and understand the reasoning.",
+  "whyItWorks": "OPSEC questions often hinge on judgment calls — is this detail critical information, is this a vulnerability, what's the right countermeasure — rather than pure recall. Cambo doesn't just give you an answer, it explains the reasoning so the training actually sticks instead of feeling like a box to check.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is considered critical information under OPSEC?",
+      "a": "Details that, if pieced together by an adversary, could reveal sensitive operations — for example, specific deployment dates, unit movements, or troop strength. General, publicly releasable information isn't critical information."
+    },
+    {
+      "q": "A service member posts a photo on social media that includes a visible base identifier in the background. What OPSEC concern does this raise?",
+      "a": "It's a potential indicator — a small detail that seems harmless alone but could help an adversary confirm location or activity when combined with other public information."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What does OPSEC stand for?",
+      "a": "Operations Security — the process of identifying and protecting critical information that could be used against an organization or mission if it fell into the wrong hands."
+    },
+    {
+      "q": "Who has to complete OPSEC training?",
+      "a": "Typically required annually for military service members, DoD civilians, and contractors, though specific requirements vary by command and role."
+    },
+    {
+      "q": "What are the five steps of the OPSEC process?",
+      "a": "Identify critical information, analyze threats, analyze vulnerabilities, assess risk, and apply countermeasures."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or any official OPSEC program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "How is OPSEC different from the Cyber Awareness Challenge?",
+      "a": "Cyber Awareness focuses mainly on digital and cybersecurity risks like phishing and PII handling. OPSEC is broader — it covers protecting any critical information, digital or otherwise, from being pieced together by an adversary."
+    },
+    {
+      "q": "What's an OPSEC indicator?",
+      "a": "A piece of information or behavior that, on its own or combined with others, could reveal something an adversary shouldn't know — like a pattern of activity, a visible location marker, or a schedule detail."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "information-assurance-training"]
+}

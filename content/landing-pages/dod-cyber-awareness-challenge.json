@@ -1,0 +1,45 @@
+{
+  "slug": "dod-cyber-awareness-challenge",
+  "h1": "DoD Cyber Awareness Challenge Practice Questions",
+  "subhead": "Snap a photo of any Cyber Awareness Challenge question and get an instant answer with a clear explanation — finish your annual training without getting stuck.",
+  "metaTitle": "DoD Cyber Awareness Challenge Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice DoD Cyber Awareness Challenge questions with instant, explained answers. Point your phone at any question during the training and get unstuck in seconds.",
+  "whyItWorks": "The Cyber Awareness Challenge covers a lot of ground fast — phishing, PII handling, spillage, insider threat, removable media — and it's easy to blank on a specific rule mid-question. Cambo reads the exact question on your screen and gives you the right answer plus the reasoning, so you finish the module instead of rereading the same slide twice.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is a best practice for protecting Controlled Unclassified Information (CUI)?",
+      "a": "Store CUI only on authorized systems and encrypt it both at rest and in transit — never email it to a personal account or save it to removable media that isn't approved."
+    },
+    {
+      "q": "You receive an email from an unfamiliar sender asking you to verify your CAC PIN by clicking a link. What should you do?",
+      "a": "Don't click the link. Report it as suspected phishing — legitimate DoD systems never ask you to enter your PIN through an email link."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long does the DoD Cyber Awareness Challenge take?",
+      "a": "Most people finish in 60-90 minutes, depending on how many modules your service branch requires and how quickly you move through the knowledge checks."
+    },
+    {
+      "q": "Do I have to retake it every year?",
+      "a": "Yes — it's an annual requirement for anyone with access to DoD networks or systems, including contractors and service members."
+    },
+    {
+      "q": "Can I use Cambo during the actual training?",
+      "a": "Yes. Cambo works on any question you can photograph, including the ones inside the official training portal — point your camera at the question and get an explained answer in seconds."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or the official Cyber Awareness Challenge?",
+      "a": "No. Cambo is an independent study tool. It's not produced, endorsed, or affiliated with the Department of Defense."
+    },
+    {
+      "q": "What topics does the Cyber Awareness Challenge cover?",
+      "a": "Phishing and social engineering, handling of PII/PHI and CUI, spillage, malicious code, removable media, social networking risks, insider threat indicators, and physical and facility security."
+    },
+    {
+      "q": "What happens if I fail a knowledge check?",
+      "a": "Most versions let you review the material and retake the check — there's usually no limit on attempts, just a requirement to pass before you get your completion certificate."
+    }
+  ],
+  "internalLinks": ["opsec-training", "information-assurance-training"]
+}

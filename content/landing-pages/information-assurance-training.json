@@ -1,0 +1,45 @@
+{
+  "slug": "information-assurance-training",
+  "h1": "Information Assurance (IA) Training Practice Questions",
+  "subhead": "Point your phone at any IA training question and get an instant, explained answer — covering the CIA triad, risk management, and DoD system access requirements.",
+  "metaTitle": "Information Assurance (IA) Training Practice Q&A | Cambo",
+  "metaDescription": "Practice Information Assurance training questions with instant answers and explanations. Confidentiality, integrity, availability, and DoD system access requirements.",
+  "whyItWorks": "IA training covers foundational security concepts — confidentiality, integrity, availability, risk management — that show up in slightly different wording question to question. Cambo reads the exact wording on your screen and gives you the specific answer, not just the general concept, so you're not left guessing which definition applies.",
+  "sampleQuestions": [
+    {
+      "q": "Which part of the CIA triad is violated when an unauthorized user modifies a file without permission?",
+      "a": "Integrity — the CIA triad is Confidentiality, Integrity, and Availability. Unauthorized modification is an integrity violation because the data can no longer be trusted as accurate."
+    },
+    {
+      "q": "What is the primary purpose of a Risk Management Framework (RMF) assessment?",
+      "a": "To identify, evaluate, and formally authorize the security risks of an information system before it's allowed to operate, and to monitor those risks over time."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is Information Assurance (IA) training?",
+      "a": "Training that covers the fundamentals of protecting information systems — confidentiality, integrity, and availability of data, along with risk management and DoD system access requirements."
+    },
+    {
+      "q": "How is IA training different from the Cyber Awareness Challenge?",
+      "a": "IA training tends to go deeper into security concepts and risk frameworks, often required for personnel with IT or system-access roles, while the Cyber Awareness Challenge is the broader annual requirement for anyone with network access."
+    },
+    {
+      "q": "What is the CIA triad?",
+      "a": "Confidentiality, Integrity, and Availability — the three core properties information security aims to protect. Confidentiality keeps data private, integrity keeps it accurate and unaltered, availability keeps it accessible to authorized users when needed."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or any official IA program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "Who needs to complete IA training?",
+      "a": "Typically required for DoD civilians, contractors, and service members whose roles involve system access, IT administration, or handling of sensitive information — often as part of DoD 8570/8140 workforce requirements."
+    },
+    {
+      "q": "Do I need to retake IA training every year?",
+      "a": "Most IA training requirements are annual, though the exact cadence depends on your role and your organization's policy."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "opsec-training"]
+}

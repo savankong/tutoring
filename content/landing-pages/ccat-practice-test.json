@@ -1,0 +1,45 @@
+{
+  "slug": "ccat-practice-test",
+  "h1": "CCAT Practice Test — Instant Answers While You Practice",
+  "subhead": "Point your phone at any Criteria Cognitive Aptitude Test question and get the answer plus a fast explanation of the logic — build speed under the real time pressure.",
+  "metaTitle": "CCAT Practice Test: Instant Answers & Explanations | Cambo",
+  "metaDescription": "Practice CCAT (Criteria Cognitive Aptitude Test) questions with instant answers and explanations. Math, verbal, and spatial reasoning — build speed for the real 15-minute test.",
+  "whyItWorks": "The CCAT gives you 50 questions in 15 minutes across math, verbal, and spatial reasoning — the hard part usually isn't the difficulty, it's the clock. Cambo answers a practice question instantly so you can see the pattern, understand why it's right, and move to the next one without losing your pace.",
+  "sampleQuestions": [
+    {
+      "q": "All project managers at the firm are PMP-certified. Lexi is a project manager at the firm. Which conclusion follows?",
+      "a": "Lexi is PMP-certified — this is a straightforward syllogism: every member of the group has the certification, Lexi is a member of the group, so Lexi has it too."
+    },
+    {
+      "q": "A worker can complete a task alone in 8 hours. Working together with a second worker, the task takes 3 hours. How long would it take the second worker alone?",
+      "a": "4.8 hours — the combined rate is 1/3 of the job per hour; subtracting the first worker's rate of 1/8 leaves 5/24 per hour for the second worker, or 24/5 = 4.8 hours."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the CCAT?",
+      "a": "The Criteria Cognitive Aptitude Test is a 50-question, 15-minute pre-employment assessment measuring math, verbal, and spatial reasoning under time pressure. Employers administer it through Criteria Corp during hiring."
+    },
+    {
+      "q": "What's a good CCAT score?",
+      "a": "Most employers look for a score in the top half for the role, but the exact cutoff varies by employer and position — some technical or analytical roles set a higher bar."
+    },
+    {
+      "q": "Can I retake the CCAT?",
+      "a": "That depends on the employer administering it — some allow a retake after a waiting period, others don't. Check with the company you're applying to."
+    },
+    {
+      "q": "Is Cambo affiliated with Criteria Corp?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Criteria Corp or the CCAT."
+    },
+    {
+      "q": "What kinds of questions are on the CCAT?",
+      "a": "A mix of math word problems, verbal reasoning and vocabulary, and spatial or pattern recognition questions — all designed to be answerable quickly once you know the underlying approach."
+    },
+    {
+      "q": "How should I prepare for the time pressure?",
+      "a": "Practice enough questions that the common patterns become automatic, and don't get stuck — if a question is taking too long, take your best guess and move on so you don't lose time you need for easier questions later in the set."
+    }
+  ],
+  "internalLinks": []
+}

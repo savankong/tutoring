@@ -2,9 +2,30 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadLandingPagesContent } from './landing-pages-content.mjs';
+import { fetchPublicQuestionsBySlug } from './fetch-public-questions.mjs';
+import { normalizeQuestionKey } from '../netlify/lib/publicTopics.js';
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const distDir = join(rootDir, 'dist');
+
+// Hard cap so a topic with thousands of accumulated real questions doesn't
+// balloon page weight or JSON-LD size — curated static questions always
+// make the cut; real ones fill remaining slots by popularity (times_seen).
+const MAX_QUESTIONS_PER_PAGE = 40;
+
+function mergeRealQuestions(content, realQuestions) {
+  if (!realQuestions?.length) return content;
+  const merged = [...content.sampleQuestions];
+  const seenKeys = new Set(merged.map((q) => normalizeQuestionKey(q.q)));
+  for (const row of realQuestions) {
+    if (merged.length >= MAX_QUESTIONS_PER_PAGE) break;
+    const key = normalizeQuestionKey(row.question);
+    if (seenKeys.has(key)) continue;
+    seenKeys.add(key);
+    merged.push({ q: row.question, a: row.answer });
+  }
+  return { ...content, sampleQuestions: merged };
+}
 
 // Same hoisting behavior as scripts/prerender.mjs relies on: React 19 lifts
 // <title>/<meta>/<link> rendered anywhere in the tree to the front of the
@@ -17,7 +38,11 @@ const HEAD_TAG_PREFIX = /^(?:<title>[\s\S]*?<\/title>|<meta[^>]*\/>|<link[^>]*\/
 
 const { renderLandingPage } = await import(join(rootDir, 'dist-ssr', 'entry-server.js'));
 
-const allContent = loadLandingPagesContent(rootDir);
+const staticContent = loadLandingPagesContent(rootDir);
+const realQuestionsBySlug = await fetchPublicQuestionsBySlug();
+const allContent = Object.fromEntries(
+  Object.entries(staticContent).map(([slug, content]) => [slug, mergeRealQuestions(content, realQuestionsBySlug[slug])]),
+);
 
 // Pull the boilerplate shared with every other page (charset, viewport,
 // favicon, manifest, theme-color, compiled stylesheet link) straight out of

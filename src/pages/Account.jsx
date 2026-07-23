@@ -33,6 +33,7 @@ function Account() {
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [packQty, setPackQty] = useState(1);
   const [purchasing, setPurchasing] = useState(false);
+  const [savingPrivacy, setSavingPrivacy] = useState(false);
 
   const planSectionRef = useRef(null);
   const usageSectionRef = useRef(null);
@@ -91,6 +92,26 @@ function Account() {
     } catch (err) {
       setError(err.message);
       setPurchasing(false);
+    }
+  };
+
+  const togglePublicCapturesOptOut = async (optOut) => {
+    setError('');
+    setSavingPrivacy(true);
+    try {
+      const res = await fetch('/.netlify/functions/update-account-settings', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ public_captures_opt_out: optOut }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      await refresh();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSavingPrivacy(false);
     }
   };
 
@@ -317,6 +338,23 @@ function Account() {
           </p>
         </>
       )}
+
+      <div className="account-card">
+        <div className="account-card-title">Privacy</div>
+        <div className="account-card-sub">
+          Cambo may anonymously publish real questions you capture — never your name or email — as free study
+          questions on our public practice pages, to help other tutors. You can opt out any time.
+        </div>
+        <label className="account-toggle-row">
+          <input
+            type="checkbox"
+            checked={!user.public_captures_opt_out}
+            disabled={savingPrivacy}
+            onChange={(e) => togglePublicCapturesOptOut(!e.target.checked)}
+          />
+          <span>Let Cambo publish my captured questions anonymously</span>
+        </label>
+      </div>
 
       <div className="actions">
         <button className="secondary" onClick={logout}>

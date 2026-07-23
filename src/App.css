@@ -264,6 +264,21 @@
   font-weight: 600;
 }
 
+.account-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.account-toggle-row input {
+  width: auto;
+  flex: none;
+}
+
 .account-card {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -1118,6 +1133,12 @@ a:focus-visible {
   border: 1px solid var(--border);
   background: var(--card-bg);
   color: var(--text-h);
+}
+
+.admin-question-cell {
+  white-space: normal;
+  max-width: 320px;
+  min-width: 220px;
 }
 
 /* History */

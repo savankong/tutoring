@@ -51,6 +51,7 @@ export default async (request) => {
       credit_balance: user.credit_balance ?? 0,
       using_credits: isDrawingOnCredits(user, capturesUsed),
       last_credit_purchase: lastCreditPurchase,
+      public_captures_opt_out: user.public_captures_opt_out ?? false,
     },
     { 'set-cookie': sessionCookieHeader(refreshedToken) },
   );

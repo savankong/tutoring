@@ -3,6 +3,7 @@ import { getDatabase } from '@netlify/database';
 import { requireUser } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
+import { PUBLIC_QUESTION_TOPICS, normalizeQuestionKey } from '../lib/publicTopics.js';
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
@@ -21,6 +22,29 @@ async function debitCredit(db, user) {
   }
 }
 
+/** Auto-publishes a captured Q&A onto the matching landing page's public
+ * question bank, so real usage grows real, indexable content over time
+ * instead of only the hand-written starter set. Only runs for users who
+ * signed up via one of the 24 campaign pages (signup_ref) and haven't
+ * opted out — best-effort, never blocks the capture response. */
+async function publishPublicQuestion(db, user, { questionText, answer, explanation, whyOthersWrong }) {
+  if (user.public_captures_opt_out) return;
+  if (!user.signup_ref || !PUBLIC_QUESTION_TOPICS.has(user.signup_ref)) return;
+  if (!questionText) return;
+
+  try {
+    const normalizedKey = normalizeQuestionKey(questionText);
+    await db.sql`
+      INSERT INTO public_questions (topic_slug, question, answer, explanation, why_others_wrong, normalized_key)
+      VALUES (${user.signup_ref}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong}, ${normalizedKey})
+      ON CONFLICT (topic_slug, normalized_key)
+      DO UPDATE SET times_seen = public_questions.times_seen + 1, last_seen_at = now()
+    `;
+  } catch (err) {
+    console.error('publishPublicQuestion failed:', err);
+  }
+}
+
 const RESPONSE_SCHEMA = {
   type: 'object',
   properties: {
@@ -28,6 +52,11 @@ const RESPONSE_SCHEMA = {
       type: 'string',
       description:
         '3-6 word label for the question, for a history list, e.g. "CCAT Math & Logic Q31" or "Flights per month word problem". Empty string if no question is visible.',
+    },
+    question_text: {
+      type: 'string',
+      description:
+        'The actual question, transcribed verbatim (or very close to it) from the photo, cleaned up for readability — e.g. "Which of the following is a best practice for protecting CUI?" This is the real question text, not a short label. Include multiple-choice options inline if shown. Empty string if no question is visible.',
     },
     pattern_analysis: {
       type: 'string',
@@ -50,14 +79,14 @@ const RESPONSE_SCHEMA = {
         'For multiple-choice questions only: a thorough, separate explanation of why each of the OTHER options is incorrect. Go through every remaining option one at a time (e.g. "A is wrong because...", "B is wrong because...") and give the full reasoning for why each fails — not just "doesn\'t match," explain the specific error, miscalculation, or broken rule in that option. Leave empty for open-ended/non-multiple-choice questions, or if no question is visible.',
     },
   },
-  required: ['title', 'pattern_analysis', 'answer', 'explanation', 'why_others_wrong'],
+  required: ['title', 'question_text', 'pattern_analysis', 'answer', 'explanation', 'why_others_wrong'],
   additionalProperties: false,
 };
 
 const PROMPT = [
   'This is a photo of a screen showing a quiz, practice test, or worksheet question.',
   'Ignore browser chrome, tabs, breadcrumbs, and any other page navigation UI.',
-  'Find the actual question — it is often preceded by a marker like "81. Question" — and solve it.',
+  'Find the actual question — it is often preceded by a marker like "81. Question" — and solve it. Transcribe it into question_text as you find it, cleaned up but not paraphrased.',
   'If it is a pattern/matrix/sequence/spatial-reasoning question (e.g. "which figure completes the pattern"), be rigorous: check every row AND every column of the matrix independently for shape, count, shading, size, and rotation changes before choosing — do not guess from a partial glance.',
   'The answer field must be as short as possible — no explanations there.',
   'The explanation field leads with the answer already given, then gives the complete, thorough reasoning for why it is correct — show the logic in full, as if teaching it, not a quick summary.',
@@ -167,16 +196,19 @@ export default async (request) => {
 
     const answer = parsed.answer ?? '';
     const title = parsed.title ?? '';
+    const questionText = parsed.question_text ?? '';
     const explanation = parsed.explanation ?? '';
     const whyOthersWrong = parsed.why_others_wrong ?? '';
     await db.sql`
-      INSERT INTO captures (user_id, title, answer, explanation, why_others_wrong)
-      VALUES (${user.id}, ${title}, ${answer}, ${explanation}, ${whyOthersWrong})
+      INSERT INTO captures (user_id, title, question_text, answer, explanation, why_others_wrong)
+      VALUES (${user.id}, ${title}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong})
     `;
 
     if (isDrawingOnCredits(user, capturesUsedBefore)) {
       await debitCredit(db, user);
     }
+
+    await publishPublicQuestion(db, user, { questionText, answer, explanation, whyOthersWrong });
 
     return jsonResponse(200, { answer, explanation, why_others_wrong: whyOthersWrong });
   } catch (err) {

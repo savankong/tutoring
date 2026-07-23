@@ -27,10 +27,13 @@ function LpHead({ content }) {
       <meta name="twitter:description" content={content.metaDescription} />
       <meta name="twitter:image" content={ogImage} />
       <script type="application/ld+json">{JSON.stringify(faqSchema(content))}</script>
-      {/* Plausible's tagged-events build: any element with event-name/event-*
-          attributes fires a custom event on click, no custom JS needed —
-          matches the CTA anchors in LpHero/LpCtaFooter. */}
-      <script defer data-domain="camboapp.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+      {/* Plausible site script — the event-name/event-* attributes on the CTA
+          anchors in LpHero/LpCtaFooter fire as custom events on click if the
+          "Custom Events" (tagged elements) extension is enabled for this
+          script in the Plausible site settings; harmless no-ops otherwise. */}
+      <script async src="https://plausible.io/js/pa-q_udJRciP4RoryL1Fe69D.js"></script>
+      <script>{`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+plausible.init()`}</script>
     </>
   );
 }

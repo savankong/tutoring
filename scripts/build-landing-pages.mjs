@@ -8,9 +8,12 @@ const distDir = join(rootDir, 'dist');
 
 // Same hoisting behavior as scripts/prerender.mjs relies on: React 19 lifts
 // <title>/<meta>/<link> rendered anywhere in the tree to the front of the
-// renderToStaticMarkup output. <script> tags are not hoisted this way and
-// stay inline in the body, which is fine — they work wherever they land.
-const HEAD_TAG_PREFIX = /^(?:<title>[\s\S]*?<\/title>|<meta[^>]*\/>|<link[^>]*\/>)+/;
+// renderToStaticMarkup output. Empty <script async src="..."></script> tags
+// (no body content — e.g. the Plausible loader) get hoisted into the same
+// prefix as a "Resource". Scripts WITH body content (the JSON-LD block, the
+// inline Plausible init snippet) are not treated as Resources and stay
+// inline in the body, which is fine — they work wherever they land.
+const HEAD_TAG_PREFIX = /^(?:<title>[\s\S]*?<\/title>|<meta[^>]*\/>|<link[^>]*\/>|<script[^>]*><\/script>)+/;
 
 const { renderLandingPage } = await import(join(rootDir, 'dist-ssr', 'entry-server.js'));
 

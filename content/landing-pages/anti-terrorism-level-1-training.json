@@ -1,9 +1,9 @@
 {
   "slug": "anti-terrorism-level-1-training",
-  "h1": "Antiterrorism Level 1 Training Practice Questions",
-  "subhead": "Snap a photo of any Antiterrorism Level I (JS-US007) question and get an instant, explained answer — finish your annual refresher without getting stuck on a definition.",
-  "metaTitle": "Antiterrorism Level 1 Training (JS-US007) Practice Q&A | Cambo",
-  "metaDescription": "Practice Antiterrorism Level I Awareness Training questions with instant, explained answers. Get through your annual JS-US007 refresher faster.",
+  "h1": "Antiterrorism Level 1 Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or snap a photo of any Antiterrorism Level I (JS-US007) question for an instant, explained answer — finish your annual refresher without getting stuck on a definition.",
+  "metaTitle": "Antiterrorism Level 1 (JS-US007) Quiz & Practice Q&A | Cambo",
+  "metaDescription": "Free Antiterrorism Level I Awareness Training quiz and practice questions with instant, explained answers. Get through your annual JS-US007 refresher faster.",
   "whyItWorks": "JS-US007 leans heavily on specific definitions and protective-measure categories that are easy to mix up under time pressure. Cambo reads the exact question on your screen and gives you the right answer plus the reasoning, so a fuzzy memory of a term doesn't stall the whole module.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is the definition of terrorism used in DoD antiterrorism training?",
       "a": "The unlawful use of violence or threat of violence to instill fear and coerce governments or societies, often for political, religious, or ideological objectives."
+    },
+    {
+      "q": "What does the acronym FPCON stand for in DoD antiterrorism planning?",
+      "a": "Force Protection Condition — a graduated threat-level system (Normal, Alpha, Bravo, Charlie, Delta) that dictates specific security measures based on the assessed terrorist threat."
+    },
+    {
+      "q": "You notice someone photographing entry points and taking notes near a DoD facility. What should you do?",
+      "a": "Report it to security or law enforcement as potential surveillance — documenting entry points and security patterns is a common pre-attack indicator covered in antiterrorism training."
+    },
+    {
+      "q": "What is the purpose of the DoD's \"See Something, Say Something\"-style reporting programs?",
+      "a": "To encourage personnel to report suspicious activity that could indicate terrorism planning, since early reporting of seemingly minor observations can help prevent an attack."
+    },
+    {
+      "q": "Which of the following best describes \"target hardening\" as an antiterrorism concept?",
+      "a": "Making a facility or individual a less attractive target by adding physical security measures — barriers, lighting, access control — that increase the difficulty and risk for a potential attacker."
     }
   ],
   "faqs": [

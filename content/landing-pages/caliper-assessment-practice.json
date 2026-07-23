@@ -13,6 +13,18 @@
     {
       "q": "Why does the Caliper Profile include some questions that seem to repeat with slightly different wording?",
       "a": "To measure consistency in your responses. Answering similar questions very differently can flag inconsistent or socially desirable responding rather than an accurate personality picture."
+    },
+    {
+      "q": "The assessment includes items like 'I enjoy taking charge in group situations.' What trait area does this likely relate to?",
+      "a": "Leadership orientation and assertiveness — items like this are grouped with others measuring similar traits to build a consistent picture, rather than judged individually."
+    },
+    {
+      "q": "Why might the Caliper Profile ask about your comfort level with routine, repetitive tasks?",
+      "a": "To assess traits like patience, structure preference, or thoroughness — relevant to roles where consistency and attention to detail matter more than fast-paced variety."
+    },
+    {
+      "q": "If a question feels ambiguous or doesn't clearly apply to you, what's the best approach?",
+      "a": "Answer based on your most typical, honest tendency rather than overthinking the wording — the assessment is designed to capture general patterns, not parse every edge case."
     }
   ],
   "faqs": [

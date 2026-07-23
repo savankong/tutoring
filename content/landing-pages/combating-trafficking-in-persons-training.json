@@ -1,9 +1,9 @@
 {
   "slug": "combating-trafficking-in-persons-training",
-  "h1": "Combating Trafficking in Persons (CTIP) Training Practice Questions",
-  "subhead": "Get instant, explained answers to CTIP training questions — recognize the indicators of human trafficking and finish your training without the guesswork.",
-  "metaTitle": "CTIP Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice Combating Trafficking in Persons (CTIP) training questions with instant answers and explanations. Recognize indicators, understand reporting requirements.",
+  "h1": "CTIP Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to CTIP training questions — recognize the indicators of human trafficking and finish your training without the guesswork.",
+  "metaTitle": "CTIP Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Combating Trafficking in Persons (CTIP) quiz and practice questions with instant, explained answers. Recognize indicators, understand reporting requirements.",
   "whyItWorks": "CTIP questions often ask you to spot indicators in a scenario rather than recall a flat fact, which is exactly where a quick second opinion helps most. Cambo reads the specific scenario in front of you and explains why an answer is right, not just what it is.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is the DoD's 'zero tolerance' policy in regard to trafficking in persons?",
       "a": "DoD personnel are prohibited from engaging in any activity that supports or facilitates trafficking in persons, including using forced labor or patronizing commercial sex — with no exceptions."
+    },
+    {
+      "q": "Which of the following is a labor trafficking indicator, as opposed to sex trafficking?",
+      "a": "A worker who is not free to leave their job, has debts to their employer they can never seem to pay off, or has wages withheld — labor trafficking centers on forced labor and debt bondage."
+    },
+    {
+      "q": "What is \"debt bondage\" in the context of human trafficking?",
+      "a": "A situation where a person is forced to work to pay off a debt that is often inflated, unclear, or designed to never be fully repaid — a common control mechanism traffickers use to compel labor."
+    },
+    {
+      "q": "A DoD contractor overseas is found to be charging foreign workers illegal recruitment fees. What CTIP concern does this raise?",
+      "a": "Illegal recruitment fees are a red flag for labor trafficking risk — they can trap workers in debt bondage, which is why DoD contract requirements specifically prohibit this practice."
+    },
+    {
+      "q": "Why does DoD CTIP policy apply a \"zero tolerance\" standard rather than a case-by-case judgment?",
+      "a": "Because trafficking in persons is treated as a fundamental violation of human rights with no acceptable justification — the policy removes ambiguity so personnel understand there is no gray area."
     }
   ],
   "faqs": [

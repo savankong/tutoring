@@ -1,9 +1,9 @@
 {
   "slug": "wonderlic-test-practice",
-  "h1": "Wonderlic Test Practice — Instant Answers & Explanations",
-  "subhead": "Point your phone at any Wonderlic-style question and get the answer plus a fast explanation of the logic — build speed for the real 12-minute test.",
-  "metaTitle": "Wonderlic Test Practice: Instant Answers & Explanations | Cambo",
-  "metaDescription": "Practice Wonderlic Personnel Test questions with instant answers and explanations. Math, verbal, and logic — build speed for the real 12-minute test.",
+  "h1": "Wonderlic Test Practice & Quiz — Instant Answers & Explanations",
+  "subhead": "Take a free practice quiz or point your phone at any Wonderlic-style question for the answer plus a fast explanation of the logic — build speed for the real 12-minute test.",
+  "metaTitle": "Wonderlic Test Practice & Quiz: Instant Answers | Cambo",
+  "metaDescription": "Free Wonderlic Personnel Test quiz and practice questions with instant, explained answers. Math, verbal, and logic — build speed for the real 12-minute test.",
   "whyItWorks": "The Wonderlic gives you 50 questions in 12 minutes — even less time per question than the CCAT — so recognizing the pattern instantly matters more than raw difficulty. Cambo answers a practice question right away so you can see the shortcut, not just the final number.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "Paper sells for 21 cents per pad. What will 4 pads cost?",
       "a": "84 cents — 21 × 4 = 84."
+    },
+    {
+      "q": "If 3 workers can build a wall in 12 hours, how long would it take 6 workers, assuming the same rate per worker?",
+      "a": "6 hours — doubling the number of workers halves the time needed, assuming a constant rate per worker."
+    },
+    {
+      "q": "Which word is most nearly opposite of 'reluctant'?",
+      "a": "Eager — reluctant means unwilling or hesitant, so its opposite describes being willing and enthusiastic."
+    },
+    {
+      "q": "A jacket originally priced at $60 is on sale for 30% off. What is the sale price?",
+      "a": "$42 — 30% of $60 is $18, so $60 − $18 = $42."
+    },
+    {
+      "q": "In the sequence 2, 5, 11, 23, what is the next number?",
+      "a": "47 — each number is roughly double the previous one plus one (2×2+1=5, 5×2+1=11, 11×2+1=23, 23×2+1=47)."
     }
   ],
   "faqs": [

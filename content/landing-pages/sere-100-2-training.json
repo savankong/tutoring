@@ -1,9 +1,9 @@
 {
   "slug": "sere-100-2-training",
-  "h1": "SERE 100.2 Training Practice Questions & Answers",
-  "subhead": "Get instant, explained answers to SERE 100.2 Code of Conduct questions — survival, evasion, resistance, and escape fundamentals, without the guesswork.",
-  "metaTitle": "SERE 100.2 Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice SERE 100.2 Level A Code of Conduct training questions with instant answers and explanations. Code of Conduct articles, survival priorities, and more.",
+  "h1": "SERE 100.2 Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to SERE 100.2 Code of Conduct questions — survival, evasion, resistance, and escape fundamentals, without the guesswork.",
+  "metaTitle": "SERE 100.2 Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free SERE 100.2 Level A Code of Conduct quiz and practice questions with instant, explained answers. Code of Conduct articles, survival priorities, and more.",
   "whyItWorks": "SERE 100.2 leans heavily on the six Articles of the Code of Conduct and specific survival/evasion priorities, which are easy to blur together across a long course. Cambo reads the exact question and gives you the specific article or principle that applies, not just a general answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is the first priority in a survival situation, according to SERE training?",
       "a": "Protection — assessing and addressing immediate threats to life (medical, environmental) before moving on to water, fire, food, and signaling."
+    },
+    {
+      "q": "Which Article of the Code of Conduct establishes a service member's duty to resist to the utmost of their ability if captured?",
+      "a": "Article II — a service member will never surrender their forces while they have the means to resist, and if in command, will never surrender members of their command while they still can resist."
+    },
+    {
+      "q": "In a survival situation, why does SERE training place \"protection\" before \"water\" in priority order?",
+      "a": "Because immediate threats to life — exposure, injury, environmental hazards — can kill much faster than dehydration, so stabilizing those risks comes first."
+    },
+    {
+      "q": "What is the general guidance under the Code of Conduct regarding providing information to a captor?",
+      "a": "Give only name, rank, service number, and date of birth — the \"Big Four\" — and resist providing further information to the best of your ability."
+    },
+    {
+      "q": "What does Article VI of the Code of Conduct establish?",
+      "a": "That a service member will never forget they are an American, responsible for their actions, and will trust in their country and its way of life — the article covering enduring loyalty and faith."
     }
   ],
   "faqs": [

@@ -1,9 +1,9 @@
 {
   "slug": "opsec-training",
-  "h1": "OPSEC Training Practice Questions & Answers",
-  "subhead": "Get instant, explained answers to OPSEC training questions — identify critical information, spot vulnerabilities, and finish your annual refresher without the guesswork.",
-  "metaTitle": "OPSEC Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice OPSEC (Operations Security) training questions with instant answers and explanations. Get through your annual refresher faster and understand the reasoning.",
+  "h1": "OPSEC Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to OPSEC training questions — identify critical information, spot vulnerabilities, and finish your annual refresher without the guesswork.",
+  "metaTitle": "OPSEC Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free OPSEC (Operations Security) training quiz and practice questions with instant, explained answers. Get through your annual refresher faster.",
   "whyItWorks": "OPSEC questions often hinge on judgment calls — is this detail critical information, is this a vulnerability, what's the right countermeasure — rather than pure recall. Cambo doesn't just give you an answer, it explains the reasoning so the training actually sticks instead of feeling like a box to check.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "A service member posts a photo on social media that includes a visible base identifier in the background. What OPSEC concern does this raise?",
       "a": "It's a potential indicator — a small detail that seems harmless alone but could help an adversary confirm location or activity when combined with other public information."
+    },
+    {
+      "q": "What is a \"countermeasure,\" in the OPSEC process?",
+      "a": "An action taken to eliminate an OPSEC vulnerability or reduce the risk of an adversary exploiting it — such as limiting public discussion of an event's timing or restricting who has access to certain details."
+    },
+    {
+      "q": "Why does OPSEC training emphasize that \"small\" pieces of information can still be a risk?",
+      "a": "Because adversaries can piece together multiple small, individually harmless details into a much bigger picture — this is called \"aggregation,\" and it's why OPSEC looks at cumulative risk, not just single facts."
+    },
+    {
+      "q": "Who is responsible for OPSEC within a unit or organization?",
+      "a": "Everyone — while there's often a designated OPSEC officer or coordinator, protecting critical information is treated as every individual's responsibility, not just a specialist's job."
+    },
+    {
+      "q": "A spouse posts on social media about an upcoming \"welcome home\" event without specifying the date. Is this an OPSEC risk?",
+      "a": "It can be — even vague timing hints, combined with other public posts, can help someone estimate deployment or return schedules, which is why discretion matters even with indirect details."
     }
   ],
   "faqs": [

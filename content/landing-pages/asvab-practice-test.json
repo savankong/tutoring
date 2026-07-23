@@ -1,9 +1,9 @@
 {
   "slug": "asvab-practice-test",
-  "h1": "ASVAB Practice Test — Instant Answers & Explanations",
-  "subhead": "Point your phone at any ASVAB-style question and get the answer plus a fast explanation — Arithmetic Reasoning, Word Knowledge, and more, without the guesswork.",
-  "metaTitle": "ASVAB Practice Test: Instant Answers & Explanations | Cambo",
-  "metaDescription": "Practice ASVAB questions with instant answers and explanations. Arithmetic Reasoning, Word Knowledge, Mechanical Comprehension, and more.",
+  "h1": "ASVAB Practice Test & Quiz — Instant Answers & Explanations",
+  "subhead": "Take a free practice quiz or point your phone at any ASVAB-style question for the answer plus a fast explanation — Arithmetic Reasoning, Word Knowledge, and more, without the guesswork.",
+  "metaTitle": "ASVAB Practice Test & Quiz: Instant Answers | Cambo",
+  "metaDescription": "Free ASVAB practice test and quiz questions with instant, explained answers. Arithmetic Reasoning, Word Knowledge, Mechanical Comprehension, and more.",
   "whyItWorks": "The ASVAB covers ten different subtests, and your AFQT score depends specifically on four of them — it's easy to spend prep time on the wrong sections. Cambo answers whatever question is in front of you and explains the reasoning, so you can drill the subtests that actually move your score.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "Which word most nearly means the same as 'meticulous'?",
       "a": "Careful — meticulous means showing great attention to detail and being extremely careful and precise."
+    },
+    {
+      "q": "Which organ in the human body is primarily responsible for filtering waste from the blood?",
+      "a": "The kidneys — they filter blood to remove waste products and excess fluid, which are then excreted as urine."
+    },
+    {
+      "q": "In a system of pulleys, what is the main advantage of adding more pulleys?",
+      "a": "It reduces the force needed to lift a load, at the cost of pulling more rope — mechanical advantage trades force for distance."
+    },
+    {
+      "q": "A store marks up an item that costs $40 by 25%. What is the selling price?",
+      "a": "$50 — a 25% markup on $40 is $10, so $40 + $10 = $50."
+    },
+    {
+      "q": "Which word most nearly means the opposite of 'candid'?",
+      "a": "Evasive — candid means open and honest, so its opposite describes being deliberately vague or indirect."
     }
   ],
   "faqs": [

@@ -1,9 +1,9 @@
 {
   "slug": "tarp-training",
-  "h1": "TARP Training Practice Questions & Answers",
-  "subhead": "Get instant, explained answers to Threat Awareness and Reporting Program (TARP) questions — recognize foreign intelligence and terrorism threats without the guesswork.",
-  "metaTitle": "TARP Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice Threat Awareness and Reporting Program (TARP) training questions with instant answers and explanations. Recognize elicitation, surveillance, and reporting requirements.",
+  "h1": "TARP Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Threat Awareness and Reporting Program (TARP) questions — recognize foreign intelligence and terrorism threats without the guesswork.",
+  "metaTitle": "TARP Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Threat Awareness and Reporting Program (TARP) quiz and practice questions with instant, explained answers. Elicitation, surveillance, and reporting.",
   "whyItWorks": "TARP scenarios ask you to recognize elicitation attempts and suspicious contacts that are deliberately designed to look innocent. Cambo reads the exact scenario on your screen and explains why it is or isn't a reportable indicator, not just the answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "You are approached online by someone claiming to be a recruiter who asks detailed questions about your unit's deployment schedule. What should you do?",
       "a": "Report the contact to your security officer or counterintelligence point of contact — unsolicited requests for operational details are a classic TARP reporting indicator."
+    },
+    {
+      "q": "A stranger at a conference offers to pay for your travel and accommodations in exchange for a private \"consulting\" conversation about your work. What TARP concern does this raise?",
+      "a": "It's a potential elicitation and recruitment attempt — unsolicited financial incentives tied to sharing work-related information are a classic red flag covered in TARP training."
+    },
+    {
+      "q": "What is the difference between elicitation and a direct interrogation?",
+      "a": "Elicitation is subtle and often disguised as normal conversation, designed so the target doesn't realize information is being extracted, while interrogation is direct, recognizable questioning."
+    },
+    {
+      "q": "Why does TARP training emphasize reporting suspicious contacts even if you're not sure they're a real threat?",
+      "a": "Because counterintelligence professionals are better positioned to assess a pattern across multiple reports — a single contact might seem minor, but reporting lets analysts connect it to other information."
+    },
+    {
+      "q": "Which of the following is a common TARP indicator involving social media?",
+      "a": "An unfamiliar profile that quickly becomes overly friendly and starts asking pointed questions about your job, clearance, or deployment — a common vector for elicitation online."
     }
   ],
   "faqs": [

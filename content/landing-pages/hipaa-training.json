@@ -1,9 +1,9 @@
 {
   "slug": "hipaa-training",
-  "h1": "HIPAA Training Practice Questions & Answers",
-  "subhead": "Point your phone at any HIPAA training question and get an instant, explained answer — Privacy Rule, Security Rule, and breach notification, without the guesswork.",
-  "metaTitle": "HIPAA Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice HIPAA training questions with instant answers and explanations. Privacy Rule, Security Rule, PHI, and breach notification requirements.",
+  "h1": "HIPAA Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any HIPAA training question for an instant, explained answer — Privacy Rule, Security Rule, and breach notification, without the guesswork.",
+  "metaTitle": "HIPAA Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free HIPAA training quiz and practice questions with instant, explained answers. Privacy Rule, Security Rule, PHI, and breach notification requirements.",
   "whyItWorks": "HIPAA training questions often ask you to apply the Privacy Rule or Security Rule to a specific scenario — is this disclosure permitted, is this a reportable breach — and the right answer depends on details easy to miss. Cambo reads the exact scenario and explains the reasoning, not just the answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "A nurse discusses a patient's diagnosis with a coworker in a public hallway. What HIPAA concern does this raise?",
       "a": "A potential Privacy Rule violation — PHI should only be discussed on a need-to-know basis and in a manner that minimizes the risk of incidental disclosure to others."
+    },
+    {
+      "q": "A hospital employee accesses the medical record of a celebrity patient out of curiosity, with no job-related reason. What HIPAA issue does this raise?",
+      "a": "An impermissible access/disclosure — accessing PHI without a legitimate treatment, payment, or operations need is a violation even if the information is never shared further."
+    },
+    {
+      "q": "What is the \"minimum necessary\" standard under HIPAA?",
+      "a": "The requirement to use, disclose, or request only the minimum amount of PHI needed to accomplish the intended purpose — not the entire record when only part of it is relevant."
+    },
+    {
+      "q": "Does HIPAA require patient authorization to share PHI for treatment purposes?",
+      "a": "No — the Privacy Rule permits sharing PHI without specific authorization for treatment, payment, and healthcare operations; authorization is generally required for other purposes, like marketing."
+    },
+    {
+      "q": "What is the deadline for notifying affected individuals after a HIPAA breach affecting 500 or more people?",
+      "a": "Without unreasonable delay, and no later than 60 days after discovery — breaches of this size also require notifying HHS and, in some cases, the media."
     }
   ],
   "faqs": [

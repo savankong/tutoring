@@ -1,6 +1,26 @@
 import { faqSchema } from './LpFaq.jsx';
+import { quizSchema } from './LpSampleQA.jsx';
 
 const SITE_URL = 'https://camboapp.com';
+
+// Same shape as the homepage's SoftwareApplication schema (src/pages/Landing.jsx)
+// — campaign pages didn't have this at all before, only FAQPage.
+function softwareAppSchema(content) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Cambo App',
+    applicationCategory: 'EducationalApplication',
+    operatingSystem: 'Any (web-based)',
+    url: `${SITE_URL}/${content.slug}/`,
+    description: content.metaDescription,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+}
 
 // Landing pages never hydrate, so there's no react-helmet-async here — just
 // plain <title>/<meta>/<link> elements. React 19 auto-hoists these to the
@@ -27,6 +47,8 @@ function LpHead({ content }) {
       <meta name="twitter:description" content={content.metaDescription} />
       <meta name="twitter:image" content={ogImage} />
       <script type="application/ld+json">{JSON.stringify(faqSchema(content))}</script>
+      <script type="application/ld+json">{JSON.stringify(quizSchema(content))}</script>
+      <script type="application/ld+json">{JSON.stringify(softwareAppSchema(content))}</script>
       {/* Plausible site script — the event-name/event-* attributes on the CTA
           anchors in LpHero/LpCtaFooter fire as custom events on click if the
           "Custom Events" (tagged elements) extension is enabled for this

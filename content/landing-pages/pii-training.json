@@ -1,9 +1,9 @@
 {
   "slug": "pii-training",
-  "h1": "PII Training Practice Questions & Answers",
-  "subhead": "Get instant, explained answers to Personally Identifiable Information (PII) training questions — identify what counts as PII and how to protect it, without the guesswork.",
-  "metaTitle": "PII Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice Personally Identifiable Information (PII) training questions with instant answers and explanations. Safeguarding, breach reporting, and PII vs. PHI.",
+  "h1": "PII Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Personally Identifiable Information (PII) training questions — identify what counts as PII and how to protect it, without the guesswork.",
+  "metaTitle": "PII Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Personally Identifiable Information (PII) quiz and practice questions with instant, explained answers. Safeguarding, breach reporting, and PII vs. PHI.",
   "whyItWorks": "PII questions often hinge on whether a specific piece of information counts as PII on its own or only in combination with other data — a distinction that's easy to second-guess. Cambo reads the exact scenario and explains the reasoning, not just the answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What should you do if you discover a PII breach?",
       "a": "Report it immediately through your organization's established breach reporting procedure — most policies require reporting within a strict time window, often one hour."
+    },
+    {
+      "q": "Is a person's job title alone generally considered PII?",
+      "a": "No — a job title by itself usually doesn't identify a specific individual. It becomes a PII concern only when combined with other identifying details, like a full name."
+    },
+    {
+      "q": "What is the difference between PII and \"sensitive PII\"?",
+      "a": "Sensitive PII is a subset that could cause substantial harm if exposed — like an SSN, financial account number, or biometric data — and typically requires stricter safeguards than PII in general."
+    },
+    {
+      "q": "What is the general rule for emailing PII to a personal email account?",
+      "a": "It's prohibited — PII should stay within authorized government or organizational systems, and sending it to a personal account is one of the most common PII-handling violations covered in training."
+    },
+    {
+      "q": "Why does PII training cover disposal procedures, not just storage and transmission?",
+      "a": "Because improperly discarded documents or devices (like an unshredded printout or an unwiped hard drive) are a real-world source of PII breaches — protection has to extend through the entire data lifecycle."
     }
   ],
   "faqs": [

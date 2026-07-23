@@ -1,9 +1,9 @@
 {
   "slug": "dod-cyber-awareness-challenge",
-  "h1": "DoD Cyber Awareness Challenge Practice Questions",
-  "subhead": "Snap a photo of any Cyber Awareness Challenge question and get an instant answer with a clear explanation — finish your annual training without getting stuck.",
-  "metaTitle": "DoD Cyber Awareness Challenge Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice DoD Cyber Awareness Challenge questions with instant, explained answers. Point your phone at any question during the training and get unstuck in seconds.",
+  "h1": "DoD Cyber Awareness Challenge Practice Quiz & Test Questions",
+  "subhead": "Take a free practice quiz or snap a photo of any Cyber Awareness Challenge question for an instant, explained answer — finish your annual training without getting stuck.",
+  "metaTitle": "DoD Cyber Awareness Challenge Quiz & Practice Test | Cambo",
+  "metaDescription": "Free DoD Cyber Awareness Challenge quiz and practice test questions with instant, explained answers. Point your phone at any training question and get unstuck in seconds.",
   "whyItWorks": "The Cyber Awareness Challenge covers a lot of ground fast — phishing, PII handling, spillage, insider threat, removable media — and it's easy to blank on a specific rule mid-question. Cambo reads the exact question on your screen and gives you the right answer plus the reasoning, so you finish the module instead of rereading the same slide twice.",
   "sampleQuestions": [
     {
@@ -13,6 +13,30 @@
     {
       "q": "You receive an email from an unfamiliar sender asking you to verify your CAC PIN by clicking a link. What should you do?",
       "a": "Don't click the link. Report it as suspected phishing — legitimate DoD systems never ask you to enter your PIN through an email link."
+    },
+    {
+      "q": "You suspect classified information may have been introduced onto an unclassified system (a \"spillage\"). What should you do first?",
+      "a": "Immediately report it to your security manager or the appropriate incident response channel. Don't try to delete the files or keep working on the system — that can destroy evidence needed to contain the spillage."
+    },
+    {
+      "q": "You find a USB drive in the parking lot labeled \"Salary Info FY26.\" What should you do?",
+      "a": "Don't plug it into any government or personal device. Turn it in to your security office — unknown removable media is a classic malware vector, and curiosity-driven plugging-in is exactly what this scenario tests."
+    },
+    {
+      "q": "Which of the following is a potential insider threat indicator?",
+      "a": "Unexplained affluence combined with unusual work hours or attempts to access information outside their need-to-know — behavioral and financial red flags, not just technical ones, are what the training emphasizes."
+    },
+    {
+      "q": "Which social media practice creates the greatest security risk?",
+      "a": "Posting details about upcoming deployments, unit movements, or specific mission information. Even seemingly harmless posts can aggregate into an OPSEC risk when combined with other public information."
+    },
+    {
+      "q": "A person you don't recognize asks you to hold the secure door open because their badge isn't working. What should you do?",
+      "a": "Politely decline and direct them to the visitor center or security desk to be verified — this is \"tailgating,\" and holding the door bypasses the access control the badge system exists to enforce."
+    },
+    {
+      "q": "What is the best way to protect against malicious code?",
+      "a": "Keep antivirus software and system patches up to date, and avoid clicking links or opening attachments from unverified senders — most malicious code enters through phishing or unpatched vulnerabilities."
     }
   ],
   "faqs": [

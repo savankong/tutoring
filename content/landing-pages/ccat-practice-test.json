@@ -1,9 +1,9 @@
 {
   "slug": "ccat-practice-test",
-  "h1": "CCAT Practice Test — Instant Answers While You Practice",
-  "subhead": "Point your phone at any Criteria Cognitive Aptitude Test question and get the answer plus a fast explanation of the logic — build speed under the real time pressure.",
-  "metaTitle": "CCAT Practice Test: Instant Answers & Explanations | Cambo",
-  "metaDescription": "Practice CCAT (Criteria Cognitive Aptitude Test) questions with instant answers and explanations. Math, verbal, and spatial reasoning — build speed for the real 15-minute test.",
+  "h1": "CCAT Practice Test & Quiz — Instant Answers While You Practice",
+  "subhead": "Take a free practice quiz or point your phone at any Criteria Cognitive Aptitude Test question for the answer plus a fast explanation of the logic — build speed under the real time pressure.",
+  "metaTitle": "CCAT Practice Test & Quiz: Instant Answers | Cambo",
+  "metaDescription": "Free CCAT (Criteria Cognitive Aptitude Test) quiz and practice questions with instant, explained answers. Math, verbal, and spatial reasoning — build speed for the real 15-minute test.",
   "whyItWorks": "The CCAT gives you 50 questions in 15 minutes across math, verbal, and spatial reasoning — the hard part usually isn't the difficulty, it's the clock. Cambo answers a practice question instantly so you can see the pattern, understand why it's right, and move to the next one without losing your pace.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "A worker can complete a task alone in 8 hours. Working together with a second worker, the task takes 3 hours. How long would it take the second worker alone?",
       "a": "4.8 hours — the combined rate is 1/3 of the job per hour; subtracting the first worker's rate of 1/8 leaves 5/24 per hour for the second worker, or 24/5 = 4.8 hours."
+    },
+    {
+      "q": "A rectangular garden is 12 feet long and 8 feet wide. What is its area?",
+      "a": "96 square feet — area of a rectangle is length × width, so 12 × 8 = 96."
+    },
+    {
+      "q": "BOOK is to READ as FORK is to ___?",
+      "a": "EAT — a book is the object used for the action of reading, just as a fork is the tool used for the action of eating; the analogy matches object-to-its-primary-use."
+    },
+    {
+      "q": "A train travels 300 miles at a constant speed and takes 5 hours. If it needs to cover 480 miles at the same speed, how long will it take?",
+      "a": "8 hours — the speed is 300 ÷ 5 = 60 mph, so 480 ÷ 60 = 8 hours."
+    },
+    {
+      "q": "If each shape in a row rotates 90 degrees clockwise from the one before it, what does the next shape in the sequence look like?",
+      "a": "The prior shape rotated a further 90 degrees clockwise — CCAT spatial questions reward tracking the single consistent transformation rule across the row rather than guessing."
     }
   ],
   "faqs": [

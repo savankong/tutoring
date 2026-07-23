@@ -1,9 +1,9 @@
 {
   "slug": "anti-money-laundering-training",
-  "h1": "Anti-Money Laundering (AML) Training Practice Questions",
-  "subhead": "Point your phone at any AML training question and get an instant, explained answer — red flags, reporting thresholds, and the BSA, without the guesswork.",
-  "metaTitle": "Anti-Money Laundering (AML) Training Practice Q&A | Cambo",
-  "metaDescription": "Practice Anti-Money Laundering (AML) training questions with instant answers and explanations. Bank Secrecy Act, red flags, and Suspicious Activity Reports.",
+  "h1": "Anti-Money Laundering (AML) Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any AML training question for an instant, explained answer — red flags, reporting thresholds, and the BSA, without the guesswork.",
+  "metaTitle": "AML Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Anti-Money Laundering (AML) quiz and practice questions with instant, explained answers. Bank Secrecy Act, red flags, and Suspicious Activity Reports.",
   "whyItWorks": "AML training questions often ask you to apply specific thresholds and reporting rules (like when a Currency Transaction Report vs. a Suspicious Activity Report is required), which are easy to mix up under time pressure. Cambo reads the exact question and gives you the specific rule, not just a general answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is 'structuring,' in the context of money laundering?",
       "a": "Deliberately breaking up a large transaction into smaller amounts to stay under reporting thresholds and avoid detection — it's illegal even if the underlying funds are legitimate."
+    },
+    {
+      "q": "Which of the following is considered a \"red flag\" that may indicate money laundering?",
+      "a": "A customer conducting frequent transactions just below the $10,000 reporting threshold in a short time span — a classic structuring pattern that AML monitoring is designed to catch."
+    },
+    {
+      "q": "What is \"know your customer\" (KYC) in the context of AML compliance?",
+      "a": "The process of verifying a customer's identity and understanding the nature of their financial activity so the institution can assess risk and detect unusual behavior — the foundation most AML programs are built on."
+    },
+    {
+      "q": "Does a Suspicious Activity Report (SAR) require proof that a crime occurred?",
+      "a": "No — a SAR is filed based on reasonable suspicion of illicit activity, not proof. Institutions are required to report suspicious patterns even without certainty."
+    },
+    {
+      "q": "What is a \"shell company,\" and why is it relevant to AML?",
+      "a": "A company with no significant assets or operations, often used to disguise the true ownership or origin of funds — shell companies are a common tool in the layering stage of money laundering."
     }
   ],
   "faqs": [

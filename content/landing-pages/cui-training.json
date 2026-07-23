@@ -1,9 +1,9 @@
 {
   "slug": "cui-training",
-  "h1": "CUI Training Practice Questions & Answers",
-  "subhead": "Point your phone at any Controlled Unclassified Information (CUI) training question and get an instant, explained answer — finish your training without second-guessing a marking rule.",
-  "metaTitle": "Controlled Unclassified Information (CUI) Training Practice Q&A | Cambo",
-  "metaDescription": "Practice CUI training questions with instant answers and explanations. Marking, handling, and safeguarding Controlled Unclassified Information.",
+  "h1": "CUI Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Controlled Unclassified Information (CUI) training question for an instant, explained answer — finish your training without second-guessing a marking rule.",
+  "metaTitle": "CUI Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Controlled Unclassified Information (CUI) quiz and practice questions with instant, explained answers. Marking, handling, and safeguarding CUI.",
   "whyItWorks": "CUI training is full of specific marking and handling rules that are easy to blur together — banner markings, category markings, dissemination controls. Cambo reads the exact question and gives you the precise rule that applies, not just the general concept.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "Where should CUI be stored when not in use?",
       "a": "In a locked container, locked office, or other area with sufficient physical access controls to prevent access by unauthorized individuals."
+    },
+    {
+      "q": "What is a \"banner marking,\" in the context of CUI?",
+      "a": "A header placed at the top (and often bottom) of a CUI document that identifies it as CUI and specifies its category — the primary visual indicator that special handling rules apply."
+    },
+    {
+      "q": "Can CUI be sent over regular, unencrypted email?",
+      "a": "No — CUI must be transmitted using approved, encrypted methods. Sending it over unencrypted email is a common training scenario used to test whether the rule has actually sunk in."
+    },
+    {
+      "q": "What is a \"dissemination control\" marking on a CUI document?",
+      "a": "A marking that limits who the information can be shared with — for example, restricting distribution to federal employees only — separate from the category marking that says what kind of CUI it is."
+    },
+    {
+      "q": "Who determines whether a specific piece of information qualifies as CUI?",
+      "a": "It only qualifies if it's covered by a law, regulation, or government-wide policy listed in the CUI Registry — an individual can't decide on their own that something is CUI without that basis."
     }
   ],
   "faqs": [

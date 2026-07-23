@@ -1,9 +1,9 @@
 {
   "slug": "active-shooter-training",
-  "h1": "Active Shooter Training Practice Questions & Answers",
-  "subhead": "Point your phone at any active shooter preparedness question and get an instant, explained answer — Run, Hide, Fight fundamentals, without the guesswork.",
-  "metaTitle": "Active Shooter Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice active shooter preparedness training questions with instant answers and explanations. Run, Hide, Fight response protocol and workplace planning.",
+  "h1": "Active Shooter Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any active shooter preparedness question for an instant, explained answer — Run, Hide, Fight fundamentals, without the guesswork.",
+  "metaTitle": "Active Shooter Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free active shooter preparedness quiz and practice questions with instant, explained answers. Run, Hide, Fight response protocol and workplace planning.",
   "whyItWorks": "Active shooter scenarios ask you to pick the right response for a specific situation, and the 'right' answer changes depending on the details — proximity, available exits, whether hiding is viable. Cambo reads the exact scenario and explains the reasoning behind the recommended response.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "If you decide to hide during an active shooter event, what should you do to secure your location?",
       "a": "Lock and/or barricade the door, turn off lights, silence your phone, and stay quiet and out of sight — the goal is to appear unoccupied."
+    },
+    {
+      "q": "During an active shooter event, when is \"Fight\" considered an appropriate response?",
+      "a": "Only as an absolute last resort, when your life is in imminent danger and running or hiding are no longer options — using aggressive force, improvised weapons, and acting as a team if others are present."
+    },
+    {
+      "q": "What information should you be prepared to give a 911 dispatcher during an active shooter event?",
+      "a": "The shooter's location, number of shooters, physical description, type of weapons, and the number of potential victims — as much specific detail as you can safely provide."
+    },
+    {
+      "q": "Why do active shooter response plans recommend a flexible decision framework instead of one fixed procedure?",
+      "a": "Because the right response depends on your specific situation — proximity to the threat, available exits, whether a secure hiding spot exists — so training teaches Run, Hide, Fight as a decision framework, not a single script."
+    },
+    {
+      "q": "What is a key workplace violence warning sign that active shooter training encourages employees to report?",
+      "a": "Direct or veiled threats of violence, a sudden escalation in anger or grievances, or fixation on a specific person or event — reporting early, rather than waiting for a concrete incident, is the emphasis."
     }
   ],
   "faqs": [

@@ -1,9 +1,9 @@
 {
   "slug": "insider-threat-awareness-training",
-  "h1": "Insider Threat Awareness Training Practice Questions",
-  "subhead": "Point your phone at any Insider Threat Awareness question and get an instant, explained answer — spot the behavioral indicators without slowing down.",
-  "metaTitle": "Insider Threat Awareness Training Practice Q&A | Cambo",
-  "metaDescription": "Practice Insider Threat Awareness training questions with instant answers and explanations. Recognize behavioral indicators and reporting requirements.",
+  "h1": "Insider Threat Awareness Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Insider Threat Awareness question for an instant, explained answer — spot the behavioral indicators without slowing down.",
+  "metaTitle": "Insider Threat Awareness Quiz & Practice Q&A | Cambo",
+  "metaDescription": "Free Insider Threat Awareness training quiz and practice questions with instant, explained answers. Recognize behavioral indicators and reporting requirements.",
   "whyItWorks": "Insider threat questions ask you to weigh a scenario and decide whether a behavior is a genuine indicator or just normal workplace friction — a judgment call, not a flat fact. Cambo explains the reasoning behind each answer so the pattern actually sticks.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is the primary goal of an organization's insider threat program?",
       "a": "To identify and mitigate risks from trusted insiders before harm occurs — through early detection, reporting, and intervention rather than punishment after the fact."
+    },
+    {
+      "q": "An employee suddenly starts working unusual hours and downloading large amounts of data unrelated to their normal duties. What should a coworker do?",
+      "a": "Report the behavior through the organization's insider threat reporting channel — unusual access patterns combined with data movement are exactly the kind of anomaly these programs are designed to catch."
+    },
+    {
+      "q": "What is the difference between a \"malicious\" insider threat and a \"negligent\" one?",
+      "a": "A malicious insider intentionally causes harm (theft, sabotage, espionage), while a negligent insider causes harm unintentionally — for example, losing a device or falling for a phishing email."
+    },
+    {
+      "q": "Why do insider threat programs emphasize reporting concerning behavior early, even without proof of wrongdoing?",
+      "a": "Because early reporting allows intervention before harm occurs — most insider threat programs are designed around prevention and support, not just punishment after an incident."
+    },
+    {
+      "q": "Which of the following is considered a financial indicator of potential insider threat risk?",
+      "a": "Sudden, unexplained wealth or financial distress — both can create vulnerability to recruitment or a motive for theft, which is why financial anomalies are tracked alongside behavioral ones."
     }
   ],
   "faqs": [

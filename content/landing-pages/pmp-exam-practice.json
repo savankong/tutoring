@@ -1,9 +1,9 @@
 {
   "slug": "pmp-exam-practice",
-  "h1": "PMP Exam Practice Questions & Answers",
-  "subhead": "Point your phone at any PMP exam-style question and get an instant, explained answer — People, Process, and Business Environment domains, without the guesswork.",
-  "metaTitle": "PMP Exam Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice PMP (Project Management Professional) exam-style questions with instant answers and explanations. People, Process, and Business Environment domains.",
+  "h1": "PMP Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any PMP exam-style question for an instant, explained answer — People, Process, and Business Environment domains, without the guesswork.",
+  "metaTitle": "PMP Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free PMP (Project Management Professional) exam quiz and practice questions with instant, explained answers. People, Process, and Business Environment domains.",
   "whyItWorks": "PMP exam questions are scenario-based — you're given a project situation and asked what a project manager should do next, and the right answer depends on applying the right principle to the right moment. Cambo reads the exact scenario and explains why one answer is the best next step, not just which one is correct.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "During project execution, a key stakeholder requests a change that wasn't in the original scope. What is the correct next step?",
       "a": "Submit the request through the formal change control process — even reasonable-sounding changes should go through change control rather than being implemented informally."
+    },
+    {
+      "q": "A team member is consistently missing deadlines due to unclear priorities from two different managers. What should the project manager do first?",
+      "a": "Clarify priorities and resolve the conflicting direction — as a servant leader, the PM should remove the blocker for the team member rather than simply reassigning the work or escalating immediately."
+    },
+    {
+      "q": "During project planning, the team identifies a dependency where Task B cannot start until Task A finishes. What type of dependency is this?",
+      "a": "A finish-to-start (FS) dependency — the most common type, where the successor activity can't begin until the predecessor activity is complete."
+    },
+    {
+      "q": "A regulatory change midway through the project requires additional compliance documentation. What should the project manager do?",
+      "a": "Assess the impact on scope, schedule, and cost, then route the change through the formal change control process — external regulatory shifts still require the same disciplined change management as internal requests."
+    },
+    {
+      "q": "Two team members have a disagreement about technical approach that is starting to affect team morale. What is generally the best first step for the PM?",
+      "a": "Facilitate a direct conversation between the two team members to resolve the conflict collaboratively — the exam generally favors confronting and collaborating over avoiding or unilaterally deciding for the team."
     }
   ],
   "faqs": [

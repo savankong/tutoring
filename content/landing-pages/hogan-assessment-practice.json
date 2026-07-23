@@ -13,6 +13,18 @@
     {
       "q": "The Hogan Development Survey (HDS) focuses on behaviors that tend to emerge under stress or pressure. What is this often called?",
       "a": "Your 'dark side' — tendencies that can derail performance or relationships when you're under strain, even if they don't show up in day-to-day behavior."
+    },
+    {
+      "q": "The Motives, Values, Preferences Inventory (MVPI) focuses on a different dimension than the HPI or HDS. What does it measure?",
+      "a": "Core values and drivers — what motivates and engages you — rather than typical behavior (HPI) or stress-related derailers (HDS)."
+    },
+    {
+      "q": "Why does Hogan frame its assessments around 'reputation' rather than 'identity'?",
+      "a": "Because Hogan's model is built on how personality is expressed and perceived by others in a work context — reputation — rather than a purely internal sense of self, since reputation is what predicts workplace outcomes."
+    },
+    {
+      "q": "If two items on a Hogan assessment seem to ask nearly the same thing, why might that be intentional?",
+      "a": "To check response consistency — answering very similar items in contradictory ways can flag an unreliable or inconsistent response pattern rather than an accurate personality signal."
     }
   ],
   "faqs": [

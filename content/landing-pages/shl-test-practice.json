@@ -1,9 +1,9 @@
 {
   "slug": "shl-test-practice",
-  "h1": "SHL Test Practice — Instant Answers & Explanations",
-  "subhead": "Point your phone at any SHL-style aptitude question and get the answer plus a fast explanation — numerical, verbal, and inductive reasoning, without the guesswork.",
-  "metaTitle": "SHL Test Practice: Instant Answers & Explanations | Cambo",
-  "metaDescription": "Practice SHL aptitude test questions with instant answers and explanations. Numerical, verbal, and inductive reasoning for employer assessments.",
+  "h1": "SHL Test Practice & Quiz — Instant Answers & Explanations",
+  "subhead": "Take a free practice quiz or point your phone at any SHL-style aptitude question for the answer plus a fast explanation — numerical, verbal, and inductive reasoning, without the guesswork.",
+  "metaTitle": "SHL Test Practice & Quiz: Instant Answers | Cambo",
+  "metaDescription": "Free SHL aptitude test quiz and practice questions with instant, explained answers. Numerical, verbal, and inductive reasoning for employer assessments.",
   "whyItWorks": "SHL numerical reasoning questions often bury the real question inside a chart or data table, and it's easy to burn time just finding the right number. Cambo reads the exact question and shows you which piece of data actually matters, not just the final answer.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "In the sequence A, C, F, J, O, which letter comes next?",
       "a": "U — the gap between letters increases by one each time (2, 3, 4, 5, then 6), so O + 6 letters = U."
+    },
+    {
+      "q": "Statement: \"All employees who complete the certification receive a bonus. Maria received a bonus.\" Can you conclude Maria completed the certification?",
+      "a": "No — this is a classic logical fallacy (affirming the consequent). Maria could have received the bonus for a different reason; the statement doesn't say certification is the only way to get one."
+    },
+    {
+      "q": "A company's costs increased from $80,000 to $92,000. What was the percentage increase?",
+      "a": "15% — the increase of $12,000 divided by the original $80,000 equals 0.15, or 15%."
+    },
+    {
+      "q": "In the sequence 3, 6, 12, 24, what is the next number?",
+      "a": "48 — each number doubles the one before it."
+    },
+    {
+      "q": "A passage states a company's profits \"rose steadily but modestly\" over five years. Which conclusion is best supported?",
+      "a": "Profits increased each year, but not dramatically — SHL verbal reasoning rewards sticking strictly to what the passage states, not inferring beyond it."
     }
   ],
   "faqs": [

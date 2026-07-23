@@ -1,9 +1,9 @@
 {
   "slug": "law-of-war-training",
-  "h1": "Law of War Training Practice Questions & Answers",
-  "subhead": "Point your phone at any Law of War training question and get an instant, explained answer — the core principles, explained clearly, without the guesswork.",
-  "metaTitle": "Law of War Training Practice Questions & Answers | Cambo",
-  "metaDescription": "Practice Law of War training questions with instant answers and explanations. Core principles, DoD reporting requirements, and the Law of War Program.",
+  "h1": "Law of War Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Law of War training question for an instant, explained answer — the core principles, explained clearly, without the guesswork.",
+  "metaTitle": "Law of War Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Law of War training quiz and practice questions with instant, explained answers. Core principles, DoD reporting requirements, and the Law of War Program.",
   "whyItWorks": "Law of War questions ask you to apply a small set of core principles — distinction, proportionality, military necessity, humanity — to specific scenarios, and it's easy to mix up which principle governs which situation. Cambo explains the reasoning behind each answer so the principles actually stick.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is a service member required to do if they witness a violation of the Law of War?",
       "a": "Report it through the chain of command — DoD Directive 2311.01 requires all reportable incidents of Law of War violations to be reported promptly."
+    },
+    {
+      "q": "Which Law of War principle limits the use of force to what is actually needed to achieve a legitimate military objective?",
+      "a": "Military necessity — it justifies using force only to the extent required to accomplish a legitimate military purpose, not force for its own sake."
+    },
+    {
+      "q": "What does the principle of proportionality prohibit?",
+      "a": "Attacks where the expected incidental harm to civilians or civilian objects would be excessive in relation to the concrete military advantage anticipated."
+    },
+    {
+      "q": "Are weapons designed to cause unnecessary suffering permitted under the Law of War?",
+      "a": "No — the principle of humanity prohibits weapons or methods of warfare that cause suffering beyond what's needed to achieve a legitimate military purpose."
+    },
+    {
+      "q": "What obligation does the Law of War place on a service member who is ordered to do something they believe is unlawful?",
+      "a": "Service members are not obligated to obey a clearly unlawful order and can be held individually responsible for war crimes committed under one — \"just following orders\" isn't a blanket defense."
     }
   ],
   "faqs": [

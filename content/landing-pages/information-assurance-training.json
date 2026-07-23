@@ -1,9 +1,9 @@
 {
   "slug": "information-assurance-training",
-  "h1": "Information Assurance (IA) Training Practice Questions",
-  "subhead": "Point your phone at any IA training question and get an instant, explained answer — covering the CIA triad, risk management, and DoD system access requirements.",
-  "metaTitle": "Information Assurance (IA) Training Practice Q&A | Cambo",
-  "metaDescription": "Practice Information Assurance training questions with instant answers and explanations. Confidentiality, integrity, availability, and DoD system access requirements.",
+  "h1": "Information Assurance (IA) Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any IA training question for an instant, explained answer — covering the CIA triad, risk management, and DoD system access requirements.",
+  "metaTitle": "Information Assurance (IA) Training Quiz & Q&A | Cambo",
+  "metaDescription": "Free Information Assurance training quiz and practice questions with instant, explained answers. Confidentiality, integrity, availability, and DoD system access requirements.",
   "whyItWorks": "IA training covers foundational security concepts — confidentiality, integrity, availability, risk management — that show up in slightly different wording question to question. Cambo reads the exact wording on your screen and gives you the specific answer, not just the general concept, so you're not left guessing which definition applies.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "What is the primary purpose of a Risk Management Framework (RMF) assessment?",
       "a": "To identify, evaluate, and formally authorize the security risks of an information system before it's allowed to operate, and to monitor those risks over time."
+    },
+    {
+      "q": "What is the difference between \"authentication\" and \"authorization\" in information security?",
+      "a": "Authentication verifies who you are (like logging in with a password or CAC), while authorization determines what you're allowed to access once your identity is confirmed."
+    },
+    {
+      "q": "What is \"defense in depth\" in an IA context?",
+      "a": "A layered security strategy that uses multiple, overlapping controls (firewalls, access control, encryption, monitoring) so that if one layer fails, others still provide protection."
+    },
+    {
+      "q": "Which of the following is an example of a technical control, as opposed to an administrative control?",
+      "a": "Firewall configuration — technical controls are implemented through technology (firewalls, encryption, access controls), while administrative controls are policies, procedures, and training."
+    },
+    {
+      "q": "What is the purpose of an Authority to Operate (ATO) in the Risk Management Framework?",
+      "a": "It's the formal decision by an authorizing official that a system's security risks are acceptable, allowing the system to begin or continue operating — no ATO means the system isn't authorized to run."
     }
   ],
   "faqs": [

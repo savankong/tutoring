@@ -1,9 +1,9 @@
 {
   "slug": "predictive-index-cognitive-assessment",
-  "h1": "Predictive Index Cognitive Assessment Practice",
-  "subhead": "Point your phone at any PI Cognitive Assessment question and get the answer plus a fast explanation — build speed for the real 12-minute, 50-question test.",
-  "metaTitle": "PI Cognitive Assessment Practice: Instant Answers | Cambo",
-  "metaDescription": "Practice Predictive Index (PI) Cognitive Assessment questions with instant answers and explanations. Verbal, numerical, and abstract reasoning under time pressure.",
+  "h1": "PI Cognitive Assessment Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any PI Cognitive Assessment question for the answer plus a fast explanation — build speed for the real 12-minute, 50-question test.",
+  "metaTitle": "PI Cognitive Assessment Quiz & Practice | Cambo",
+  "metaDescription": "Free Predictive Index (PI) Cognitive Assessment quiz and practice questions with instant, explained answers. Verbal, numerical, and abstract reasoning.",
   "whyItWorks": "The PI Cognitive Assessment packs 50 questions into 12 minutes across three different reasoning types, so switching gears quickly matters as much as getting any single question right. Cambo answers a practice question instantly so you can drill the pattern for each question type separately.",
   "sampleQuestions": [
     {
@@ -13,6 +13,22 @@
     {
       "q": "If a shape rotates 90 degrees clockwise, and it started pointing up, which direction does it now point?",
       "a": "Right — a 90-degree clockwise rotation from 'up' lands on 'right.'"
+    },
+    {
+      "q": "If PENCIL is coded as QFOEJM (each letter shifted forward by 1), how would CHAIR be coded?",
+      "a": "DIBJS — shifting each letter forward by one: C→D, H→I, A→B, I→J, R→S."
+    },
+    {
+      "q": "A recipe calls for 3 cups of flour to make 12 cookies. How many cups of flour are needed for 18 cookies?",
+      "a": "4.5 cups — the ratio is 3 cups per 12 cookies, or 0.25 cups per cookie; 18 × 0.25 = 4.5."
+    },
+    {
+      "q": "Which word does NOT belong with the others: hammer, screwdriver, wrench, nail?",
+      "a": "Nail — a hammer, screwdriver, and wrench are all tools used to perform work, while a nail is a fastener the tools act on, not a tool itself."
+    },
+    {
+      "q": "A sequence of shapes gains exactly one dot each step (1 dot, 2 dots, 3 dots...). How many dots does the next shape have?",
+      "a": "4 dots — the pattern adds exactly one dot to each successive shape, so the next in the sequence continues that same increment."
     }
   ],
   "faqs": [

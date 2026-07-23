@@ -9,6 +9,7 @@ import LpFaq from './components/LpFaq.jsx';
 import LpOfficialSource from './components/LpOfficialSource.jsx';
 import LpRelatedLinks from './components/LpRelatedLinks.jsx';
 import LpCtaFooter from './components/LpCtaFooter.jsx';
+import LpResourcesFooter from './components/LpResourcesFooter.jsx';
 
 function LandingPageTemplate({ content, allContent }) {
   return (
@@ -23,6 +24,7 @@ function LandingPageTemplate({ content, allContent }) {
       <LpOfficialSource content={content} />
       <LpRelatedLinks content={content} allContent={allContent} />
       <LpCtaFooter content={content} />
+      <LpResourcesFooter />
       <LpFooter />
     </div>
   );

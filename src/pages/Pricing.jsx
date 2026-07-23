@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import SiteNav from '../components/SiteNav.jsx';
 import Seo from '../components/Seo.jsx';
+import ResourcesFooter from '../components/ResourcesFooter.jsx';
 import { PLANS } from '../lib/plans.js';
 
 function Pricing() {
@@ -99,6 +100,16 @@ function Pricing() {
           })}
         </div>
       </section>
+
+      <ResourcesFooter />
+
+      <div className="footer-bottom pricing-footer-bottom">
+        <div>© 2026 Cambo App</div>
+        <div className="footer-links">
+          <Link to="/">Home</Link>
+          <a href="#resources">Resources</a>
+        </div>
+      </div>
     </div>
   );
 }

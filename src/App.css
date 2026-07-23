@@ -2323,7 +2323,8 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.lp-footer {
+.lp-footer,
+.pricing-footer-bottom {
   padding: 0 48px 48px;
 }
 

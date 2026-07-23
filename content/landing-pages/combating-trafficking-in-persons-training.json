@@ -1,0 +1,49 @@
+{
+  "slug": "combating-trafficking-in-persons-training",
+  "h1": "Combating Trafficking in Persons (CTIP) Training Practice Questions",
+  "subhead": "Get instant, explained answers to CTIP training questions — recognize the indicators of human trafficking and finish your training without the guesswork.",
+  "metaTitle": "CTIP Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice Combating Trafficking in Persons (CTIP) training questions with instant answers and explanations. Recognize indicators, understand reporting requirements.",
+  "whyItWorks": "CTIP questions often ask you to spot indicators in a scenario rather than recall a flat fact, which is exactly where a quick second opinion helps most. Cambo reads the specific scenario in front of you and explains why an answer is right, not just what it is.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is a common indicator of human trafficking?",
+      "a": "A person who does not have control of their own identification documents, such as a passport or ID card being held by someone else."
+    },
+    {
+      "q": "What is the DoD's 'zero tolerance' policy in regard to trafficking in persons?",
+      "a": "DoD personnel are prohibited from engaging in any activity that supports or facilitates trafficking in persons, including using forced labor or patronizing commercial sex — with no exceptions."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is CTIP training required?",
+      "a": "Initial training is required within the first year of DoD employment or service, with general awareness refresher training required every 2 years for all DoD personnel."
+    },
+    {
+      "q": "Who has to take CTIP training?",
+      "a": "All DoD service members and civilian personnel, with additional specialized training for acquisition and contracting personnel who oversee contracts at risk of trafficking violations."
+    },
+    {
+      "q": "What should I do if I suspect trafficking?",
+      "a": "Report it through your chain of command, the DoD Hotline, or local law enforcement — reporting channels are covered in detail during the training."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or the official CTIP program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "What topics does CTIP training cover?",
+      "a": "Definitions and forms of trafficking, indicators to watch for, DoD's zero-tolerance policy, and how to report suspected trafficking."
+    },
+    {
+      "q": "Does CTIP training apply to contractors?",
+      "a": "Yes — contractors performing on DoD contracts, especially overseas, are subject to CTIP training and compliance requirements."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "law-of-war-training"],
+  "officialSource": {
+    "label": "ctip.defense.gov — official CTIP site",
+    "url": "https://ctip.defense.gov/"
+  }
+}

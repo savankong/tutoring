@@ -1,0 +1,49 @@
+{
+  "slug": "pmp-exam-practice",
+  "h1": "PMP Exam Practice Questions & Answers",
+  "subhead": "Point your phone at any PMP exam-style question and get an instant, explained answer — People, Process, and Business Environment domains, without the guesswork.",
+  "metaTitle": "PMP Exam Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice PMP (Project Management Professional) exam-style questions with instant answers and explanations. People, Process, and Business Environment domains.",
+  "whyItWorks": "PMP exam questions are scenario-based — you're given a project situation and asked what a project manager should do next, and the right answer depends on applying the right principle to the right moment. Cambo reads the exact scenario and explains why one answer is the best next step, not just which one is correct.",
+  "sampleQuestions": [
+    {
+      "q": "A team member reports a risk that could delay the project by two weeks. What should the project manager do first?",
+      "a": "Assess the risk's probability and impact and update the risk register — before jumping to a response, the PM needs to understand the risk's true severity."
+    },
+    {
+      "q": "During project execution, a key stakeholder requests a change that wasn't in the original scope. What is the correct next step?",
+      "a": "Submit the request through the formal change control process — even reasonable-sounding changes should go through change control rather than being implemented informally."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What are the three PMP exam domains?",
+      "a": "People, Process, and Business Environment — as of the current exam version, they're weighted at roughly 33%, 41%, and 26% respectively."
+    },
+    {
+      "q": "How many questions are on the PMP exam?",
+      "a": "180 questions, including a mix of multiple choice, multiple response, matching, and other formats, taken over a 230-minute testing window."
+    },
+    {
+      "q": "How many times can I take the PMP exam?",
+      "a": "Up to three attempts within one year of your exam eligibility, per PMI's current policy."
+    },
+    {
+      "q": "Is Cambo affiliated with PMI?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with the Project Management Institute."
+    },
+    {
+      "q": "Do I need work experience to sit for the PMP?",
+      "a": "Yes — PMI requires a combination of education and verified project management experience (the exact hours depend on your degree level) before you're eligible to sit for the exam."
+    },
+    {
+      "q": "What score do I need to pass the PMP?",
+      "a": "PMI doesn't publish a fixed passing percentage — performance is reported against each domain using a proficiency scale, and passing requires demonstrating sufficient proficiency across all three domains."
+    }
+  ],
+  "internalLinks": ["ccat-practice-test"],
+  "officialSource": {
+    "label": "pmi.org — PMP Certification",
+    "url": "https://www.pmi.org/certifications/project-management-pmp"
+  }
+}

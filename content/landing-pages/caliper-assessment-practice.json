@@ -1,0 +1,49 @@
+{
+  "slug": "caliper-assessment-practice",
+  "h1": "Caliper Assessment Practice Questions & Answers",
+  "subhead": "Get familiar with the kinds of questions on the Caliper Profile — personality and motivation questions designed to predict on-the-job behavior.",
+  "metaTitle": "Caliper Assessment Practice Questions & Answers | Cambo",
+  "metaDescription": "Understand the Caliper Profile assessment — personality and motivation questions used in hiring, what they measure, and how to prepare.",
+  "whyItWorks": "Unlike a timed aptitude test, the Caliper Profile is an untimed personality assessment — there's no single 'correct' answer, but understanding what each question is actually measuring helps you answer consistently and honestly instead of overthinking every item. Cambo can walk through the reasoning behind common question types so you go in prepared, not stuck guessing what the test 'wants.'",
+  "sampleQuestions": [
+    {
+      "q": "The Caliper Profile asks you to rate how strongly you agree with statements like 'I prefer to make decisions quickly rather than gather more information.' What is this type of question measuring?",
+      "a": "A personality trait — in this case, related to decisiveness and risk-taking tendencies — not a right-or-wrong answer, but a consistency check across similar questions later in the assessment."
+    },
+    {
+      "q": "Why does the Caliper Profile include some questions that seem to repeat with slightly different wording?",
+      "a": "To measure consistency in your responses. Answering similar questions very differently can flag inconsistent or socially desirable responding rather than an accurate personality picture."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there a way to fail the Caliper Assessment?",
+      "a": "Not in the traditional sense — it's a personality and motivation profile, not a knowledge test with right and wrong answers. Employers use it to assess fit, not to grade correctness."
+    },
+    {
+      "q": "How long does the Caliper Profile take?",
+      "a": "About 60 minutes, and it is not timed section-by-section — you can generally take as long as you need within that general window."
+    },
+    {
+      "q": "Should I answer honestly or try to guess what the employer wants?",
+      "a": "Answer honestly — the assessment includes consistency checks, and answers that don't hold together across similar questions can raise more concern than an honest, imperfect fit."
+    },
+    {
+      "q": "Is Cambo affiliated with Caliper Corporation or Talogy?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Caliper Corporation or Talogy."
+    },
+    {
+      "q": "What does the Caliper Profile measure?",
+      "a": "22 personality traits and motivations designed to predict on-the-job behaviors and potential, covering areas like leadership, communication style, and problem-solving approach."
+    },
+    {
+      "q": "Is the Caliper Assessment the same as a cognitive test like the CCAT?",
+      "a": "No — Caliper focuses on personality and motivation, not problem-solving speed or accuracy. Many employers use a cognitive test and a personality assessment like Caliper together."
+    }
+  ],
+  "internalLinks": ["shl-test-practice", "hogan-assessment-practice"],
+  "officialSource": {
+    "label": "calipercorp.com — Caliper Profile",
+    "url": "https://calipercorp.com/caliper-profile/"
+  }
+}

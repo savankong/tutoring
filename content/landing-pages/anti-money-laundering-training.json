@@ -1,0 +1,49 @@
+{
+  "slug": "anti-money-laundering-training",
+  "h1": "Anti-Money Laundering (AML) Training Practice Questions",
+  "subhead": "Point your phone at any AML training question and get an instant, explained answer — red flags, reporting thresholds, and the BSA, without the guesswork.",
+  "metaTitle": "Anti-Money Laundering (AML) Training Practice Q&A | Cambo",
+  "metaDescription": "Practice Anti-Money Laundering (AML) training questions with instant answers and explanations. Bank Secrecy Act, red flags, and Suspicious Activity Reports.",
+  "whyItWorks": "AML training questions often ask you to apply specific thresholds and reporting rules (like when a Currency Transaction Report vs. a Suspicious Activity Report is required), which are easy to mix up under time pressure. Cambo reads the exact question and gives you the specific rule, not just a general answer.",
+  "sampleQuestions": [
+    {
+      "q": "At what cash transaction amount does a financial institution generally need to file a Currency Transaction Report (CTR)?",
+      "a": "Transactions over $10,000 in currency generally trigger a CTR filing requirement under the Bank Secrecy Act."
+    },
+    {
+      "q": "What is 'structuring,' in the context of money laundering?",
+      "a": "Deliberately breaking up a large transaction into smaller amounts to stay under reporting thresholds and avoid detection — it's illegal even if the underlying funds are legitimate."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who is required to complete AML training?",
+      "a": "Employees of banks, credit unions, and other financial institutions covered by the Bank Secrecy Act, especially those in roles that touch transactions, compliance, or customer onboarding."
+    },
+    {
+      "q": "How often is AML training required?",
+      "a": "Most institutions require it annually as part of their BSA/AML compliance program, though the exact cadence is set by the institution's own risk-based program."
+    },
+    {
+      "q": "What are the three stages of money laundering?",
+      "a": "Placement (introducing illicit funds into the financial system), layering (obscuring the funds' origin through complex transactions), and integration (reintroducing the funds as apparently legitimate)."
+    },
+    {
+      "q": "Is Cambo affiliated with FinCEN or any government agency?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Financial Crimes Enforcement Network or any federal agency."
+    },
+    {
+      "q": "What is a Suspicious Activity Report (SAR)?",
+      "a": "A report financial institutions must file when they detect a transaction that appears to involve potential money laundering, fraud, or other illicit activity, regardless of the dollar amount."
+    },
+    {
+      "q": "What is the Bank Secrecy Act?",
+      "a": "The primary U.S. law requiring financial institutions to assist government agencies in detecting and preventing money laundering, forming the foundation of most AML compliance programs."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "fincen.gov — Financial Crimes Enforcement Network",
+    "url": "https://www.fincen.gov/"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "pii-training",
+  "h1": "PII Training Practice Questions & Answers",
+  "subhead": "Get instant, explained answers to Personally Identifiable Information (PII) training questions — identify what counts as PII and how to protect it, without the guesswork.",
+  "metaTitle": "PII Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice Personally Identifiable Information (PII) training questions with instant answers and explanations. Safeguarding, breach reporting, and PII vs. PHI.",
+  "whyItWorks": "PII questions often hinge on whether a specific piece of information counts as PII on its own or only in combination with other data — a distinction that's easy to second-guess. Cambo reads the exact scenario and explains the reasoning, not just the answer.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following, standing alone, is generally considered PII?",
+      "a": "A Social Security Number — it can identify a specific individual on its own, unlike a first name or job title alone."
+    },
+    {
+      "q": "What should you do if you discover a PII breach?",
+      "a": "Report it immediately through your organization's established breach reporting procedure — most policies require reporting within a strict time window, often one hour."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is PII training required?",
+      "a": "Annually for most DoD and federal personnel with access to systems or records containing PII."
+    },
+    {
+      "q": "What's the difference between PII and PHI?",
+      "a": "PII is any information that can identify a specific individual. PHI (Protected Health Information) is a subset of PII specifically tied to health records and covered under HIPAA."
+    },
+    {
+      "q": "Who needs PII training?",
+      "a": "Anyone who collects, accesses, maintains, or disposes of records containing personally identifiable information as part of their job."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or any official PII program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "What are examples of PII?",
+      "a": "Full name combined with SSN, date of birth, driver's license number, financial account numbers, or biometric records — generally anything that can identify or be traced to a specific individual."
+    },
+    {
+      "q": "What happens if PII is mishandled?",
+      "a": "Consequences range from required breach reporting and mitigation to disciplinary action, depending on the severity and whether the mishandling was negligent or intentional."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "cui-training", "hipaa-training"],
+  "officialSource": {
+    "label": "securityawareness.dcsa.mil — PII Training",
+    "url": "https://securityawareness.dcsa.mil/piiv2/index.htm"
+  }
+}

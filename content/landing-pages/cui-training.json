@@ -1,0 +1,49 @@
+{
+  "slug": "cui-training",
+  "h1": "CUI Training Practice Questions & Answers",
+  "subhead": "Point your phone at any Controlled Unclassified Information (CUI) training question and get an instant, explained answer — finish your training without second-guessing a marking rule.",
+  "metaTitle": "Controlled Unclassified Information (CUI) Training Practice Q&A | Cambo",
+  "metaDescription": "Practice CUI training questions with instant answers and explanations. Marking, handling, and safeguarding Controlled Unclassified Information.",
+  "whyItWorks": "CUI training is full of specific marking and handling rules that are easy to blur together — banner markings, category markings, dissemination controls. Cambo reads the exact question and gives you the precise rule that applies, not just the general concept.",
+  "sampleQuestions": [
+    {
+      "q": "What is Controlled Unclassified Information (CUI)?",
+      "a": "Unclassified information that requires safeguarding or dissemination controls under law, regulation, or government-wide policy — it's not classified, but it's not freely releasable either."
+    },
+    {
+      "q": "Where should CUI be stored when not in use?",
+      "a": "In a locked container, locked office, or other area with sufficient physical access controls to prevent access by unauthorized individuals."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is CUI training required?",
+      "a": "Initial training is required for anyone with access to CUI, with biennial (every 2 years) refresher training required after that."
+    },
+    {
+      "q": "Who has to take CUI training?",
+      "a": "All DoD civilian, military, and contractor personnel who handle or have access to Controlled Unclassified Information."
+    },
+    {
+      "q": "What's the difference between CUI and classified information?",
+      "a": "CUI is unclassified but still sensitive enough to require safeguarding and dissemination controls. Classified information has a formal classification level (Confidential, Secret, Top Secret) with much stricter handling requirements."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or the official CUI program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "What are CUI categories?",
+      "a": "Specific types of CUI defined in the CUI Registry, such as Controlled Technical Information, Privacy information, or Export Controlled information, each with its own handling rules."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "Most versions of the course require 70% or better on the final exam to receive a completion certificate."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "pii-training", "insider-threat-awareness-training"],
+  "officialSource": {
+    "label": "securityawareness.dcsa.mil — CUI Training",
+    "url": "https://securityawareness.dcsa.mil/cui/index.html"
+  }
+}

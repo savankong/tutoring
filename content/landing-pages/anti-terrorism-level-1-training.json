@@ -1,0 +1,49 @@
+{
+  "slug": "anti-terrorism-level-1-training",
+  "h1": "Antiterrorism Level 1 Training Practice Questions",
+  "subhead": "Snap a photo of any Antiterrorism Level I (JS-US007) question and get an instant, explained answer — finish your annual refresher without getting stuck on a definition.",
+  "metaTitle": "Antiterrorism Level 1 Training (JS-US007) Practice Q&A | Cambo",
+  "metaDescription": "Practice Antiterrorism Level I Awareness Training questions with instant, explained answers. Get through your annual JS-US007 refresher faster.",
+  "whyItWorks": "JS-US007 leans heavily on specific definitions and protective-measure categories that are easy to mix up under time pressure. Cambo reads the exact question on your screen and gives you the right answer plus the reasoning, so a fuzzy memory of a term doesn't stall the whole module.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is an example of a physical security measure you can take to protect yourself against terrorism?",
+      "a": "Varying your daily routine — arriving and leaving at different times and taking different routes makes you a harder target to predict and plan against."
+    },
+    {
+      "q": "What is the definition of terrorism used in DoD antiterrorism training?",
+      "a": "The unlawful use of violence or threat of violence to instill fear and coerce governments or societies, often for political, religious, or ideological objectives."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often do I have to complete Antiterrorism Level 1 training?",
+      "a": "Annually — it's a yearly requirement under DoDI 2000.16 for anyone with DoD network or facility access, including contractors."
+    },
+    {
+      "q": "How long does the training take?",
+      "a": "About 2 hours for the full JS-US007 course, though the exact time varies by how quickly you move through the knowledge checks."
+    },
+    {
+      "q": "What does Level 1 mean?",
+      "a": "Level I is the baseline awareness training required of all DoD personnel. Higher levels (II, III, IV) apply to antiterrorism officers and specialized roles and go well beyond general awareness."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or JKO?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or Joint Knowledge Online."
+    },
+    {
+      "q": "What topics does the course cover?",
+      "a": "Terrorism definitions and threat levels, personal protective measures, recognizing surveillance and suspicious activity, and reporting procedures."
+    },
+    {
+      "q": "What happens if I don't pass the final knowledge check?",
+      "a": "You can typically review the material and retake it — most versions don't cap the number of attempts, just require a passing score before issuing your certificate."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "tarp-training", "sere-100-2-training"],
+  "officialSource": {
+    "label": "jko.jten.mil — Antiterrorism Level 1 course",
+    "url": "https://jko.jten.mil/courses/AT-level1/launch.html"
+  }
+}

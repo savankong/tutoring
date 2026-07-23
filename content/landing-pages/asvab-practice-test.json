@@ -1,0 +1,49 @@
+{
+  "slug": "asvab-practice-test",
+  "h1": "ASVAB Practice Test — Instant Answers & Explanations",
+  "subhead": "Point your phone at any ASVAB-style question and get the answer plus a fast explanation — Arithmetic Reasoning, Word Knowledge, and more, without the guesswork.",
+  "metaTitle": "ASVAB Practice Test: Instant Answers & Explanations | Cambo",
+  "metaDescription": "Practice ASVAB questions with instant answers and explanations. Arithmetic Reasoning, Word Knowledge, Mechanical Comprehension, and more.",
+  "whyItWorks": "The ASVAB covers ten different subtests, and your AFQT score depends specifically on four of them — it's easy to spend prep time on the wrong sections. Cambo answers whatever question is in front of you and explains the reasoning, so you can drill the subtests that actually move your score.",
+  "sampleQuestions": [
+    {
+      "q": "A vehicle travels 240 miles in 4 hours. What is its average speed?",
+      "a": "60 miles per hour — 240 ÷ 4 = 60."
+    },
+    {
+      "q": "Which word most nearly means the same as 'meticulous'?",
+      "a": "Careful — meticulous means showing great attention to detail and being extremely careful and precise."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What does ASVAB stand for?",
+      "a": "Armed Services Vocational Aptitude Battery — a multi-subject test used to determine eligibility for military enlistment and qualification for specific military jobs."
+    },
+    {
+      "q": "What is the AFQT score?",
+      "a": "The Armed Forces Qualification Test score, a composite of four ASVAB subtests (Arithmetic Reasoning, Word Knowledge, Paragraph Comprehension, and Mathematics Knowledge) that determines basic enlistment eligibility."
+    },
+    {
+      "q": "What's a good ASVAB score?",
+      "a": "It depends on the branch and the job you want — different military occupational specialties require different minimum ASVAB line scores, not just a single overall number."
+    },
+    {
+      "q": "Is Cambo affiliated with the military or the official ASVAB program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or any branch of the U.S. military."
+    },
+    {
+      "q": "How many subtests are on the ASVAB?",
+      "a": "Ten, covering general science, arithmetic reasoning, word knowledge, paragraph comprehension, mathematics knowledge, electronics information, auto and shop information, mechanical comprehension, and assembling objects."
+    },
+    {
+      "q": "Can I retake the ASVAB?",
+      "a": "Yes, though there are mandatory waiting periods between attempts, and retake policies are set by the official ASVAB testing program."
+    }
+  ],
+  "internalLinks": ["ccat-practice-test", "dod-cyber-awareness-challenge"],
+  "officialSource": {
+    "label": "officialasvab.com",
+    "url": "https://www.officialasvab.com/"
+  }
+}

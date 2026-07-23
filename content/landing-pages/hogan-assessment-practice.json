@@ -1,0 +1,49 @@
+{
+  "slug": "hogan-assessment-practice",
+  "h1": "Hogan Assessment Practice Questions & Answers",
+  "subhead": "Understand what the Hogan Personality Inventory and related assessments measure, and how to approach them with confidence — not guesswork.",
+  "metaTitle": "Hogan Assessment Practice Questions & Answers | Cambo",
+  "metaDescription": "Understand the Hogan Assessments (HPI, HDS, MVPI) used in hiring and leadership development — what they measure, and how to prepare.",
+  "whyItWorks": "Hogan assessments measure your 'bright side,' 'dark side,' and core values across three separate inventories, and it's easy to feel unsure what a given question is actually getting at. Cambo can explain what a question type is measuring and why, so you answer with a clear head instead of second-guessing every item.",
+  "sampleQuestions": [
+    {
+      "q": "The Hogan Personality Inventory (HPI) asks about your typical, day-to-day behavior. What is this generally referred to as measuring?",
+      "a": "Your 'bright side' personality — how you come across at your best, in normal working conditions, as opposed to under stress."
+    },
+    {
+      "q": "The Hogan Development Survey (HDS) focuses on behaviors that tend to emerge under stress or pressure. What is this often called?",
+      "a": "Your 'dark side' — tendencies that can derail performance or relationships when you're under strain, even if they don't show up in day-to-day behavior."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What are the three main Hogan assessments?",
+      "a": "The Hogan Personality Inventory (HPI, day-to-day personality), the Hogan Development Survey (HDS, derailers under stress), and the Motives, Values, Preferences Inventory (MVPI, core values and drivers)."
+    },
+    {
+      "q": "Is there a right or wrong answer on a Hogan Assessment?",
+      "a": "No — like other personality inventories, it measures traits and tendencies rather than correctness. Employers use it to understand fit and potential risk areas, not to score right and wrong answers."
+    },
+    {
+      "q": "How long do Hogan Assessments take?",
+      "a": "Each individual inventory (HPI, HDS, MVPI) typically takes 15-20 minutes, so completing all three can take around an hour."
+    },
+    {
+      "q": "Is Cambo affiliated with Hogan Assessments?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Hogan Assessment Systems."
+    },
+    {
+      "q": "Should I try to present an idealized version of myself?",
+      "a": "It's generally not advisable — Hogan assessments are validated with mechanisms to flag socially desirable or inconsistent responding, and an inaccurate profile can lead to a poor role fit even if you're hired."
+    },
+    {
+      "q": "Who uses Hogan Assessments?",
+      "a": "Employers across many industries, often for leadership development and executive-level hiring, given the assessments' focus on how personality affects leadership and derailment risk."
+    }
+  ],
+  "internalLinks": ["caliper-assessment-practice", "shl-test-practice"],
+  "officialSource": {
+    "label": "hoganassessments.com",
+    "url": "https://www.hoganassessments.com/"
+  }
+}

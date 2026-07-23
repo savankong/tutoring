@@ -1,0 +1,49 @@
+{
+  "slug": "law-of-war-training",
+  "h1": "Law of War Training Practice Questions & Answers",
+  "subhead": "Point your phone at any Law of War training question and get an instant, explained answer — the core principles, explained clearly, without the guesswork.",
+  "metaTitle": "Law of War Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice Law of War training questions with instant answers and explanations. Core principles, DoD reporting requirements, and the Law of War Program.",
+  "whyItWorks": "Law of War questions ask you to apply a small set of core principles — distinction, proportionality, military necessity, humanity — to specific scenarios, and it's easy to mix up which principle governs which situation. Cambo explains the reasoning behind each answer so the principles actually stick.",
+  "sampleQuestions": [
+    {
+      "q": "Which Law of War principle requires distinguishing between combatants and civilians?",
+      "a": "The principle of distinction — it requires parties to a conflict to distinguish between combatants and civilians, and between military objectives and civilian objects."
+    },
+    {
+      "q": "What is a service member required to do if they witness a violation of the Law of War?",
+      "a": "Report it through the chain of command — DoD Directive 2311.01 requires all reportable incidents of Law of War violations to be reported promptly."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Law of War training required?",
+      "a": "Requirements vary by service branch and role, but it's generally required at initial entry training and refreshed periodically throughout a service member's career."
+    },
+    {
+      "q": "Who has to complete Law of War training?",
+      "a": "All members of the U.S. armed forces, with more in-depth training for commanders, legal practitioners, and personnel in operational roles."
+    },
+    {
+      "q": "What are the core Law of War principles?",
+      "a": "Military necessity, distinction, proportionality, and humanity (avoiding unnecessary suffering) — these four principles underlie most Law of War rules and analysis."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "What is the DoD Law of War Manual?",
+      "a": "A comprehensive DoD-wide resource developed by military and civilian lawyers to guide commanders, legal practitioners, and personnel on the law of war and how it applies to military operations."
+    },
+    {
+      "q": "Does Law of War training apply during all operations, or just declared wars?",
+      "a": "It applies broadly — the Law of War Program requires compliance with the law of war during all armed conflicts, however characterized, and DoD policy directs adherence even in operations other than war."
+    }
+  ],
+  "internalLinks": ["combating-trafficking-in-persons-training", "tarp-training", "sere-100-2-training"],
+  "officialSource": {
+    "label": "JKO — official DoD training portal",
+    "url": "https://jkodirect.jten.mil/"
+  }
+}

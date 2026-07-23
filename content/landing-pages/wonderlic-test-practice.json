@@ -1,0 +1,49 @@
+{
+  "slug": "wonderlic-test-practice",
+  "h1": "Wonderlic Test Practice — Instant Answers & Explanations",
+  "subhead": "Point your phone at any Wonderlic-style question and get the answer plus a fast explanation of the logic — build speed for the real 12-minute test.",
+  "metaTitle": "Wonderlic Test Practice: Instant Answers & Explanations | Cambo",
+  "metaDescription": "Practice Wonderlic Personnel Test questions with instant answers and explanations. Math, verbal, and logic — build speed for the real 12-minute test.",
+  "whyItWorks": "The Wonderlic gives you 50 questions in 12 minutes — even less time per question than the CCAT — so recognizing the pattern instantly matters more than raw difficulty. Cambo answers a practice question right away so you can see the shortcut, not just the final number.",
+  "sampleQuestions": [
+    {
+      "q": "Look at the row of numbers: 8 4 2 1 0.5. What number should come next?",
+      "a": "0.25 — each number is half of the one before it."
+    },
+    {
+      "q": "Paper sells for 21 cents per pad. What will 4 pads cost?",
+      "a": "84 cents — 21 × 4 = 84."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the Wonderlic test?",
+      "a": "A 12-minute, 50-question cognitive ability test used by employers (and historically the NFL) to quickly assess problem-solving speed across math, verbal, and logic questions."
+    },
+    {
+      "q": "What's a good Wonderlic score?",
+      "a": "Scores range from 0-50, with 20 often cited as roughly average. What counts as 'good' depends heavily on the role and employer's own benchmark."
+    },
+    {
+      "q": "How is the Wonderlic different from the CCAT?",
+      "a": "Both are short cognitive aptitude tests, but the Wonderlic gives you even less time per question (about 15 seconds average vs. 18 for the CCAT) and is published by a different company."
+    },
+    {
+      "q": "Is Cambo affiliated with Wonderlic?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Wonderlic."
+    },
+    {
+      "q": "Can I retake the Wonderlic?",
+      "a": "It depends on the employer administering it — policies vary, so check directly with the company or program you're applying to."
+    },
+    {
+      "q": "What kinds of questions are on the Wonderlic?",
+      "a": "A mix of math word problems, verbal analogies and vocabulary, logical reasoning, and pattern recognition, all under significant time pressure."
+    }
+  ],
+  "internalLinks": ["ccat-practice-test", "predictive-index-cognitive-assessment"],
+  "officialSource": {
+    "label": "wonderlic.com — candidate prep",
+    "url": "https://wonderlic.com/candidates/"
+  }
+}

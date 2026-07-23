@@ -1,0 +1,49 @@
+{
+  "slug": "osha-10-hour-training",
+  "h1": "OSHA 10-Hour Training Practice Questions & Answers",
+  "subhead": "Get instant, explained answers to OSHA 10-hour training questions — hazard recognition, PPE, and workers' rights, without the guesswork.",
+  "metaTitle": "OSHA 10-Hour Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice OSHA 10-hour Outreach training questions with instant answers and explanations. Hazard recognition, fall protection, PPE, and workers' rights.",
+  "whyItWorks": "OSHA 10-hour material covers a lot of distinct hazard categories — fall protection, electrical, PPE, hazard communication — and it's easy to mix up which standard applies to which scenario. Cambo reads the exact question and explains the specific rule behind the answer.",
+  "sampleQuestions": [
+    {
+      "q": "What is the leading cause of death in the construction industry, according to OSHA?",
+      "a": "Falls — they account for more construction fatalities than any other cause, which is why fall protection is one of OSHA's most emphasized topics."
+    },
+    {
+      "q": "Under OSHA's Hazard Communication Standard, what document provides detailed information about a chemical's hazards?",
+      "a": "A Safety Data Sheet (SDS) — it details the chemical's properties, health effects, safe handling, and emergency measures."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is the OSHA 10-hour card a certification?",
+      "a": "No — OSHA is clear that no course in the Outreach Training Program (including the 10-hour) is considered a certification. It's a completion card showing you finished the awareness-level training."
+    },
+    {
+      "q": "Is OSHA 10-hour training required by law?",
+      "a": "Not by OSHA itself in most cases, though some states, cities, and individual employers require it as a condition of working on a jobsite."
+    },
+    {
+      "q": "What's the difference between the 10-hour and 30-hour courses?",
+      "a": "The 10-hour is intended for entry-level workers and covers general hazard awareness. The 30-hour is more in-depth and intended for supervisors or workers with safety responsibilities."
+    },
+    {
+      "q": "Is Cambo affiliated with OSHA?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Occupational Safety and Health Administration."
+    },
+    {
+      "q": "How long is the OSHA 10-hour card valid?",
+      "a": "OSHA doesn't set an expiration date on the card itself, though many employers and job sites require renewal every 5 years as a matter of policy."
+    },
+    {
+      "q": "What is required in every 10-hour Outreach course?",
+      "a": "A minimum 2-hour block on workers' rights, employer responsibilities, and how to file a complaint — this is required across every industry version of the course."
+    }
+  ],
+  "internalLinks": ["active-shooter-training"],
+  "officialSource": {
+    "label": "osha.gov — Outreach Training Program",
+    "url": "https://www.osha.gov/training/outreach"
+  }
+}

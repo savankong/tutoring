@@ -1,0 +1,49 @@
+{
+  "slug": "sere-100-2-training",
+  "h1": "SERE 100.2 Training Practice Questions & Answers",
+  "subhead": "Get instant, explained answers to SERE 100.2 Code of Conduct questions — survival, evasion, resistance, and escape fundamentals, without the guesswork.",
+  "metaTitle": "SERE 100.2 Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice SERE 100.2 Level A Code of Conduct training questions with instant answers and explanations. Code of Conduct articles, survival priorities, and more.",
+  "whyItWorks": "SERE 100.2 leans heavily on the six Articles of the Code of Conduct and specific survival/evasion priorities, which are easy to blur together across a long course. Cambo reads the exact question and gives you the specific article or principle that applies, not just a general answer.",
+  "sampleQuestions": [
+    {
+      "q": "Which Article of the Code of Conduct addresses a service member's duty to keep faith with fellow prisoners?",
+      "a": "Article IV — it requires service members to keep faith with fellow prisoners, help them, and give no information or take part in actions harmful to them."
+    },
+    {
+      "q": "What is the first priority in a survival situation, according to SERE training?",
+      "a": "Protection — assessing and addressing immediate threats to life (medical, environmental) before moving on to water, fire, food, and signaling."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long does SERE 100.2 take to complete?",
+      "a": "Around 3-4 hours, and it typically needs to be completed in a single sitting on the JKO platform."
+    },
+    {
+      "q": "Who has to complete SERE 100.2?",
+      "a": "Service members and DoD civilians with a moderate risk of isolation, captivity, or hostage detention, often as a pre-deployment requirement."
+    },
+    {
+      "q": "What's the difference between SERE 100.1 and 100.2?",
+      "a": "SERE 100.1 is the civilian-oriented version. SERE 100.2 Level A is the military version, covering the same core Code of Conduct principles in more depth for service members."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or JKO?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or Joint Knowledge Online."
+    },
+    {
+      "q": "How many Articles are in the Code of Conduct?",
+      "a": "Six — covering topics from a service member's duty to resist the enemy, to keeping faith with fellow prisoners, to remaining loyal to country and chain of command."
+    },
+    {
+      "q": "What does SERE stand for?",
+      "a": "Survival, Evasion, Resistance, and Escape — the four core skill areas covered by the training."
+    }
+  ],
+  "internalLinks": ["law-of-war-training", "anti-terrorism-level-1-training", "tarp-training"],
+  "officialSource": {
+    "label": "JKO — official DoD training portal",
+    "url": "https://jkodirect.jten.mil/"
+  }
+}

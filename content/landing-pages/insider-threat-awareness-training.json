@@ -1,0 +1,49 @@
+{
+  "slug": "insider-threat-awareness-training",
+  "h1": "Insider Threat Awareness Training Practice Questions",
+  "subhead": "Point your phone at any Insider Threat Awareness question and get an instant, explained answer — spot the behavioral indicators without slowing down.",
+  "metaTitle": "Insider Threat Awareness Training Practice Q&A | Cambo",
+  "metaDescription": "Practice Insider Threat Awareness training questions with instant answers and explanations. Recognize behavioral indicators and reporting requirements.",
+  "whyItWorks": "Insider threat questions ask you to weigh a scenario and decide whether a behavior is a genuine indicator or just normal workplace friction — a judgment call, not a flat fact. Cambo explains the reasoning behind each answer so the pattern actually sticks.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is a potential insider threat indicator?",
+      "a": "An employee who repeatedly attempts to access information outside their need-to-know, especially after hours or with unusual urgency."
+    },
+    {
+      "q": "What is the primary goal of an organization's insider threat program?",
+      "a": "To identify and mitigate risks from trusted insiders before harm occurs — through early detection, reporting, and intervention rather than punishment after the fact."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Insider Threat Awareness training required?",
+      "a": "Annually for most DoD and cleared personnel, as part of ongoing security awareness requirements."
+    },
+    {
+      "q": "Who has to complete Insider Threat training?",
+      "a": "Typically all personnel with access to classified information or sensitive systems, including military, civilians, and contractors."
+    },
+    {
+      "q": "What counts as an insider threat?",
+      "a": "Any current or former employee, contractor, or trusted individual who uses their authorized access to harm an organization — whether through espionage, sabotage, data theft, or unintentional negligence."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or any official insider threat program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense."
+    },
+    {
+      "q": "What should I do if I notice a potential insider threat indicator?",
+      "a": "Report it through your organization's designated insider threat reporting channel — most policies emphasize reporting concerns early rather than waiting for certainty."
+    },
+    {
+      "q": "Is insider threat always intentional?",
+      "a": "No — unintentional insider threats, like an employee who is careless with sensitive data or falls for a phishing scam, are also covered in the training."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "cui-training", "tarp-training"],
+  "officialSource": {
+    "label": "cdse.edu — Security training catalog",
+    "url": "https://www.cdse.edu/Training/eLearning/"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "tarp-training",
+  "h1": "TARP Training Practice Questions & Answers",
+  "subhead": "Get instant, explained answers to Threat Awareness and Reporting Program (TARP) questions — recognize foreign intelligence and terrorism threats without the guesswork.",
+  "metaTitle": "TARP Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice Threat Awareness and Reporting Program (TARP) training questions with instant answers and explanations. Recognize elicitation, surveillance, and reporting requirements.",
+  "whyItWorks": "TARP scenarios ask you to recognize elicitation attempts and suspicious contacts that are deliberately designed to look innocent. Cambo reads the exact scenario on your screen and explains why it is or isn't a reportable indicator, not just the answer.",
+  "sampleQuestions": [
+    {
+      "q": "What is elicitation, in the context of TARP training?",
+      "a": "A technique used to subtly extract information from someone without them realizing they're being questioned — often through casual conversation rather than direct interrogation."
+    },
+    {
+      "q": "You are approached online by someone claiming to be a recruiter who asks detailed questions about your unit's deployment schedule. What should you do?",
+      "a": "Report the contact to your security officer or counterintelligence point of contact — unsolicited requests for operational details are a classic TARP reporting indicator."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is TARP training required?",
+      "a": "Annually for Army personnel and DoD civilians, per Army Regulation 381-12, with similar requirements across other service branches."
+    },
+    {
+      "q": "Who has to complete TARP training?",
+      "a": "All Army personnel, DoD civilians, and contractors — the requirement is most explicitly codified in the Army but applies broadly across DoD counterintelligence awareness programs."
+    },
+    {
+      "q": "What's the difference between TARP and Insider Threat training?",
+      "a": "TARP focuses specifically on recognizing and reporting foreign intelligence entity contacts and elicitation attempts. Insider Threat training covers the broader range of risks from trusted insiders, including non-espionage-related risks."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or Army?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or U.S. Army."
+    },
+    {
+      "q": "What are reportable contacts under TARP?",
+      "a": "Unsolicited contact from foreign nationals seeking sensitive information, suspicious requests over social media, and any attempt to recruit or elicit information through relationships or financial incentives."
+    },
+    {
+      "q": "Where do I report a suspicious contact?",
+      "a": "Through your command's counterintelligence office or security officer — reporting channels are covered specifically in the training."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "insider-threat-awareness-training", "opsec-training"],
+  "officialSource": {
+    "label": "JKO — official DoD training portal",
+    "url": "https://jkodirect.jten.mil/"
+  }
+}

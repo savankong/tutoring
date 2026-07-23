@@ -1,0 +1,49 @@
+{
+  "slug": "sexual-harassment-prevention-training",
+  "h1": "Sexual Harassment Prevention Training Practice Questions",
+  "subhead": "Get instant, explained answers to sexual harassment prevention training questions — recognize what counts as harassment and how to respond, without the guesswork.",
+  "metaTitle": "Sexual Harassment Prevention Training Practice Q&A | Cambo",
+  "metaDescription": "Practice sexual harassment prevention training questions with instant answers and explanations. Quid pro quo, hostile work environment, and reporting requirements.",
+  "whyItWorks": "Harassment prevention scenarios ask you to judge whether specific workplace conduct crosses a legal line, which depends on nuance most people don't have memorized. Cambo reads the exact scenario and explains the reasoning, so you understand why it does or doesn't qualify — not just a yes or no.",
+  "sampleQuestions": [
+    {
+      "q": "What is the difference between quid pro quo and hostile work environment harassment?",
+      "a": "Quid pro quo occurs when employment benefits are conditioned on submitting to unwelcome sexual advances. Hostile work environment occurs when unwelcome conduct is severe or pervasive enough to create an abusive or intimidating atmosphere."
+    },
+    {
+      "q": "An employee witnesses a coworker being harassed but is not personally the target. What is a bystander's best first step?",
+      "a": "Intervene if it's safe to do so, or report the incident to HR or a supervisor — bystander reporting is a key part of most modern prevention training, not just responses from the person directly targeted."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is sexual harassment training legally required?",
+      "a": "It varies by state — several states (like California, New York, and Illinois) mandate periodic training for employers of a certain size, while it isn't a blanket federal requirement outside of those state laws."
+    },
+    {
+      "q": "How often does training need to be repeated?",
+      "a": "Where required by state law, it's typically every 1-2 years, though the EEOC recommends regular, recurring training regardless of a specific legal mandate."
+    },
+    {
+      "q": "What is considered a protected characteristic under harassment law?",
+      "a": "Sex (including pregnancy, sexual orientation, and gender identity) is the relevant category for sexual harassment specifically, though broader harassment law also covers race, religion, national origin, age, and disability."
+    },
+    {
+      "q": "Is Cambo affiliated with the EEOC or any official training program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the U.S. Equal Employment Opportunity Commission."
+    },
+    {
+      "q": "What should I do if I experience harassment at work?",
+      "a": "Report it through your organization's designated process, typically HR or a manager, and document what happened — most trainings also cover the option to file a charge with the EEOC directly."
+    },
+    {
+      "q": "Can an employer be held liable for harassment it didn't know about?",
+      "a": "Yes, in some circumstances — particularly if the harassment was committed by a supervisor, or if the employer should have known and failed to take reasonable steps to prevent or correct it."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "eeoc.gov — preventing workplace harassment",
+    "url": "https://www.eeoc.gov/wysk/what-you-should-know-eeoc-leads-way-preventing-workplace-harassment"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "shl-test-practice",
+  "h1": "SHL Test Practice — Instant Answers & Explanations",
+  "subhead": "Point your phone at any SHL-style aptitude question and get the answer plus a fast explanation — numerical, verbal, and inductive reasoning, without the guesswork.",
+  "metaTitle": "SHL Test Practice: Instant Answers & Explanations | Cambo",
+  "metaDescription": "Practice SHL aptitude test questions with instant answers and explanations. Numerical, verbal, and inductive reasoning for employer assessments.",
+  "whyItWorks": "SHL numerical reasoning questions often bury the real question inside a chart or data table, and it's easy to burn time just finding the right number. Cambo reads the exact question and shows you which piece of data actually matters, not just the final answer.",
+  "sampleQuestions": [
+    {
+      "q": "A company's revenue was $2.4 million in Year 1 and grew by 15% in Year 2. What was Year 2 revenue?",
+      "a": "$2.76 million — $2.4 million × 1.15 = $2.76 million."
+    },
+    {
+      "q": "In the sequence A, C, F, J, O, which letter comes next?",
+      "a": "U — the gap between letters increases by one each time (2, 3, 4, 5, then 6), so O + 6 letters = U."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is an SHL test?",
+      "a": "A family of pre-employment assessments (numerical, verbal, inductive reasoning, and more) published by SHL and used by employers across many industries during hiring."
+    },
+    {
+      "q": "What's a good score on an SHL test?",
+      "a": "SHL tests are typically scored against a norm group relevant to the role, so 'good' means scoring above the benchmark the employer has set for that specific position."
+    },
+    {
+      "q": "How long do SHL tests usually take?",
+      "a": "It varies by test type, but numerical and verbal reasoning tests are commonly 15-25 minutes for 15-30 questions."
+    },
+    {
+      "q": "Is Cambo affiliated with SHL?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with SHL."
+    },
+    {
+      "q": "What types of SHL tests are most common in hiring?",
+      "a": "Numerical reasoning, verbal reasoning, and inductive (pattern-based) reasoning are the most widely used in general hiring assessments."
+    },
+    {
+      "q": "Can I retake an SHL test?",
+      "a": "That depends on the employer administering it — some allow retakes after a waiting period, others treat your first attempt as final. Check with the specific employer."
+    }
+  ],
+  "internalLinks": ["ccat-practice-test", "caliper-assessment-practice"],
+  "officialSource": {
+    "label": "shl.com — SHL Direct candidate resources",
+    "url": "https://www.shl.com/shldirect/en/"
+  }
+}

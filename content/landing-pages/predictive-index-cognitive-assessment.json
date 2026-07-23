@@ -1,0 +1,49 @@
+{
+  "slug": "predictive-index-cognitive-assessment",
+  "h1": "Predictive Index Cognitive Assessment Practice",
+  "subhead": "Point your phone at any PI Cognitive Assessment question and get the answer plus a fast explanation — build speed for the real 12-minute, 50-question test.",
+  "metaTitle": "PI Cognitive Assessment Practice: Instant Answers | Cambo",
+  "metaDescription": "Practice Predictive Index (PI) Cognitive Assessment questions with instant answers and explanations. Verbal, numerical, and abstract reasoning under time pressure.",
+  "whyItWorks": "The PI Cognitive Assessment packs 50 questions into 12 minutes across three different reasoning types, so switching gears quickly matters as much as getting any single question right. Cambo answers a practice question instantly so you can drill the pattern for each question type separately.",
+  "sampleQuestions": [
+    {
+      "q": "Which word is the opposite of 'frugal'?",
+      "a": "Wasteful — frugal means careful with money or resources, so its opposite is spending freely or wastefully."
+    },
+    {
+      "q": "If a shape rotates 90 degrees clockwise, and it started pointing up, which direction does it now point?",
+      "a": "Right — a 90-degree clockwise rotation from 'up' lands on 'right.'"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the PI Cognitive Assessment?",
+      "a": "A 12-minute, 50-question test measuring general cognitive ability across verbal, numerical, and abstract reasoning, used by employers to gauge how quickly a candidate can learn and adapt."
+    },
+    {
+      "q": "What's a good PI Cognitive Assessment score?",
+      "a": "Scores are typically reported as a raw score out of 50 alongside a percentile; what's considered competitive depends on the role and the employer's own benchmark."
+    },
+    {
+      "q": "How is the PI Cognitive Assessment different from the CCAT?",
+      "a": "Both are short, high-pressure cognitive tests from different publishers (Predictive Index vs. Criteria Corp) with similar formats — 50 questions, about 12-15 minutes, verbal/numerical/abstract or spatial reasoning."
+    },
+    {
+      "q": "Is Cambo affiliated with Predictive Index?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Predictive Index or the PI Cognitive Assessment."
+    },
+    {
+      "q": "Is the PI Cognitive Assessment timed per question or overall?",
+      "a": "Overall — you have 12 minutes for all 50 questions combined, so pacing across the whole test matters more than any single question."
+    },
+    {
+      "q": "What should I focus on when practicing?",
+      "a": "Building speed on the three question types (verbal, numerical, abstract) individually, so you're not slowed down switching between reasoning styles during the real test."
+    }
+  ],
+  "internalLinks": ["ccat-practice-test", "wonderlic-test-practice"],
+  "officialSource": {
+    "label": "predictiveindex.com — Cognitive Assessment",
+    "url": "https://www.predictiveindex.com/assessments/cognitive-assessment/"
+  }
+}

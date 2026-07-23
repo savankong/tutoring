@@ -2333,3 +2333,58 @@ a:focus-visible {
   }
 }
 
+/* Homepage "Practice resources" section — internal links out to every
+   campaign landing page, grouped by category. */
+.resources-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 48px 120px;
+}
+
+.resources-intro {
+  font-size: 16px;
+  color: var(--text);
+  margin: 18px 0 40px;
+  max-width: 640px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.resources-category-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.resources-link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resources-link-list a {
+  font-size: 14.5px;
+  color: var(--text);
+}
+
+.resources-link-list a:hover {
+  color: var(--text-h);
+}
+
+@media (max-width: 860px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+

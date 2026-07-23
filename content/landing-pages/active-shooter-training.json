@@ -1,0 +1,49 @@
+{
+  "slug": "active-shooter-training",
+  "h1": "Active Shooter Training Practice Questions & Answers",
+  "subhead": "Point your phone at any active shooter preparedness question and get an instant, explained answer — Run, Hide, Fight fundamentals, without the guesswork.",
+  "metaTitle": "Active Shooter Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice active shooter preparedness training questions with instant answers and explanations. Run, Hide, Fight response protocol and workplace planning.",
+  "whyItWorks": "Active shooter scenarios ask you to pick the right response for a specific situation, and the 'right' answer changes depending on the details — proximity, available exits, whether hiding is viable. Cambo reads the exact scenario and explains the reasoning behind the recommended response.",
+  "sampleQuestions": [
+    {
+      "q": "What is the recommended order of response options in an active shooter situation, according to the Run, Hide, Fight model?",
+      "a": "Run first if there's a safe escape path. If you can't run, hide in a secure location out of the shooter's view. Fight as a last resort, only if your life is in imminent danger."
+    },
+    {
+      "q": "If you decide to hide during an active shooter event, what should you do to secure your location?",
+      "a": "Lock and/or barricade the door, turn off lights, silence your phone, and stay quiet and out of sight — the goal is to appear unoccupied."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is active shooter training legally required?",
+      "a": "It's not federally mandated for most private employers, though some states, industries (like healthcare), and specific facility types have their own requirements."
+    },
+    {
+      "q": "What is the Run, Hide, Fight model?",
+      "a": "A widely-used framework, popularized by CISA and DHS, that gives people a prioritized set of response options for an active shooter event based on the situation they're in."
+    },
+    {
+      "q": "What should I do after law enforcement arrives?",
+      "a": "Keep your hands visible and empty, follow all instructions immediately, and avoid making sudden movements — officers won't know who the threat is right away."
+    },
+    {
+      "q": "Is Cambo affiliated with CISA or DHS?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Cybersecurity and Infrastructure Security Agency or the Department of Homeland Security."
+    },
+    {
+      "q": "How should organizations prepare beyond individual training?",
+      "a": "By developing an emergency action plan, conducting drills, and establishing clear communication and lockdown procedures specific to their facility."
+    },
+    {
+      "q": "What should I do if I can't tell where the gunfire is coming from?",
+      "a": "Move away from the sound as quickly as possible while still assessing your surroundings — don't freeze, and don't move toward uncertainty."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "cisa.gov — Active Shooter Preparedness",
+    "url": "https://www.cisa.gov/topics/physical-security/active-shooter-preparedness"
+  }
+}

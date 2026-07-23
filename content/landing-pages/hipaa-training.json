@@ -1,0 +1,49 @@
+{
+  "slug": "hipaa-training",
+  "h1": "HIPAA Training Practice Questions & Answers",
+  "subhead": "Point your phone at any HIPAA training question and get an instant, explained answer — Privacy Rule, Security Rule, and breach notification, without the guesswork.",
+  "metaTitle": "HIPAA Training Practice Questions & Answers | Cambo",
+  "metaDescription": "Practice HIPAA training questions with instant answers and explanations. Privacy Rule, Security Rule, PHI, and breach notification requirements.",
+  "whyItWorks": "HIPAA training questions often ask you to apply the Privacy Rule or Security Rule to a specific scenario — is this disclosure permitted, is this a reportable breach — and the right answer depends on details easy to miss. Cambo reads the exact scenario and explains the reasoning, not just the answer.",
+  "sampleQuestions": [
+    {
+      "q": "Under HIPAA, what is considered Protected Health Information (PHI)?",
+      "a": "Individually identifiable health information held or transmitted by a covered entity — including medical records, billing information, and any health data linked to a specific patient."
+    },
+    {
+      "q": "A nurse discusses a patient's diagnosis with a coworker in a public hallway. What HIPAA concern does this raise?",
+      "a": "A potential Privacy Rule violation — PHI should only be discussed on a need-to-know basis and in a manner that minimizes the risk of incidental disclosure to others."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is HIPAA training required?",
+      "a": "Annually for most healthcare organizations, though HIPAA itself doesn't specify an exact frequency — it requires training that is 'periodic' and covers policy updates."
+    },
+    {
+      "q": "Who has to complete HIPAA training?",
+      "a": "Any workforce member of a covered entity or business associate who may come into contact with Protected Health Information, including clinical and non-clinical staff."
+    },
+    {
+      "q": "What's the difference between the Privacy Rule and the Security Rule?",
+      "a": "The Privacy Rule governs how PHI can be used and disclosed. The Security Rule specifically addresses safeguarding electronic PHI (ePHI) through administrative, physical, and technical controls."
+    },
+    {
+      "q": "Is Cambo affiliated with HHS or any official HIPAA program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the U.S. Department of Health and Human Services."
+    },
+    {
+      "q": "What counts as a HIPAA breach?",
+      "a": "An impermissible use or disclosure of PHI that compromises its security or privacy, unless the covered entity demonstrates a low probability that the information was compromised."
+    },
+    {
+      "q": "What are the penalties for HIPAA violations?",
+      "a": "They range widely based on the level of culpability, from a few hundred dollars per violation for unknowing violations to over a million dollars annually for willful neglect that isn't corrected."
+    }
+  ],
+  "internalLinks": ["pii-training"],
+  "officialSource": {
+    "label": "hhs.gov — HIPAA training materials",
+    "url": "https://www.hhs.gov/hipaa/for-professionals/training/index.html"
+  }
+}

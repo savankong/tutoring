@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import SiteNav from '../components/SiteNav.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
 import ResourcesFooter from '../components/ResourcesFooter.jsx';
 import { PLANS } from '../lib/plans.js';
+
+const NAV_ITEMS = [
+  { label: 'How it works', href: '/#how' },
+  { label: 'Why tutors', href: '/#why' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '/#faq' },
+];
 
 function Pricing() {
   const { user } = useAuthContext();
@@ -46,8 +53,9 @@ function Pricing() {
         description="Free forever up to 20 captures a month. Paid plans from $4.99/mo for daily tutoring use. Cancel anytime, no contract."
         path="/pricing"
       />
-      <SiteNav />
+      <Sidebar navItems={NAV_ITEMS} user={user} />
 
+      <div className="mkt-main">
       <section className="pricing-page">
         <div className="pricing-page-head">
           <div className="section-eyebrow">Pricing</div>
@@ -109,6 +117,7 @@ function Pricing() {
           <Link to="/">Home</Link>
           <a href="#resources">Resources</a>
         </div>
+      </div>
       </div>
     </div>
   );

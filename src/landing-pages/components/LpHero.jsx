@@ -4,7 +4,6 @@ function LpHero({ content }) {
   return (
     <section className="hero-section">
       <div className="hero-copy">
-        <div className="landing-eyebrow">Built for live study sessions</div>
         <h1>{content.h1}</h1>
         <p>{content.subhead}</p>
         <div className="hero-cta-row">
@@ -31,15 +30,12 @@ function LpHero({ content }) {
             </div>
             <div className="phone-main-view">
               <div className="phone-answer-card">
-                <div className="phone-question-label" style={{ color: 'rgba(29,29,31,0.4)', marginBottom: 6 }}>
-                  QUESTION
-                </div>
-                <div className="phone-question-text" style={{ color: '#1d1d1f' }}>
-                  {sample.q}
-                </div>
+                <div className="phone-question-label">QUESTION</div>
+                <div className="phone-question-text">{sample.q}</div>
               </div>
-              <div className="phone-answer-heading">Answer</div>
-              <div className="phone-answer-body">{sample.a}</div>
+              <div className="phone-answer-box">
+                <strong>Answer</strong> — {sample.a}
+              </div>
             </div>
           </div>
         </div>

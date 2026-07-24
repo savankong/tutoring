@@ -2,9 +2,17 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import PhoneMockup from '../components/PhoneMockup.jsx';
-import Logo from '../components/Logo.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
 import ResourcesFooter from '../components/ResourcesFooter.jsx';
+
+const NAV_ITEMS = [
+  { label: 'How it works', href: '#how' },
+  { label: 'Why tutors', href: '#why' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Resources', href: '#resources' },
+];
 
 const DEMO_QUESTIONS = [
   {
@@ -55,24 +63,79 @@ const REASONS = [
   {
     title: 'Built for speed',
     body: "No fluff, no extra screens — just capture and answer. Nothing you don't need in the middle of a session.",
+    icon: 'zap',
   },
   {
     title: 'Works on any phone',
     body: 'iPhone or Android, new or old — if it has a camera, Cambo runs right in the browser. No app store, no install.',
+    icon: 'phone',
   },
   {
     title: 'Less fumbling, more teaching',
     body: 'One big shutter button and nothing else to hunt for, so you spend less time tapping around and more time with your student.',
+    icon: 'target',
   },
   {
     title: 'Hands-free capture',
     body: 'Pair a Bluetooth keyboard and trigger Capture without touching the screen, so you can stay focused on your student.',
+    icon: 'keyboard',
   },
   {
     title: 'Pays for itself fast',
     body: "If it saves you 20 minutes across a month, it's already worth more than the subscription.",
+    icon: 'dollar',
   },
 ];
+
+const WHY_ICON_PATHS = {
+  zap: (
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  ),
+  phone: (
+    <>
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+      <line x1="12" y1="18" x2="12.01" y2="18" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1" />
+    </>
+  ),
+  keyboard: (
+    <>
+      <rect x="2" y="6" width="20" height="12" rx="2" />
+      <line x1="6" y1="10" x2="6" y2="10" />
+      <line x1="10" y1="10" x2="10" y2="10" />
+      <line x1="14" y1="10" x2="14" y2="10" />
+      <line x1="18" y1="10" x2="18" y2="10" />
+      <line x1="6" y1="14" x2="14" y2="14" />
+    </>
+  ),
+  dollar: (
+    <>
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </>
+  ),
+};
+
+function WhyIcon({ name }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {WHY_ICON_PATHS[name]}
+    </svg>
+  );
+}
 
 const FAQS = [
   {
@@ -159,29 +222,13 @@ function Landing() {
         <script type="application/ld+json">{JSON.stringify(SOFTWARE_APP_SCHEMA)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
       </Seo>
-      <nav className="site-nav">
-        <div className="site-nav-logo">
-          <Logo size={20} wordmark />
-        </div>
-        <div className="site-nav-center-links">
-          <a href="#how">How it works</a>
-          <a href="#why">Why tutors</a>
-          <Link to="/pricing">Pricing</Link>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div className="site-nav-actions">
-          <Link to="/login" className="pill-button pill-button-sm pill-button-outline">
-            Log in
-          </Link>
-          <Link to="/register" className="pill-button pill-button-sm">
-            Sign up free
-          </Link>
-        </div>
-      </nav>
+      <Sidebar navItems={NAV_ITEMS} user={user} />
 
+      <div className="mkt-main">
       <section className="hero-section">
+        <div className="hero-shape hero-shape-fill" />
+        <div className="hero-shape hero-shape-outline" />
         <div className="hero-copy">
-          <div className="landing-eyebrow">Built for live tutoring sessions</div>
           <h1>The answer key in your pocket. Point, tap, keep moving.</h1>
           <p>
             Point your phone at any practice question. Get the answer in seconds. Stay in the room
@@ -281,15 +328,12 @@ function Landing() {
             ) : (
               <div className={`phone-main-view${transitioning ? ' phone-fade-out' : ''}`}>
                 <div className="phone-answer-card">
-                  <div className="phone-question-label" style={{ color: 'rgba(29,29,31,0.4)', marginBottom: 6 }}>
-                    {screen.label}
-                  </div>
-                  <div className="phone-question-text" style={{ color: '#1d1d1f' }}>
-                    {screen.question}
-                  </div>
+                  <div className="phone-question-label">{screen.label}</div>
+                  <div className="phone-question-text">{screen.question}</div>
                 </div>
-                <div className="phone-answer-heading">Answer</div>
-                <div className="phone-answer-body">{screen.answer}</div>
+                <div className="phone-answer-box">
+                  <strong>Answer</strong> — {screen.answer}
+                </div>
               </div>
             )}
             <div className="phone-scan-btn">Scan Another Question</div>
@@ -302,8 +346,11 @@ function Landing() {
           <div className="section-eyebrow">Why tutors use it</div>
           <h2>Built around the session, not around the app.</h2>
           <div className="why-grid">
-            {REASONS.map((reason) => (
+            {REASONS.map((reason, i) => (
               <div className="why-card" key={reason.title}>
+                <div className={`why-icon-badge${i % 2 === 1 ? ' why-icon-badge-alt' : ''}`}>
+                  <WhyIcon name={reason.icon} />
+                </div>
                 <div className="why-card-title">{reason.title}</div>
                 <div className="why-card-body">{reason.body}</div>
               </div>
@@ -316,6 +363,7 @@ function Landing() {
         <div className="section-eyebrow">Pricing</div>
         <h2>Start using it for free today — no credit card needed.</h2>
         <div className="pricing-card">
+          <div className="pricing-card-glow" />
           <div className="pricing-amount-row">
             <span className="pricing-amount">$0</span>
             <span className="pricing-period">to start</span>
@@ -362,6 +410,8 @@ function Landing() {
       <ResourcesFooter />
 
       <section className="footer-cta-section">
+        <div className="footer-cta-shape footer-cta-shape-fill" />
+        <div className="footer-cta-shape footer-cta-shape-outline" />
         <h2>Stop losing the moment mid-session.</h2>
         <Link to="/register" className="pill-button pill-button-lg">
           Get started free
@@ -376,6 +426,7 @@ function Landing() {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }

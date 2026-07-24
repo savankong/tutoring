@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import HardReloadFallback from './components/HardReloadFallback.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Account from './pages/Account.jsx';
 import Admin from './pages/Admin.jsx';
@@ -49,6 +50,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="*" element={<HardReloadFallback />} />
     </Routes>
   );
 }

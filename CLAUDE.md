@@ -35,6 +35,15 @@ AI camera-capture app for tutors: point your phone at a practice question, get t
 - AI: Anthropic SDK, model `claude-opus-4-8`, structured JSON-schema output for question analysis (see `netlify/functions/analyze-question.js`)
 - Payments: Stripe, live mode
 
+## Design system (redesigned to match a Claude Design mockup export)
+
+- Single dark theme, no light/dark toggle — tokens in `src/index.css` `:root`. Key values: `--bg` `#111208`, `--card-bg` `#161810`, `--card-bg-2` `#1B1D12`, `--text-h` `#F5F1E4`, `--accent` (lime) `#D7FF3F`, `--accent2` (orange) `#FF5B35`. Font: Nunito (Google Fonts link in `index.html`).
+- Shared `Sidebar` (`src/components/Sidebar.jsx`): fixed 248px desktop left nav, collapses to a horizontal top bar on mobile via CSS only (no JS). Used by Landing, Pricing, and all 24 SEO campaign pages (via `LpHeader.jsx`). Auth-aware through an optional `user` prop — hydrated pages pass `useAuthContext().user`; the static campaign pages omit it and always render logged-out (no auth context there).
+- Decorative rotated "shape" motif (solid-fill + outlined rounded squares in accent/accent2) sits behind the hero phone mockup and the footer CTA — see `.hero-shape*` / `.footer-cta-shape*` in `App.css`. Don't drop a solid-fill version of this behind body copy — it tanked text contrast once (the how-section steps list) and had to be walked back to icon-badges/removed.
+- Why-cards use inline SVG icon badges (bolt/phone/target/keyboard/dollar), not an icon font or emoji — see `WHY_ICON_PATHS` in `Landing.jsx`. Emoji/icon-font glyphs are not guaranteed to render across environments; inline SVG is the safe default here.
+- The 24 SEO landing pages (`src/landing-pages/`, built via `renderToStaticMarkup` — zero JS, no hydration) share the same CSS classes as `Landing.jsx`, so most visual changes cascade automatically. Still check each `Lp*.jsx` component individually for its own hardcoded styles — `LpHero.jsx` had a duplicated phone-mockup with hardcoded light-theme inline colors that the shared-class cascade didn't touch.
+- `HardReloadFallback` (`src/components/HardReloadFallback.jsx`) is the router's catch-all `*` route in `App.jsx`. If the SPA shell ever loads for a URL it doesn't own (chiefly a static SEO page URL, e.g. after a CDN edge propagation blip right after deploy), `<Routes>` would otherwise render nothing. This forces a real page navigation instead of a client render, which re-requests the URL and lets Netlify serve the actual static file — self-healing. Guarded by `sessionStorage` against looping if the failure is persistent rather than transient.
+
 ## Business logic — plan tiers
 
 `netlify/lib/plans.js` is the source of truth; `src/lib/plans.js` is a display-only mirror for the frontend (never import backend-only code into the client bundle).

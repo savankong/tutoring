@@ -506,20 +506,12 @@
 }
 
 .pill-action-button {
-  background: #f2f3f4;
-  border: 3px solid #a9abaf;
+  background: var(--card-bg-2);
+  border: 3px solid var(--border);
   border-radius: 100px;
-  color: #1d1d1f;
+  color: var(--text-h);
   font-weight: 800;
   box-shadow: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  .pill-action-button {
-    background: #3a3b3f;
-    border-color: #6b6c70;
-    color: #f3f4f6;
-  }
 }
 
 .actions button,
@@ -967,16 +959,9 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background: rgba(230, 231, 234, 0.85);
+  background: rgba(17, 18, 8, 0.85);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-@media (prefers-color-scheme: dark) {
-  .auth-nav {
-    background: rgba(28, 29, 32, 0.85);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
+  border-bottom: 1px solid var(--border);
 }
 
 .auth-nav-home {
@@ -1231,56 +1216,92 @@ a:focus-visible {
   text-wrap: pretty;
 }
 
-/* Sticky nav */
-.site-nav {
-  position: sticky;
+/* Marketing sidebar nav — fixed left rail on desktop, reflows into a plain
+   sticky top bar on mobile via flex-direction alone (no JS), so the same
+   markup works whether hydrated (Landing, Pricing) or fully static
+   zero-JS pages (LpHeader on the 24 campaign pages). */
+.mkt-sidebar {
+  position: fixed;
   top: 0;
-  z-index: 50;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 24px;
-  padding: 18px 48px;
-  background: rgba(230, 231, 234, 0.85);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-@media (prefers-color-scheme: dark) {
-  .site-nav {
-    background: rgba(28, 29, 32, 0.85);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-}
-
-.site-nav-logo {
+  left: 0;
+  bottom: 0;
+  width: 248px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border);
   display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  flex-direction: column;
+  padding: 36px 28px;
+  box-sizing: border-box;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.mkt-sidebar-logo {
+  display: inline-flex;
+  margin-bottom: 48px;
   color: var(--text-h);
 }
 
-.site-nav-center-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 36px;
-  font-size: 14.5px;
+.mkt-sidebar-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--label);
+  margin-bottom: 14px;
 }
 
-.site-nav-center-links a {
-  color: inherit;
+.mkt-sidebar-links {
+  display: flex;
+  flex-direction: column;
 }
 
-.site-nav-actions {
+.mkt-sidebar-link {
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-self: end;
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.mkt-sidebar-link:hover {
+  color: var(--accent);
+}
+
+.mkt-sidebar-dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--label);
+}
+
+.mkt-sidebar-link:hover .mkt-sidebar-dot {
+  background: var(--accent);
+}
+
+.mkt-sidebar-spacer {
+  flex: 1;
+}
+
+.mkt-sidebar-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+}
+
+.mkt-sidebar-auth .pill-button-outline {
+  background: #d9dadc;
+  color: #111208;
+  border-color: rgba(17, 18, 8, 0.25);
+}
+
+.mkt-main {
+  margin-left: 248px;
 }
 
 /* Pill buttons (landing CTAs) */
@@ -1327,6 +1348,8 @@ a:focus-visible {
 
 /* Hero */
 .hero-section {
+  position: relative;
+  z-index: 0;
   max-width: 1180px;
   margin: 0 auto;
   padding: 88px 48px 100px;
@@ -1334,21 +1357,31 @@ a:focus-visible {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
   align-items: center;
+  overflow: hidden;
 }
 
-.landing-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 12px;
-  border-radius: 100px;
-  background: var(--accent-bg);
-  border: 1px solid var(--accent-border);
-  font-size: 12.5px;
-  color: var(--label);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  margin-bottom: 26px;
+/* Decorative rotated shapes behind the hero phone mockup.
+   Negative z-index (inside the section's own stacking context, set above)
+   paints these behind every sibling, positioned or not. */
+.hero-shape {
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 32px;
+  right: 6%;
+  top: 12%;
+  pointer-events: none;
+}
+
+.hero-shape-fill {
+  background: var(--accent2);
+  transform: rotate(6deg);
+}
+
+.hero-shape-outline {
+  border: 2px solid var(--accent);
+  transform: rotate(-4deg);
 }
 
 .hero-copy h1 {
@@ -1380,6 +1413,7 @@ a:focus-visible {
 
 .mockup-col {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1388,17 +1422,12 @@ a:focus-visible {
 
 .mockup-glow {
   position: absolute;
+  z-index: -1;
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 70%);
+  background: radial-gradient(circle, var(--accent-bg), transparent 70%);
   filter: blur(20px);
   top: 10%;
-}
-
-@media (prefers-color-scheme: dark) {
-  .mockup-glow {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
-  }
 }
 
 /* Phone mockup (shared) */
@@ -1417,13 +1446,13 @@ a:focus-visible {
   min-height: 0;
   padding: 0;
   border-radius: 50%;
-  background: #f2f3f4;
-  border: 2px solid #a9abaf;
+  background: var(--card-bg-2);
+  border: 2px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: #1d1d1f;
+  color: var(--text-h);
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -1441,24 +1470,25 @@ a:focus-visible {
   width: 300px;
   max-width: 88vw;
   height: 620px;
-  border-radius: 52px;
-  background: linear-gradient(155deg, #f4f5f7, #c7c9cd 45%, #9a9ca1);
-  padding: 10px;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 44px;
+  background: var(--bg);
+  border: 8px solid var(--card-bg-2);
+  padding: 0;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
 .phone-inner {
   width: 100%;
   height: 100%;
-  border-radius: 44px;
-  background: #e9eaec;
+  border-radius: 36px;
+  background: var(--bg);
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  padding: 52px 14px 20px;
+  padding: 40px 14px 20px;
   box-sizing: border-box;
 }
 
@@ -1470,7 +1500,7 @@ a:focus-visible {
   width: 110px;
   height: 22px;
   border-radius: 12px;
-  background: #1d1d1f;
+  background: var(--card-bg-2);
 }
 
 .phone-app-header {
@@ -1479,14 +1509,14 @@ a:focus-visible {
   justify-content: space-between;
   font-weight: 700;
   font-size: 14px;
-  color: #1d1d1f;
+  color: var(--text-h);
   white-space: nowrap;
   margin-bottom: 10px;
 }
 
 .phone-history-toggle {
   font-size: 11px;
-  color: #1d1d1f;
+  color: var(--accent);
   font-weight: 700;
   cursor: pointer;
   background: none;
@@ -1500,10 +1530,10 @@ a:focus-visible {
 .phone-screen {
   flex: 1;
   border-radius: 12px;
-  background: linear-gradient(160deg, #4a4d52, #1c1d20 70%);
+  background: linear-gradient(160deg, var(--card-bg-2), var(--bg) 70%);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
   transition: opacity 0.15s ease;
 }
 
@@ -1606,8 +1636,8 @@ a:focus-visible {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f2f3f4;
-  border: 3px solid #a9abaf;
+  background: var(--card-bg-2);
+  border: 3px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1636,50 +1666,43 @@ a:focus-visible {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  background: rgba(29, 29, 31, 0.25);
+  background: var(--border);
   box-shadow: none;
 }
 
 .mockup-dot-active {
-  background: #1d1d1f;
+  background: var(--accent);
 }
 
 /* Second phone mockup variant: answer view + history list */
 .phone-answer-card {
   border-radius: 12px;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--card-bg-2);
+  border: 1px solid var(--border);
   padding: 12px;
 }
 
-.phone-answer-heading {
+.phone-answer-box {
   margin-top: 10px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #1d1d1f;
-}
-
-.phone-answer-body {
-  margin-top: 6px;
   flex: 1;
   border-radius: 10px;
-  background: #eef0f1;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   padding: 12px;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(29, 29, 31, 0.75);
+  color: var(--accent);
   overflow: hidden;
 }
 
 .phone-scan-btn {
   margin-top: 14px;
   border-radius: 100px;
-  background: #f2f3f4;
-  border: 3px solid #a9abaf;
-  color: #1d1d1f;
+  background: var(--accent);
+  border: none;
+  color: var(--accent-contrast);
   text-align: center;
-  padding: 11px;
+  padding: 13px;
   font-weight: 800;
   font-size: 13.5px;
 }
@@ -1693,8 +1716,8 @@ a:focus-visible {
 }
 
 .phone-history-item {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--card-bg-2);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 12px;
   cursor: pointer;
@@ -1703,7 +1726,7 @@ a:focus-visible {
 .phone-history-item-label {
   font-size: 9px;
   font-weight: 700;
-  color: rgba(29, 29, 31, 0.4);
+  color: var(--label);
   letter-spacing: 0.06em;
   margin-bottom: 3px;
 }
@@ -1711,7 +1734,7 @@ a:focus-visible {
 .phone-history-item-question {
   font-size: 11.5px;
   font-weight: 600;
-  color: #1d1d1f;
+  color: var(--text-h);
   line-height: 1.4;
 }
 
@@ -1726,6 +1749,8 @@ a:focus-visible {
 }
 
 .how-section {
+  position: relative;
+  z-index: 0;
   max-width: 1180px;
   margin: 0 auto;
   padding: 40px 48px 110px;
@@ -1733,6 +1758,7 @@ a:focus-visible {
   grid-template-columns: 1fr 0.85fr;
   gap: 70px;
   align-items: center;
+  overflow: hidden;
 }
 
 .how-section h2 {
@@ -1776,16 +1802,9 @@ a:focus-visible {
 }
 
 .why-section {
-  background: #eceded;
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-}
-
-@media (prefers-color-scheme: dark) {
-  .why-section {
-    background: #202124;
-    border-color: rgba(255, 255, 255, 0.07);
-  }
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .why-inner {
@@ -1814,6 +1833,28 @@ a:focus-visible {
   box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.06);
 }
 
+.why-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.why-icon-badge-alt {
+  background: var(--accent2-bg);
+  color: var(--accent2);
+}
+
+.why-icon-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
 .why-card-title {
   font-size: 17px;
   font-weight: 600;
@@ -1840,11 +1881,27 @@ a:focus-visible {
 }
 
 .pricing-card {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 48px 44px;
   box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card-glow {
+  position: absolute;
+  z-index: -1;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.12;
+  pointer-events: none;
 }
 
 .pricing-amount-row {
@@ -2114,17 +2171,37 @@ a:focus-visible {
 }
 
 .footer-cta-section {
-  background: linear-gradient(165deg, #e4e5e8, #c9cbcf 65%);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
   padding: 110px 48px;
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .footer-cta-section {
-    background: linear-gradient(165deg, #1c1d20, #2a2b2f 65%);
-    border-top-color: rgba(255, 255, 255, 0.1);
-  }
+/* Decorative rotated shapes peeking from behind the footer CTA, echoing
+   the hero-shape treatment. Negative z-index (inside the section's own
+   stacking context) paints these behind the centered text/button. */
+.footer-cta-shape {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -70px;
+  width: 300px;
+  height: 300px;
+  border-radius: 32px;
+  pointer-events: none;
+}
+
+.footer-cta-shape-fill {
+  background: var(--accent2);
+  transform: translateY(-50%) rotate(6deg);
+}
+
+.footer-cta-shape-outline {
+  border: 2px solid var(--accent);
+  transform: translateY(-50%) rotate(-6deg);
 }
 
 .footer-cta-section h2 {
@@ -2160,16 +2237,38 @@ a:focus-visible {
 }
 
 @media (max-width: 860px) {
-  .site-nav {
-    padding: 16px 20px;
+  .mkt-sidebar {
+    position: sticky;
+    flex-direction: row;
+    align-items: center;
+    top: 0;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 
-  .site-nav-center-links {
+  .mkt-sidebar-label,
+  .mkt-sidebar-links {
     display: none;
   }
 
-  .site-nav-actions {
+  .mkt-sidebar-logo {
+    margin-bottom: 0;
+  }
+
+  .mkt-sidebar-auth {
+    flex-direction: row;
+    align-items: center;
     gap: 8px;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .mkt-main {
+    margin-left: 0;
   }
 
   .hero-section,
@@ -2270,17 +2369,22 @@ a:focus-visible {
 }
 
 .lp-official-source {
-  max-width: 1180px;
-  margin: -60px auto 0;
-  padding: 0 48px 40px;
-  font-size: 14px;
-  color: var(--text);
+  width: calc(100% - 40px);
+  max-width: 720px;
+  margin: 0 auto 70px;
+  padding: 22px 28px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  border-radius: 14px;
+  font-size: 15.5px;
+  color: var(--text-h);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .lp-official-source a {
-  color: var(--text-h);
-  font-weight: 600;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .lp-sample-grid {

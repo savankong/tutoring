@@ -16,16 +16,18 @@ function LandingPageTemplate({ content, allContent }) {
     <div className="landing lp-page">
       <LpHead content={content} />
       <LpHeader />
+      <div className="mkt-main">
       <LpHero content={content} />
       <LpHowItWorks />
+      <LpOfficialSource content={content} />
       <LpWhyItWorks content={content} />
       <LpSampleQA content={content} />
       <LpFaq content={content} />
-      <LpOfficialSource content={content} />
       <LpRelatedLinks content={content} allContent={allContent} />
       <LpCtaFooter content={content} />
       <LpResourcesFooter />
       <LpFooter />
+      </div>
     </div>
   );
 }

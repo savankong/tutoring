@@ -1,34 +1,42 @@
 :root {
-  --text: #6b6c70;
-  --text-h: #1d1d1f;
-  --label: #55565a;
-  --bg: #e4e5e8;
-  --bg-gradient: linear-gradient(180deg, #e4e5e8, #d3d4d8 40%, #dcdde0);
-  --card-bg: #fff;
-  --border: rgba(0, 0, 0, 0.1);
-  --code-bg: #f4f3ec;
-  --accent: #1d1d1f;
-  --accent-contrast: #fff;
-  --accent-bg: rgba(29, 29, 31, 0.06);
-  --accent-border: rgba(29, 29, 31, 0.3);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* New brand palette — dark, warm, high-contrast lime/orange on near-black.
+     Single theme by design (matches the mockup, no light-mode variant), so
+     unlike before there's no prefers-color-scheme branch here. */
+  --text: #b7b8a4;
+  --text-h: #f5f1e4;
+  --label: #6e6f5e;
+  --text-faint: #c7c8b5;
+  --bg: #111208;
+  --bg-gradient: #111208;
+  --card-bg: #161810;
+  --card-bg-2: #1b1d12;
+  --border: rgba(245, 241, 228, 0.1);
+  --border-soft: rgba(245, 241, 228, 0.06);
+  --code-bg: #1b1d12;
+  --accent: #d7ff3f;
+  --accent-contrast: #111208;
+  --accent-bg: rgba(215, 255, 63, 0.12);
+  --accent-border: rgba(215, 255, 63, 0.3);
+  --accent2: #ff5b35;
+  --accent2-bg: rgba(255, 91, 53, 0.15);
+  --social-bg: rgba(22, 24, 16, 0.6);
 
-  /* Primary CTA color — pulled from the logo mark's red-orange dot, kept
-     separate from --accent (which drives neutral chrome like badges and
-     borders) so recoloring buttons doesn't ripple into unrelated UI. */
-  --cta: #e5432c;
-  --cta-hover: #cf3a25;
-  --cta-contrast: #fff;
+  /* Primary CTA — the lime accent doubles as the CTA color in this design
+     (previously a separate orange from the logo dot; the logo dot orange
+     now lives on as --accent2, used as a secondary/decorative accent). */
+  --cta: #d7ff3f;
+  --cta-hover: #c2e832;
+  --cta-contrast: #111208;
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.45) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
 
-  --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --heading: var(--sans);
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: dark;
   color: var(--text);
   background: var(--bg-gradient) var(--bg);
   font-synthesis: none;
@@ -38,30 +46,6 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --label: #9ca3af;
-    --bg: #1c1d20;
-    --bg-gradient: linear-gradient(180deg, #1c1d20, #17181b 40%, #1a1b1e);
-    --card-bg: #26272b;
-    --border: rgba(255, 255, 255, 0.1);
-    --code-bg: #1f2028;
-    --accent: #f3f4f6;
-    --accent-contrast: #1d1d1f;
-    --accent-bg: rgba(255, 255, 255, 0.06);
-    --accent-border: rgba(255, 255, 255, 0.3);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
@@ -105,11 +89,11 @@ h2 {
 }
 
 a {
-  color: var(--text-h);
+  color: var(--accent);
 }
 
 a:hover {
-  color: var(--text);
+  color: var(--accent2);
 }
 p {
   margin: 0;

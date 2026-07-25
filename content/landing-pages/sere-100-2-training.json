@@ -31,13 +31,13 @@
     {
       "q": "Which Article of the Code of Conduct establishes a service member's duty to resist to the utmost of their ability if captured?",
       "options": [
-        "Article I",
+        "Article III",
         "Article II",
         "Article IV",
         "Article VI"
       ],
-      "correct": 1,
-      "a": "Article II — a service member will never surrender their forces while they have the means to resist, and if in command, will never surrender members of their command while they still can resist."
+      "correct": 0,
+      "a": "Article III — if captured, a service member will continue to resist by all means available, make every effort to escape and aid others to escape, and accept neither parole nor special favors from the enemy."
     },
     {
       "q": "In a survival situation, why does SERE training place \"protection\" before \"water\" in priority order?",

@@ -430,7 +430,7 @@ function Landing() {
 
       <section id="ask" className="ask-section">
         <div className="section-eyebrow">Ask a question</div>
-        <h2>Send us a message.</h2>
+        <h2>Have a question? Send us a message.</h2>
         <div className="auth-card ask-card">
           {askSent ? (
             <p className="auth-subhead">Thanks — we'll get back to you at {askEmail}.</p>

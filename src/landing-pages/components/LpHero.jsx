@@ -1,3 +1,5 @@
+import Logo from '../../components/Logo.jsx';
+
 function LpHero({ content }) {
   const sample = content.sampleQuestions[0];
 
@@ -26,7 +28,7 @@ function LpHero({ content }) {
           <div className="phone-inner">
             <div className="phone-notch" />
             <div className="phone-app-header">
-              <span>📷 Cambo</span>
+              <Logo size={14} wordmark />
             </div>
             <div className="phone-main-view">
               <div className="phone-answer-card">

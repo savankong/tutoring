@@ -1,3 +1,5 @@
+import Logo from './Logo.jsx';
+
 function PhoneMockup({ children, headerRight, onPrev, onNext, activeIndex, count, onGoTo }) {
   return (
     <>
@@ -14,7 +16,7 @@ function PhoneMockup({ children, headerRight, onPrev, onNext, activeIndex, count
           <div className="phone-inner">
             <div className="phone-notch" />
             <div className="phone-app-header">
-              <span>📷 Cambo</span>
+              <Logo size={14} wordmark />
               {headerRight}
             </div>
             {children}

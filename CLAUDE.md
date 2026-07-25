@@ -69,7 +69,7 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 
 ## Required env vars (Netlify dashboard — names only, never commit or print actual values)
 
-`JWT_SECRET`, `APP_SESSION_SECRET`, `ANTHROPIC_API_KEY`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
+`JWT_SECRET`, `APP_SESSION_SECRET`, `ANTHROPIC_API_KEY`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records on Netlify DNS).
 
 ## Verification patterns that work here
 

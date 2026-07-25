@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
 
-function Login() {
+function ResetPassword() {
   const { refresh } = useAuthContext();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [email, setEmail] = useState('');
+  const token = searchParams.get('token') || '';
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(searchParams.get('error') || '');
+  const [error, setError] = useState(token ? '' : 'This reset link is missing its token.');
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = async (e) => {
@@ -19,14 +18,14 @@ function Login() {
     setError('');
     setSubmitting(true);
     try {
-      const res = await fetch('/.netlify/functions/login', {
+      const res = await fetch('/.netlify/functions/reset-password', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ token, password }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Could not log in.');
+      if (!res.ok) throw new Error(data.error || 'Could not reset password.');
       await refresh();
       navigate('/app');
     } catch (err) {
@@ -39,9 +38,9 @@ function Login() {
   return (
     <>
       <Seo
-        title="Log In — Cambo App"
-        description="Log in to your Cambo App account."
-        path="/login"
+        title="Reset Password — Cambo App"
+        description="Set a new password for your Cambo App account."
+        path="/reset-password"
         noindex
       />
       <nav className="auth-nav">
@@ -55,50 +54,32 @@ function Login() {
           <div className="auth-card-logo">
             <Logo size={18} wordmark />
           </div>
-          <h1>Log in</h1>
+          <h1>Set a new password</h1>
           <form onSubmit={onSubmit} className="auth-form">
             <label>
-              <span className="auth-label">Email</span>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-            </label>
-            <label>
-              <span className="auth-label">Password</span>
+              <span className="auth-label">New password</span>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                autoComplete="current-password"
+                minLength={8}
+                autoComplete="new-password"
+                disabled={!token}
               />
             </label>
-            <Link to="/forgot-password" className="auth-forgot-link">
-              Forgot password?
-            </Link>
             {error && <p className="error-text">{error}</p>}
-            <button type="submit" disabled={submitting}>
-              {submitting ? 'Logging in…' : 'Log in'}
+            <button type="submit" disabled={submitting || !token}>
+              {submitting ? 'Saving…' : 'Save new password'}
             </button>
           </form>
-          <div className="auth-divider">
-            <span>or continue with</span>
-          </div>
-          <a className="google-button" href="/.netlify/functions/google-oauth-start">
-            <GoogleIcon />
-            Continue with Google
-          </a>
         </div>
         <p className="auth-switch">
-          No account yet? <Link to="/register">Sign up free</Link>
+          <Link to="/login">← Back to log in</Link>
         </p>
       </div>
     </>
   );
 }
 
-export default Login;
+export default ResetPassword;

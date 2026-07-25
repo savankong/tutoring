@@ -62,6 +62,19 @@ export function clearedSessionCookieHeader() {
   return `${SESSION_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 }
 
+/** Raw, single-use password-reset token — sent to the user, never stored as-is. */
+export function generateResetToken() {
+  const bytes = new Uint8Array(32);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/** SHA-256 hex digest of a reset token, for DB storage/lookup (mirrors password_hash's never-store-raw rule). */
+export async function hashResetToken(token) {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
 export function readOauthStateCookie(request) {
   return parseCookies(request)[OAUTH_STATE_COOKIE] || null;
 }

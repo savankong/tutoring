@@ -4,11 +4,13 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Account from './pages/Account.jsx';
 import Admin from './pages/Admin.jsx';
 import Capture from './pages/Capture.jsx';
+import ForgotPassword from './pages/ForgotPassword.jsx';
 import History from './pages/History.jsx';
 import Landing from './pages/Landing.jsx';
 import Login from './pages/Login.jsx';
 import Pricing from './pages/Pricing.jsx';
 import Register from './pages/Register.jsx';
+import ResetPassword from './pages/ResetPassword.jsx';
 import './App.css';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route
         path="/app"
         element={

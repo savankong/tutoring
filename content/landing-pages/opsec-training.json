@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which of the following is considered critical information under OPSEC?",
+      "options": [
+        "Any information the unit has not yet published on its public website",
+        "Details that, pieced together by an adversary, could reveal sensitive operations — such as deployment dates, unit movements, or troop strength",
+        "All information marked Controlled Unclassified Information",
+        "Personal contact details of unit members"
+      ],
+      "correct": 1,
       "a": "Details that, if pieced together by an adversary, could reveal sensitive operations — for example, specific deployment dates, unit movements, or troop strength. General, publicly releasable information isn't critical information."
     },
     {
       "q": "A service member posts a photo on social media that includes a visible base identifier in the background. What OPSEC concern does this raise?",
+      "options": [
+        "No concern, since the photo contains no classified markings",
+        "A concern only if the post is set to public rather than friends-only",
+        "A potential indicator — a small detail that could help an adversary confirm location or activity when combined with other public information",
+        "A Privacy Act violation rather than an OPSEC issue"
+      ],
+      "correct": 2,
       "a": "It's a potential indicator — a small detail that seems harmless alone but could help an adversary confirm location or activity when combined with other public information."
     },
     {
       "q": "What is a \"countermeasure,\" in the OPSEC process?",
+      "options": [
+        "A penalty imposed on personnel who disclose critical information",
+        "An intelligence estimate of an adversary's likely next move",
+        "A formal request to declassify previously restricted information",
+        "An action taken to eliminate an OPSEC vulnerability or reduce the risk of an adversary exploiting it"
+      ],
+      "correct": 3,
       "a": "An action taken to eliminate an OPSEC vulnerability or reduce the risk of an adversary exploiting it — such as limiting public discussion of an event's timing or restricting who has access to certain details."
     },
     {
       "q": "Why does OPSEC training emphasize that \"small\" pieces of information can still be a risk?",
+      "options": [
+        "Because adversaries can aggregate multiple small, individually harmless details into a much larger picture",
+        "Because small details are more likely to be classified than large ones",
+        "Because reporting requirements apply only to minor disclosures",
+        "Because small details are harder for friendly forces to track internally"
+      ],
+      "correct": 0,
       "a": "Because adversaries can piece together multiple small, individually harmless details into a much bigger picture — this is called \"aggregation,\" and it's why OPSEC looks at cumulative risk, not just single facts."
     },
     {
       "q": "Who is responsible for OPSEC within a unit or organization?",
+      "options": [
+        "Only the designated OPSEC officer or coordinator",
+        "Everyone — protecting critical information is every individual's responsibility, not just a specialist's",
+        "Only personnel holding a security clearance",
+        "Only the unit commander and their immediate staff"
+      ],
+      "correct": 1,
       "a": "Everyone — while there's often a designated OPSEC officer or coordinator, protecting critical information is treated as every individual's responsibility, not just a specialist's job."
     },
     {
       "q": "A spouse posts on social media about an upcoming \"welcome home\" event without specifying the date. Is this an OPSEC risk?",
+      "options": [
+        "No — without a specific date the post contains no useful information",
+        "No — family members are not subject to OPSEC considerations",
+        "It can be — vague timing hints combined with other public posts can help someone estimate deployment or return schedules",
+        "Only if the post names the unit involved"
+      ],
+      "correct": 2,
       "a": "It can be — even vague timing hints, combined with other public posts, can help someone estimate deployment or return schedules, which is why discretion matters even with indirect details."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "A piece of information or behavior that, on its own or combined with others, could reveal something an adversary shouldn't know — like a pattern of activity, a visible location marker, or a schedule detail."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "information-assurance-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "information-assurance-training"
+  ],
   "officialSource": {
     "label": "cdse.edu — Operations Security",
     "url": "https://www.cdse.edu/Training/Operations-Security/"

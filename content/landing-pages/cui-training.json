@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "What is Controlled Unclassified Information (CUI)?",
+      "options": [
+        "Information classified at the Confidential level or above",
+        "Any information marked For Official Use Only before 2010",
+        "Unclassified information that requires safeguarding or dissemination controls under law, regulation, or government-wide policy",
+        "Information that has been declassified and released to the public"
+      ],
+      "correct": 2,
       "a": "Unclassified information that requires safeguarding or dissemination controls under law, regulation, or government-wide policy — it's not classified, but it's not freely releasable either."
     },
     {
       "q": "Where should CUI be stored when not in use?",
+      "options": [
+        "In any unlocked desk drawer inside a government building",
+        "In a locked container, locked office, or other area with sufficient physical access controls",
+        "On a personal device, provided it is password protected",
+        "Anywhere, as long as it is shredded at the end of the day"
+      ],
+      "correct": 1,
       "a": "In a locked container, locked office, or other area with sufficient physical access controls to prevent access by unauthorized individuals."
     },
     {
       "q": "What is a \"banner marking,\" in the context of CUI?",
+      "options": [
+        "A watermark applied only to printed copies",
+        "A label affixed to the storage container holding the document",
+        "A digital signature verifying the author's identity",
+        "A header at the top (and often bottom) identifying the document as CUI and specifying its category"
+      ],
+      "correct": 3,
       "a": "A header placed at the top (and often bottom) of a CUI document that identifies it as CUI and specifies its category — the primary visual indicator that special handling rules apply."
     },
     {
       "q": "Can CUI be sent over regular, unencrypted email?",
+      "options": [
+        "No — CUI must be transmitted using approved, encrypted methods",
+        "Yes — as long as the recipient is a federal employee",
+        "Yes — as long as the subject line includes the CUI marking",
+        "Yes — provided the document is attached rather than pasted into the body"
+      ],
+      "correct": 0,
       "a": "No — CUI must be transmitted using approved, encrypted methods. Sending it over unencrypted email is a common training scenario used to test whether the rule has actually sunk in."
     },
     {
       "q": "What is a \"dissemination control\" marking on a CUI document?",
+      "options": [
+        "A marking indicating how long the information must be retained",
+        "A marking that limits who the information may be shared with, separate from the category marking",
+        "A marking showing which office originally created the document",
+        "A marking indicating the document's classification level"
+      ],
+      "correct": 1,
       "a": "A marking that limits who the information can be shared with — for example, restricting distribution to federal employees only — separate from the category marking that says what kind of CUI it is."
     },
     {
       "q": "Who determines whether a specific piece of information qualifies as CUI?",
+      "options": [
+        "The individual who created the document decides",
+        "Any supervisor may designate information as CUI at their discretion",
+        "It qualifies only if covered by a law, regulation, or government-wide policy listed in the CUI Registry",
+        "The recipient decides based on how sensitive the content appears"
+      ],
+      "correct": 2,
       "a": "It only qualifies if it's covered by a law, regulation, or government-wide policy listed in the CUI Registry — an individual can't decide on their own that something is CUI without that basis."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "Most versions of the course require 70% or better on the final exam to receive a completion certificate."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "pii-training", "insider-threat-awareness-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "pii-training",
+    "insider-threat-awareness-training"
+  ],
   "officialSource": {
     "label": "securityawareness.dcsa.mil — CUI Training",
     "url": "https://securityawareness.dcsa.mil/cui/index.html"

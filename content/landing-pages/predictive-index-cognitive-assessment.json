@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which word is the opposite of 'frugal'?",
+      "options": [
+        "Thrifty",
+        "Wasteful",
+        "Cautious",
+        "Modest"
+      ],
+      "correct": 1,
       "a": "Wasteful — frugal means careful with money or resources, so its opposite is spending freely or wastefully."
     },
     {
       "q": "If a shape rotates 90 degrees clockwise, and it started pointing up, which direction does it now point?",
+      "options": [
+        "Left",
+        "Down",
+        "Right",
+        "Up"
+      ],
+      "correct": 2,
       "a": "Right — a 90-degree clockwise rotation from 'up' lands on 'right.'"
     },
     {
       "q": "If PENCIL is coded as QFOEJM (each letter shifted forward by 1), how would CHAIR be coded?",
+      "options": [
+        "DIBJS",
+        "BGZHQ",
+        "DJBKS",
+        "DIBIS"
+      ],
+      "correct": 0,
       "a": "DIBJS — shifting each letter forward by one: C→D, H→I, A→B, I→J, R→S."
     },
     {
       "q": "A recipe calls for 3 cups of flour to make 12 cookies. How many cups of flour are needed for 18 cookies?",
+      "options": [
+        "4 cups",
+        "4.25 cups",
+        "4.5 cups",
+        "5 cups"
+      ],
+      "correct": 2,
       "a": "4.5 cups — the ratio is 3 cups per 12 cookies, or 0.25 cups per cookie; 18 × 0.25 = 4.5."
     },
     {
       "q": "Which word does NOT belong with the others: hammer, screwdriver, wrench, nail?",
+      "options": [
+        "Hammer",
+        "Screwdriver",
+        "Wrench",
+        "Nail"
+      ],
+      "correct": 3,
       "a": "Nail — a hammer, screwdriver, and wrench are all tools used to perform work, while a nail is a fastener the tools act on, not a tool itself."
     },
     {
       "q": "A sequence of shapes gains exactly one dot each step (1 dot, 2 dots, 3 dots...). How many dots does the next shape have?",
+      "options": [
+        "3 dots",
+        "4 dots",
+        "5 dots",
+        "6 dots"
+      ],
+      "correct": 1,
       "a": "4 dots — the pattern adds exactly one dot to each successive shape, so the next in the sequence continues that same increment."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "Building speed on the three question types (verbal, numerical, abstract) individually, so you're not slowed down switching between reasoning styles during the real test."
     }
   ],
-  "internalLinks": ["ccat-practice-test", "wonderlic-test-practice"],
+  "internalLinks": [
+    "ccat-practice-test",
+    "wonderlic-test-practice"
+  ],
   "officialSource": {
     "label": "predictiveindex.com — Cognitive Assessment",
     "url": "https://www.predictiveindex.com/assessments/cognitive-assessment/"

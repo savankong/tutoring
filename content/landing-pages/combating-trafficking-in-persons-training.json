@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which of the following is a common indicator of human trafficking?",
+      "options": [
+        "A person who works long hours during a seasonal business peak",
+        "A person who does not have control of their own identification documents",
+        "A person who sends most of their earnings to family abroad",
+        "A person who speaks limited English at their workplace"
+      ],
+      "correct": 1,
       "a": "A person who does not have control of their own identification documents, such as a passport or ID card being held by someone else."
     },
     {
       "q": "What is the DoD's 'zero tolerance' policy in regard to trafficking in persons?",
+      "options": [
+        "DoD personnel may engage in commercial sex only while off duty and off the installation",
+        "DoD personnel are prohibited from any activity that supports or facilitates trafficking, including forced labor or patronizing commercial sex — with no exceptions",
+        "The policy applies only to personnel deployed overseas",
+        "The policy applies only to contractors, not to uniformed personnel"
+      ],
+      "correct": 1,
       "a": "DoD personnel are prohibited from engaging in any activity that supports or facilitates trafficking in persons, including using forced labor or patronizing commercial sex — with no exceptions."
     },
     {
       "q": "Which of the following is a labor trafficking indicator, as opposed to sex trafficking?",
+      "options": [
+        "A worker who is not free to leave their job, owes debts to their employer they can never repay, or has wages withheld",
+        "A worker who has recently relocated for a new job",
+        "A worker who does not have a written employment contract",
+        "A worker who is paid in cash rather than by direct deposit"
+      ],
+      "correct": 0,
       "a": "A worker who is not free to leave their job, has debts to their employer they can never seem to pay off, or has wages withheld — labor trafficking centers on forced labor and debt bondage."
     },
     {
       "q": "What is \"debt bondage\" in the context of human trafficking?",
+      "options": [
+        "A legal loan agreement between an employer and employee at a fixed interest rate",
+        "A government program that helps workers repay recruitment costs",
+        "Being forced to work off a debt that is inflated, unclear, or designed never to be fully repaid",
+        "A worker voluntarily accepting an advance on future wages"
+      ],
+      "correct": 2,
       "a": "A situation where a person is forced to work to pay off a debt that is often inflated, unclear, or designed to never be fully repaid — a common control mechanism traffickers use to compel labor."
     },
     {
       "q": "A DoD contractor overseas is found to be charging foreign workers illegal recruitment fees. What CTIP concern does this raise?",
+      "options": [
+        "It is a contract administration issue only, with no trafficking implications",
+        "It suggests the contractor is overcharging the government",
+        "It is acceptable if the host country's law permits the practice",
+        "It is a labor trafficking red flag that can trap workers in debt bondage, and DoD contract terms prohibit it"
+      ],
+      "correct": 3,
       "a": "Illegal recruitment fees are a red flag for labor trafficking risk — they can trap workers in debt bondage, which is why DoD contract requirements specifically prohibit this practice."
     },
     {
       "q": "Why does DoD CTIP policy apply a \"zero tolerance\" standard rather than a case-by-case judgment?",
+      "options": [
+        "Because trafficking is treated as a fundamental human rights violation with no acceptable justification, which removes any gray area",
+        "Because case-by-case review would be too expensive to administer",
+        "Because commanders lack the legal authority to review individual cases",
+        "Because the policy only needs to satisfy host-nation legal requirements"
+      ],
+      "correct": 0,
       "a": "Because trafficking in persons is treated as a fundamental violation of human rights with no acceptable justification — the policy removes ambiguity so personnel understand there is no gray area."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "Yes — contractors performing on DoD contracts, especially overseas, are subject to CTIP training and compliance requirements."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "law-of-war-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "law-of-war-training"
+  ],
   "officialSource": {
     "label": "ctip.defense.gov — official CTIP site",
     "url": "https://ctip.defense.gov/"

@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "What is the difference between quid pro quo and hostile work environment harassment?",
+      "options": [
+        "Quid pro quo applies only to managers, while hostile work environment applies only to peers",
+        "Quid pro quo conditions employment benefits on submitting to unwelcome sexual advances; hostile work environment involves conduct severe or pervasive enough to create an abusive atmosphere",
+        "Quid pro quo requires a written agreement; hostile work environment does not",
+        "They are two terms for the same legal claim"
+      ],
+      "correct": 1,
       "a": "Quid pro quo occurs when employment benefits are conditioned on submitting to unwelcome sexual advances. Hostile work environment occurs when unwelcome conduct is severe or pervasive enough to create an abusive or intimidating atmosphere."
     },
     {
       "q": "An employee witnesses a coworker being harassed but is not personally the target. What is a bystander's best first step?",
+      "options": [
+        "Wait until the person targeted decides to report it themselves",
+        "Confront the harasser publicly regardless of the situation",
+        "Intervene if it is safe to do so, or report the incident to HR or a supervisor",
+        "Discuss the incident with other coworkers first to confirm what happened"
+      ],
+      "correct": 2,
       "a": "Intervene if it's safe to do so, or report the incident to HR or a supervisor — bystander reporting is a key part of most modern prevention training, not just responses from the person directly targeted."
     },
     {
       "q": "Is a single, isolated offensive comment always enough to constitute a hostile work environment?",
+      "options": [
+        "Yes — any single offensive comment automatically creates a hostile work environment",
+        "No — only physical conduct can create a hostile work environment",
+        "Yes — provided the comment was made by a supervisor",
+        "Generally no — claims usually require severe or pervasive conduct, though a single comment can qualify if severe enough"
+      ],
+      "correct": 3,
       "a": "Generally no — hostile work environment claims usually require conduct that is severe or pervasive. A single comment can qualify if severe enough, but isolated minor incidents typically don't meet the legal standard alone."
     },
     {
       "q": "What is \"retaliation\" in the context of harassment prevention law?",
+      "options": [
+        "Taking an adverse action against someone because they reported harassment or took part in an investigation",
+        "Any disciplinary action taken against an employee accused of harassment",
+        "A counterclaim filed by the accused against the person who reported",
+        "Transferring someone who reported harassment to a comparable role at their own request"
+      ],
+      "correct": 0,
       "a": "Taking an adverse action against someone (firing, demotion, harassment) because they reported harassment or participated in an investigation — it's illegal even if the underlying claim isn't ultimately substantiated."
     },
     {
       "q": "Can harassment occur between people of the same sex?",
+      "options": [
+        "No — harassment law only covers conduct between people of different sexes",
+        "Yes — the parties need not be of different sexes; the key issue is unwelcome conduct related to sex",
+        "Only if the employer has adopted a specific policy covering it",
+        "Only in states that have enacted their own statutes"
+      ],
+      "correct": 1,
       "a": "Yes — the harasser and the person harassed don't need to be of different sexes; the key issue is unwelcome conduct related to sex, regardless of the parties' genders."
     },
     {
       "q": "Why is it recommended to document incidents of harassment as they happen?",
+      "options": [
+        "Because verbal reports are not accepted by most employers",
+        "Because documentation is required before HR may open an investigation",
+        "Because contemporaneous records of dates, conduct, and witnesses are more credible than a recollection pieced together later",
+        "Because documentation shifts the burden of proof to the employer"
+      ],
+      "correct": 2,
       "a": "Because contemporaneous records (dates, what was said or done, witnesses) are more credible and useful during an investigation than a recollection pieced together much later."
     }
   ],

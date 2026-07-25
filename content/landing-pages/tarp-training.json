@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "What is elicitation, in the context of TARP training?",
+      "options": [
+        "A formal interview conducted by a security officer",
+        "A technique used to subtly extract information without the target realizing they are being questioned",
+        "A method of encrypting sensitive communications",
+        "A background investigation step required for clearance renewal"
+      ],
+      "correct": 1,
       "a": "A technique used to subtly extract information from someone without them realizing they're being questioned — often through casual conversation rather than direct interrogation."
     },
     {
       "q": "You are approached online by someone claiming to be a recruiter who asks detailed questions about your unit's deployment schedule. What should you do?",
+      "options": [
+        "Answer only the questions that are unclassified",
+        "Block the account and take no further action",
+        "Report the contact to your security officer or counterintelligence point of contact",
+        "Ask the recruiter to verify their credentials before responding"
+      ],
+      "correct": 2,
       "a": "Report the contact to your security officer or counterintelligence point of contact — unsolicited requests for operational details are a classic TARP reporting indicator."
     },
     {
       "q": "A stranger at a conference offers to pay for your travel and accommodations in exchange for a private \"consulting\" conversation about your work. What TARP concern does this raise?",
+      "options": [
+        "It is a routine networking opportunity with no security implications",
+        "It is an ethics violation but not a counterintelligence concern",
+        "It is acceptable as long as you avoid discussing classified information",
+        "It is a potential elicitation and recruitment attempt — unsolicited financial incentives tied to work information are a classic red flag"
+      ],
+      "correct": 3,
       "a": "It's a potential elicitation and recruitment attempt — unsolicited financial incentives tied to sharing work-related information are a classic red flag covered in TARP training."
     },
     {
       "q": "What is the difference between elicitation and a direct interrogation?",
+      "options": [
+        "Elicitation is subtle and disguised as normal conversation, while interrogation is direct, recognizable questioning",
+        "Elicitation is lawful, while interrogation is always unlawful",
+        "Elicitation happens online, while interrogation happens in person",
+        "There is no practical difference between the two"
+      ],
+      "correct": 0,
       "a": "Elicitation is subtle and often disguised as normal conversation, designed so the target doesn't realize information is being extracted, while interrogation is direct, recognizable questioning."
     },
     {
       "q": "Why does TARP training emphasize reporting suspicious contacts even if you're not sure they're a real threat?",
+      "options": [
+        "Because failing to report any contact is itself a punishable offense",
+        "Because counterintelligence analysts can connect a single contact to patterns across other reports",
+        "Because every reported contact triggers an immediate investigation",
+        "Because reporting transfers legal liability away from the individual"
+      ],
+      "correct": 1,
       "a": "Because counterintelligence professionals are better positioned to assess a pattern across multiple reports — a single contact might seem minor, but reporting lets analysts connect it to other information."
     },
     {
       "q": "Which of the following is a common TARP indicator involving social media?",
+      "options": [
+        "A former colleague requesting to connect after leaving the service",
+        "An official unit account posting a public affairs release",
+        "An unfamiliar profile that quickly becomes overly friendly and asks pointed questions about your job, clearance, or deployment",
+        "A recruiter advertising civilian job openings to veterans"
+      ],
+      "correct": 2,
       "a": "An unfamiliar profile that quickly becomes overly friendly and starts asking pointed questions about your job, clearance, or deployment — a common vector for elicitation online."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "Through your command's counterintelligence office or security officer — reporting channels are covered specifically in the training."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "insider-threat-awareness-training", "opsec-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "insider-threat-awareness-training",
+    "opsec-training"
+  ],
   "officialSource": {
     "label": "JKO — official DoD training portal",
     "url": "https://jkodirect.jten.mil/"

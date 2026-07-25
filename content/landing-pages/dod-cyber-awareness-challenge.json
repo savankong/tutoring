@@ -8,34 +8,90 @@
   "sampleQuestions": [
     {
       "q": "Which of the following is a best practice for protecting Controlled Unclassified Information (CUI)?",
+      "options": [
+        "Email it to your personal account so you can work on it from home",
+        "Save it to any removable media so that a backup always exists",
+        "Store it only on authorized systems and encrypt it both at rest and in transit",
+        "Post it to a shared team folder with open permissions for convenience"
+      ],
+      "correct": 2,
       "a": "Store CUI only on authorized systems and encrypt it both at rest and in transit — never email it to a personal account or save it to removable media that isn't approved."
     },
     {
       "q": "You receive an email from an unfamiliar sender asking you to verify your CAC PIN by clicking a link. What should you do?",
+      "options": [
+        "Click the link but enter only the first two digits of your PIN",
+        "Reply to the sender and ask them to confirm their identity first",
+        "Forward it to your team so they know to expect the same request",
+        "Don't click the link — report it as suspected phishing, since DoD systems never ask for your PIN through an email link"
+      ],
+      "correct": 3,
       "a": "Don't click the link. Report it as suspected phishing — legitimate DoD systems never ask you to enter your PIN through an email link."
     },
     {
       "q": "You suspect classified information may have been introduced onto an unclassified system (a \"spillage\"). What should you do first?",
+      "options": [
+        "Immediately report it to your security manager or the appropriate incident response channel",
+        "Delete the files right away to contain the exposure",
+        "Keep working normally and raise it at the next staff meeting",
+        "Copy the files to removable media so they can be reviewed later"
+      ],
+      "correct": 0,
       "a": "Immediately report it to your security manager or the appropriate incident response channel. Don't try to delete the files or keep working on the system — that can destroy evidence needed to contain the spillage."
     },
     {
       "q": "You find a USB drive in the parking lot labeled \"Salary Info FY26.\" What should you do?",
+      "options": [
+        "Plug it into an isolated personal laptop to identify the owner",
+        "Leave it where you found it in case the owner comes back",
+        "Turn it in to your security office without plugging it into any device",
+        "Plug it into a government workstation so antivirus can scan it"
+      ],
+      "correct": 2,
       "a": "Don't plug it into any government or personal device. Turn it in to your security office — unknown removable media is a classic malware vector, and curiosity-driven plugging-in is exactly what this scenario tests."
     },
     {
       "q": "Which of the following is a potential insider threat indicator?",
+      "options": [
+        "An employee who occasionally takes leave on short notice",
+        "An employee who prefers to work from a quiet part of the office",
+        "An employee who frequently asks questions about other teams' projects",
+        "Unexplained affluence combined with unusual work hours or attempts to access information outside their need-to-know"
+      ],
+      "correct": 3,
       "a": "Unexplained affluence combined with unusual work hours or attempts to access information outside their need-to-know — behavioral and financial red flags, not just technical ones, are what the training emphasizes."
     },
     {
       "q": "Which social media practice creates the greatest security risk?",
+      "options": [
+        "Posting details about upcoming deployments, unit movements, or specific mission information",
+        "Following official DoD accounts from a personal profile",
+        "Using a profile photo that was taken while in uniform",
+        "Connecting with former colleagues from a previous duty station"
+      ],
+      "correct": 0,
       "a": "Posting details about upcoming deployments, unit movements, or specific mission information. Even seemingly harmless posts can aggregate into an OPSEC risk when combined with other public information."
     },
     {
       "q": "A person you don't recognize asks you to hold the secure door open because their badge isn't working. What should you do?",
+      "options": [
+        "Hold the door — badge readers malfunction frequently",
+        "Hold the door if the person is wearing a visible ID badge",
+        "Politely decline and direct them to the visitor center or security desk to be verified",
+        "Let them in and report it to security afterward"
+      ],
+      "correct": 2,
       "a": "Politely decline and direct them to the visitor center or security desk to be verified — this is \"tailgating,\" and holding the door bypasses the access control the badge system exists to enforce."
     },
     {
       "q": "What is the best way to protect against malicious code?",
+      "options": [
+        "Disable antivirus scanning so it doesn't interfere with system updates",
+        "Keep antivirus software and system patches up to date, and avoid links or attachments from unverified senders",
+        "Only open attachments that are in PDF format",
+        "Rely on the network firewall, which blocks all malicious code"
+      ],
+      "correct": 1,
       "a": "Keep antivirus software and system patches up to date, and avoid clicking links or opening attachments from unverified senders — most malicious code enters through phishing or unpatched vulnerabilities."
     }
   ],
@@ -65,7 +121,10 @@
       "a": "Most versions let you review the material and retake the check — there's usually no limit on attempts, just a requirement to pass before you get your completion certificate."
     }
   ],
-  "internalLinks": ["opsec-training", "information-assurance-training"],
+  "internalLinks": [
+    "opsec-training",
+    "information-assurance-training"
+  ],
   "officialSource": {
     "label": "cyber.mil — Cyber Awareness Challenge",
     "url": "https://www.cyber.mil/cyber-awareness-challenge/"

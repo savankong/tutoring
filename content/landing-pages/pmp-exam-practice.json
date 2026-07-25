@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "A team member reports a risk that could delay the project by two weeks. What should the project manager do first?",
+      "options": [
+        "Immediately escalate the risk to the project sponsor",
+        "Add two weeks of buffer to the schedule right away",
+        "Assess the risk's probability and impact and update the risk register",
+        "Assign a team member to eliminate the risk before analyzing it"
+      ],
+      "correct": 2,
       "a": "Assess the risk's probability and impact and update the risk register — before jumping to a response, the PM needs to understand the risk's true severity."
     },
     {
       "q": "During project execution, a key stakeholder requests a change that wasn't in the original scope. What is the correct next step?",
+      "options": [
+        "Implement it if the sponsor verbally approves",
+        "Submit the request through the formal change control process",
+        "Reject it because it falls outside the original scope",
+        "Defer it to a later phase without documenting it"
+      ],
+      "correct": 1,
       "a": "Submit the request through the formal change control process — even reasonable-sounding changes should go through change control rather than being implemented informally."
     },
     {
       "q": "A team member is consistently missing deadlines due to unclear priorities from two different managers. What should the project manager do first?",
+      "options": [
+        "Reassign the work to another team member",
+        "Escalate immediately to both managers' supervisors",
+        "Document the missed deadlines in a performance review",
+        "Clarify priorities and resolve the conflicting direction to remove the blocker"
+      ],
+      "correct": 3,
       "a": "Clarify priorities and resolve the conflicting direction — as a servant leader, the PM should remove the blocker for the team member rather than simply reassigning the work or escalating immediately."
     },
     {
       "q": "During project planning, the team identifies a dependency where Task B cannot start until Task A finishes. What type of dependency is this?",
+      "options": [
+        "Finish-to-start (FS)",
+        "Start-to-start (SS)",
+        "Finish-to-finish (FF)",
+        "Start-to-finish (SF)"
+      ],
+      "correct": 0,
       "a": "A finish-to-start (FS) dependency — the most common type, where the successor activity can't begin until the predecessor activity is complete."
     },
     {
       "q": "A regulatory change midway through the project requires additional compliance documentation. What should the project manager do?",
+      "options": [
+        "Implement the documentation immediately, since regulatory changes are mandatory",
+        "Assess the impact on scope, schedule, and cost, then route it through formal change control",
+        "Treat it as out of scope and close it as a separate project",
+        "Absorb the work within existing contingency without notifying stakeholders"
+      ],
+      "correct": 1,
       "a": "Assess the impact on scope, schedule, and cost, then route the change through the formal change control process — external regulatory shifts still require the same disciplined change management as internal requests."
     },
     {
       "q": "Two team members have a disagreement about technical approach that is starting to affect team morale. What is generally the best first step for the PM?",
+      "options": [
+        "Decide the technical approach yourself to end the dispute",
+        "Separate the two so they no longer work together",
+        "Facilitate a direct conversation so they resolve it collaboratively",
+        "Wait for the conflict to resolve on its own"
+      ],
+      "correct": 2,
       "a": "Facilitate a direct conversation between the two team members to resolve the conflict collaboratively — the exam generally favors confronting and collaborating over avoiding or unilaterally deciding for the team."
     }
   ],
@@ -57,7 +99,9 @@
       "a": "PMI doesn't publish a fixed passing percentage — performance is reported against each domain using a proficiency scale, and passing requires demonstrating sufficient proficiency across all three domains."
     }
   ],
-  "internalLinks": ["ccat-practice-test"],
+  "internalLinks": [
+    "ccat-practice-test"
+  ],
   "officialSource": {
     "label": "pmi.org — PMP Certification",
     "url": "https://www.pmi.org/certifications/project-management-pmp"

@@ -2423,9 +2423,12 @@ a:focus-visible {
   border: 0;
 }
 
+/* Fixed height so the prev/next arrows never shift as you flip or page
+   through. Sized off the tallest question+options across all 24 campaign
+   pages (346px at this width) with a little slack. */
 .fc-card {
   display: none;
-  height: 300px;
+  height: 380px;
   perspective: 1400px;
 }
 
@@ -2469,18 +2472,75 @@ a:focus-visible {
 }
 
 .fc-question {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-h);
   line-height: 1.4;
   /* An <h3> so each question carries heading semantics for search/AI
      extraction — reset the UA heading margin. */
   margin: 0;
+}
+
+/* Cards with no multiple choice keep the old centred-question look. */
+.fc-front:not(:has(.fc-options)) .fc-question {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.fc-options {
+  flex: 1;
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fc-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--text);
+  text-align: left;
+}
+
+.fc-option-letter {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg-2);
+  color: var(--text-h);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fc-option-letter-correct {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.fc-correct {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-h);
+  line-height: 1.45;
+  margin-bottom: 12px;
 }
 
 .fc-tap-cue {
@@ -2562,9 +2622,9 @@ a:focus-visible {
     font-size: 18px;
   }
 
-  /* Narrower column wraps the longest questions past the desktop height. */
+  /* Narrower column wraps questions and options past the desktop height. */
   .fc-card {
-    height: 380px;
+    height: 560px;
   }
 }
 

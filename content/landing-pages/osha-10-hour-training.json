@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "What is the leading cause of death in the construction industry, according to OSHA?",
+      "options": [
+        "Electrocution",
+        "Falls",
+        "Struck-by incidents",
+        "Caught-in or caught-between incidents"
+      ],
+      "correct": 1,
       "a": "Falls — they account for more construction fatalities than any other cause, which is why fall protection is one of OSHA's most emphasized topics."
     },
     {
       "q": "Under OSHA's Hazard Communication Standard, what document provides detailed information about a chemical's hazards?",
+      "options": [
+        "A Job Hazard Analysis (JHA)",
+        "An OSHA 300 Log",
+        "A Safety Data Sheet (SDS)",
+        "A Material Handling Permit"
+      ],
+      "correct": 2,
       "a": "A Safety Data Sheet (SDS) — it details the chemical's properties, health effects, safe handling, and emergency measures."
     },
     {
       "q": "What color is typically used on OSHA-style signage to indicate a hazard that could result in death or serious injury?",
+      "options": [
+        "Yellow",
+        "Orange",
+        "Blue",
+        "Red"
+      ],
+      "correct": 3,
       "a": "Red — ANSI-based signage convention uses red for \"Danger\" (immediate serious hazard), orange for \"Warning,\" and yellow for \"Caution.\""
     },
     {
       "q": "Under OSHA's fall protection standard, at what height is fall protection generally required in general industry?",
+      "options": [
+        "4 feet",
+        "6 feet",
+        "10 feet",
+        "15 feet"
+      ],
+      "correct": 0,
       "a": "4 feet — general industry requires fall protection at 4 feet, though the threshold is different for construction (6 feet) and some other specific industries."
     },
     {
       "q": "What does \"PPE\" stand for, and who is generally responsible for providing it?",
+      "options": [
+        "Personal Protective Equipment — employees must purchase their own",
+        "Personal Protective Equipment — employers are generally required to provide it at no cost to employees",
+        "Preventive Protection Enforcement — provided by the OSHA regional office",
+        "Personal Protective Equipment — provided by the general contractor only on construction sites"
+      ],
+      "correct": 1,
       "a": "Personal Protective Equipment — employers are generally required to provide PPE at no cost to employees when it's needed to protect against workplace hazards."
     },
     {
       "q": "What is a worker's right if they believe a task poses an imminent danger to their safety?",
+      "options": [
+        "They must complete the task and file a complaint with OSHA afterward",
+        "They may stop work only if a supervisor agrees the hazard is real",
+        "They have the right to refuse the task and report the hazard without fear of retaliation",
+        "They may refuse only if they are a member of a union"
+      ],
+      "correct": 2,
       "a": "The right to refuse the task and report the hazard without fear of retaliation — OSHA's General Duty Clause and whistleblower protections cover this, and it's a core topic in the required workers' rights block."
     }
   ],
@@ -57,7 +99,9 @@
       "a": "A minimum 2-hour block on workers' rights, employer responsibilities, and how to file a complaint — this is required across every industry version of the course."
     }
   ],
-  "internalLinks": ["active-shooter-training"],
+  "internalLinks": [
+    "active-shooter-training"
+  ],
   "officialSource": {
     "label": "osha.gov — Outreach Training Program",
     "url": "https://www.osha.gov/training/outreach"

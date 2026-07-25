@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "A company's revenue was $2.4 million in Year 1 and grew by 15% in Year 2. What was Year 2 revenue?",
+      "options": [
+        "$2.55 million",
+        "$2.64 million",
+        "$2.76 million",
+        "$2.88 million"
+      ],
+      "correct": 2,
       "a": "$2.76 million — $2.4 million × 1.15 = $2.76 million."
     },
     {
       "q": "In the sequence A, C, F, J, O, which letter comes next?",
+      "options": [
+        "R",
+        "S",
+        "T",
+        "U"
+      ],
+      "correct": 3,
       "a": "U — the gap between letters increases by one each time (2, 3, 4, 5, then 6), so O + 6 letters = U."
     },
     {
       "q": "Statement: \"All employees who complete the certification receive a bonus. Maria received a bonus.\" Can you conclude Maria completed the certification?",
+      "options": [
+        "Yes — the statement guarantees she completed the certification",
+        "No — she could have received the bonus for another reason; the statement doesn't make certification the only path to one",
+        "Yes — but only if she is a current employee",
+        "There is not enough information about the size of the bonus"
+      ],
+      "correct": 1,
       "a": "No — this is a classic logical fallacy (affirming the consequent). Maria could have received the bonus for a different reason; the statement doesn't say certification is the only way to get one."
     },
     {
       "q": "A company's costs increased from $80,000 to $92,000. What was the percentage increase?",
+      "options": [
+        "12%",
+        "13%",
+        "15%",
+        "18%"
+      ],
+      "correct": 2,
       "a": "15% — the increase of $12,000 divided by the original $80,000 equals 0.15, or 15%."
     },
     {
       "q": "In the sequence 3, 6, 12, 24, what is the next number?",
+      "options": [
+        "36",
+        "48",
+        "42",
+        "30"
+      ],
+      "correct": 1,
       "a": "48 — each number doubles the one before it."
     },
     {
       "q": "A passage states a company's profits \"rose steadily but modestly\" over five years. Which conclusion is best supported?",
+      "options": [
+        "Profits increased each year, but not dramatically",
+        "Profits doubled over the five-year period",
+        "Profits rose in some years and fell in others",
+        "Profits grew faster than those of competitors"
+      ],
+      "correct": 0,
       "a": "Profits increased each year, but not dramatically — SHL verbal reasoning rewards sticking strictly to what the passage states, not inferring beyond it."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "That depends on the employer administering it — some allow retakes after a waiting period, others treat your first attempt as final. Check with the specific employer."
     }
   ],
-  "internalLinks": ["ccat-practice-test", "caliper-assessment-practice"],
+  "internalLinks": [
+    "ccat-practice-test",
+    "caliper-assessment-practice"
+  ],
   "officialSource": {
     "label": "shl.com — SHL Direct candidate resources",
     "url": "https://www.shl.com/shldirect/en/"

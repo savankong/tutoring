@@ -8,22 +8,57 @@
   "sampleQuestions": [
     {
       "q": "The Hogan Personality Inventory (HPI) asks about your typical, day-to-day behavior. What is this generally referred to as measuring?",
+      "options": [
+        "Your 'bright side' — how you come across at your best, under normal working conditions",
+        "Your 'dark side' — how you behave when under significant stress",
+        "Your core values and what motivates you at work",
+        "Your general cognitive ability and problem-solving speed"
+      ],
+      "correct": 0,
       "a": "Your 'bright side' personality — how you come across at your best, in normal working conditions, as opposed to under stress."
     },
     {
       "q": "The Hogan Development Survey (HDS) focuses on behaviors that tend to emerge under stress or pressure. What is this often called?",
+      "options": [
+        "Your 'bright side' — everyday behavior under normal conditions",
+        "Your 'dark side' — tendencies that can derail performance or relationships under strain",
+        "Your preferred learning style",
+        "Your numerical and verbal reasoning ability"
+      ],
+      "correct": 1,
       "a": "Your 'dark side' — tendencies that can derail performance or relationships when you're under strain, even if they don't show up in day-to-day behavior."
     },
     {
       "q": "The Motives, Values, Preferences Inventory (MVPI) focuses on a different dimension than the HPI or HDS. What does it measure?",
+      "options": [
+        "Typical day-to-day workplace behavior",
+        "Stress-related derailing behaviors",
+        "Core values and drivers — what motivates and engages you",
+        "Your job-specific technical knowledge"
+      ],
+      "correct": 2,
       "a": "Core values and drivers — what motivates and engages you — rather than typical behavior (HPI) or stress-related derailers (HDS)."
     },
     {
       "q": "Why does Hogan frame its assessments around 'reputation' rather than 'identity'?",
+      "options": [
+        "Because reputation is easier and cheaper to measure than identity",
+        "Because identity-based assessments are prohibited in hiring",
+        "Because reputation changes less over a person's career than identity does",
+        "Because Hogan's model holds that how others perceive you at work is what actually predicts workplace outcomes"
+      ],
+      "correct": 3,
       "a": "Because Hogan's model is built on how personality is expressed and perceived by others in a work context — reputation — rather than a purely internal sense of self, since reputation is what predicts workplace outcomes."
     },
     {
       "q": "If two items on a Hogan assessment seem to ask nearly the same thing, why might that be intentional?",
+      "options": [
+        "To check response consistency — contradictory answers to similar items flag an unreliable response pattern",
+        "To extend the length of the assessment for statistical reasons",
+        "To allow you to revise an answer you may have rushed",
+        "To test short-term memory alongside personality"
+      ],
+      "correct": 0,
       "a": "To check response consistency — answering very similar items in contradictory ways can flag an unreliable or inconsistent response pattern rather than an accurate personality signal."
     }
   ],
@@ -53,7 +88,10 @@
       "a": "Employers across many industries, often for leadership development and executive-level hiring, given the assessments' focus on how personality affects leadership and derailment risk."
     }
   ],
-  "internalLinks": ["caliper-assessment-practice", "shl-test-practice"],
+  "internalLinks": [
+    "caliper-assessment-practice",
+    "shl-test-practice"
+  ],
   "officialSource": {
     "label": "hoganassessments.com",
     "url": "https://www.hoganassessments.com/"

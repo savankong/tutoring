@@ -8,22 +8,57 @@
   "sampleQuestions": [
     {
       "q": "The Caliper Profile asks you to rate how strongly you agree with statements like 'I prefer to make decisions quickly rather than gather more information.' What is this type of question measuring?",
+      "options": [
+        "Your factual knowledge of business decision-making theory",
+        "Your reading comprehension speed",
+        "A personality trait — decisiveness and risk tolerance — rather than a right-or-wrong answer",
+        "Whether you can identify the socially correct answer"
+      ],
+      "correct": 2,
       "a": "A personality trait — in this case, related to decisiveness and risk-taking tendencies — not a right-or-wrong answer, but a consistency check across similar questions later in the assessment."
     },
     {
       "q": "Why does the Caliper Profile include some questions that seem to repeat with slightly different wording?",
+      "options": [
+        "To measure consistency in your responses and flag socially desirable answering",
+        "To pad the assessment so it reaches the required length",
+        "To give you a chance to change your earlier answers",
+        "To test whether you remember what you answered before"
+      ],
+      "correct": 0,
       "a": "To measure consistency in your responses. Answering similar questions very differently can flag inconsistent or socially desirable responding rather than an accurate personality picture."
     },
     {
       "q": "The assessment includes items like 'I enjoy taking charge in group situations.' What trait area does this likely relate to?",
+      "options": [
+        "Numerical reasoning ability",
+        "Attention to detail",
+        "Emotional stability under stress",
+        "Leadership orientation and assertiveness"
+      ],
+      "correct": 3,
       "a": "Leadership orientation and assertiveness — items like this are grouped with others measuring similar traits to build a consistent picture, rather than judged individually."
     },
     {
       "q": "Why might the Caliper Profile ask about your comfort level with routine, repetitive tasks?",
+      "options": [
+        "To determine whether you have prior experience in manufacturing",
+        "To assess traits like patience, structure preference, and thoroughness",
+        "To measure how quickly you can complete repetitive work",
+        "To check whether you are likely to leave the company within a year"
+      ],
+      "correct": 1,
       "a": "To assess traits like patience, structure preference, or thoroughness — relevant to roles where consistency and attention to detail matter more than fast-paced variety."
     },
     {
       "q": "If a question feels ambiguous or doesn't clearly apply to you, what's the best approach?",
+      "options": [
+        "Pick the answer you think the employer most wants to see",
+        "Skip it and come back at the end if there's time",
+        "Answer based on your most typical, honest tendency rather than overthinking the wording",
+        "Always choose the neutral middle option"
+      ],
+      "correct": 2,
       "a": "Answer based on your most typical, honest tendency rather than overthinking the wording — the assessment is designed to capture general patterns, not parse every edge case."
     }
   ],
@@ -53,7 +88,10 @@
       "a": "No — Caliper focuses on personality and motivation, not problem-solving speed or accuracy. Many employers use a cognitive test and a personality assessment like Caliper together."
     }
   ],
-  "internalLinks": ["shl-test-practice", "hogan-assessment-practice"],
+  "internalLinks": [
+    "shl-test-practice",
+    "hogan-assessment-practice"
+  ],
   "officialSource": {
     "label": "calipercorp.com — Caliper Profile",
     "url": "https://calipercorp.com/caliper-profile/"

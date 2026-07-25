@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "A vehicle travels 240 miles in 4 hours. What is its average speed?",
+      "options": [
+        "45 miles per hour",
+        "50 miles per hour",
+        "60 miles per hour",
+        "80 miles per hour"
+      ],
+      "correct": 2,
       "a": "60 miles per hour — 240 ÷ 4 = 60."
     },
     {
       "q": "Which word most nearly means the same as 'meticulous'?",
+      "options": [
+        "Careful",
+        "Hasty",
+        "Generous",
+        "Stubborn"
+      ],
+      "correct": 0,
       "a": "Careful — meticulous means showing great attention to detail and being extremely careful and precise."
     },
     {
       "q": "Which organ in the human body is primarily responsible for filtering waste from the blood?",
+      "options": [
+        "The liver",
+        "The kidneys",
+        "The spleen",
+        "The pancreas"
+      ],
+      "correct": 1,
       "a": "The kidneys — they filter blood to remove waste products and excess fluid, which are then excreted as urine."
     },
     {
       "q": "In a system of pulleys, what is the main advantage of adding more pulleys?",
+      "options": [
+        "It increases the speed at which the load rises",
+        "It reduces the total distance the rope must travel",
+        "It eliminates friction in the system",
+        "It reduces the force needed to lift the load, at the cost of pulling more rope"
+      ],
+      "correct": 3,
       "a": "It reduces the force needed to lift a load, at the cost of pulling more rope — mechanical advantage trades force for distance."
     },
     {
       "q": "A store marks up an item that costs $40 by 25%. What is the selling price?",
+      "options": [
+        "$45",
+        "$50",
+        "$52",
+        "$65"
+      ],
+      "correct": 1,
       "a": "$50 — a 25% markup on $40 is $10, so $40 + $10 = $50."
     },
     {
       "q": "Which word most nearly means the opposite of 'candid'?",
+      "options": [
+        "Sincere",
+        "Blunt",
+        "Evasive",
+        "Cheerful"
+      ],
+      "correct": 2,
       "a": "Evasive — candid means open and honest, so its opposite describes being deliberately vague or indirect."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "Yes, though there are mandatory waiting periods between attempts, and retake policies are set by the official ASVAB testing program."
     }
   ],
-  "internalLinks": ["ccat-practice-test", "dod-cyber-awareness-challenge"],
+  "internalLinks": [
+    "ccat-practice-test",
+    "dod-cyber-awareness-challenge"
+  ],
   "officialSource": {
     "label": "officialasvab.com",
     "url": "https://www.officialasvab.com/"

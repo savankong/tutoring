@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Under HIPAA, what is considered Protected Health Information (PHI)?",
+      "options": [
+        "Any medical information published in a peer-reviewed journal",
+        "Only paper medical records held in a physician's office",
+        "Individually identifiable health information held or transmitted by a covered entity, including medical records and billing data",
+        "Aggregate health statistics released by a state health department"
+      ],
+      "correct": 2,
       "a": "Individually identifiable health information held or transmitted by a covered entity — including medical records, billing information, and any health data linked to a specific patient."
     },
     {
       "q": "A nurse discusses a patient's diagnosis with a coworker in a public hallway. What HIPAA concern does this raise?",
+      "options": [
+        "No concern — clinical staff may discuss any patient anywhere in the facility",
+        "A potential Privacy Rule violation, since PHI should be discussed on a need-to-know basis in a way that minimizes incidental disclosure",
+        "A concern only if a family member of the patient overhears it",
+        "A Security Rule violation, since the discussion was not encrypted"
+      ],
+      "correct": 1,
       "a": "A potential Privacy Rule violation — PHI should only be discussed on a need-to-know basis and in a manner that minimizes the risk of incidental disclosure to others."
     },
     {
       "q": "A hospital employee accesses the medical record of a celebrity patient out of curiosity, with no job-related reason. What HIPAA issue does this raise?",
+      "options": [
+        "No violation, because the employee did not share the information with anyone",
+        "No violation, because the employee is an authorized user of the record system",
+        "A violation only if the celebrity later files a complaint",
+        "An impermissible access — viewing PHI without a treatment, payment, or operations need is a violation even if nothing is shared"
+      ],
+      "correct": 3,
       "a": "An impermissible access/disclosure — accessing PHI without a legitimate treatment, payment, or operations need is a violation even if the information is never shared further."
     },
     {
       "q": "What is the \"minimum necessary\" standard under HIPAA?",
+      "options": [
+        "Using, disclosing, or requesting only the minimum PHI needed to accomplish the intended purpose",
+        "Keeping records for the minimum period required by state law",
+        "Limiting the number of staff who may be granted system access",
+        "Collecting the minimum number of signatures on a consent form"
+      ],
+      "correct": 0,
       "a": "The requirement to use, disclose, or request only the minimum amount of PHI needed to accomplish the intended purpose — not the entire record when only part of it is relevant."
     },
     {
       "q": "Does HIPAA require patient authorization to share PHI for treatment purposes?",
+      "options": [
+        "Yes — written authorization is required before any disclosure of PHI",
+        "Yes — but only when the providers work for different organizations",
+        "No — the Privacy Rule permits sharing PHI for treatment, payment, and healthcare operations without specific authorization",
+        "No — HIPAA does not regulate disclosures between healthcare providers at all"
+      ],
+      "correct": 2,
       "a": "No — the Privacy Rule permits sharing PHI without specific authorization for treatment, payment, and healthcare operations; authorization is generally required for other purposes, like marketing."
     },
     {
       "q": "What is the deadline for notifying affected individuals after a HIPAA breach affecting 500 or more people?",
+      "options": [
+        "Within 24 hours of discovery",
+        "Within 30 days of discovery",
+        "Within 6 months of discovery",
+        "Without unreasonable delay and no later than 60 days after discovery"
+      ],
+      "correct": 3,
       "a": "Without unreasonable delay, and no later than 60 days after discovery — breaches of this size also require notifying HHS and, in some cases, the media."
     }
   ],
@@ -57,7 +99,9 @@
       "a": "They range widely based on the level of culpability, from a few hundred dollars per violation for unknowing violations to over a million dollars annually for willful neglect that isn't corrected."
     }
   ],
-  "internalLinks": ["pii-training"],
+  "internalLinks": [
+    "pii-training"
+  ],
   "officialSource": {
     "label": "hhs.gov — HIPAA training materials",
     "url": "https://www.hhs.gov/hipaa/for-professionals/training/index.html"

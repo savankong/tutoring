@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "What is the recommended order of response options in an active shooter situation, according to the Run, Hide, Fight model?",
+      "options": [
+        "Hide, Run, Fight — always secure your location first, then look for an exit",
+        "Run, Hide, Fight — evacuate if there's a safe path, hide if you can't, and fight only as a last resort",
+        "Fight, Run, Hide — confront the threat immediately to protect others",
+        "Call 911, Hide, Run — contact emergency services before taking any other action"
+      ],
+      "correct": 1,
       "a": "Run first if there's a safe escape path. If you can't run, hide in a secure location out of the shooter's view. Fight as a last resort, only if your life is in imminent danger."
     },
     {
       "q": "If you decide to hide during an active shooter event, what should you do to secure your location?",
+      "options": [
+        "Lock the door but leave the lights on so responding officers can see inside",
+        "Keep your phone on speaker so a 911 dispatcher can hear the room",
+        "Lock and barricade the door, turn off the lights, silence your phone, and stay quiet and out of sight",
+        "Gather everyone near the door so you can exit quickly when it's clear"
+      ],
+      "correct": 2,
       "a": "Lock and/or barricade the door, turn off lights, silence your phone, and stay quiet and out of sight — the goal is to appear unoccupied."
     },
     {
       "q": "During an active shooter event, when is \"Fight\" considered an appropriate response?",
+      "options": [
+        "Only as an absolute last resort, when your life is in imminent danger and running or hiding are no longer options",
+        "As soon as you have any improvised weapon within reach",
+        "Whenever you outnumber the shooter, regardless of whether escape is possible",
+        "Immediately upon hearing gunfire, to stop the threat as early as possible"
+      ],
+      "correct": 0,
       "a": "Only as an absolute last resort, when your life is in imminent danger and running or hiding are no longer options — using aggressive force, improvised weapons, and acting as a team if others are present."
     },
     {
       "q": "What information should you be prepared to give a 911 dispatcher during an active shooter event?",
+      "options": [
+        "Only your own name and location, to keep the call as short as possible",
+        "Your employer's name and the building's insurance information",
+        "A description of everyone in the room with you so they can be accounted for",
+        "The shooter's location, number of shooters, physical description, weapons, and number of potential victims"
+      ],
+      "correct": 3,
       "a": "The shooter's location, number of shooters, physical description, type of weapons, and the number of potential victims — as much specific detail as you can safely provide."
     },
     {
       "q": "Why do active shooter response plans recommend a flexible decision framework instead of one fixed procedure?",
+      "options": [
+        "Because federal law prohibits employers from mandating a specific response",
+        "Because the right response depends on your proximity to the threat, available exits, and whether a secure hiding place exists",
+        "Because a single fixed procedure would be too easy for a shooter to anticipate",
+        "Because each state requires a different response sequence"
+      ],
+      "correct": 1,
       "a": "Because the right response depends on your specific situation — proximity to the threat, available exits, whether a secure hiding spot exists — so training teaches Run, Hide, Fight as a decision framework, not a single script."
     },
     {
       "q": "What is a key workplace violence warning sign that active shooter training encourages employees to report?",
+      "options": [
+        "Any coworker who regularly works late or keeps to themselves",
+        "A coworker who has recently been passed over for a promotion",
+        "Direct or veiled threats, escalating anger or grievances, or fixation on a specific person or event",
+        "Only documented incidents that have already resulted in physical harm"
+      ],
+      "correct": 2,
       "a": "Direct or veiled threats of violence, a sudden escalation in anger or grievances, or fixation on a specific person or event — reporting early, rather than waiting for a concrete incident, is the emphasis."
     }
   ],

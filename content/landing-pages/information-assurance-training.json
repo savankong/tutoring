@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which part of the CIA triad is violated when an unauthorized user modifies a file without permission?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Non-repudiation"
+      ],
+      "correct": 1,
       "a": "Integrity — the CIA triad is Confidentiality, Integrity, and Availability. Unauthorized modification is an integrity violation because the data can no longer be trusted as accurate."
     },
     {
       "q": "What is the primary purpose of a Risk Management Framework (RMF) assessment?",
+      "options": [
+        "To determine how much budget an information system should receive",
+        "To benchmark a system's performance against similar systems",
+        "To identify, evaluate, and formally authorize a system's security risks before it operates, and monitor them over time",
+        "To certify that a system's software licenses are current"
+      ],
+      "correct": 2,
       "a": "To identify, evaluate, and formally authorize the security risks of an information system before it's allowed to operate, and to monitor those risks over time."
     },
     {
       "q": "What is the difference between \"authentication\" and \"authorization\" in information security?",
+      "options": [
+        "Authentication limits what you can access; authorization confirms your identity",
+        "They are interchangeable terms for the same login process",
+        "Authentication applies to people; authorization applies only to devices",
+        "Authentication verifies who you are; authorization determines what you may access once your identity is confirmed"
+      ],
+      "correct": 3,
       "a": "Authentication verifies who you are (like logging in with a password or CAC), while authorization determines what you're allowed to access once your identity is confirmed."
     },
     {
       "q": "What is \"defense in depth\" in an IA context?",
+      "options": [
+        "A layered strategy of multiple overlapping controls, so that if one layer fails others still protect the system",
+        "Storing backups at a greater physical depth underground",
+        "Assigning more than one administrator to every system",
+        "Requiring passwords to meet a minimum character length"
+      ],
+      "correct": 0,
       "a": "A layered security strategy that uses multiple, overlapping controls (firewalls, access control, encryption, monitoring) so that if one layer fails, others still provide protection."
     },
     {
       "q": "Which of the following is an example of a technical control, as opposed to an administrative control?",
+      "options": [
+        "An acceptable use policy signed by all employees",
+        "Firewall configuration",
+        "Annual mandatory security awareness training",
+        "A written incident response procedure"
+      ],
+      "correct": 1,
       "a": "Firewall configuration — technical controls are implemented through technology (firewalls, encryption, access controls), while administrative controls are policies, procedures, and training."
     },
     {
       "q": "What is the purpose of an Authority to Operate (ATO) in the Risk Management Framework?",
+      "options": [
+        "A certificate confirming a system's software is properly licensed",
+        "A contract permitting a vendor to maintain a government system",
+        "The formal decision by an authorizing official that a system's security risks are acceptable, permitting it to operate",
+        "A clearance granted to individual users of a system"
+      ],
+      "correct": 2,
       "a": "It's the formal decision by an authorizing official that a system's security risks are acceptable, allowing the system to begin or continue operating — no ATO means the system isn't authorized to run."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "Most IA training requirements are annual, though the exact cadence depends on your role and your organization's policy."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "opsec-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "opsec-training"
+  ],
   "officialSource": {
     "label": "cdse.edu — eLearning courses",
     "url": "https://www.cdse.edu/Training/eLearning/"

@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which of the following is a potential insider threat indicator?",
+      "options": [
+        "An employee who takes a scheduled vacation without advance notice to peers",
+        "An employee who disagrees with management in staff meetings",
+        "An employee who prefers to eat lunch alone",
+        "An employee who repeatedly attempts to access information outside their need-to-know, especially after hours"
+      ],
+      "correct": 3,
       "a": "An employee who repeatedly attempts to access information outside their need-to-know, especially after hours or with unusual urgency."
     },
     {
       "q": "What is the primary goal of an organization's insider threat program?",
+      "options": [
+        "To identify and mitigate risk from trusted insiders before harm occurs, through early detection and intervention",
+        "To prosecute employees after a security incident has taken place",
+        "To monitor employee productivity across the organization",
+        "To reduce the number of personnel holding security clearances"
+      ],
+      "correct": 0,
       "a": "To identify and mitigate risks from trusted insiders before harm occurs — through early detection, reporting, and intervention rather than punishment after the fact."
     },
     {
       "q": "An employee suddenly starts working unusual hours and downloading large amounts of data unrelated to their normal duties. What should a coworker do?",
+      "options": [
+        "Confront the employee directly and ask what they are working on",
+        "Report the behavior through the organization's insider threat reporting channel",
+        "Do nothing unless the data is confirmed to be classified",
+        "Copy the employee's files as evidence before reporting"
+      ],
+      "correct": 1,
       "a": "Report the behavior through the organization's insider threat reporting channel — unusual access patterns combined with data movement are exactly the kind of anomaly these programs are designed to catch."
     },
     {
       "q": "What is the difference between a \"malicious\" insider threat and a \"negligent\" one?",
+      "options": [
+        "A malicious insider works remotely; a negligent insider works on site",
+        "A malicious insider has a clearance; a negligent insider does not",
+        "A malicious insider intentionally causes harm; a negligent insider causes harm unintentionally, such as by losing a device or falling for phishing",
+        "There is no meaningful distinction — both are treated identically under policy"
+      ],
+      "correct": 2,
       "a": "A malicious insider intentionally causes harm (theft, sabotage, espionage), while a negligent insider causes harm unintentionally — for example, losing a device or falling for a phishing email."
     },
     {
       "q": "Why do insider threat programs emphasize reporting concerning behavior early, even without proof of wrongdoing?",
+      "options": [
+        "Because reporting requirements are set by statute regardless of evidence",
+        "Because early reporting allows intervention and support before harm occurs, since these programs are built around prevention",
+        "Because unreported concerns expose the reporting coworker to liability",
+        "Because every report must be forwarded to law enforcement immediately"
+      ],
+      "correct": 1,
       "a": "Because early reporting allows intervention before harm occurs — most insider threat programs are designed around prevention and support, not just punishment after an incident."
     },
     {
       "q": "Which of the following is considered a financial indicator of potential insider threat risk?",
+      "options": [
+        "An employee who contributes the maximum amount to their retirement plan",
+        "An employee who requests a routine annual pay raise",
+        "Sudden unexplained wealth or acute financial distress",
+        "An employee who holds a second job approved by their supervisor"
+      ],
+      "correct": 2,
       "a": "Sudden, unexplained wealth or financial distress — both can create vulnerability to recruitment or a motive for theft, which is why financial anomalies are tracked alongside behavioral ones."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "No — unintentional insider threats, like an employee who is careless with sensitive data or falls for a phishing scam, are also covered in the training."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "cui-training", "tarp-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "cui-training",
+    "tarp-training"
+  ],
   "officialSource": {
     "label": "cdse.edu — Security training catalog",
     "url": "https://www.cdse.edu/Training/eLearning/"

@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Look at the row of numbers: 8 4 2 1 0.5. What number should come next?",
+      "options": [
+        "0",
+        "0.1",
+        "0.25",
+        "0.5"
+      ],
+      "correct": 2,
       "a": "0.25 — each number is half of the one before it."
     },
     {
       "q": "Paper sells for 21 cents per pad. What will 4 pads cost?",
+      "options": [
+        "63 cents",
+        "84 cents",
+        "88 cents",
+        "96 cents"
+      ],
+      "correct": 1,
       "a": "84 cents — 21 × 4 = 84."
     },
     {
       "q": "If 3 workers can build a wall in 12 hours, how long would it take 6 workers, assuming the same rate per worker?",
+      "options": [
+        "3 hours",
+        "6 hours",
+        "9 hours",
+        "24 hours"
+      ],
+      "correct": 1,
       "a": "6 hours — doubling the number of workers halves the time needed, assuming a constant rate per worker."
     },
     {
       "q": "Which word is most nearly opposite of 'reluctant'?",
+      "options": [
+        "Hesitant",
+        "Cautious",
+        "Eager",
+        "Weary"
+      ],
+      "correct": 2,
       "a": "Eager — reluctant means unwilling or hesitant, so its opposite describes being willing and enthusiastic."
     },
     {
       "q": "A jacket originally priced at $60 is on sale for 30% off. What is the sale price?",
+      "options": [
+        "$18",
+        "$30",
+        "$42",
+        "$48"
+      ],
+      "correct": 2,
       "a": "$42 — 30% of $60 is $18, so $60 − $18 = $42."
     },
     {
       "q": "In the sequence 2, 5, 11, 23, what is the next number?",
+      "options": [
+        "35",
+        "46",
+        "47",
+        "48"
+      ],
+      "correct": 2,
       "a": "47 — each number is roughly double the previous one plus one (2×2+1=5, 5×2+1=11, 11×2+1=23, 23×2+1=47)."
     }
   ],
@@ -57,7 +99,10 @@
       "a": "A mix of math word problems, verbal analogies and vocabulary, logical reasoning, and pattern recognition, all under significant time pressure."
     }
   ],
-  "internalLinks": ["ccat-practice-test", "predictive-index-cognitive-assessment"],
+  "internalLinks": [
+    "ccat-practice-test",
+    "predictive-index-cognitive-assessment"
+  ],
   "officialSource": {
     "label": "wonderlic.com — candidate prep",
     "url": "https://wonderlic.com/candidates/"

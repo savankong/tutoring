@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which of the following is an example of a physical security measure you can take to protect yourself against terrorism?",
+      "options": [
+        "Posting your travel schedule publicly so colleagues always know where you are",
+        "Varying your daily routine — changing your times and routes so you're harder to predict",
+        "Always using the same trusted route to and from work",
+        "Wearing your ID badge visibly at all times when off the installation"
+      ],
+      "correct": 1,
       "a": "Varying your daily routine — arriving and leaving at different times and taking different routes makes you a harder target to predict and plan against."
     },
     {
       "q": "What is the definition of terrorism used in DoD antiterrorism training?",
+      "options": [
+        "Any criminal act committed by a foreign national on U.S. soil",
+        "Any act of violence committed during a declared armed conflict",
+        "The unlawful use of violence or threat of violence to instill fear and coerce governments or societies for political, religious, or ideological objectives",
+        "Espionage carried out on behalf of a hostile foreign government"
+      ],
+      "correct": 2,
       "a": "The unlawful use of violence or threat of violence to instill fear and coerce governments or societies, often for political, religious, or ideological objectives."
     },
     {
       "q": "What does the acronym FPCON stand for in DoD antiterrorism planning?",
+      "options": [
+        "Force Protection Condition",
+        "Federal Personnel Contingency",
+        "Facility Perimeter Control",
+        "Forward Post Communication"
+      ],
+      "correct": 0,
       "a": "Force Protection Condition — a graduated threat-level system (Normal, Alpha, Bravo, Charlie, Delta) that dictates specific security measures based on the assessed terrorist threat."
     },
     {
       "q": "You notice someone photographing entry points and taking notes near a DoD facility. What should you do?",
+      "options": [
+        "Confront the person directly and ask them to delete the photos",
+        "Ignore it — photography from a public area is always lawful",
+        "Wait to see whether they return another day before mentioning it",
+        "Report it to security or law enforcement as possible pre-attack surveillance"
+      ],
+      "correct": 3,
       "a": "Report it to security or law enforcement as potential surveillance — documenting entry points and security patterns is a common pre-attack indicator covered in antiterrorism training."
     },
     {
       "q": "What is the purpose of the DoD's \"See Something, Say Something\"-style reporting programs?",
+      "options": [
+        "To encourage personnel to report suspicious activity, since early reporting of seemingly minor observations can help prevent an attack",
+        "To collect statistics on how often personnel use installation facilities",
+        "To identify personnel who need refresher security training",
+        "To document maintenance issues around the installation perimeter"
+      ],
+      "correct": 0,
       "a": "To encourage personnel to report suspicious activity that could indicate terrorism planning, since early reporting of seemingly minor observations can help prevent an attack."
     },
     {
       "q": "Which of the following best describes \"target hardening\" as an antiterrorism concept?",
+      "options": [
+        "Training personnel in hand-to-hand combat techniques",
+        "Relocating a facility to a lower-threat country",
+        "Making a facility or individual a less attractive target through barriers, lighting, and access control",
+        "Increasing the number of personnel assigned to a facility"
+      ],
+      "correct": 2,
       "a": "Making a facility or individual a less attractive target by adding physical security measures — barriers, lighting, access control — that increase the difficulty and risk for a potential attacker."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "You can typically review the material and retake it — most versions don't cap the number of attempts, just require a passing score before issuing your certificate."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "tarp-training", "sere-100-2-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "tarp-training",
+    "sere-100-2-training"
+  ],
   "officialSource": {
     "label": "jko.jten.mil — Antiterrorism Level 1 course",
     "url": "https://jko.jten.mil/courses/AT-level1/launch.html"

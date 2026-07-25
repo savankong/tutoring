@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which of the following, standing alone, is generally considered PII?",
+      "options": [
+        "A job title",
+        "A ZIP code",
+        "A Social Security Number",
+        "A company department name"
+      ],
+      "correct": 2,
       "a": "A Social Security Number — it can identify a specific individual on its own, unlike a first name or job title alone."
     },
     {
       "q": "What should you do if you discover a PII breach?",
+      "options": [
+        "Report it immediately through your organization's established breach reporting procedure, often within one hour",
+        "Wait until you can confirm how many records were affected",
+        "Delete the affected records to limit the exposure",
+        "Notify the affected individuals directly before telling anyone else"
+      ],
+      "correct": 0,
       "a": "Report it immediately through your organization's established breach reporting procedure — most policies require reporting within a strict time window, often one hour."
     },
     {
       "q": "Is a person's job title alone generally considered PII?",
+      "options": [
+        "Yes — any workplace attribute is PII on its own",
+        "No — a job title alone usually doesn't identify a specific individual; it becomes a concern combined with other identifying details",
+        "Yes — but only for personnel in supervisory roles",
+        "No — job titles are never a PII concern in any combination"
+      ],
+      "correct": 1,
       "a": "No — a job title by itself usually doesn't identify a specific individual. It becomes a PII concern only when combined with other identifying details, like a full name."
     },
     {
       "q": "What is the difference between PII and \"sensitive PII\"?",
+      "options": [
+        "Sensitive PII refers only to medical information; PII covers everything else",
+        "Sensitive PII is stored electronically, while PII is kept on paper",
+        "Sensitive PII is a subset that could cause substantial harm if exposed — such as an SSN, financial account number, or biometric data — and requires stricter safeguards",
+        "There is no practical difference; the terms are used interchangeably"
+      ],
+      "correct": 2,
       "a": "Sensitive PII is a subset that could cause substantial harm if exposed — like an SSN, financial account number, or biometric data — and typically requires stricter safeguards than PII in general."
     },
     {
       "q": "What is the general rule for emailing PII to a personal email account?",
+      "options": [
+        "It is permitted if the file is password protected",
+        "It is permitted when working remotely",
+        "It is permitted if the employee deletes the message afterward",
+        "It is prohibited — PII must stay within authorized government or organizational systems"
+      ],
+      "correct": 3,
       "a": "It's prohibited — PII should stay within authorized government or organizational systems, and sending it to a personal account is one of the most common PII-handling violations covered in training."
     },
     {
       "q": "Why does PII training cover disposal procedures, not just storage and transmission?",
+      "options": [
+        "Because improperly discarded documents and unwiped devices are a real source of breaches, so protection must cover the entire data lifecycle",
+        "Because disposal is the only stage regulated by federal law",
+        "Because retention schedules require destroying all records annually",
+        "Because disposal costs are a significant part of most agency budgets"
+      ],
+      "correct": 0,
       "a": "Because improperly discarded documents or devices (like an unshredded printout or an unwiped hard drive) are a real-world source of PII breaches — protection has to extend through the entire data lifecycle."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "Consequences range from required breach reporting and mitigation to disciplinary action, depending on the severity and whether the mishandling was negligent or intentional."
     }
   ],
-  "internalLinks": ["dod-cyber-awareness-challenge", "cui-training", "hipaa-training"],
+  "internalLinks": [
+    "dod-cyber-awareness-challenge",
+    "cui-training",
+    "hipaa-training"
+  ],
   "officialSource": {
     "label": "securityawareness.dcsa.mil — PII Training",
     "url": "https://securityawareness.dcsa.mil/piiv2/index.htm"

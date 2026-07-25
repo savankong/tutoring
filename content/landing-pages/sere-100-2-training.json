@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "Which Article of the Code of Conduct addresses a service member's duty to keep faith with fellow prisoners?",
+      "options": [
+        "Article II",
+        "Article III",
+        "Article IV",
+        "Article V"
+      ],
+      "correct": 2,
       "a": "Article IV — it requires service members to keep faith with fellow prisoners, help them, and give no information or take part in actions harmful to them."
     },
     {
       "q": "What is the first priority in a survival situation, according to SERE training?",
+      "options": [
+        "Protection",
+        "Water",
+        "Food",
+        "Signaling"
+      ],
+      "correct": 0,
       "a": "Protection — assessing and addressing immediate threats to life (medical, environmental) before moving on to water, fire, food, and signaling."
     },
     {
       "q": "Which Article of the Code of Conduct establishes a service member's duty to resist to the utmost of their ability if captured?",
+      "options": [
+        "Article I",
+        "Article II",
+        "Article IV",
+        "Article VI"
+      ],
+      "correct": 1,
       "a": "Article II — a service member will never surrender their forces while they have the means to resist, and if in command, will never surrender members of their command while they still can resist."
     },
     {
       "q": "In a survival situation, why does SERE training place \"protection\" before \"water\" in priority order?",
+      "options": [
+        "Because water is usually easier to find than shelter",
+        "Because protection tasks take less time to complete",
+        "Because immediate threats — exposure, injury, environmental hazards — can kill much faster than dehydration",
+        "Because water purification requires fire, which comes later in the priority list"
+      ],
+      "correct": 2,
       "a": "Because immediate threats to life — exposure, injury, environmental hazards — can kill much faster than dehydration, so stabilizing those risks comes first."
     },
     {
       "q": "What is the general guidance under the Code of Conduct regarding providing information to a captor?",
+      "options": [
+        "Full unit designation and mission details",
+        "Nothing at all under any circumstances",
+        "Whatever is necessary to avoid mistreatment",
+        "Name, rank, service number, and date of birth — the 'Big Four' — while resisting further questioning"
+      ],
+      "correct": 3,
       "a": "Give only name, rank, service number, and date of birth — the \"Big Four\" — and resist providing further information to the best of your ability."
     },
     {
       "q": "What does Article VI of the Code of Conduct establish?",
+      "options": [
+        "That a service member will never forget they are an American, responsible for their actions, and will trust in their country and its way of life",
+        "That a service member will accept neither parole nor special favors from the enemy",
+        "That a service member will make every effort to escape and aid others to escape",
+        "That a service member will keep faith with fellow prisoners"
+      ],
+      "correct": 0,
       "a": "That a service member will never forget they are an American, responsible for their actions, and will trust in their country and its way of life — the article covering enduring loyalty and faith."
     }
   ],
@@ -57,7 +99,11 @@
       "a": "Survival, Evasion, Resistance, and Escape — the four core skill areas covered by the training."
     }
   ],
-  "internalLinks": ["law-of-war-training", "anti-terrorism-level-1-training", "tarp-training"],
+  "internalLinks": [
+    "law-of-war-training",
+    "anti-terrorism-level-1-training",
+    "tarp-training"
+  ],
   "officialSource": {
     "label": "JKO — official DoD training portal",
     "url": "https://jkodirect.jten.mil/"

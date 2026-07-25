@@ -8,26 +8,68 @@
   "sampleQuestions": [
     {
       "q": "At what cash transaction amount does a financial institution generally need to file a Currency Transaction Report (CTR)?",
+      "options": [
+        "Any currency transaction over $1,000",
+        "Any currency transaction over $5,000",
+        "Any currency transaction over $10,000",
+        "Any currency transaction over $50,000"
+      ],
+      "correct": 2,
       "a": "Transactions over $10,000 in currency generally trigger a CTR filing requirement under the Bank Secrecy Act."
     },
     {
       "q": "What is 'structuring,' in the context of money laundering?",
+      "options": [
+        "Deliberately breaking a large transaction into smaller amounts to stay under reporting thresholds",
+        "Organizing a company's finances across multiple legal entities for tax efficiency",
+        "Converting cash into cryptocurrency before depositing it",
+        "Filing multiple reports for a single large transaction to ensure accuracy"
+      ],
+      "correct": 0,
       "a": "Deliberately breaking up a large transaction into smaller amounts to stay under reporting thresholds and avoid detection — it's illegal even if the underlying funds are legitimate."
     },
     {
       "q": "Which of the following is considered a \"red flag\" that may indicate money laundering?",
+      "options": [
+        "A customer who deposits the same amount on the same date every month",
+        "A customer conducting frequent transactions just below the $10,000 reporting threshold",
+        "A customer who asks detailed questions about account fees",
+        "A customer who prefers to bank in person rather than online"
+      ],
+      "correct": 1,
       "a": "A customer conducting frequent transactions just below the $10,000 reporting threshold in a short time span — a classic structuring pattern that AML monitoring is designed to catch."
     },
     {
       "q": "What is \"know your customer\" (KYC) in the context of AML compliance?",
+      "options": [
+        "Market research to identify which products a customer is most likely to buy",
+        "A credit scoring process that sets a customer's borrowing limit",
+        "Verifying a customer's identity and understanding their financial activity to assess risk",
+        "A survey measuring customer satisfaction with the institution"
+      ],
+      "correct": 2,
       "a": "The process of verifying a customer's identity and understanding the nature of their financial activity so the institution can assess risk and detect unusual behavior — the foundation most AML programs are built on."
     },
     {
       "q": "Does a Suspicious Activity Report (SAR) require proof that a crime occurred?",
+      "options": [
+        "No — a SAR is filed on reasonable suspicion of illicit activity, not proof",
+        "Yes — a SAR requires documented evidence that a crime has been committed",
+        "Yes — a SAR may only be filed after law enforcement confirms an investigation",
+        "No — but a SAR may only be filed once the funds have been frozen"
+      ],
+      "correct": 0,
       "a": "No — a SAR is filed based on reasonable suspicion of illicit activity, not proof. Institutions are required to report suspicious patterns even without certainty."
     },
     {
       "q": "What is a \"shell company,\" and why is it relevant to AML?",
+      "options": [
+        "A company that has declared bankruptcy but remains legally registered",
+        "A publicly traded company whose shares are held mostly by institutions",
+        "A foreign subsidiary that files its own separate tax return",
+        "A company with no significant assets or operations, often used to disguise the true ownership or origin of funds"
+      ],
+      "correct": 3,
       "a": "A company with no significant assets or operations, often used to disguise the true ownership or origin of funds — shell companies are a common tool in the layering stage of money laundering."
     }
   ],

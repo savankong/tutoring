@@ -191,10 +191,14 @@ function Account() {
         <div className="account-card">
           <div className="account-card-title">Verify your email</div>
           <div className="account-card-sub">
-            Verify {user.email} to start using your captures. Check your inbox for a link, or resend it below.
+            Verify {user.email} to start using your captures. Check your inbox for a link, or resend it below. Not
+            there? Check your spam/junk folder (or the "Other" tab in Outlook) — it can take a few minutes to
+            arrive.
           </div>
           {verificationResent ? (
-            <p className="usage-note">Verification email sent — check your inbox.</p>
+            <p className="usage-note">
+              Verification email sent — check your inbox, and spam/junk if it doesn't show up in a minute or two.
+            </p>
           ) : (
             <div className="actions account-card-actions">
               <button disabled={resendingVerification} onClick={resendVerification}>

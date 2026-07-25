@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthNav from '../components/AuthNav.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
 
@@ -39,12 +40,7 @@ function ForgotPassword() {
         path="/forgot-password"
         noindex
       />
-      <nav className="auth-nav">
-        <Logo size={20} wordmark />
-        <Link to="/" className="auth-nav-home">
-          ← Home
-        </Link>
-      </nav>
+      <AuthNav />
       <div className="auth-page">
         <div className="auth-card">
           <div className="auth-card-logo">

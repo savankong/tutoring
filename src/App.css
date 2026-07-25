@@ -957,16 +957,16 @@ a:focus-visible {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 16px 24px;
   background: rgba(17, 18, 8, 0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
-.auth-nav-home {
-  font-size: 13.5px;
-  color: var(--text);
+.auth-nav-logo {
+  display: flex;
+  align-items: center;
 }
 
 /* Auth forms (Register / Login) */
@@ -2298,6 +2298,17 @@ a:focus-visible {
     padding: 40px 20px 64px;
     gap: 40px;
     text-align: center;
+  }
+
+  /* These decorative shapes are absolutely positioned against the
+     multi-column desktop layout — once the section collapses to a single
+     centered text column, they end up sitting directly behind body copy
+     instead of beside it, tanking legibility. Same fix as the how-section
+     steps list mentioned above: drop the decoration rather than fight it
+     with opacity/z-index tuning at every viewport width. */
+  .hero-shape,
+  .footer-cta-shape {
+    display: none;
   }
 
   .hero-copy h1 {

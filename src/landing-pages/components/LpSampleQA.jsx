@@ -51,7 +51,7 @@ function LpSampleQA({ content }) {
             <details className="fc-card" key={sample.q}>
               <summary className="fc-flip">
                 <div className="fc-face fc-front">
-                  <div className="fc-question">{sample.q}</div>
+                  <h3 className="fc-question">{sample.q}</h3>
                   <div className="fc-tap-cue">Tap the card to reveal the answer</div>
                 </div>
                 <div className="fc-face fc-back">

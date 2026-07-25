@@ -2149,6 +2149,10 @@ a:focus-visible {
   font-size: 16px;
   font-weight: 600;
   color: var(--text-h);
+  /* Rendered as an <h3> on the campaign pages so the question itself carries
+     heading semantics — reset the UA heading margin. */
+  margin: 0;
+  text-align: left;
 }
 
 .faq-toggle-icon {
@@ -2474,6 +2478,9 @@ a:focus-visible {
   font-weight: 700;
   color: var(--text-h);
   line-height: 1.4;
+  /* An <h3> so each question carries heading semantics for search/AI
+     extraction — reset the UA heading margin. */
+  margin: 0;
 }
 
 .fc-tap-cue {

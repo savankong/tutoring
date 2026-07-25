@@ -138,6 +138,10 @@ export default async (request) => {
   if (!user) {
     return jsonResponse(401, { error: 'Not signed in.', reason: 'unauthenticated' });
   }
+  // Google accounts are exempt — Google already verified that email.
+  if (!user.email_verified && !user.google_id) {
+    return jsonResponse(403, { error: 'Verify your email to start using captures.', reason: 'email_unverified' });
+  }
   const plan = planFor(user);
   const capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
   // Free tier hits a hard cap. Paid tiers get a grace buffer beyond their

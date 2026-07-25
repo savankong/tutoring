@@ -1,5 +1,5 @@
 import { getDatabase } from '@netlify/database';
-import { hashPassword, hashResetToken, sessionCookieHeader, signSession } from '../lib/auth.js';
+import { hashPassword, hashToken, sessionCookieHeader, signSession } from '../lib/auth.js';
 
 function jsonResponse(status, body, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -31,7 +31,7 @@ export default async (request) => {
   }
 
   const db = getDatabase();
-  const tokenHash = await hashResetToken(token);
+  const tokenHash = await hashToken(token);
 
   const [user] = await db.sql`
     SELECT id, email FROM users

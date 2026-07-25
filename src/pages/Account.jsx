@@ -34,6 +34,8 @@ function Account() {
   const [packQty, setPackQty] = useState(1);
   const [purchasing, setPurchasing] = useState(false);
   const [savingPrivacy, setSavingPrivacy] = useState(false);
+  const [resendingVerification, setResendingVerification] = useState(false);
+  const [verificationResent, setVerificationResent] = useState(false);
 
   const planSectionRef = useRef(null);
   const usageSectionRef = useRef(null);
@@ -115,6 +117,24 @@ function Account() {
     }
   };
 
+  const resendVerification = async () => {
+    setError('');
+    setResendingVerification(true);
+    try {
+      const res = await fetch('/.netlify/functions/resend-verification', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      setVerificationResent(true);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setResendingVerification(false);
+    }
+  };
+
   const logout = async () => {
     await fetch('/.netlify/functions/logout', { method: 'POST', credentials: 'include' });
     await refresh();
@@ -166,6 +186,24 @@ function Account() {
       <h2 className="page-title">Account</h2>
 
       {error && <p className="error-text">{error}</p>}
+
+      {!user.email_verified && (
+        <div className="account-card">
+          <div className="account-card-title">Verify your email</div>
+          <div className="account-card-sub">
+            Verify {user.email} to start using your captures. Check your inbox for a link, or resend it below.
+          </div>
+          {verificationResent ? (
+            <p className="usage-note">Verification email sent — check your inbox.</p>
+          ) : (
+            <div className="actions account-card-actions">
+              <button disabled={resendingVerification} onClick={resendVerification}>
+                {resendingVerification ? 'Sending…' : 'Resend verification email'}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="billing-summary-card">
         <div className="billing-summary-title">

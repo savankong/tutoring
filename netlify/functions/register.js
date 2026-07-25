@@ -1,8 +1,10 @@
 import { getDatabase } from '@netlify/database';
-import { hashPassword, signSession, sessionCookieHeader } from '../lib/auth.js';
+import { generateToken, hashPassword, hashToken, signSession, sessionCookieHeader } from '../lib/auth.js';
+import { sendVerificationEmail } from '../lib/email.js';
 import { sanitizeRef } from '../lib/referral.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const VERIFY_TOKEN_TTL_HOURS = 24;
 
 function jsonResponse(status, body, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -42,14 +44,28 @@ export default async (request) => {
   }
 
   const passwordHash = await hashPassword(password);
+  const verifyToken = generateToken();
+  const verifyTokenHash = await hashToken(verifyToken);
+  const verifyTokenExpiresAt = new Date(Date.now() + VERIFY_TOKEN_TTL_HOURS * 60 * 60 * 1000).toISOString();
 
   // plan defaults to 'free' — everyone starts on the free tier, no trial
-  // clock, no card required (see netlify/lib/plans.js).
+  // clock, no card required (see netlify/lib/plans.js). email_verified
+  // defaults to false — captures are gated on it until they click the link
+  // (see analyze-question.js), which is the point: it's the friction that
+  // keeps disposable-email signups from farming free-tier captures.
   const [user] = await db.sql`
-    INSERT INTO users (email, password_hash, signup_ref)
-    VALUES (${email}, ${passwordHash}, ${signupRef})
+    INSERT INTO users (email, password_hash, signup_ref, verify_token_hash, verify_token_expires_at)
+    VALUES (${email}, ${passwordHash}, ${signupRef}, ${verifyTokenHash}, ${verifyTokenExpiresAt})
     RETURNING id, email, plan, subscription_status
   `;
+
+  const verifyUrl = new URL('/verify-email', new URL(request.url).origin);
+  verifyUrl.searchParams.set('token', verifyToken);
+  try {
+    await sendVerificationEmail(user.email, verifyUrl.toString());
+  } catch (err) {
+    console.error('Failed to send verification email:', err);
+  }
 
   const token = signSession(user.id);
   return jsonResponse(

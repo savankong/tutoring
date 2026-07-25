@@ -1,5 +1,5 @@
 import { getDatabase } from '@netlify/database';
-import { generateResetToken, hashResetToken } from '../lib/auth.js';
+import { generateToken, hashToken } from '../lib/auth.js';
 import { sendPasswordResetEmail } from '../lib/email.js';
 
 const RESET_TOKEN_TTL_MINUTES = 60;
@@ -38,8 +38,8 @@ export default async (request) => {
   // Google-only accounts have no password_hash and nothing to reset.
   if (!user || !user.password_hash) return genericResponse();
 
-  const token = generateResetToken();
-  const tokenHash = await hashResetToken(token);
+  const token = generateToken();
+  const tokenHash = await hashToken(token);
   const expiresAt = new Date(Date.now() + RESET_TOKEN_TTL_MINUTES * 60 * 1000).toISOString();
 
   await db.sql`

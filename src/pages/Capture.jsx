@@ -99,6 +99,7 @@ function Capture() {
   const [ocrPending, setOcrPending] = useState(false);
   const [ocrError, setOcrError] = useState('');
   const [upgradeReason, setUpgradeReason] = useState('');
+  const [verifyReason, setVerifyReason] = useState('');
   const [answer, setAnswer] = useState('');
   const [explanation, setExplanation] = useState('');
   const [whyOthersWrong, setWhyOthersWrong] = useState('');
@@ -160,6 +161,7 @@ function Capture() {
     setActiveTab('answer');
     setOcrError('');
     setUpgradeReason('');
+    setVerifyReason('');
     answerEditedRef.current = false;
     setStatus('done');
 
@@ -179,6 +181,10 @@ function Capture() {
         if (requestIdRef.current !== requestId) return; // stale, tutor moved on
         if (res.status === 402) {
           setUpgradeReason('cap_reached');
+          return;
+        }
+        if (res.status === 403 && data.reason === 'email_unverified') {
+          setVerifyReason('email_unverified');
           return;
         }
         if (!res.ok) throw new Error(data.error || 'Request failed');
@@ -286,6 +292,7 @@ function Capture() {
     setOcrPending(false);
     setOcrError('');
     setUpgradeReason('');
+    setVerifyReason('');
     setAnswer('');
     setExplanation('');
     setWhyOthersWrong('');
@@ -422,7 +429,8 @@ function Capture() {
                 </>
               ) : (
                 !ocrError &&
-                !upgradeReason && (
+                !upgradeReason &&
+                !verifyReason && (
                   <>
                     <span className="thinking-check">✓</span>
                     <span>Thought for {thinkingSeconds}s</span>
@@ -435,6 +443,11 @@ function Capture() {
             {upgradeReason && (
               <p className="error-text">
                 You've used all your captures for this month. <Link to="/account">Upgrade to keep going</Link>
+              </p>
+            )}
+            {verifyReason && (
+              <p className="error-text">
+                Verify your email to keep using captures. <Link to="/account">Resend verification email</Link>
               </p>
             )}
 

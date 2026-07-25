@@ -52,6 +52,7 @@ export default async (request) => {
       using_credits: isDrawingOnCredits(user, capturesUsed),
       last_credit_purchase: lastCreditPurchase,
       public_captures_opt_out: user.public_captures_opt_out ?? false,
+      email_verified: user.email_verified || !!user.google_id,
     },
     { 'set-cookie': sessionCookieHeader(refreshedToken) },
   );

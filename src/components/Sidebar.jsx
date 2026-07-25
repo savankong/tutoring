@@ -16,16 +16,22 @@ function Sidebar({ navItems, user }) {
         <Logo size={22} wordmark />
       </a>
 
-      {navItems && navItems.length > 0 && (
+      {((navItems && navItems.length > 0) || !user) && (
         <>
           <div className="mkt-sidebar-label">Navigate</div>
           <div className="mkt-sidebar-links">
-            {navItems.map((item) => (
+            {navItems?.map((item) => (
               <a key={item.href} href={item.href} className="mkt-sidebar-link">
                 <span className="mkt-sidebar-dot" />
                 {item.label}
               </a>
             ))}
+            {!user && (
+              <a href="/#ask" className="mkt-sidebar-link">
+                <span className="mkt-sidebar-dot" />
+                Ask a question
+              </a>
+            )}
           </div>
         </>
       )}
@@ -44,9 +50,6 @@ function Sidebar({ navItems, user }) {
           </>
         ) : (
           <>
-            <a href="/contact" className="mkt-sidebar-contact-link">
-              Have a question?
-            </a>
             <a href="/login" className="pill-button pill-button-sm pill-button-outline">
               Log in
             </a>

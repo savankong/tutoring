@@ -5,6 +5,7 @@ import PhoneMockup from '../components/PhoneMockup.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
 import ResourcesFooter from '../components/ResourcesFooter.jsx';
+import { submitNetlifyForm } from '../lib/netlifyForms.js';
 
 const NAV_ITEMS = [
   { label: 'How it works', href: '#how' },
@@ -187,6 +188,12 @@ function Landing() {
   const [transitioning, setTransitioning] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [faqOpen, setFaqOpen] = useState([true, false, false]);
+  const [askName, setAskName] = useState('');
+  const [askEmail, setAskEmail] = useState('');
+  const [askQuestion, setAskQuestion] = useState('');
+  const [askError, setAskError] = useState('');
+  const [askSubmitting, setAskSubmitting] = useState(false);
+  const [askSent, setAskSent] = useState(false);
 
   if (!loading && user) return <Navigate to="/app" replace />;
 
@@ -208,6 +215,20 @@ function Landing() {
 
   const toggleFaq = (i) => {
     setFaqOpen((prev) => prev.map((v, idx) => (idx === i ? !v : v)));
+  };
+
+  const submitAskForm = async (e) => {
+    e.preventDefault();
+    setAskError('');
+    setAskSubmitting(true);
+    try {
+      await submitNetlifyForm('question', { name: askName, email: askEmail, question: askQuestion });
+      setAskSent(true);
+    } catch (err) {
+      setAskError(err.message);
+    } finally {
+      setAskSubmitting(false);
+    }
   };
 
   const screen = DEMO_QUESTIONS[screenIndex];
@@ -407,6 +428,47 @@ function Landing() {
         </div>
       </section>
 
+      <section id="ask" className="ask-section">
+        <div className="section-eyebrow">Ask a question</div>
+        <h2>Send us a message.</h2>
+        <div className="auth-card ask-card">
+          {askSent ? (
+            <p className="auth-subhead">Thanks — we'll get back to you at {askEmail}.</p>
+          ) : (
+            <form onSubmit={submitAskForm} className="auth-form">
+              <label>
+                <span className="auth-label">Name</span>
+                <input
+                  type="text"
+                  value={askName}
+                  onChange={(e) => setAskName(e.target.value)}
+                  required
+                  autoComplete="name"
+                />
+              </label>
+              <label>
+                <span className="auth-label">Email</span>
+                <input
+                  type="email"
+                  value={askEmail}
+                  onChange={(e) => setAskEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                />
+              </label>
+              <label>
+                <span className="auth-label">Question</span>
+                <textarea value={askQuestion} onChange={(e) => setAskQuestion(e.target.value)} required rows={4} />
+              </label>
+              {askError && <p className="error-text">{askError}</p>}
+              <button type="submit" disabled={askSubmitting}>
+                {askSubmitting ? 'Sending…' : 'Send question'}
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
       <ResourcesFooter />
 
       <section className="footer-cta-section">
@@ -423,6 +485,7 @@ function Landing() {
             <Link to="/pricing">Pricing</Link>
             <a href="#faq">FAQ</a>
             <a href="#resources">Resources</a>
+            <a href="#ask">Ask a question</a>
           </div>
         </div>
       </section>

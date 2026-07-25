@@ -116,6 +116,7 @@ function Pricing() {
         <div className="footer-links">
           <Link to="/">Home</Link>
           <a href="#resources">Resources</a>
+          <a href="/#ask">Ask a question</a>
         </div>
       </div>
       </div>

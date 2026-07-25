@@ -4,7 +4,6 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Account from './pages/Account.jsx';
 import Admin from './pages/Admin.jsx';
 import Capture from './pages/Capture.jsx';
-import Contact from './pages/Contact.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import History from './pages/History.jsx';
 import Landing from './pages/Landing.jsx';
@@ -25,7 +24,6 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/verify-email" element={<VerifyEmail />} />
-      <Route path="/contact" element={<Contact />} />
       <Route
         path="/app"
         element={

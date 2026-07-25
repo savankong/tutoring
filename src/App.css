@@ -1307,16 +1307,6 @@ a:focus-visible {
   border-color: rgba(17, 18, 8, 0.25);
 }
 
-.mkt-sidebar-contact-link {
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-faint);
-}
-
-.mkt-sidebar-contact-link:hover {
-  color: var(--accent);
-}
-
 .mkt-main {
   margin-left: 248px;
 }
@@ -2127,6 +2117,21 @@ a:focus-visible {
   max-width: 820px;
   margin: 0 auto;
   padding: 40px 48px 120px;
+}
+
+.ask-section {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 48px 120px;
+  text-align: center;
+}
+
+.ask-section h2 {
+  margin: 0 0 32px;
+}
+
+.ask-card {
+  text-align: left;
 }
 
 .faq-section h2 {

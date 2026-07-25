@@ -44,6 +44,9 @@ function Sidebar({ navItems, user }) {
           </>
         ) : (
           <>
+            <a href="/contact" className="mkt-sidebar-contact-link">
+              Have a question?
+            </a>
             <a href="/login" className="pill-button pill-button-sm pill-button-outline">
               Log in
             </a>

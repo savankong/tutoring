@@ -48,6 +48,33 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Hidden Netlify Forms registration. Netlify's build-time crawler only
+         detects <form data-netlify> markup that's literally present in a
+         deployed HTML file — it never runs the SPA's JS. /account (the real
+         "help" form's home) is never prerendered, so its form would
+         otherwise be invisible to that crawler. Living here, outside
+         #root, this survives untouched through both the plain Vite build
+         and prerender.mjs's template.replace() (which only touches
+         '<div id="root"></div>' and the <head> tags), so it's present in
+         every deployed HTML file site-wide regardless of which page's real,
+         JS-rendered form actually POSTs to it at runtime — see
+         src/lib/netlifyForms.js for that submission helper.
+         Field names here must exactly match the fields submitted by
+         Contact.jsx (form "question") and Account.jsx (form "help"). -->
+    <form name="question" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="question"></textarea>
+    </form>
+    <form name="help" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
+import { submitNetlifyForm } from '../lib/netlifyForms.js';
 import { PLANS, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
 
 const UPGRADE_PLANS = PLANS.filter((p) => p.key === 'starter' || p.key === 'personal' || p.key === 'pro');
@@ -36,6 +37,11 @@ function Account() {
   const [savingPrivacy, setSavingPrivacy] = useState(false);
   const [resendingVerification, setResendingVerification] = useState(false);
   const [verificationResent, setVerificationResent] = useState(false);
+  const [helpSubject, setHelpSubject] = useState('');
+  const [helpMessage, setHelpMessage] = useState('');
+  const [submittingHelp, setSubmittingHelp] = useState(false);
+  const [helpSent, setHelpSent] = useState(false);
+  const [helpError, setHelpError] = useState('');
 
   const planSectionRef = useRef(null);
   const usageSectionRef = useRef(null);
@@ -132,6 +138,20 @@ function Account() {
       setError(err.message);
     } finally {
       setResendingVerification(false);
+    }
+  };
+
+  const submitHelpRequest = async (e) => {
+    e.preventDefault();
+    setHelpError('');
+    setSubmittingHelp(true);
+    try {
+      await submitNetlifyForm('help', { email: user.email, subject: helpSubject, message: helpMessage });
+      setHelpSent(true);
+    } catch (err) {
+      setHelpError(err.message);
+    } finally {
+      setSubmittingHelp(false);
     }
   };
 
@@ -396,6 +416,36 @@ function Account() {
           />
           <span>Let Cambo publish my captured questions anonymously</span>
         </label>
+      </div>
+
+      <div className="account-card">
+        <div className="account-card-title">Need help?</div>
+        <div className="account-card-sub">Send us a message and we'll get back to you at {user.email}.</div>
+        {helpSent ? (
+          <p className="usage-note">Message sent — thanks, we'll be in touch.</p>
+        ) : (
+          <form onSubmit={submitHelpRequest} className="auth-form">
+            <label>
+              <span className="auth-label">Subject</span>
+              <input
+                type="text"
+                value={helpSubject}
+                onChange={(e) => setHelpSubject(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              <span className="auth-label">Message</span>
+              <textarea value={helpMessage} onChange={(e) => setHelpMessage(e.target.value)} required rows={4} />
+            </label>
+            {helpError && <p className="error-text">{helpError}</p>}
+            <div className="actions account-card-actions">
+              <button type="submit" disabled={submittingHelp}>
+                {submittingHelp ? 'Sending…' : 'Send message'}
+              </button>
+            </div>
+          </form>
+        )}
       </div>
 
       <div className="actions">

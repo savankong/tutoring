@@ -1307,6 +1307,16 @@ a:focus-visible {
   border-color: rgba(17, 18, 8, 0.25);
 }
 
+.mkt-sidebar-contact-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.mkt-sidebar-contact-link:hover {
+  color: var(--accent);
+}
+
 .mkt-main {
   margin-left: 248px;
 }

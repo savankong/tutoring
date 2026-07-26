@@ -1,28 +1,40 @@
-import { useId } from 'react';
+// Camera-lens mark: a shutter ring with a lens-flare arc, an aperture-blade
+// swoosh below, and a viewfinder/shutter-button bar on the left. Fixed
+// brand palette (not currentColor) — the mark keeps its own colors
+// regardless of surrounding text color, same as the source artwork.
+const ASPECT_RATIO = 442 / 513;
 
-// Viewfinder-bracket mark: frames a focus point, with the red dot doubling
-// as the record indicator — same motif as the capture screen's corner
-// brackets and shutter button. Brackets use currentColor so they follow
-// the surrounding text color (and adapt automatically in dark mode).
 function Logo({ size = 22, wordmark = false, className = '' }) {
-  const gradientId = useId();
+  const height = size;
+  const width = size * ASPECT_RATIO;
 
   return (
     <span className={`logo-lockup ${className}`}>
-      <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
-        <defs>
-          <radialGradient id={gradientId} cx="35%" cy="30%" r="70%">
-            <stop offset="0%" stopColor="#ff6b5e" />
-            <stop offset="100%" stopColor="#d81f0f" />
-          </radialGradient>
-        </defs>
-        <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round">
-          <path d="M3 22V11a8 8 0 0 1 8-8h11" />
-          <path d="M42 3h11a8 8 0 0 1 8 8v11" />
-          <path d="M61 42v11a8 8 0 0 1-8 8H42" />
-          <path d="M22 61H11a8 8 0 0 1-8-8V42" />
-        </g>
-        <circle cx="32" cy="32" r="9" fill={`url(#${gradientId})`} />
+      <svg width={width} height={height} viewBox="0 0 442 513" aria-hidden="true">
+        <path
+          d="M240.498,164.776C247.051,165.146 274.992,164.581 304.851,187.039C380.109,243.643 355.429,361.437 265.55,384.69C164.428,410.853 75.289,284.097 163.059,195.071C192.137,165.578 233.846,164.886 240.498,164.776ZM222.581,194.953C219.776,195.666 185.598,201.106 165.992,236.782C126.757,308.179 207.246,390.397 280.205,348.012C347.401,308.975 327.982,205.825 250.543,194.221C236.618,192.134 236.614,193.249 222.581,194.953Z"
+          fill="#595959"
+        />
+        <path
+          d="M126.499,373.93C142.5,374.002 143.452,373.242 154.751,383.201C190.424,414.642 234.069,416.258 241.498,416.533C309.042,419.034 347.199,374.59 350.691,372.863C369.727,363.451 380.381,380.322 391.635,391.366C401.813,401.353 419.329,415.866 392.102,439.054C387.89,442.641 347.605,481.439 283.456,492.233C154.247,513.973 73.664,411.711 70.786,393.457C69.209,383.458 77.39,374.462 86.456,374.053C89.656,373.908 89.956,373.895 126.499,373.93Z"
+          fill="#F84B1F"
+        />
+        <path
+          d="M346.292,152.753C344.285,151.068 329.774,137.209 308.379,127.783C303.91,125.815 278.347,114.553 248.484,116.044C184.218,119.255 166.517,152.96 151.506,154.562C149.737,154.75 87.308,154.651 86.494,154.62C76.489,154.233 69.316,142.462 76.041,132.185C151.932,16.232 302.907,13.988 383.361,81.664C397.907,93.9 409.331,102.114 403.755,118.593C402.591,122.033 401.889,124.109 373.199,152.168C370.422,154.884 357.811,161.546 346.292,152.753Z"
+          fill="#A5A5A5"
+        />
+        <path
+          d="M31.942,313.504C32.609,270.002 31.328,270.081 31.94,226.496C32.279,202.391 51.788,199.013 57.507,198.911C80.968,198.492 86.524,198.383 86.828,207.494C86.848,208.115 86.829,304.711 86.812,313.502C86.768,337.001 89.339,342.991 75.496,343.139C52.809,343.382 50.698,342.774 45.684,340.155C29.737,331.825 31.942,314.1 31.942,313.504Z"
+          fill="#595959"
+        />
+        <path
+          d="M201.715,240.708C183.142,261.114 193.847,268.249 185.603,272.669C180.379,275.47 174.334,271.655 175.233,265.47C181.918,219.449 227.162,211.034 234.197,215.892C238.055,218.557 237.316,227.327 230.465,228.204C213.284,230.404 211.332,232.82 201.715,240.708Z"
+          fill="#DF5A39"
+        />
+        <path
+          d="M115.503,209.068C90.297,204.925 97.71,182.063 107.658,176.786C130.343,164.754 146.122,206.298 115.503,209.068Z"
+          fill="#595959"
+        />
       </svg>
       {wordmark && <span className="logo-wordmark">Cambo</span>}
     </span>

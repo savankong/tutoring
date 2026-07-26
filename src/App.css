@@ -804,19 +804,24 @@ a:focus-visible {
 
 /* Viewfinder-bracket corners (not a solid outline) — the handle itself is
    an oversized transparent hit target for dragging; the visible L-bracket
-   is drawn with ::before, inset from the edges. */
+   is drawn with ::before, inset from the edges. Kept flush-inward (no
+   negative margin straddling the crop-rect boundary) rather than centered
+   on the corner — camera-viewfinder clips overflow for its rounded video
+   frame, and the default crop rect is flush against its edges, so any
+   part of the handle hanging outside the crop-rect got clipped away
+   entirely (which happened to be exactly the bordered edges of the
+   bracket, leaving nothing visible until a corner was dragged inward). */
 .crop-handle {
   position: absolute;
   width: 32px;
   height: 32px;
-  margin: -16px;
   touch-action: none;
 }
 
 .crop-handle::before {
   content: '';
   position: absolute;
-  inset: 6px;
+  inset: 4px;
   border: 3px solid #fff;
   border-radius: 3px;
 }

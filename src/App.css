@@ -967,6 +967,7 @@ a:focus-visible {
 .auth-nav-logo {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 /* Auth forms (Register / Login) */
@@ -1247,6 +1248,7 @@ a:focus-visible {
   display: inline-flex;
   margin-bottom: 48px;
   color: var(--text-h);
+  text-decoration: none;
 }
 
 .mkt-sidebar-label {

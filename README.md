@@ -1,22 +1,22 @@
-# Tutoring
+# Cambo App
 
-Tutor camera/OCR app — capture a question, extract text via OCR, type an
-answer, and share it. Mobile-responsive web app, deployed at
-https://tutor-camera-app.netlify.app
+Tutor camera app — snap a photo of any quiz/practice-test/worksheet question, Claude grades it and explains the answer. React + Vite SPA with Netlify Functions backend, Postgres (Netlify DB/Neon), Stripe billing, Google + email/password auth, Resend transactional email, and Netlify Forms.
 
-## React + Vite
+Production: https://camboapp.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Full project context lives in [CLAUDE.md](./CLAUDE.md)** — stack, auth, billing, forms, env vars, deploy commands, known gotchas. Start there for anything beyond local dev setup below.
 
-Currently, two official plugins are available:
+## Local dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+npm run build
+```
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Builds the SPA, SSR entry, prerenders the public marketing routes, generates OG images, and generates the sitemap — see `package.json` scripts and `scripts/*.mjs`.

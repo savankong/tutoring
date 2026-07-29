@@ -29,6 +29,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
   Look for `database_migrations.files[].applied: true`.
 - Env var changes need a fresh deploy to take effect (Lambda bundles env at deploy time, not injected live per-request). The Netlify MCP env-var write tool has been unreliable — use the Netlify dashboard UI and get explicit confirmation before deploying.
 - To view function logs: `netlify link --id 07e69cb1-330d-41bb-8c21-0d5290d2c7ec` once, then `netlify logs --source functions --function <name> --since 20m`.
+- **Gotcha:** `netlify link` can report "already linked" to a *completely different* one of the account's sites (seen once: it claimed this dir was linked to `life-between-titles-163`) even with no local `.netlify/state.json`. If that happens: `netlify unlink` then `netlify link --id 07e69cb1-330d-41bb-8c21-0d5290d2c7ec` again. Explicit `--site <id>` flags on `deploy`/`api` commands are unaffected either way — only implicit-link-dependent commands like `netlify logs` break.
 
 ## Stack
 
@@ -96,7 +97,11 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 
 ## Required env vars (Netlify dashboard — names only, never commit or print actual values)
 
-`JWT_SECRET`, `APP_SESSION_SECRET`, `ANTHROPIC_API_KEY`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records on Netlify DNS — see "Email (Resend)" above).
+`JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records on Netlify DNS — see "Email (Resend)" above). Confirmed against the live site's actual configured vars (`netlify api getEnvVars`) 2026-07-29 — this list is exactly what's set.
+
+**`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). **Gotcha:** it is *not* present in Netlify's site-level env vars, account-level (team-shared) env vars, or the team's installed Extensions — checked all three 2026-07-29. Yet `analyze-question` has been succeeding in production the whole time (14 days of logs, 50+ invocations, realistic 2–36s durations, zero error-level log lines — the function's own 401-retry path never fires). So the key is real and working, but its actual source is undiscovered; if `analyze-question` ever starts 401ing, that's the first thing to chase down (check Netlify support/dashboard for a non-obvious platform-level AI key injection).
+
+**`APP_SESSION_SECRET`** — removed from this list 2026-07-29: `grep -rn "APP_SESSION_SECRET" netlify/ src/` returns zero hits. Confirmed dead/unused; not required.
 
 ## Verification patterns that work here
 

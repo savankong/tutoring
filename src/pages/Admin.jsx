@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AdminNav from '../components/AdminNav.jsx';
 import Logo from '../components/Logo.jsx';
 import { useAuthContext } from '../lib/AuthContext.jsx';
@@ -21,6 +21,7 @@ const PLAN_OPTIONS = [
 
 function Admin() {
   const { user: me } = useAuthContext();
+  const navigate = useNavigate();
   const [users, setUsers] = useState(null);
   const [error, setError] = useState('');
   const [busyId, setBusyId] = useState(null);
@@ -134,6 +135,13 @@ function Admin() {
                     <td>{u.subscription_status}</td>
                     <td>{formatDate(u.created_at)}</td>
                     <td className="admin-row-actions">
+                      <button
+                        className="secondary"
+                        disabled={busy}
+                        onClick={() => navigate(`/admin/submissions?user=${encodeURIComponent(u.email)}`)}
+                      >
+                        View submissions
+                      </button>
                       <button
                         className="secondary"
                         disabled={busy || (isSelf && isAdmin)}

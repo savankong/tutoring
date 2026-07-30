@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import AdminNav from '../components/AdminNav.jsx';
 import Logo from '../components/Logo.jsx';
 
@@ -21,10 +21,24 @@ const EMPTY_DRAFT = {
   why_others_wrong: '',
 };
 
+// (label, sort key) pairs, in the order the columns render.
+const COLUMNS = [
+  { key: 'user_email', label: 'User' },
+  { key: 'title', label: 'Title' },
+  { key: 'question_text', label: 'Question' },
+  { key: 'answer', label: 'Answer' },
+  { key: 'created_at', label: 'Created' },
+];
+
 function AdminSubmissions() {
+  const [searchParams] = useSearchParams();
   const [captures, setCaptures] = useState(null);
   const [error, setError] = useState('');
   const [busyId, setBusyId] = useState(null);
+
+  const [filterText, setFilterText] = useState(searchParams.get('user') ?? '');
+  const [sortKey, setSortKey] = useState('created_at');
+  const [sortDir, setSortDir] = useState('desc');
 
   const [editingId, setEditingId] = useState(null);
   const [editDraft, setEditDraft] = useState(EMPTY_DRAFT);
@@ -44,6 +58,43 @@ function AdminSubmissions() {
   };
 
   useEffect(loadCaptures, []);
+
+  const toggleSort = (key) => {
+    if (sortKey === key) {
+      setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortKey(key);
+      setSortDir(key === 'created_at' ? 'desc' : 'asc');
+    }
+  };
+
+  const visibleCaptures = useMemo(() => {
+    if (!captures) return null;
+    const q = filterText.trim().toLowerCase();
+    const filtered = q
+      ? captures.filter((c) =>
+          [c.user_email, c.title, c.question_text, c.answer, c.explanation, c.why_others_wrong].some((v) =>
+            (v ?? '').toLowerCase().includes(q),
+          ),
+        )
+      : captures;
+
+    const sorted = [...filtered].sort((a, b) => {
+      let av = a[sortKey] ?? '';
+      let bv = b[sortKey] ?? '';
+      if (sortKey === 'created_at') {
+        av = new Date(av).getTime();
+        bv = new Date(bv).getTime();
+      } else {
+        av = String(av).toLowerCase();
+        bv = String(bv).toLowerCase();
+      }
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return sorted;
+  }, [captures, filterText, sortKey, sortDir]);
 
   const startEdit = (c) => {
     setEditingId(c.id);
@@ -153,7 +204,19 @@ function AdminSubmissions() {
 
       {error && <p className="error-text">{error}</p>}
 
-      <div className="admin-row-actions admin-submissions-toolbar">
+      <div className="admin-submissions-toolbar">
+        <input
+          type="text"
+          className="admin-filter-input"
+          placeholder="Filter by user, title, question, or answer…"
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+        {filterText && (
+          <button className="secondary" onClick={() => setFilterText('')}>
+            Clear filter
+          </button>
+        )}
         <button
           className="secondary"
           onClick={() => {
@@ -224,22 +287,29 @@ function AdminSubmissions() {
 
       {!error && !captures && <p>Loading…</p>}
       {captures?.length === 0 && <p>No submissions yet.</p>}
-
+      {captures?.length > 0 && visibleCaptures.length === 0 && <p>No submissions match "{filterText}".</p>}
       {captures && captures.length > 0 && (
+        <p className="admin-submissions-count">
+          Showing {visibleCaptures.length} of {captures.length}
+        </p>
+      )}
+
+      {visibleCaptures && visibleCaptures.length > 0 && (
         <div className="admin-table-wrap">
           <table className="admin-table">
             <thead>
               <tr>
-                <th>User</th>
-                <th>Title</th>
-                <th>Question</th>
-                <th>Answer</th>
-                <th>Created</th>
+                {COLUMNS.map((col) => (
+                  <th key={col.key} className="admin-sortable-th" onClick={() => toggleSort(col.key)}>
+                    {col.label}
+                    {sortKey === col.key && <span className="admin-sort-arrow">{sortDir === 'asc' ? ' ▲' : ' ▼'}</span>}
+                  </th>
+                ))}
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {captures.map((c) => {
+              {visibleCaptures.map((c) => {
                 const busy = busyId === c.id;
                 const isEditing = editingId === c.id;
 

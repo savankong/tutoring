@@ -1155,6 +1155,68 @@ a:focus-visible {
   min-width: 220px;
 }
 
+.admin-subnav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-subnav a {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.admin-subnav a.active {
+  background: var(--text-h);
+  color: var(--card-bg);
+  border-color: var(--text-h);
+}
+
+.admin-submissions-toolbar {
+  margin-bottom: 12px;
+}
+
+.admin-edit-row td {
+  white-space: normal;
+}
+
+.admin-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.admin-edit-form-user {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.admin-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-h);
+}
+
+.admin-edit-form input,
+.admin-edit-form textarea {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+.admin-edit-form textarea {
+  min-height: 60px;
+}
+
 /* History */
 .history-filter {
   display: flex;

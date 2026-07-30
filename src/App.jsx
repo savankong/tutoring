@@ -3,6 +3,8 @@ import HardReloadFallback from './components/HardReloadFallback.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Account from './pages/Account.jsx';
 import Admin from './pages/Admin.jsx';
+import AdminQuestions from './pages/AdminQuestions.jsx';
+import AdminSubmissions from './pages/AdminSubmissions.jsx';
 import Capture from './pages/Capture.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import History from './pages/History.jsx';
@@ -53,6 +55,22 @@ function App() {
         element={
           <ProtectedRoute adminOnly>
             <Admin />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/questions"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminQuestions />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/submissions"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminSubmissions />
           </ProtectedRoute>
         }
       />

@@ -203,16 +203,25 @@ export default async (request) => {
     const questionText = parsed.question_text ?? '';
     const explanation = parsed.explanation ?? '';
     const whyOthersWrong = parsed.why_others_wrong ?? '';
-    await db.sql`
-      INSERT INTO captures (user_id, title, question_text, answer, explanation, why_others_wrong)
-      VALUES (${user.id}, ${title}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong})
-    `;
 
-    if (isDrawingOnCredits(user, capturesUsedBefore)) {
-      await debitCredit(db, user);
+    // Nothing worth keeping if Claude couldn't find a real question in the
+    // photo — skip the write entirely rather than logging a blank/junk row
+    // to the user's history and the admin submissions log, and don't charge
+    // them a capture (against cap or credits) for a failed detection.
+    const questionDetected = questionText.trim().length > 0 && answer.trim().length > 0;
+
+    if (questionDetected) {
+      await db.sql`
+        INSERT INTO captures (user_id, title, question_text, answer, explanation, why_others_wrong)
+        VALUES (${user.id}, ${title}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong})
+      `;
+
+      if (isDrawingOnCredits(user, capturesUsedBefore)) {
+        await debitCredit(db, user);
+      }
+
+      await publishPublicQuestion(db, user, { questionText, answer, explanation, whyOthersWrong });
     }
-
-    await publishPublicQuestion(db, user, { questionText, answer, explanation, whyOthersWrong });
 
     return jsonResponse(200, { answer, explanation, why_others_wrong: whyOthersWrong });
   } catch (err) {

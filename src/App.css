@@ -1149,10 +1149,31 @@ a:focus-visible {
   color: var(--text-h);
 }
 
-.admin-question-cell {
+/* Specificity must beat ".admin-table th, .admin-table td" (0,1,1) above,
+   or its white-space: nowrap wins and long text visually overflows on top
+   of neighboring cells instead of wrapping. */
+td.admin-question-cell {
   white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
   max-width: 320px;
   min-width: 220px;
+  line-height: 1.4;
+}
+
+.admin-table--fixed {
+  table-layout: fixed;
+}
+
+.admin-table--fixed td.admin-question-cell {
+  max-width: none;
+  min-width: 0;
+}
+
+.admin-table--fixed td {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .admin-subnav {
@@ -1189,6 +1210,14 @@ a:focus-visible {
   flex: 1;
   min-width: 220px;
   max-width: 420px;
+}
+
+.admin-filter-select {
+  min-width: 200px;
+  max-width: 280px;
+  min-height: 42px;
+  padding: 9px 12px;
+  font-size: 14px;
 }
 
 .admin-submissions-count {

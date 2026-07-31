@@ -36,7 +36,8 @@ function AdminSubmissions() {
   const [error, setError] = useState('');
   const [busyId, setBusyId] = useState(null);
 
-  const [filterText, setFilterText] = useState(searchParams.get('user') ?? '');
+  const [filterText, setFilterText] = useState('');
+  const [selectedUser, setSelectedUser] = useState(searchParams.get('user') ?? '');
   const [sortKey, setSortKey] = useState('created_at');
   const [sortDir, setSortDir] = useState('desc');
 
@@ -68,16 +69,22 @@ function AdminSubmissions() {
     }
   };
 
+  const userOptions = useMemo(() => {
+    if (!captures) return [];
+    return [...new Set(captures.map((c) => c.user_email))].sort((a, b) => a.localeCompare(b));
+  }, [captures]);
+
   const visibleCaptures = useMemo(() => {
     if (!captures) return null;
     const q = filterText.trim().toLowerCase();
-    const filtered = q
-      ? captures.filter((c) =>
-          [c.user_email, c.title, c.question_text, c.answer, c.explanation, c.why_others_wrong].some((v) =>
-            (v ?? '').toLowerCase().includes(q),
-          ),
-        )
-      : captures;
+    let filtered = selectedUser ? captures.filter((c) => c.user_email === selectedUser) : captures;
+    if (q) {
+      filtered = filtered.filter((c) =>
+        [c.user_email, c.title, c.question_text, c.answer, c.explanation, c.why_others_wrong].some((v) =>
+          (v ?? '').toLowerCase().includes(q),
+        ),
+      );
+    }
 
     const sorted = [...filtered].sort((a, b) => {
       let av = a[sortKey] ?? '';
@@ -94,7 +101,7 @@ function AdminSubmissions() {
       return 0;
     });
     return sorted;
-  }, [captures, filterText, sortKey, sortDir]);
+  }, [captures, filterText, selectedUser, sortKey, sortDir]);
 
   const startEdit = (c) => {
     setEditingId(c.id);
@@ -205,16 +212,34 @@ function AdminSubmissions() {
       {error && <p className="error-text">{error}</p>}
 
       <div className="admin-submissions-toolbar">
+        <select
+          className="admin-filter-select"
+          value={selectedUser}
+          onChange={(e) => setSelectedUser(e.target.value)}
+        >
+          <option value="">All users</option>
+          {userOptions.map((email) => (
+            <option key={email} value={email}>
+              {email}
+            </option>
+          ))}
+        </select>
         <input
           type="text"
           className="admin-filter-input"
-          placeholder="Filter by user, title, question, or answer…"
+          placeholder="Filter by title, question, or answer…"
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
         />
-        {filterText && (
-          <button className="secondary" onClick={() => setFilterText('')}>
-            Clear filter
+        {(filterText || selectedUser) && (
+          <button
+            className="secondary"
+            onClick={() => {
+              setFilterText('');
+              setSelectedUser('');
+            }}
+          >
+            Clear filters
           </button>
         )}
         <button
@@ -287,7 +312,7 @@ function AdminSubmissions() {
 
       {!error && !captures && <p>Loading…</p>}
       {captures?.length === 0 && <p>No submissions yet.</p>}
-      {captures?.length > 0 && visibleCaptures.length === 0 && <p>No submissions match "{filterText}".</p>}
+      {captures?.length > 0 && visibleCaptures.length === 0 && <p>No submissions match the current filters.</p>}
       {captures && captures.length > 0 && (
         <p className="admin-submissions-count">
           Showing {visibleCaptures.length} of {captures.length}
@@ -296,7 +321,15 @@ function AdminSubmissions() {
 
       {visibleCaptures && visibleCaptures.length > 0 && (
         <div className="admin-table-wrap">
-          <table className="admin-table">
+          <table className="admin-table admin-table--fixed">
+            <colgroup>
+              <col style={{ width: '13%' }} />
+              <col style={{ width: '14%' }} />
+              <col style={{ width: '25%' }} />
+              <col style={{ width: '25%' }} />
+              <col style={{ width: '11%' }} />
+              <col style={{ width: '12%' }} />
+            </colgroup>
             <thead>
               <tr>
                 {COLUMNS.map((col) => (

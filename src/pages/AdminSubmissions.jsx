@@ -409,13 +409,15 @@ function AdminSubmissions() {
                     <td className="admin-question-cell">{c.question_text}</td>
                     <td className="admin-question-cell">{c.answer}</td>
                     <td>{formatDate(c.created_at)}</td>
-                    <td className="admin-row-actions">
-                      <button className="secondary" disabled={busy} onClick={() => startEdit(c)}>
-                        Edit
-                      </button>
-                      <button className="secondary" disabled={busy} onClick={() => deleteCapture(c.id)}>
-                        Delete
-                      </button>
+                    <td>
+                      <div className="admin-row-actions">
+                        <button className="secondary" disabled={busy} onClick={() => startEdit(c)}>
+                          Edit
+                        </button>
+                        <button className="secondary" disabled={busy} onClick={() => deleteCapture(c.id)}>
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );

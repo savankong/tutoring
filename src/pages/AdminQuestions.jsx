@@ -85,14 +85,16 @@ function AdminQuestions() {
                     <td className="admin-question-cell">{q.answer}</td>
                     <td>{q.times_seen}</td>
                     <td>{q.published ? 'Published' : 'Unpublished'}</td>
-                    <td className="admin-row-actions">
-                      <button
-                        className="secondary"
-                        disabled={busy}
-                        onClick={() => toggleQuestionPublished(q.id, !q.published)}
-                      >
-                        {q.published ? 'Unpublish' : 'Republish'}
-                      </button>
+                    <td>
+                      <div className="admin-row-actions">
+                        <button
+                          className="secondary"
+                          disabled={busy}
+                          onClick={() => toggleQuestionPublished(q.id, !q.published)}
+                        >
+                          {q.published ? 'Unpublish' : 'Republish'}
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );

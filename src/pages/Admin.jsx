@@ -134,41 +134,43 @@ function Admin() {
                     <td>{u.credit_balance ?? 0}</td>
                     <td>{u.subscription_status}</td>
                     <td>{formatDate(u.created_at)}</td>
-                    <td className="admin-row-actions">
-                      <button
-                        className="secondary"
-                        disabled={busy}
-                        onClick={() => navigate(`/admin/submissions?user=${encodeURIComponent(u.email)}`)}
-                      >
-                        View submissions
-                      </button>
-                      <button
-                        className="secondary"
-                        disabled={busy || (isSelf && isAdmin)}
-                        onClick={() => updateUser(u.id, { role: isAdmin ? 'user' : 'admin' })}
-                      >
-                        {isAdmin ? 'Remove admin' : 'Make admin'}
-                      </button>
-                      <button
-                        className="secondary"
-                        disabled={busy}
-                        onClick={() => {
-                          const input = prompt(`Add how many credits to ${u.email}? (negative to deduct)`, '100');
-                          if (input === null) return;
-                          const amount = parseInt(input, 10);
-                          if (!Number.isInteger(amount) || amount === 0) return;
-                          updateUser(u.id, { add_credits: amount });
-                        }}
-                      >
-                        Add credits
-                      </button>
-                      <button
-                        className="secondary"
-                        disabled={busy || isSelf}
-                        onClick={() => deleteUser(u.id, u.email)}
-                      >
-                        Delete
-                      </button>
+                    <td>
+                      <div className="admin-row-actions">
+                        <button
+                          className="secondary"
+                          disabled={busy}
+                          onClick={() => navigate(`/admin/submissions?user=${encodeURIComponent(u.email)}`)}
+                        >
+                          View submissions
+                        </button>
+                        <button
+                          className="secondary"
+                          disabled={busy || (isSelf && isAdmin)}
+                          onClick={() => updateUser(u.id, { role: isAdmin ? 'user' : 'admin' })}
+                        >
+                          {isAdmin ? 'Remove admin' : 'Make admin'}
+                        </button>
+                        <button
+                          className="secondary"
+                          disabled={busy}
+                          onClick={() => {
+                            const input = prompt(`Add how many credits to ${u.email}? (negative to deduct)`, '100');
+                            if (input === null) return;
+                            const amount = parseInt(input, 10);
+                            if (!Number.isInteger(amount) || amount === 0) return;
+                            updateUser(u.id, { add_credits: amount });
+                          }}
+                        >
+                          Add credits
+                        </button>
+                        <button
+                          className="secondary"
+                          disabled={busy || isSelf}
+                          onClick={() => deleteUser(u.id, u.email)}
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );

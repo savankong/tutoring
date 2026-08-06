@@ -7,6 +7,9 @@ import { PUBLIC_QUESTION_TOPICS, normalizeQuestionKey } from '../lib/publicTopic
 
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const OPENROUTER_TIMEOUT_MS = 25000;
+
 /** Best-effort credit debit — a capture that's already been allowed through
  * isCapped must never be blocked by a billing hiccup after the fact, so
  * failures here are logged, not thrown. Guarded by credit_balance > 0 so
@@ -93,6 +96,15 @@ const PROMPT = [
   'If the question is multiple choice, separately fill in why_others_wrong: go through every other option individually and explain in full, logical detail exactly why each one is incorrect (the specific mistake, miscalculation, or broken rule it represents), with the same rigor as the correct-answer explanation. If the question is not multiple choice, leave why_others_wrong as an empty string.',
 ].join(' ');
 
+// Free OpenRouter models don't reliably honor strict json_schema mode the
+// way Claude does, so the shape is spelled out in the prompt itself and
+// requested via the looser (but widely supported) json_object mode, then
+// validated defensively on the way back out.
+const OPENROUTER_JSON_INSTRUCTIONS = [
+  'Return ONLY a JSON object (no markdown fences, no commentary) with exactly these keys:',
+  '"title" (string), "question_text" (string), "pattern_analysis" (string), "answer" (string), "explanation" (string), "why_others_wrong" (string).',
+].join(' ');
+
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
     status,
@@ -100,8 +112,33 @@ function jsonResponse(status, body) {
   });
 }
 
+// Normalizes either provider's output into the shape the rest of the
+// handler expects, defaulting any missing/malformed field to ''.
+function normalizeParsed(parsed) {
+  return {
+    title: typeof parsed?.title === 'string' ? parsed.title : '',
+    question_text: typeof parsed?.question_text === 'string' ? parsed.question_text : '',
+    answer: typeof parsed?.answer === 'string' ? parsed.answer : '',
+    explanation: typeof parsed?.explanation === 'string' ? parsed.explanation : '',
+    why_others_wrong: typeof parsed?.why_others_wrong === 'string' ? parsed.why_others_wrong : '',
+  };
+}
+
+// The essential fields a usable response must have — anything less isn't
+// worth trusting, and the caller should fall back to the other provider.
+function isUsableParsed(parsed) {
+  return typeof parsed?.answer === 'string' && typeof parsed?.question_text === 'string';
+}
+
+// Free models occasionally wrap JSON in markdown fences despite
+// instructions not to — strip those before parsing.
+function extractJson(text) {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+  return JSON.parse(fenced ? fenced[1] : text);
+}
+
 async function callClaude(image, mediaType) {
-  return client.messages.create({
+  const response = await client.messages.create({
     model: 'claude-opus-4-8',
     max_tokens: 2000,
     thinking: { type: 'adaptive' },
@@ -126,6 +163,78 @@ async function callClaude(image, mediaType) {
       },
     ],
   });
+
+  if (response.stop_reason === 'refusal') {
+    throw Object.assign(new Error('Claude declined to answer this request.'), { status: 422 });
+  }
+
+  const textBlock = response.content.find((block) => block.type === 'text');
+  if (!textBlock) {
+    throw Object.assign(new Error('No text content in Claude response.'), { status: 502 });
+  }
+
+  return normalizeParsed(JSON.parse(textBlock.text));
+}
+
+// Tries the configured OpenRouter model (typically a free one) first, to
+// save Anthropic spend. Returns null on any failure — missing config,
+// network error, non-2xx, unparseable/unusable output — so the caller can
+// fall back to Claude without this ever throwing.
+async function callOpenRouter(image, mediaType) {
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  const model = process.env.OPENROUTER_MODEL;
+  if (!apiKey || !model) return null;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), OPENROUTER_TIMEOUT_MS);
+
+  try {
+    const res = await fetch(OPENROUTER_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://camboapp.com',
+        'X-Title': 'Cambo',
+      },
+      body: JSON.stringify({
+        model,
+        response_format: { type: 'json_object' },
+        messages: [
+          {
+            role: 'user',
+            content: [
+              { type: 'text', text: `${PROMPT} ${OPENROUTER_JSON_INSTRUCTIONS}` },
+              {
+                type: 'image_url',
+                image_url: { url: `data:${mediaType || 'image/jpeg'};base64,${image}` },
+              },
+            ],
+          },
+        ],
+      }),
+      signal: controller.signal,
+    });
+
+    if (!res.ok) {
+      console.error('callOpenRouter non-OK response:', res.status, await res.text().catch(() => ''));
+      return null;
+    }
+
+    const data = await res.json();
+    const text = data?.choices?.[0]?.message?.content;
+    if (!text) return null;
+
+    const parsed = extractJson(text);
+    if (!isUsableParsed(parsed)) return null;
+
+    return normalizeParsed(parsed);
+  } catch (err) {
+    console.error('callOpenRouter failed, falling back to Claude:', err?.message || err);
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export default async (request) => {
@@ -167,35 +276,26 @@ export default async (request) => {
   }
 
   try {
-    let response;
-    try {
-      response = await callClaude(image, mediaType);
-    } catch (err) {
-      // 401s aren't normally worth retrying, but a key that's momentarily
-      // unavailable right after a deploy/env-var change looks identical to
-      // a bad key — one quick retry tells them apart cheaply.
-      if (err?.status === 401) {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        response = await callClaude(image, mediaType);
-      } else {
-        throw err;
+    // Try the configured OpenRouter model (typically free) first to save
+    // Anthropic spend — it returns null on any failure rather than
+    // throwing, so a bad/unconfigured/unavailable free model always falls
+    // through to Claude rather than breaking the capture.
+    let parsed = await callOpenRouter(image, mediaType);
+
+    if (!parsed) {
+      try {
+        parsed = await callClaude(image, mediaType);
+      } catch (err) {
+        // 401s aren't normally worth retrying, but a key that's momentarily
+        // unavailable right after a deploy/env-var change looks identical to
+        // a bad key — one quick retry tells them apart cheaply.
+        if (err?.status === 401) {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          parsed = await callClaude(image, mediaType);
+        } else {
+          throw err;
+        }
       }
-    }
-
-    if (response.stop_reason === 'refusal') {
-      return jsonResponse(422, { error: 'Claude declined to answer this request.' });
-    }
-
-    const textBlock = response.content.find((block) => block.type === 'text');
-    if (!textBlock) {
-      return jsonResponse(502, { error: 'No text content in Claude response.' });
-    }
-
-    let parsed;
-    try {
-      parsed = JSON.parse(textBlock.text);
-    } catch {
-      return jsonResponse(502, { error: 'Could not parse structured response from Claude.' });
     }
 
     const answer = parsed.answer ?? '';

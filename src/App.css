@@ -2399,7 +2399,10 @@ td.admin-question-cell {
     bottom: auto;
     width: 100%;
     height: auto;
-    padding: 14px 20px;
+    /* Full-screen PWA mode (viewport-fit=cover) extends content under the
+       notch/status bar — without this, the OS status bar draws directly
+       over the Log in / Sign up buttons here, blocking taps. */
+    padding: calc(14px + env(safe-area-inset-top)) 20px 14px;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }

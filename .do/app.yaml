@@ -9,11 +9,7 @@ services:
   - name: web
     github:
       repo: savankong/tutoring
-      # This repo has no `main` — set to whichever branch you designate as
-      # production before pointing App Platform's auto-deploy at it (at
-      # migration time that's `claude/tutor-camera-app-setup-u6xbvg`, the
-      # branch CLAUDE.md documents as pushed/up to date with prod).
-      branch: claude/tutor-camera-app-setup-u6xbvg
+      branch: main
       deploy_on_push: true
     build_command: npm ci && npm run build
     run_command: npm start

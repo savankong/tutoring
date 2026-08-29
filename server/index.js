@@ -11,11 +11,38 @@ import express from 'express';
 import { readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { getDatabase } from '../netlify/lib/db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FUNCTIONS_DIR = path.join(__dirname, '..', 'netlify', 'functions');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 const PORT = process.env.PORT || 8080;
+
+// Every DB-backed route (register/login/Google OAuth/captures/admin/billing)
+// throws inside its handler when the pool can't be created or a query fails,
+// and that throw is caught below and flattened to the same generic 500 the
+// browser sees either way — so a bad DATABASE_URL (unset, wrong credentials,
+// unreachable due to the DO Managed PostgreSQL cluster's trusted-sources
+// firewall, or migrations never applied) is otherwise invisible until a real
+// user hits register/login and reports "Internal server error" with no other
+// clue. Ping the DB once at boot so the real cause is the first thing in
+// `doctl apps logs` instead of something to guess at later.
+async function checkDatabaseConnection() {
+  try {
+    await getDatabase().sql`SELECT 1`;
+    console.log('Database connection OK.');
+  } catch (err) {
+    console.error(
+      'Database connection check FAILED at startup. Every DB-backed route ' +
+        '(register, login, Google OAuth, captures, admin, billing) will ' +
+        'return 500 Internal Server Error until this is fixed. Check that ' +
+        'DATABASE_URL is set correctly, that the DO Managed PostgreSQL ' +
+        "cluster's trusted sources include this app, and that `npm run " +
+        'migrate` has been run against it:',
+      err,
+    );
+  }
+}
 
 async function loadHandlers() {
   const handlers = new Map();
@@ -67,6 +94,7 @@ async function sendWebResponse(res, response) {
 
 async function main() {
   const handlers = await loadHandlers();
+  await checkDatabaseConnection();
 
   const app = express();
   // App Platform terminates TLS and proxies over HTTP internally; trust its

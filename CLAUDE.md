@@ -8,7 +8,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 
 ## Repo & branch
 
-- GitHub: `github.com/savankong/tutoring` — Working branch: `claude/tutor-camera-app-setup-u6xbvg`. This branch is pushed and up to date with prod as of 2026-07-26 (handoff point — see "Docs & handoff" below).
+- GitHub: `github.com/savankong/tutoring` — `main` is the canonical branch as of 2026-08-29; all work funnels into it and `.do/app.yaml`'s `branch:` points at it. Point App Platform's GitHub source at `main` in the DO dashboard if it's still tracking an old `claude/*` branch from before this existed.
 - **Never push to the remote or open a PR unless explicitly asked.** Commits stay local by default; only push when the user explicitly requests it (e.g. for a handoff to another session/account).
 
 ## Hosting (DigitalOcean App Platform)
@@ -24,6 +24,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - Env var changes: set in the DO dashboard (App → Settings → App-Level Environment Variables) as `SECRET` type, matching the names in `.do/app.yaml`; redeploy for changes to take effect.
 - View logs: `doctl apps logs <app-id> --type run --follow`.
 - `netlify.toml` and `netlify/database/` are left in place for now (inert once nothing points at them) — remove them in a follow-up cleanup once DO has run stable in production for a while.
+- **Troubleshooting "Internal server error" on register/login/Google sign-in**: confirmed live on 2026-08-29 that `https://camboapp.com/api/register` and `/api/login` both 500 with exactly `{"error":"Internal server error"}` while `/` still serves fine — this is `server/index.js`'s generic catch-all around every `/api/*` handler, and every DB-backed route (register, login, Google OAuth, captures, admin, billing) throws through it the same way whenever `netlify/lib/db.js`'s `getPool()` can't reach Postgres. Reproduced exactly locally by omitting `DATABASE_URL`. Root cause is DB connectivity, not the handler code (register/login/google-oauth-callback all verified correct against a real local Postgres). Check, in order: (1) `DATABASE_URL` is actually set in the DO dashboard's App-Level Environment Variables — `.do/app.yaml` only declares the key, the value is never committed and must be pasted in manually; (2) the DO Managed PostgreSQL cluster's "Trusted Sources" allows this app component; (3) `npm run migrate` has been run against that cluster's `DATABASE_URL` (DO doesn't auto-apply migrations). `server/index.js` now pings the DB once at boot and logs a loud, specific error to `doctl apps logs` if any of this is wrong, instead of only surfacing on a user's first login attempt.
 
 ## Stack
 
@@ -98,13 +99,3 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 ## Verification patterns that work here
 
 - Local Postgres for a real DB round-trip: `service postgresql start` (or point `DATABASE_URL` at a scratch DO/Neon database), `npm run migrate`, then drive `node server/index.js` directly with `curl`/browser automation against `/api/*` — no more "no direct DB access," this environment can run the real schema locally.
-- Camera-dependent UI in a sandboxed browser: monkey-patch `navigator.mediaDevices.getUserMedia` to return a `canvas.captureStream(fps)` synthetic feed. Drives the real app code path, including real Claude calls, with no physical camera.
-- Billing-sensitive changes: seed test data + isolated Stripe **test-mode** API calls. Never complete a real Checkout with a real card for testing — creating live Stripe Products/Prices or completing a real payment needs explicit confirmation of the exact numbers first, every time.
-- Run `node --check` on every modified file under `netlify/functions/`, `netlify/lib/`, and `server/` before deploying — a syntax error here has broken a deploy before.
-- For UI changes, actually drive the feature in the Browser pane (not just build/lint) before calling it done.
-
-## House rules
-
-- **Deploying now means pushing to the remote** (App Platform deploys on push — see "Hosting" above), which is different from the old Netlify-CLI workflow where a local `netlify deploy --prod` could ship a build without touching git. So confirm with the user before a deploy-triggering push, same as any other remote push/PR — this supersedes the old "deploys are automatic" framing. Still verify everything locally first (build passes, `node --check` on modified functions/server files, UI driven in the Browser pane where applicable) so the push you do make is a good one. Creating/editing live Stripe Products or Prices still needs explicit confirmation of exact numbers every time.
-- Never enter real payment/financial credentials anywhere, and never complete a real money transaction.
-- When something is ambiguous or costly to get wrong (pricing, tier structure, copy), ask before building. If there's no immediate answer, state the assumption clearly and proceed rather than blocking.

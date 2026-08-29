@@ -32,7 +32,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - Backend: Node ESM handlers in `netlify/functions/` (still Web Fetch API `Request`/`Response` shape), served by a single Express server (`server/index.js`) on DO App Platform; shared logic in `netlify/lib/`
 - Database: DO Managed PostgreSQL via `pg` (`netlify/lib/db.js`); migrations in `netlify/database/migrations/<timestamp>_<name>/migration.sql`, applied with `npm run migrate`
 - Auth: email/password (gated behind email verification — see below) + Google OAuth (OAuth client reused from warroomusa.com, exempt from verification since Google already verified that email)
-- AI: `netlify/functions/analyze-question.js` tries a pool of 4 free-tier OpenRouter accounts first (see "Question analysis model routing" below), falling back to the Anthropic SDK (`claude-opus-4-8`, structured JSON-schema output) only if every free slot fails
+- AI: `netlify/functions/analyze-question.js` calls the Anthropic SDK directly (`claude-opus-4-8`, structured JSON-schema output) — see "Question analysis model routing" below for why the earlier free-tier OpenRouter pool was dropped
 - Payments: Stripe, live mode
 - Transactional email: Resend (see "Email (Resend)" below)
 - Marketing/support forms: backend endpoint + Resend (see "Forms" below)
@@ -90,20 +90,13 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 
 ## Question analysis model routing
 
-`analyze-question.js`'s `OPENROUTER_POOL` (in-code, not env-configurable) tries 4 free-tier OpenRouter accounts in order before falling back to Claude — each slot's model is hardcoded rather than left to an env var, because most free OpenRouter models are text-only and can't see the photo at all, and two that look vision-capable on paper (`thinkingmachines/inkling:free`, `inkling-small:free`) actually 403 on a real call ("only available on agentic harnesses") despite advertising image input in the catalog. Verified end-to-end (real photo in, correctly-parsed JSON answer out) as of 2026-08-29:
-
-- `OPENROUTER_API_KEY` → `dots-studio/dots-3-note-preview:free`
-- `OPENROUTER_API_KEY_2` → `minimax/minimax-m3:free`
-- `OPENROUTER_API_KEY_3` → `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`
-- `OPENROUTER_API_KEY_4` → `google/gemma-4-26b-a4b-it:free` (kept despite currently 429-ing on Google's shared free-tier pool upstream — transient, provider-side, and a failed slot costs nothing beyond one skipped attempt)
-
-Each slot is meant to be a **separate OpenRouter account's key** (not 4 keys on one account) — the point is pooling 4 accounts' daily free quotas, not routing to 4 different models per se. If you regenerate/rotate any of these keys, no code change is needed, just update the matching env var. If OpenRouter's free-tier catalog changes (new model, one of these stops working), re-verify directly against `https://openrouter.ai/api/v1/models` (check `architecture.input_modalities` includes `"image"`) AND with a real end-to-end call — catalog metadata alone isn't sufficient, as the inkling 403s above show.
+`analyze-question.js` calls Claude (`claude-opus-4-8`, structured JSON-schema output) directly for every capture — no fallback pool. **As of 2026-08-29 this replaced an earlier pool of 4 free-tier OpenRouter accounts** tried in order before falling back to Claude: the free slots proved unreliable in production (timeouts, 429s on shared free-tier quota, unparseable output) enough that the fallback was triggering on nearly every capture, so the pooling was dropped in favor of calling Claude every time. `OPENROUTER_API_KEY`/`_2`/`_3`/`_4` are no longer read anywhere in the codebase — safe to remove from the DO dashboard whenever convenient, not required for anything.
 
 ## Required env vars (DO App Platform dashboard — names only, never commit or print actual values)
 
-`DATABASE_URL` (DO Managed PostgreSQL connection string — new as of the DO migration; Netlify DB used to inject this implicitly via `@netlify/database`, DO doesn't), `JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification + form-submission emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records — see "Email (Resend)" above), `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`/`_2`/`_3`/`_4` (see "Question analysis model routing" above). See `.do/app.yaml` for the exact list wired into the App Platform spec, and `.env.example` for local dev.
+`DATABASE_URL` (DO Managed PostgreSQL connection string — new as of the DO migration; Netlify DB used to inject this implicitly via `@netlify/database`, DO doesn't), `JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification + form-submission emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records — see "Email (Resend)" above), `ANTHROPIC_API_KEY`. See `.do/app.yaml` for the exact list wired into the App Platform spec, and `.env.example` for local dev.
 
-**`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). Only called once all 4 free OpenRouter slots have been tried and failed — still required, as the last-resort fallback that keeps a capture from failing outright when every free slot is down or unconfigured.
+**`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). Called on every capture — required, since there's no fallback if it's missing or invalid.
 
 **`APP_SESSION_SECRET`** — confirmed dead/unused as of 2026-07-29 (`grep -rn "APP_SESSION_SECRET" netlify/ src/` returns zero hits); not required, not carried into `.do/app.yaml`.
 

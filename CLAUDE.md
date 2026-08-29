@@ -37,9 +37,10 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - Transactional email: Resend (see "Email (Resend)" below)
 - Marketing/support forms: backend endpoint + Resend (see "Forms" below)
 
-## Design system (redesigned to match a Claude Design mockup export)
+## Design system
 
-- Single dark theme, no light/dark toggle — tokens in `src/index.css` `:root`. Key values: `--bg` `#111208`, `--card-bg` `#161810`, `--card-bg-2` `#1B1D12`, `--text-h` `#F5F1E4`, `--accent` (lime) `#D7FF3F`, `--accent2` (orange) `#FF5B35`. Font: Nunito (Google Fonts link in `index.html`).
+- **Rebranded to a conservative blue/grey palette on white as of 2026-08-29** (was a dark lime/orange theme matching a Claude Design mockup export — see git history before this date for those values). Single light theme, no light/dark toggle — tokens in `src/index.css` `:root`. Key values: `--bg` `#FFFFFF`, `--card-bg` `#F5F7FA`, `--card-bg-2` `#EEF1F6`, `--text-h` `#16213A`, `--accent` (blue) `#2F5ED6`, `--accent2` (slate) `#64748B`. No box-shadows anywhere in the design (`--shadow` token removed, every decorative `box-shadow` set to `none`) — the only surviving `box-shadow` in `App.css` is the functional dim-outside-crop-rect trick on `.crop-rect`, which isn't a visual drop shadow. Font: Nunito (Google Fonts link in `index.html`).
+- The camera-scan screen (`.App.camera-mode` in `App.css`) and the hero/landing-page phone mockups' simulated "captured quiz screen" content stay intentionally dark, independent of the site's light theme — they're meant to look like a real device camera viewfinder / a photographed third-party quiz app, not Cambo's own UI chrome. Don't try to reskin these to match the light palette.
 - Shared `Sidebar` (`src/components/Sidebar.jsx`): fixed 248px desktop left nav, collapses to a horizontal top bar on mobile via CSS only (no JS). Used by Landing, Pricing, and all 24 SEO campaign pages (via `LpHeader.jsx`). Auth-aware through an optional `user` prop — hydrated pages pass `useAuthContext().user`; the static campaign pages omit it and always render logged-out (no auth context there).
 - Decorative rotated "shape" motif (solid-fill + outlined rounded squares in accent/accent2) sits behind the hero phone mockup and the footer CTA — see `.hero-shape*` / `.footer-cta-shape*` in `App.css`. Don't drop a solid-fill version of this behind body copy — it tanked text contrast once (the how-section steps list) and had to be walked back to icon-badges/removed.
 - Why-cards use inline SVG icon badges (bolt/phone/target/keyboard/dollar), not an icon font or emoji — see `WHY_ICON_PATHS` in `Landing.jsx`. Emoji/icon-font glyphs are not guaranteed to render across environments; inline SVG is the safe default here.
@@ -71,7 +72,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 
 | Plan | Price | Cap | Grace buffer | Beyond cap+grace |
 |---|---|---|---|---|
-| Free | $0 forever, no card | 20 captures/mo | — | hard block |
+| Free | $0 forever, no card | 5 captures/mo | — | hard block |
 | Starter | $4.99/mo (`STRIPE_PRICE_STARTER`) | 45/mo | 5 | draw down credits, then block |
 | Personal | $9.99/mo (`STRIPE_PRICE_PERSONAL`) | 90/mo | 10 | draw down credits, then block |
 | Pro | $19.99/mo (`STRIPE_PRICE_PRO`) | 180/mo | 20 | draw down credits, then block |

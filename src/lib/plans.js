@@ -8,7 +8,7 @@ export const PLANS = [
     price: '$0',
     period: 'forever',
     tagline: 'Try it out, no card required',
-    features: ['20 captures a month', 'Photo capture + AI answers', 'Answer history'],
+    features: ['5 captures a month', 'Photo capture + AI answers', 'Answer history'],
     cta: 'Start for free',
   },
   {

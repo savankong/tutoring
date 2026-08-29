@@ -50,7 +50,7 @@ function Pricing() {
     <div className="landing">
       <Seo
         title="Pricing — Cambo App"
-        description="Free forever up to 20 captures a month. Paid plans from $4.99/mo for daily tutoring use. Cancel anytime, no contract."
+        description="Free forever up to 5 captures a month. Paid plans from $4.99/mo for daily tutoring use. Cancel anytime, no contract."
         path="/pricing"
       />
       <Sidebar navItems={NAV_ITEMS} user={user} />

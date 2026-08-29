@@ -1,34 +1,30 @@
 :root {
-  /* New brand palette — dark, warm, high-contrast lime/orange on near-black.
-     Single theme by design (matches the mockup, no light-mode variant), so
-     unlike before there's no prefers-color-scheme branch here. */
-  --text: #b7b8a4;
-  --text-h: #f5f1e4;
-  --label: #6e6f5e;
-  --text-faint: #c7c8b5;
-  --bg: #111208;
-  --bg-gradient: #111208;
-  --card-bg: #161810;
-  --card-bg-2: #1b1d12;
-  --border: rgba(245, 241, 228, 0.1);
-  --border-soft: rgba(245, 241, 228, 0.06);
-  --code-bg: #1b1d12;
-  --accent: #d7ff3f;
-  --accent-contrast: #111208;
-  --accent-bg: rgba(215, 255, 63, 0.12);
-  --accent-border: rgba(215, 255, 63, 0.3);
-  --accent2: #ff5b35;
-  --accent2-bg: rgba(255, 91, 53, 0.15);
-  --social-bg: rgba(22, 24, 16, 0.6);
+  /* Conservative brand palette — blue/grey on white. Single theme by
+     design (no light-mode variant needed since this already is one), so
+     there's no prefers-color-scheme branch here. */
+  --text: #45526b;
+  --text-h: #16213a;
+  --label: #6b7890;
+  --text-faint: #5a6982;
+  --bg: #ffffff;
+  --bg-gradient: #ffffff;
+  --card-bg: #f5f7fa;
+  --card-bg-2: #eef1f6;
+  --border: rgba(22, 33, 58, 0.12);
+  --border-soft: rgba(22, 33, 58, 0.07);
+  --code-bg: #eef1f6;
+  --accent: #2f5ed6;
+  --accent-contrast: #ffffff;
+  --accent-bg: rgba(47, 94, 214, 0.08);
+  --accent-border: rgba(47, 94, 214, 0.3);
+  --accent2: #64748b;
+  --accent2-bg: rgba(100, 116, 139, 0.12);
+  --social-bg: rgba(238, 241, 246, 0.85);
 
-  /* Primary CTA — the lime accent doubles as the CTA color in this design
-     (previously a separate orange from the logo dot; the logo dot orange
-     now lives on as --accent2, used as a secondary/decorative accent). */
-  --cta: #d7ff3f;
-  --cta-hover: #c2e832;
-  --cta-contrast: #111208;
-  --shadow:
-    rgba(0, 0, 0, 0.45) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
+  /* Primary CTA uses the same blue as the main accent. */
+  --cta: #2f5ed6;
+  --cta-hover: #2549ab;
+  --cta-contrast: #ffffff;
 
   --sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --heading: var(--sans);
@@ -36,7 +32,7 @@
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg-gradient) var(--bg);
   font-synthesis: none;

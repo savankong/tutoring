@@ -5,7 +5,6 @@ import Logo from '../components/Logo.jsx';
 import { submitForm } from '../lib/submitForm.js';
 import { PLANS, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
 
-const UPGRADE_PLANS = PLANS.filter((p) => p.key === 'starter' || p.key === 'personal' || p.key === 'pro');
 const PACK_PRICE = CREDIT_PACK_PRICE_CENTS / 100;
 const SHORT_DATE = { month: 'short', day: 'numeric' };
 const LONG_DATE = { month: 'long', day: 'numeric', year: 'numeric' };
@@ -47,25 +46,6 @@ function Account() {
   const usageSectionRef = useRef(null);
   const creditsSectionRef = useRef(null);
   const scrollToSection = (ref) => ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const startCheckout = async (planKey) => {
-    setError('');
-    setBusyKey(planKey);
-    try {
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ plan: planKey }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
-      window.location.href = data.url;
-    } catch (err) {
-      setError(err.message);
-      setBusyKey(null);
-    }
-  };
 
   const openPortal = async () => {
     setError('');
@@ -231,7 +211,7 @@ function Account() {
 
       <div className="billing-summary-card">
         <div className="billing-summary-title">
-          Usage &amp; billing for {user.email}
+          Usage &amp; billing
           <span className="billing-plan-badge">{user.plan_name}</span>
         </div>
         <div className="billing-summary-sub">
@@ -380,25 +360,9 @@ function Account() {
       )}
 
       {!isActive && (
-        <>
-          <div className="account-upgrade-grid">
-            {UPGRADE_PLANS.map((plan) => (
-              <div className="account-upgrade-card" key={plan.key}>
-                <div className="account-upgrade-name">{plan.name}</div>
-                <div className="account-upgrade-price">
-                  {plan.price}
-                  <span>{plan.period}</span>
-                </div>
-                <button disabled={busyKey === plan.key} onClick={() => startCheckout(plan.key)}>
-                  {busyKey === plan.key ? 'Loading…' : `Upgrade to ${plan.name}`}
-                </button>
-              </div>
-            ))}
-          </div>
-          <p className="account-cancel-note">
-            <Link to="/pricing">See the full plan comparison</Link>
-          </p>
-        </>
+        <p className="account-cancel-note">
+          <Link to="/pricing">See the full plan comparison</Link>
+        </p>
       )}
 
       <div className="account-card">
@@ -420,7 +384,7 @@ function Account() {
 
       <div className="account-card">
         <div className="account-card-title">Need help?</div>
-        <div className="account-card-sub">Send us a message and we'll get back to you at {user.email}.</div>
+        <div className="account-card-sub">Send us a message and we'll get back to you.</div>
         {helpSent ? (
           <p className="usage-note">Message sent — thanks, we'll be in touch.</p>
         ) : (

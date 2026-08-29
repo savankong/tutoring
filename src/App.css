@@ -71,55 +71,10 @@
   margin: 0 0 20px;
 }
 
-.account-upgrade-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 18px 0;
-}
-
-.account-upgrade-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--card-bg);
-  padding: 16px;
-}
-
-.account-upgrade-name {
-  font-weight: 700;
-  color: var(--text-h);
-}
-
-.account-upgrade-price {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-h);
-}
-
-.account-upgrade-price span {
-  margin-left: 4px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.account-upgrade-card button {
-  margin-top: auto;
-}
-
 .account-cancel-note {
   margin-top: 10px;
   font-size: 13px;
   color: var(--text);
-}
-
-@media (max-width: 480px) {
-  .account-upgrade-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Usage & billing summary — mobile-first: stat tiles stack in a single
@@ -164,22 +119,24 @@
 
 .billing-stat-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   margin: 14px 0 12px;
 }
 
 .billing-stat-tile {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   text-align: left;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--accent-bg);
   padding: 12px 14px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .billing-stat-label {
@@ -188,6 +145,7 @@
   gap: 5px;
   font-size: 12.5px;
   color: var(--text);
+  white-space: nowrap;
 }
 
 .billing-stat-arrow {
@@ -397,7 +355,7 @@
   border-radius: 16px;
   background: var(--card-bg);
   padding: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .modal-card h3 {
@@ -531,7 +489,7 @@ button {
   color: var(--cta-contrast);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: 0 8px 24px -8px rgba(229, 67, 44, 0.45);
+  box-shadow: none;
 }
 
 button:active {
@@ -907,7 +865,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #fff;
   border: 4px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -923,7 +881,7 @@ a:focus-visible {
   height: 46px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -964,7 +922,7 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   padding: 16px 24px;
-  background: rgba(17, 18, 8, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -1004,7 +962,7 @@ a:focus-visible {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px 24px 24px;
-  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .auth-card-logo {
@@ -1110,7 +1068,7 @@ a:focus-visible {
   border-radius: 16px;
   padding: 6px;
   box-sizing: border-box;
-  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
 }
 
 .admin-table {
@@ -1321,7 +1279,7 @@ td.admin-question-cell {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px;
-  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
 }
 
 .history-title {
@@ -1459,7 +1417,7 @@ td.admin-question-cell {
   font-weight: 600;
   text-decoration: none;
   line-height: 1;
-  box-shadow: 0 8px 24px -8px rgba(229, 67, 44, 0.45);
+  box-shadow: none;
 }
 
 .pill-button-sm {
@@ -1589,7 +1547,7 @@ td.admin-question-cell {
   font-size: 16px;
   color: var(--text-h);
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 .mockup-nav-arrow-prev {
@@ -1609,7 +1567,7 @@ td.admin-question-cell {
   background: var(--bg);
   border: 8px solid var(--card-bg-2);
   padding: 0;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   box-sizing: border-box;
 }
 
@@ -1783,7 +1741,7 @@ td.admin-question-cell {
   height: 22px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #ff6b5e, #d81f0f 70%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .mockup-dots-row {
@@ -1965,7 +1923,7 @@ td.admin-question-cell {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 30px 26px;
-  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
 }
 
 .why-icon-badge {
@@ -2023,7 +1981,7 @@ td.admin-question-cell {
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 48px 44px;
-  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .pricing-card-glow {
@@ -2179,7 +2137,7 @@ td.admin-question-cell {
 
 .tier-card-featured {
   border-color: var(--accent);
-  box-shadow: 0 20px 50px -25px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
 }
 
 .tier-badge {

@@ -15,11 +15,11 @@ export const PLANS = {
     priceLabel: '$0',
     periodLabel: 'forever',
     tagline: 'Try it out, no card required',
-    captureCap: 20,
+    captureCap: 5,
     graceBuffer: 0,
     creditsAllowed: false,
     priceEnvVar: null,
-    features: ['20 captures a month', 'Photo capture + AI answers', 'Answer history'],
+    features: ['5 captures a month', 'Photo capture + AI answers', 'Answer history'],
   },
   starter: {
     key: 'starter',

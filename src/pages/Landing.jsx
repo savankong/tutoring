@@ -393,7 +393,7 @@ function Landing() {
           <div className="pricing-features">
             <div className="pricing-feature">
               <span className="pricing-feature-check">✓</span>
-              Free tier: 20 captures a month
+              Free tier: 5 captures a month
             </div>
             <div className="pricing-feature">
               <span className="pricing-feature-check">✓</span>

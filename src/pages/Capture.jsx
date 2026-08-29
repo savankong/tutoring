@@ -170,7 +170,7 @@ function Capture() {
     setOcrPending(true);
     const base64 = dataUrl.split(',')[1];
 
-    fetch('/.netlify/functions/analyze-question', {
+    fetch('/api/analyze-question', {
       method: 'POST',
       credentials: 'include',
       headers: { 'content-type': 'application/json' },

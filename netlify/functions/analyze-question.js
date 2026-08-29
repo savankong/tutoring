@@ -1,5 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { requireUser } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';

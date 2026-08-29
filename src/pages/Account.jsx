@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
-import { submitNetlifyForm } from '../lib/netlifyForms.js';
+import { submitForm } from '../lib/submitForm.js';
 import { PLANS, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
 
 const UPGRADE_PLANS = PLANS.filter((p) => p.key === 'starter' || p.key === 'personal' || p.key === 'pro');
@@ -52,7 +52,7 @@ function Account() {
     setError('');
     setBusyKey(planKey);
     try {
-      const res = await fetch('/.netlify/functions/create-checkout-session', {
+      const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -71,7 +71,7 @@ function Account() {
     setError('');
     setBusyKey('portal');
     try {
-      const res = await fetch('/.netlify/functions/create-portal-session', {
+      const res = await fetch('/api/create-portal-session', {
         method: 'POST',
         credentials: 'include',
       });
@@ -88,7 +88,7 @@ function Account() {
     setError('');
     setPurchasing(true);
     try {
-      const res = await fetch('/.netlify/functions/create-credit-checkout-session', {
+      const res = await fetch('/api/create-credit-checkout-session', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -107,7 +107,7 @@ function Account() {
     setError('');
     setSavingPrivacy(true);
     try {
-      const res = await fetch('/.netlify/functions/update-account-settings', {
+      const res = await fetch('/api/update-account-settings', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -127,7 +127,7 @@ function Account() {
     setError('');
     setResendingVerification(true);
     try {
-      const res = await fetch('/.netlify/functions/resend-verification', {
+      const res = await fetch('/api/resend-verification', {
         method: 'POST',
         credentials: 'include',
       });
@@ -146,7 +146,7 @@ function Account() {
     setHelpError('');
     setSubmittingHelp(true);
     try {
-      await submitNetlifyForm('help', { email: user.email, subject: helpSubject, message: helpMessage });
+      await submitForm('help', { email: user.email, subject: helpSubject, message: helpMessage });
       setHelpSent(true);
     } catch (err) {
       setHelpError(err.message);
@@ -156,7 +156,7 @@ function Account() {
   };
 
   const logout = async () => {
-    await fetch('/.netlify/functions/logout', { method: 'POST', credentials: 'include' });
+    await fetch('/api/logout', { method: 'POST', credentials: 'include' });
     await refresh();
     navigate('/');
   };

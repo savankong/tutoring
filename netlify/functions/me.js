@@ -1,4 +1,4 @@
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { requireUser, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';

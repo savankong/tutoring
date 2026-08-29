@@ -29,7 +29,7 @@ function History() {
   const [toDate, setToDate] = useState('');
 
   useEffect(() => {
-    fetch('/.netlify/functions/history', { credentials: 'include' })
+    fetch('/api/history', { credentials: 'include' })
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Could not load history.');

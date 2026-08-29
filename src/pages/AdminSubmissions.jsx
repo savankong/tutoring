@@ -49,7 +49,7 @@ function AdminSubmissions() {
   const [createError, setCreateError] = useState('');
 
   const loadCaptures = () => {
-    fetch('/.netlify/functions/admin-list-captures', { credentials: 'include' })
+    fetch('/api/admin-list-captures', { credentials: 'include' })
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Could not load submissions.');
@@ -123,7 +123,7 @@ function AdminSubmissions() {
     setError('');
     setBusyId(id);
     try {
-      const res = await fetch('/.netlify/functions/admin-update-capture', {
+      const res = await fetch('/api/admin-update-capture', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -146,7 +146,7 @@ function AdminSubmissions() {
     setError('');
     setBusyId(id);
     try {
-      const res = await fetch('/.netlify/functions/admin-delete-capture', {
+      const res = await fetch('/api/admin-delete-capture', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -174,7 +174,7 @@ function AdminSubmissions() {
     }
     setBusyId('new');
     try {
-      const res = await fetch('/.netlify/functions/admin-create-capture', {
+      const res = await fetch('/api/admin-create-capture', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },

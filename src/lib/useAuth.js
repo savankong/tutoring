@@ -6,7 +6,7 @@ export function useAuth() {
 
   const refresh = useCallback(async () => {
     try {
-      const res = await fetch('/.netlify/functions/me', { credentials: 'include' });
+      const res = await fetch('/api/me', { credentials: 'include' });
       if (res.ok) {
         setUser(await res.json());
       } else {

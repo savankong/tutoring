@@ -31,7 +31,7 @@ function Pricing() {
     setError('');
     setBusyKey(planKey);
     try {
-      const res = await fetch('/.netlify/functions/create-checkout-session', {
+      const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },

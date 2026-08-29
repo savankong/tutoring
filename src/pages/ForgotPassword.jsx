@@ -15,7 +15,7 @@ function ForgotPassword() {
     setError('');
     setSubmitting(true);
     try {
-      const res = await fetch('/.netlify/functions/forgot-password', {
+      const res = await fetch('/api/forgot-password', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ email }),

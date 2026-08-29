@@ -9,7 +9,7 @@ function AdminQuestions() {
   const [busyQuestionId, setBusyQuestionId] = useState(null);
 
   const loadQuestions = () => {
-    fetch('/.netlify/functions/admin-list-public-questions', { credentials: 'include' })
+    fetch('/api/admin-list-public-questions', { credentials: 'include' })
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Could not load public questions.');
@@ -24,7 +24,7 @@ function AdminQuestions() {
     setQuestionsError('');
     setBusyQuestionId(id);
     try {
-      const res = await fetch('/.netlify/functions/admin-update-public-question', {
+      const res = await fetch('/api/admin-update-public-question', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },

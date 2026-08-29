@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 
 // Catches any URL the client-side router doesn't recognize — chiefly the
 // static SEO landing pages, which only exist as prerendered HTML files, not
-// client routes. If the SPA shell ever loads for one of these (a CDN edge
-// serving a stale/propagating response, a redirect race, etc.), <Routes>
-// would otherwise render nothing. Forcing a real navigation re-requests the
-// exact URL from the network, letting Netlify serve the actual static file.
+// client routes. If the SPA shell ever loads for one of these (a stale
+// response mid-deploy, a redirect race, etc.), <Routes> would otherwise
+// render nothing. Forcing a real navigation re-requests the exact URL from
+// the network, letting the host serve the actual static file.
 // Guarded by a sessionStorage flag so a persistent (non-transient) failure
 // shows a real fallback instead of reloading forever.
 function HardReloadFallback() {

@@ -5,7 +5,7 @@ import PhoneMockup from '../components/PhoneMockup.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
 import ResourcesFooter from '../components/ResourcesFooter.jsx';
-import { submitNetlifyForm } from '../lib/netlifyForms.js';
+import { submitForm } from '../lib/submitForm.js';
 
 const NAV_ITEMS = [
   { label: 'How it works', href: '#how' },
@@ -222,7 +222,7 @@ function Landing() {
     setAskError('');
     setAskSubmitting(true);
     try {
-      await submitNetlifyForm('question', { name: askName, email: askEmail, question: askQuestion });
+      await submitForm('question', { name: askName, email: askEmail, question: askQuestion });
       setAskSent(true);
     } catch (err) {
       setAskError(err.message);

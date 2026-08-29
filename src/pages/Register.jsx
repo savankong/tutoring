@@ -22,15 +22,15 @@ function Register() {
   const plan = PAID_PLAN_KEYS.has(requestedPlan) ? PLANS.find((p) => p.key === requestedPlan) : null;
   const ref = searchParams.get('ref');
   const googleStartUrl = ref
-    ? `/.netlify/functions/google-oauth-start?ref=${encodeURIComponent(ref)}`
-    : '/.netlify/functions/google-oauth-start';
+    ? `/api/google-oauth-start?ref=${encodeURIComponent(ref)}`
+    : '/api/google-oauth-start';
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setSubmitting(true);
     try {
-      const res = await fetch('/.netlify/functions/register', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -41,7 +41,7 @@ function Register() {
       await refresh();
 
       if (plan) {
-        const checkoutRes = await fetch('/.netlify/functions/create-checkout-session', {
+        const checkoutRes = await fetch('/api/create-checkout-session', {
           method: 'POST',
           credentials: 'include',
           headers: { 'content-type': 'application/json' },

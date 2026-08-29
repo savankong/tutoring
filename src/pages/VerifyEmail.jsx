@@ -13,7 +13,7 @@ function VerifyEmail() {
 
   useEffect(() => {
     if (!token) return;
-    fetch('/.netlify/functions/verify-email', {
+    fetch('/api/verify-email', {
       method: 'POST',
       credentials: 'include',
       headers: { 'content-type': 'application/json' },

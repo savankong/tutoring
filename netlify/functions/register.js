@@ -1,4 +1,4 @@
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { generateToken, hashPassword, hashToken, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { sendVerificationEmail } from '../lib/email.js';
 import { sanitizeRef } from '../lib/referral.js';

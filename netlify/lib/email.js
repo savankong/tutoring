@@ -1,6 +1,14 @@
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const FROM_ADDRESS = 'Cambo <noreply@camboapp.com>';
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function ctaButton(url, label) {
   return `<a href="${url}" style="display: inline-block; padding: 10px 20px; background: #111208; color: #d7ff3f; text-decoration: none; border-radius: 8px; font-weight: 600;">${label}</a>`;
 }
@@ -35,6 +43,21 @@ export async function sendPasswordResetEmail(to, resetUrl) {
         <p>This link expires in 1 hour. If you didn't request this, you can safely ignore this email — your password won't change.</p>
       </div>
     `,
+  });
+}
+
+// Replaces Netlify Forms (build-time HTML crawler, no DO equivalent) — the
+// "question" (homepage #ask) and "help" (Account page) forms both submit
+// here via netlify/functions/submit-form.js and land in the same inbox
+// Netlify's form-notification rule used to forward to.
+export async function sendFormSubmission(formName, fields) {
+  const rows = Object.entries(fields)
+    .map(([key, value]) => `<p><strong>${escapeHtml(key)}:</strong> ${escapeHtml(value)}</p>`)
+    .join('');
+  await sendEmail({
+    to: 'camboapp101@gmail.com',
+    subject: `New "${formName}" form submission — Cambo`,
+    html: `<div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto;">${rows}</div>`,
   });
 }
 

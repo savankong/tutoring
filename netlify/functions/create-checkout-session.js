@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { requireUser } from '../lib/auth.js';
 import { PLANS } from '../lib/plans.js';
 

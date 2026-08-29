@@ -20,7 +20,7 @@ function Login() {
     setError('');
     setSubmitting(true);
     try {
-      const res = await fetch('/.netlify/functions/login', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -84,7 +84,7 @@ function Login() {
           <div className="auth-divider">
             <span>or continue with</span>
           </div>
-          <a className="google-button" href="/.netlify/functions/google-oauth-start">
+          <a className="google-button" href="/api/google-oauth-start">
             <GoogleIcon />
             Continue with Google
           </a>

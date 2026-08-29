@@ -27,7 +27,7 @@ function Admin() {
   const [busyId, setBusyId] = useState(null);
 
   const loadUsers = () => {
-    fetch('/.netlify/functions/admin-list-users', { credentials: 'include' })
+    fetch('/api/admin-list-users', { credentials: 'include' })
       .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Could not load users.');
@@ -42,7 +42,7 @@ function Admin() {
     setError('');
     setBusyId(userId);
     try {
-      const res = await fetch('/.netlify/functions/admin-update-user', {
+      const res = await fetch('/api/admin-update-user', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
@@ -63,7 +63,7 @@ function Admin() {
     setError('');
     setBusyId(userId);
     try {
-      const res = await fetch('/.netlify/functions/admin-delete-user', {
+      const res = await fetch('/api/admin-delete-user', {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },

@@ -1,4 +1,4 @@
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import {
   clearedOauthRefCookieHeader,
   clearedOauthStateCookieHeader,
@@ -40,7 +40,7 @@ export default async (request) => {
         client_id: process.env.GOOGLE_CLIENT_ID,
         client_secret: process.env.GOOGLE_CLIENT_SECRET,
         code,
-        redirect_uri: `${origin}/.netlify/functions/google-oauth-callback`,
+        redirect_uri: `${origin}/api/google-oauth-callback`,
         grant_type: 'authorization_code',
       }),
     });

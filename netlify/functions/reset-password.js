@@ -1,4 +1,4 @@
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { hashPassword, hashToken, sessionCookieHeader, signSession } from '../lib/auth.js';
 
 function jsonResponse(status, body, headers = {}) {

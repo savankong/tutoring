@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { getDatabase } from '@netlify/database';
+import { getDatabase } from '../lib/db.js';
 import { planKeyForPriceId } from '../lib/plans.js';
 
 function jsonResponse(status, body) {

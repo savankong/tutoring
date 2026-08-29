@@ -11,36 +11,30 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - GitHub: `github.com/savankong/tutoring` — Working branch: `claude/tutor-camera-app-setup-u6xbvg`. This branch is pushed and up to date with prod as of 2026-07-26 (handoff point — see "Docs & handoff" below).
 - **Never push to the remote or open a PR unless explicitly asked.** Commits stay local by default; only push when the user explicitly requests it (e.g. for a handoff to another session/account).
 
-## Hosting (Netlify)
+## Hosting (DigitalOcean App Platform)
 
-- Site name: `tutor-camera-app`
-- Site ID: `07e69cb1-330d-41bb-8c21-0d5290d2c7ec`
+**Migrated off Netlify starting 2026-08-29** (see git history on `claude/netlify-to-do-migration-vdfapd` for the full change). Netlify Functions became a single Express server (`server/index.js`), Netlify DB (Neon) became DO Managed PostgreSQL, and Netlify Forms became a real backend endpoint (`netlify/functions/submit-form.js`, sent via Resend). The `netlify/functions/*.js` files themselves are unchanged in shape — still `export default async (request) => Response` — just adapted to run under Express instead of Netlify's function runtime; `netlify/lib/db.js` swaps `@netlify/database` for a plain `pg.Pool`-backed tagged-template so every `db.sql\`...\`` call site needed zero changes.
+
+- App Platform app: `<TBD — fill in App ID once created, see Part B of the migration runbook>`
+- DO Managed PostgreSQL cluster: `<TBD — fill in cluster ID once created>`
 - Production URL: `https://camboapp.com`
-- Deploy (after `npm run build`):
-  ```
-  netlify deploy --prod --site 07e69cb1-330d-41bb-8c21-0d5290d2c7ec --dir dist --functions netlify/functions
-  ```
-  Add `--skip-functions-cache` whenever backend function code changed — Netlify can otherwise serve a stale cached function bundle even after a "successful" deploy.
-- **Only `--prod` deploys have database access.** Draft/branch-alias deploys show `database_branch_id: null` in their metadata — fine for pure Stripe API checks, useless for anything touching Postgres (any `getDatabase()` call will fail with an opaque `"error decoding lambda response: unexpected end of JSON input"`).
-- Confirm a migration actually applied:
-  ```
-  netlify api getSiteDeploy --data '{"site_id":"07e69cb1-330d-41bb-8c21-0d5290d2c7ec","deploy_id":"<id>"}' | grep -i database
-  ```
-  Look for `database_migrations.files[].applied: true`.
-- Env var changes need a fresh deploy to take effect (Lambda bundles env at deploy time, not injected live per-request). The Netlify MCP env-var write tool has been unreliable — use the Netlify dashboard UI and get explicit confirmation before deploying.
-- To view function logs: `netlify link --id 07e69cb1-330d-41bb-8c21-0d5290d2c7ec` once, then `netlify logs --source functions --function <name> --since 20m`.
-- **Gotcha:** `netlify link` can report "already linked" to a *completely different* one of the account's sites (seen once: it claimed this dir was linked to `life-between-titles-163`) even with no local `.netlify/state.json`. If that happens: `netlify unlink` then `netlify link --id 07e69cb1-330d-41bb-8c21-0d5290d2c7ec` again. Explicit `--site <id>` flags on `deploy`/`api` commands are unaffected either way — only implicit-link-dependent commands like `netlify logs` break.
+- Spec file: `.do/app.yaml` — one web service, build command `npm ci && npm run build`, run command `npm start` (→ `node server/index.js`), health check on `/`.
+- **Deploy = git push to the branch App Platform tracks** (`deploy_on_push: true` in `.do/app.yaml`) — there's no decoupled manual-deploy command like Netlify's CLI had. This means, unlike the old Netlify workflow, a deploy now requires a push to the remote — so it falls under this file's "never push without being asked" rule (see House rules below), not the old "deploys are automatic" one. Confirm with the user before pushing to trigger a production deploy, or use `doctl apps create-deployment <app-id>` to redeploy the current remote HEAD without a new push.
+- Run pending DB migrations before or after a deploy that adds one: `DATABASE_URL=<cluster connection string> npm run migrate` (wraps `scripts/migrate-db.mjs`, applies `netlify/database/migrations/*/migration.sql` in order, tracked in a `schema_migrations` table — DO doesn't auto-apply these the way Netlify DB did).
+- Env var changes: set in the DO dashboard (App → Settings → App-Level Environment Variables) as `SECRET` type, matching the names in `.do/app.yaml`; redeploy for changes to take effect.
+- View logs: `doctl apps logs <app-id> --type run --follow`.
+- `netlify.toml` and `netlify/database/` are left in place for now (inert once nothing points at them) — remove them in a follow-up cleanup once DO has run stable in production for a while.
 
 ## Stack
 
 - Frontend: React + Vite + React Router (`src/`)
-- Backend: Netlify Functions, Node ESM (`netlify/functions/`), shared logic in `netlify/lib/`
-- Database: Netlify DB / Neon Postgres via `@netlify/database`; migrations in `netlify/database/migrations/<timestamp>_<name>/migration.sql`
+- Backend: Node ESM handlers in `netlify/functions/` (still Web Fetch API `Request`/`Response` shape), served by a single Express server (`server/index.js`) on DO App Platform; shared logic in `netlify/lib/`
+- Database: DO Managed PostgreSQL via `pg` (`netlify/lib/db.js`); migrations in `netlify/database/migrations/<timestamp>_<name>/migration.sql`, applied with `npm run migrate`
 - Auth: email/password (gated behind email verification — see below) + Google OAuth (OAuth client reused from warroomusa.com, exempt from verification since Google already verified that email)
 - AI: Anthropic SDK, model `claude-opus-4-8`, structured JSON-schema output for question analysis (see `netlify/functions/analyze-question.js`)
 - Payments: Stripe, live mode
 - Transactional email: Resend (see "Email (Resend)" below)
-- Marketing/support forms: Netlify Forms (see "Forms (Netlify Forms)" below)
+- Marketing/support forms: backend endpoint + Resend (see "Forms" below)
 
 ## Design system (redesigned to match a Claude Design mockup export)
 
@@ -49,7 +43,7 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - Decorative rotated "shape" motif (solid-fill + outlined rounded squares in accent/accent2) sits behind the hero phone mockup and the footer CTA — see `.hero-shape*` / `.footer-cta-shape*` in `App.css`. Don't drop a solid-fill version of this behind body copy — it tanked text contrast once (the how-section steps list) and had to be walked back to icon-badges/removed.
 - Why-cards use inline SVG icon badges (bolt/phone/target/keyboard/dollar), not an icon font or emoji — see `WHY_ICON_PATHS` in `Landing.jsx`. Emoji/icon-font glyphs are not guaranteed to render across environments; inline SVG is the safe default here.
 - The 24 SEO landing pages (`src/landing-pages/`, built via `renderToStaticMarkup` — zero JS, no hydration) share the same CSS classes as `Landing.jsx`, so most visual changes cascade automatically. Still check each `Lp*.jsx` component individually for its own hardcoded styles — `LpHero.jsx` had a duplicated phone-mockup with hardcoded light-theme inline colors that the shared-class cascade didn't touch.
-- `HardReloadFallback` (`src/components/HardReloadFallback.jsx`) is the router's catch-all `*` route in `App.jsx`. If the SPA shell ever loads for a URL it doesn't own (chiefly a static SEO page URL, e.g. after a CDN edge propagation blip right after deploy), `<Routes>` would otherwise render nothing. This forces a real page navigation instead of a client render, which re-requests the URL and lets Netlify serve the actual static file — self-healing. Guarded by `sessionStorage` against looping if the failure is persistent rather than transient.
+- `HardReloadFallback` (`src/components/HardReloadFallback.jsx`) is the router's catch-all `*` route in `App.jsx`. If the SPA shell ever loads for a URL it doesn't own (chiefly a static SEO page URL, e.g. right after a deploy before the new build is fully live), `<Routes>` would otherwise render nothing. This forces a real page navigation instead of a client render, which re-requests the URL and lets the host (Express's static file serving, on DO) serve the actual static file — self-healing. Guarded by `sessionStorage` against looping if the failure is persistent rather than transient.
 - Logo (`src/components/Logo.jsx`): a camera-lens mark (shutter ring, lens-flare arc, aperture swoosh, viewfinder bar) supplied directly by Savan (source: `logo.svg`/`logo.png` in `/Users/savankong/Projects/cambo-tutoring/Logos/`), replacing an earlier viewfinder-bracket mark as of 2026-07-25. **Fixed multi-tone palette, not `currentColor`** — `#595959`/`#A5A5A5`/`#F84B1F`/`#DF5A39` — it keeps its own colors regardless of surrounding text color, unlike the old mark. Non-square (442:513 aspect ratio) — the `size` prop scales height, width is derived. `public/favicon.svg` + `public/icons/icon-{180,192,512}.png` use the same mark on the existing rounded-square dark tile (regenerate the PNGs from `favicon.svg` via `sharp` if the mark ever changes again — no dedicated script for this, see git history for the one-off command). Full brand kit (dark/light lockups, mono-black, app icon, usage notes) lives on the Notion Design page — see "Docs & handoff" below.
 - Camera capture crop handles (`.crop-handle` in `App.css`): must stay flush *inward* from the crop-rect corner, not straddling it with a negative margin. `.camera-viewfinder` clips overflow (for the rounded video frame) and the default crop rect is flush against its edges — a handle that hangs half outside the crop-rect gets half-clipped, which happens to be exactly where its visible L-bracket border lives, making it invisible until a corner's been dragged inward once. Bit us in production; don't reintroduce it.
 
@@ -65,12 +59,10 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 - `camboapp.com` is verified as a Resend sending domain via DKIM + SPF + DMARC TXT/MX records added directly to Netlify DNS (not in this repo — check the Netlify DNS zone for `camboapp.com` if these ever need to be re-added). Sends from `noreply@camboapp.com`.
 - **New domains have zero sending reputation.** Outlook/Yahoo/iCloud route mail to spam/Other for the first days-to-weeks after a domain starts sending, regardless of correct DKIM/SPF/DMARC — this is expected, not a misconfiguration. Check the Resend dashboard's delivered/bounced ratio if verification emails seem to be going unanswered.
 
-## Forms (Netlify Forms)
+## Forms
 
-- Two forms: `question` (inline on the homepage, `#ask` section in `Landing.jsx`, for logged-out visitors) and `help` (Account page "Need help?" card, for logged-in users). Both submit via `src/lib/netlifyForms.js`'s `submitNetlifyForm()` — a plain POST to `/` with the form name + fields, no backend function involved.
-- Netlify's build-time crawler only detects `<form data-netlify>` markup present in a **static** HTML file — it never runs the SPA's JS. Since `/account` (the real `help` form's page) is never prerendered, a hidden `<form data-netlify>` pair for both forms lives in `index.html` outside `<div id="root">`, so it survives untouched through both the Vite build and `prerender.mjs`'s `template.replace()` (which only touches the `#root` div and `<head>` tags) — present in every deployed HTML file site-wide. Field names there must exactly match what the real forms submit.
-- **Gotcha**: Netlify rewrites detected forms at deploy time — `data-netlify="true"`/`netlify-honeypot="..."` get stripped and replaced with normalized `<form hidden method='post' name='...'>` plus an injected `<input type='hidden' name='form-name' ...>` (single-quoted attributes). If you're grepping deployed HTML to verify a form shipped, match the *rewritten* shape, not the source `data-netlify` attributes — otherwise it looks like the form vanished when it didn't.
-- Submissions forward to `camboapp101@gmail.com` via a site-level "Form submission notifications" email rule (Project configuration → Notifications → Form submission notifications) — configured in the Netlify dashboard, not in code.
+- Two forms: `question` (inline on the homepage, `#ask` section in `Landing.jsx`, for logged-out visitors) and `help` (Account page "Need help?" card, for logged-in users). Both submit via `src/lib/submitForm.js`'s `submitForm()` — a JSON POST to `/api/submit-form` (`netlify/functions/submit-form.js`), which emails the fields to `camboapp101@gmail.com` via Resend (`sendFormSubmission` in `netlify/lib/email.js`).
+- Replaces the old Netlify Forms setup (a build-time HTML-crawler that captured a hidden `<form data-netlify>` pair in `index.html` and forwarded via a Netlify-dashboard notification rule) — DO has no equivalent mechanism, so this is now a real backend endpoint instead of infrastructure-level form capture.
 
 ## Business logic — plan tiers
 
@@ -95,24 +87,24 @@ Cancellation (`customer.subscription.deleted`) drops a user back to `plan = 'fre
 
 Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in the DB.
 
-## Required env vars (Netlify dashboard — names only, never commit or print actual values)
+## Required env vars (DO App Platform dashboard — names only, never commit or print actual values)
 
-`JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records on Netlify DNS — see "Email (Resend)" above). Confirmed against the live site's actual configured vars (`netlify api getEnvVars`) 2026-07-29 — this list is exactly what's set.
+`DATABASE_URL` (DO Managed PostgreSQL connection string — new as of the DO migration; Netlify DB used to inject this implicitly via `@netlify/database`, DO doesn't), `JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification + form-submission emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records — see "Email (Resend)" above), `ANTHROPIC_API_KEY`. See `.do/app.yaml` for the exact list wired into the App Platform spec, and `.env.example` for local dev.
 
-**`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). **Gotcha:** it is *not* present in Netlify's site-level env vars, account-level (team-shared) env vars, or the team's installed Extensions — checked all three 2026-07-29. Yet `analyze-question` has been succeeding in production the whole time (14 days of logs, 50+ invocations, realistic 2–36s durations, zero error-level log lines — the function's own 401-retry path never fires). So the key is real and working, but its actual source is undiscovered; if `analyze-question` ever starts 401ing, that's the first thing to chase down (check Netlify support/dashboard for a non-obvious platform-level AI key injection).
+**`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). On Netlify this key's source was never identified (it worked in production despite being absent from every env-var scope checked) — that ambiguity doesn't survive the move: on DO it must be set explicitly in the app's env vars from a real Anthropic Console key, or every capture will fail once the free OpenRouter fallback also misses.
 
-**`APP_SESSION_SECRET`** — removed from this list 2026-07-29: `grep -rn "APP_SESSION_SECRET" netlify/ src/` returns zero hits. Confirmed dead/unused; not required.
+**`APP_SESSION_SECRET`** — confirmed dead/unused as of 2026-07-29 (`grep -rn "APP_SESSION_SECRET" netlify/ src/` returns zero hits); not required, not carried into `.do/app.yaml`.
 
 ## Verification patterns that work here
 
-- No direct DB access (no psql). Verify through the real app: register a test user via browser automation tools, or use a guarded temp `netlify/functions/debug-*.js` endpoint (hardcoded token gate) — **always delete it after use, and never deploy one without confirming the plan first.**
+- Local Postgres for a real DB round-trip: `service postgresql start` (or point `DATABASE_URL` at a scratch DO/Neon database), `npm run migrate`, then drive `node server/index.js` directly with `curl`/browser automation against `/api/*` — no more "no direct DB access," this environment can run the real schema locally.
 - Camera-dependent UI in a sandboxed browser: monkey-patch `navigator.mediaDevices.getUserMedia` to return a `canvas.captureStream(fps)` synthetic feed. Drives the real app code path, including real Claude calls, with no physical camera.
 - Billing-sensitive changes: seed test data + isolated Stripe **test-mode** API calls. Never complete a real Checkout with a real card for testing — creating live Stripe Products/Prices or completing a real payment needs explicit confirmation of the exact numbers first, every time.
-- Run `node --check` on every modified Netlify function before deploying — a syntax error here has broken a deploy before.
+- Run `node --check` on every modified file under `netlify/functions/`, `netlify/lib/`, and `server/` before deploying — a syntax error here has broken a deploy before.
 - For UI changes, actually drive the feature in the Browser pane (not just build/lint) before calling it done.
 
 ## House rules
 
-- **Deploys are automatic — don't ask first.** Once a change is implemented and verified (build passes, `node --check` on modified functions, UI driven in the Browser pane where applicable), commit locally and run the `netlify deploy --prod` command above without stopping to confirm. This does not extend to git remote pushes/PRs (still never do that unless explicitly asked) or to creating/editing live Stripe Products or Prices (still needs explicit confirmation of exact numbers every time).
+- **Deploying now means pushing to the remote** (App Platform deploys on push — see "Hosting" above), which is different from the old Netlify-CLI workflow where a local `netlify deploy --prod` could ship a build without touching git. So confirm with the user before a deploy-triggering push, same as any other remote push/PR — this supersedes the old "deploys are automatic" framing. Still verify everything locally first (build passes, `node --check` on modified functions/server files, UI driven in the Browser pane where applicable) so the push you do make is a good one. Creating/editing live Stripe Products or Prices still needs explicit confirmation of exact numbers every time.
 - Never enter real payment/financial credentials anywhere, and never complete a real money transaction.
 - When something is ambiguous or costly to get wrong (pricing, tier structure, copy), ask before building. If there's no immediate answer, state the assumption clearly and proceed rather than blocking.

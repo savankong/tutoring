@@ -99,3 +99,13 @@ Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in
 ## Verification patterns that work here
 
 - Local Postgres for a real DB round-trip: `service postgresql start` (or point `DATABASE_URL` at a scratch DO/Neon database), `npm run migrate`, then drive `node server/index.js` directly with `curl`/browser automation against `/api/*` — no more "no direct DB access," this environment can run the real schema locally.
+- Camera-dependent UI in a sandboxed browser: monkey-patch `navigator.mediaDevices.getUserMedia` to return a `canvas.captureStream(fps)` synthetic feed. Drives the real app code path, including real Claude calls, with no physical camera.
+- Billing-sensitive changes: seed test data + isolated Stripe **test-mode** API calls. Never complete a real Checkout with a real card for testing — creating live Stripe Products/Prices or completing a real payment needs explicit confirmation of the exact numbers first, every time.
+- Run `node --check` on every modified file under `netlify/functions/`, `netlify/lib/`, and `server/` before deploying — a syntax error here has broken a deploy before.
+- For UI changes, actually drive the feature in the Browser pane (not just build/lint) before calling it done.
+
+## House rules
+
+- **Deploying now means pushing to the remote** (App Platform deploys on push — see "Hosting" above), which is different from the old Netlify-CLI workflow where a local `netlify deploy --prod` could ship a build without touching git. So confirm with the user before a deploy-triggering push, same as any other remote push/PR — this supersedes the old "deploys are automatic" framing. Still verify everything locally first (build passes, `node --check` on modified functions/server files, UI driven in the Browser pane where applicable) so the push you do make is a good one. Creating/editing live Stripe Products or Prices still needs explicit confirmation of exact numbers every time.
+- Never enter real payment/financial credentials anywhere, and never complete a real money transaction.
+- When something is ambiguous or costly to get wrong (pricing, tier structure, copy), ask before building. If there's no immediate answer, state the assumption clearly and proceed rather than blocking.

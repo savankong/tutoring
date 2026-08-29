@@ -8,7 +8,32 @@ import { PUBLIC_QUESTION_TOPICS, normalizeQuestionKey } from '../lib/publicTopic
 const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
 
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const OPENROUTER_TIMEOUT_MS = 25000;
+const OPENROUTER_TIMEOUT_MS = 12000;
+
+// A pool of free-tier OpenRouter accounts, each paired with a model that
+// actually supports image input AND is reachable through a plain chat
+// completion call. Most free OpenRouter models are text-only (verified
+// against the live /api/v1/models catalog — Liquid's and Meta Llama's
+// free-tier offerings have no vision-capable free model as of this
+// writing), and two vision-capable ones that look right on paper
+// (thinkingmachines/inkling(-small):free) 403 with "only available on
+// agentic harnesses" on a real call — this list is only the free vision
+// models actually confirmed working end-to-end (real image in, valid JSON
+// out) against this exact prompt. google/gemma-4-26b-a4b-it:free is kept
+// last despite currently 429-ing on Google's shared free pool ("temporarily
+// rate-limited upstream") since that's a transient, provider-side condition
+// that may clear — a failed slot here just falls through to the next one
+// (or to Claude) at no extra cost. Each slot's key is a separate free-tier
+// account/quota, so trying them in order spreads captures across ~4x the
+// daily free quota a single account would have, before falling back to
+// Claude — so the model per slot is fixed in code rather than left to an
+// env var that could silently get pointed at a broken or text-only model.
+const OPENROUTER_POOL = [
+  { keyEnv: 'OPENROUTER_API_KEY', model: 'dots-studio/dots-3-note-preview:free' },
+  { keyEnv: 'OPENROUTER_API_KEY_2', model: 'minimax/minimax-m3:free' },
+  { keyEnv: 'OPENROUTER_API_KEY_3', model: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free' },
+  { keyEnv: 'OPENROUTER_API_KEY_4', model: 'google/gemma-4-26b-a4b-it:free' },
+];
 
 /** Best-effort credit debit — a capture that's already been allowed through
  * isCapped must never be blocked by a billing hiccup after the fact, so
@@ -176,15 +201,11 @@ async function callClaude(image, mediaType) {
   return normalizeParsed(JSON.parse(textBlock.text));
 }
 
-// Tries the configured OpenRouter model (typically a free one) first, to
-// save Anthropic spend. Returns null on any failure — missing config,
-// network error, non-2xx, unparseable/unusable output — so the caller can
-// fall back to Claude without this ever throwing.
-async function callOpenRouter(image, mediaType) {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  const model = process.env.OPENROUTER_MODEL;
-  if (!apiKey || !model) return null;
-
+// A single (key, model) attempt against OpenRouter. Returns null on any
+// failure — missing key, network error, non-2xx, unparseable/unusable
+// output — so the caller can move to the next pool slot without this ever
+// throwing.
+async function callOpenRouterModel(apiKey, model, image, mediaType) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), OPENROUTER_TIMEOUT_MS);
 
@@ -217,7 +238,7 @@ async function callOpenRouter(image, mediaType) {
     });
 
     if (!res.ok) {
-      console.error('callOpenRouter non-OK response:', res.status, await res.text().catch(() => ''));
+      console.error(`callOpenRouterModel(${model}) non-OK response:`, res.status, await res.text().catch(() => ''));
       return null;
     }
 
@@ -230,11 +251,26 @@ async function callOpenRouter(image, mediaType) {
 
     return normalizeParsed(parsed);
   } catch (err) {
-    console.error('callOpenRouter failed, falling back to Claude:', err?.message || err);
+    console.error(`callOpenRouterModel(${model}) failed:`, err?.message || err);
     return null;
   } finally {
     clearTimeout(timeout);
   }
+}
+
+// Walks OPENROUTER_POOL in order — each slot is a separate free-tier
+// account, so this only spends a paid Claude call once every free slot with
+// a configured key has been tried and failed. Returns null (not a throw) if
+// every slot is unconfigured or failed, so the caller falls back to Claude.
+async function callFreeModels(image, mediaType) {
+  for (const { keyEnv, model } of OPENROUTER_POOL) {
+    const apiKey = process.env[keyEnv];
+    if (!apiKey) continue;
+
+    const parsed = await callOpenRouterModel(apiKey, model, image, mediaType);
+    if (parsed) return parsed;
+  }
+  return null;
 }
 
 export default async (request) => {
@@ -276,11 +312,11 @@ export default async (request) => {
   }
 
   try {
-    // Try the configured OpenRouter model (typically free) first to save
-    // Anthropic spend — it returns null on any failure rather than
-    // throwing, so a bad/unconfigured/unavailable free model always falls
-    // through to Claude rather than breaking the capture.
-    let parsed = await callOpenRouter(image, mediaType);
+    // Try every configured free-tier OpenRouter slot first to save Anthropic
+    // spend — it returns null on any failure rather than throwing, so
+    // exhausting or missing free models always falls through to Claude
+    // rather than breaking the capture.
+    let parsed = await callFreeModels(image, mediaType);
 
     if (!parsed) {
       try {

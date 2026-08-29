@@ -48,7 +48,11 @@ services:
         type: SECRET
       - key: OPENROUTER_API_KEY
         type: SECRET
-      - key: OPENROUTER_MODEL
+      - key: OPENROUTER_API_KEY_2
+        type: SECRET
+      - key: OPENROUTER_API_KEY_3
+        type: SECRET
+      - key: OPENROUTER_API_KEY_4
         type: SECRET
 domains:
   - domain: camboapp.com

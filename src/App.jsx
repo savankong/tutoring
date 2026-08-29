@@ -11,8 +11,10 @@ import History from './pages/History.jsx';
 import Landing from './pages/Landing.jsx';
 import Login from './pages/Login.jsx';
 import Pricing from './pages/Pricing.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import Register from './pages/Register.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
+import TermsOfService from './pages/TermsOfService.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
 import './App.css';
 
@@ -21,6 +23,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/pricing" element={<Pricing />} />
+      <Route path="/terms" element={<TermsOfService />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />

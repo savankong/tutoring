@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const distDir = join(rootDir, 'dist');
 
-const PUBLIC_ROUTES = ['/', '/pricing', '/login', '/register'];
+const PUBLIC_ROUTES = ['/', '/pricing', '/login', '/register', '/terms', '/privacy'];
 
 // React 19 hoists <title>/<meta>/<link> rendered anywhere in the tree to the
 // front of the SSR output, even without a literal <head> in the component

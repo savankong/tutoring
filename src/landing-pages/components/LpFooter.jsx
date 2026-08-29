@@ -6,6 +6,8 @@ function LpFooter() {
         <a href="/pricing/">Pricing</a>
         <a href="/">Home</a>
         <a href="/#ask">Ask a question</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
       </div>
     </footer>
   );

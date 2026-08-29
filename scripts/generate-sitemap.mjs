@@ -9,6 +9,8 @@ const SITE_URL = 'https://camboapp.com';
 const STATIC_ROUTES = [
   { path: '/', priority: '1.0' },
   { path: '/pricing/', priority: '0.8' },
+  { path: '/terms/', priority: '0.3' },
+  { path: '/privacy/', priority: '0.3' },
 ];
 
 const allContent = loadLandingPagesContent(rootDir);

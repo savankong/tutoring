@@ -117,6 +117,8 @@ function Pricing() {
           <Link to="/">Home</Link>
           <a href="#resources">Resources</a>
           <a href="/#ask">Ask a question</a>
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/terms">Terms</Link>
         </div>
       </div>
       </div>

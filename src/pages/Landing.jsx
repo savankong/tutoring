@@ -486,6 +486,8 @@ function Landing() {
             <a href="#faq">FAQ</a>
             <a href="#resources">Resources</a>
             <a href="#ask">Ask a question</a>
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
           </div>
         </div>
       </section>

@@ -2115,6 +2115,49 @@ td.admin-question-cell {
   margin: 0 0 20px;
 }
 
+/* /terms and /privacy — reuse .pricing-page's container, override the
+   centered head styling isn't needed (title stays centered like /pricing),
+   but the body copy reads better left-aligned and narrower than the full
+   tier-grid width. */
+.legal-page .pricing-page-head {
+  margin-bottom: 40px;
+}
+
+.legal-content {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal-content h2 {
+  color: var(--text-h);
+  font-size: 22px;
+  margin: 40px 0 12px;
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content p {
+  margin: 0 0 16px;
+}
+
+.legal-content ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.legal-content li {
+  margin: 0 0 8px;
+}
+
+.legal-content strong {
+  color: var(--text-h);
+}
+
 .tier-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

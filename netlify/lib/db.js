@@ -8,12 +8,28 @@ import pg from 'pg';
 // node-postgres so none of those call sites need to change.
 let pool;
 
+// pg-connection-string now parses a `sslmode=require` query param (the
+// format DO's own dashboard hands you) as an alias for `verify-full` and
+// derives its own strict ssl config from it, which wins over the `ssl`
+// object passed alongside `connectionString` below — so the explicit
+// `rejectUnauthorized: false` never actually took effect and every
+// connection failed with "self-signed certificate in certificate chain"
+// (DO Managed PostgreSQL's cert chain isn't in Node's trust store).
+// Stripping sslmode here leaves `ssl: { rejectUnauthorized: false }` as the
+// only signal, restoring the "encrypt but don't verify the chain" behavior
+// this always intended.
+function stripSslMode(connectionString) {
+  const url = new URL(connectionString);
+  url.searchParams.delete('sslmode');
+  return url.toString();
+}
+
 function getPool() {
   if (!pool) {
     const connectionString = process.env.DATABASE_URL;
     if (!connectionString) throw new Error('DATABASE_URL is not configured');
     pool = new pg.Pool({
-      connectionString,
+      connectionString: stripSslMode(connectionString),
       // DO Managed PostgreSQL's default cert chain isn't in Node's trust
       // store; require TLS but don't verify the chain, same trust level
       // Neon's connection string (`sslmode=require`) had by default.

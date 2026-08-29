@@ -10,6 +10,18 @@ import pg from 'pg';
 
 const MIGRATIONS_DIR = fileURLToPath(new URL('../netlify/database/migrations', import.meta.url));
 
+// See the matching comment in netlify/lib/db.js: pg-connection-string treats
+// a `sslmode=require` query param (DO's own dashboard connection-string
+// format) as an alias for `verify-full` and that wins over the explicit
+// `ssl` option below, so it must be stripped for `rejectUnauthorized: false`
+// to actually apply — otherwise this fails with "self-signed certificate in
+// certificate chain" against DO Managed PostgreSQL's cert chain.
+function stripSslMode(connectionString) {
+  const url = new URL(connectionString);
+  url.searchParams.delete('sslmode');
+  return url.toString();
+}
+
 async function main() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
@@ -17,7 +29,7 @@ async function main() {
     process.exit(1);
   }
 
-  const client = new pg.Client({ connectionString, ssl: { rejectUnauthorized: false } });
+  const client = new pg.Client({ connectionString: stripSslMode(connectionString), ssl: { rejectUnauthorized: false } });
   await client.connect();
 
   try {

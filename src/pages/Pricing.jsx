@@ -1,16 +1,27 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
-import ResourcesFooter from '../components/ResourcesFooter.jsx';
+import ZineHeader from '../components/zine/ZineHeader.jsx';
+import { ZineArrow } from '../components/zine/ZineArt.jsx';
 import { PLANS } from '../lib/plans.js';
+import '../styles/zine.css';
 
-const NAV_ITEMS = [
-  { label: 'How it works', href: '/#how' },
-  { label: 'Why tutors', href: '/#why' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'FAQ', href: '/#faq' },
+const FONT_LINKS = (
+  <>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&display=swap"
+    />
+  </>
+);
+
+const FINE_PRINT = [
+  { title: 'No annual lock-in', body: 'Month to month. Tutoring and test prep are seasonal and the billing should be too.' },
+  { title: 'Downgrade freely', body: 'Drop back to Free between terms and pick it up again whenever you need it.' },
+  { title: 'Nothing sold on', body: "Your captures are yours. We don't build a profile out of what you photograph." },
 ];
 
 function Pricing() {
@@ -47,81 +58,94 @@ function Pricing() {
   };
 
   return (
-    <div className="landing">
+    <div className="zn-root">
       <Seo
         title="Pricing — Cambo App"
-        description="Free forever up to 5 captures a month. Paid plans from $4.99/mo for daily tutoring use. Cancel anytime, no contract."
+        description="Free forever up to 5 captures a month. Paid plans from $4.99/mo. Cancel anytime, no contract."
         path="/pricing"
-      />
-      <Sidebar navItems={NAV_ITEMS} user={user} />
+      >
+        {FONT_LINKS}
+      </Seo>
 
-      <div className="mkt-main">
-      <section className="pricing-page">
-        <div className="pricing-page-head">
-          <div className="section-eyebrow">Pricing</div>
-          <h1>Start using it for free today — no credit card needed.</h1>
-          <p>From an occasional session to a full tutoring practice — plans that grow with how you use it.</p>
-        </div>
+      <div className="zn-grain" />
+      <ZineHeader user={user} />
 
-        {error && <p className="pricing-page-error error-text">{error}</p>}
+      <div className="zn-pricing-hero">
+        <span className="zn-tag">Pricing</span>
+        <h1>Start free. Upgrade when you need more.</h1>
+        <p>From an occasional capture to full daily use — plans that grow with how often you point it at something.</p>
+      </div>
 
-        <div className="tier-grid">
-          {PLANS.map((tier) => {
-            const isCurrentPlan = user && user.plan === tier.key;
-            return (
-              <div
-                className={`tier-card${tier.featured ? ' tier-card-featured' : ''}`}
-                key={tier.key}
-              >
-                {isCurrentPlan ? (
-                  <span className="tier-badge tier-badge-current">Current plan</span>
-                ) : (
-                  tier.featured && <span className="tier-badge">Best value</span>
-                )}
-                <div className="tier-name">{tier.name}</div>
-                <div className="tier-tagline">{tier.tagline}</div>
-                <div className="tier-price-row">
-                  <span className="tier-price">{tier.price}</span>
-                  <span className="tier-period">{tier.period}</span>
-                </div>
-                <div className="tier-features">
-                  {tier.features.map((f) => (
-                    <div className="tier-feature" key={f}>
-                      <span className="tier-feature-check">✓</span>
-                      <span>{f}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="tier-cta">
-                  {isCurrentPlan ? (
-                    <Link to="/account" className="pill-button pill-button-outline">
-                      Manage this plan
-                    </Link>
-                  ) : (
-                    <button disabled={busyKey === tier.key} onClick={() => choosePlan(tier.key)}>
-                      {busyKey === tier.key ? 'Loading…' : tier.cta}
-                    </button>
-                  )}
-                </div>
+      {error && <p className="zn-error-text" style={{ padding: '20px clamp(20px, 5vw, 72px) 0' }}>{error}</p>}
+
+      <div className="zn-tier-grid">
+        {PLANS.map((tier) => {
+          const isCurrentPlan = user && user.plan === tier.key;
+          return (
+            <div className={`zn-tier${tier.featured ? ' zn-tier-dark' : ''}`} key={tier.key}>
+              <div className="zn-tier-badge-row">
+                <h2>{tier.name}</h2>
+                {isCurrentPlan ? <span className="zn-tier-flag">Current plan</span> : tier.featured && <span className="zn-tier-flag">Best value</span>}
               </div>
-            );
-          })}
+              <div className="zn-tier-tagline">{tier.tagline}</div>
+              <div className="zn-tier-price-row">
+                <span className="zn-tier-price">{tier.price}</span>
+                <span className="zn-tier-period">{tier.period === 'forever' ? tier.period : 'per month'}</span>
+              </div>
+              <div className="zn-tier-features">
+                {tier.features.map((f) => (
+                  <span className="zn-tier-feature" key={f}>
+                    <b>✓</b> {f}
+                  </span>
+                ))}
+              </div>
+              {isCurrentPlan ? (
+                <Link to="/account" className="zn-tier-cta">
+                  Manage this plan
+                </Link>
+              ) : (
+                <button type="button" className="zn-tier-cta" disabled={busyKey === tier.key} onClick={() => choosePlan(tier.key)}>
+                  {busyKey === tier.key ? 'Loading…' : tier.cta}
+                </button>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="zn-section zn-fineprint">
+        <h3>The fine print, in plain words</h3>
+        <div className="zn-grid3">
+          {FINE_PRINT.map((item) => (
+            <div className="zn-grid3-item" key={item.title}>
+              <h4>{item.title}</h4>
+              <p>{item.body}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      <ResourcesFooter />
+      <div className="zn-footer-cta">
+        <h2>Try it before you pay anyone anything.</h2>
+        <Link to="/" className="zn-btn">
+          Back to the front page
+          <ZineArrow color="#f0ece1" />
+        </Link>
+      </div>
 
-      <div className="footer-bottom pricing-footer-bottom">
-        <div>© 2026 Cambo App</div>
-        <div className="footer-links">
+      <footer className="zn-footer">
+        <div>
+          <div className="zn-footer-wordmark">Cambo</div>
+          <div className="zn-footer-sub">© 2026 · Still not an app for cheating</div>
+        </div>
+        <nav className="zn-footer-nav">
           <Link to="/">Home</Link>
-          <a href="#resources">Resources</a>
+          <a href="/#resources">Resources</a>
           <a href="/#ask">Ask a question</a>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
-        </div>
-      </div>
-      </div>
+        </nav>
+      </footer>
     </div>
   );
 }

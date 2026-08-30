@@ -117,11 +117,34 @@ async function main() {
     }
   });
 
-  app.use(express.static(DIST_DIR));
+  // Cache-Control matters here, not just as an optimization: express.static
+  // sets none by default, which left browsers free to heuristically cache
+  // HTML pages (index.html and the 24 prerendered SEO pages) for an
+  // unpredictable stretch. A deploy replaces the JS/CSS bundles with
+  // freshly content-hashed filenames and deletes the old ones, so a
+  // browser holding a stale cached HTML page kept referencing asset
+  // filenames that no longer existed — the page would load with broken or
+  // half-missing styling until a hard refresh forced a real fetch. Fixed
+  // by cache-busting HTML explicitly (immutable filenames don't need
+  // this — they're addressed by content hash, so far-future caching is
+  // actually correct for them, and is what makes the fetch cheap on
+  // repeat visits once the HTML itself is fresh).
+  app.use(
+    express.static(DIST_DIR, {
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+          res.setHeader('Cache-Control', 'no-cache');
+        } else if (/[/\\]assets[/\\]/.test(filePath)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+      },
+    }),
+  );
 
   // Mirrors netlify.toml: /contact was a standalone page briefly, now
-  // inlined as the #ask section on the homepage.
-  app.get('/contact', (req, res) => res.redirect(301, '/#ask'));
+  // inlined as a mailto link on the legal pages (the #ask section it used
+  // to redirect to no longer exists — see "Design system" in CLAUDE.md).
+  app.get('/contact', (req, res) => res.redirect(301, '/'));
 
   // SPA fallback so client-side routes (/app, /history, /account, ...)
   // survive a direct load or refresh, same as netlify.toml's catch-all.
@@ -129,6 +152,7 @@ async function main() {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return res.status(404).json({ error: 'Not found' });
     }
+    res.setHeader('Cache-Control', 'no-cache');
     res.sendFile(path.join(DIST_DIR, 'index.html'));
   });
 

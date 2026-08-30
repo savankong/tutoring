@@ -9,7 +9,7 @@ function LpResourcesFooter() {
     <div id="resources" className="zn-section">
       <div className="zn-section-head">
         <h2 className="zn-h2" style={{ fontSize: 'clamp(26px, 3.4vw, 46px)' }}>
-          What people point it at
+          Example quizzes that you are forced to take
         </h2>
       </div>
       <div className="zn-chip-row">

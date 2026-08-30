@@ -498,7 +498,7 @@ button:active {
 
 button:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #2684ff;
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -531,7 +531,7 @@ input {
 
 input:focus-visible,
 a:focus-visible {
-  outline: 3px solid #2684ff;
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 

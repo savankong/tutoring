@@ -35,12 +35,6 @@ function LpHead({ content }) {
       <title>{content.metaTitle}</title>
       <meta name="description" content={content.metaDescription} />
       <link rel="canonical" href={url} />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&display=swap"
-      />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={content.metaTitle} />

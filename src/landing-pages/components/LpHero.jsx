@@ -12,7 +12,6 @@ function LpHero({ content }) {
       >
         Try it free
       </a>
-      <span className="zn-lp-microcopy">Free forever · no card required</span>
     </section>
   );
 }

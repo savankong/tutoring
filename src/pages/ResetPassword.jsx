@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
-import ZineFonts from '../components/zine/ZineFonts.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
 import '../styles/zine.css';
@@ -45,9 +44,7 @@ function ResetPassword() {
         description="Set a new password for your Cambo App account."
         path="/reset-password"
         noindex
-      >
-        {ZineFonts}
-      </Seo>
+      />
       <div className="zn-root">
         <ZineAuthNav />
         <div className="zn-auth-page">

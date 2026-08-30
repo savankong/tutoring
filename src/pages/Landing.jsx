@@ -4,7 +4,6 @@ import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
 import ZineResources from '../components/zine/ZineResources.jsx';
-import ZineFonts from '../components/zine/ZineFonts.jsx';
 import { ZineUnderline, ZineCircleThin, ZineCircleWord, ZineTornBorder, ZineArrow } from '../components/zine/ZineArt.jsx';
 import '../styles/zine.css';
 
@@ -134,7 +133,6 @@ function Landing() {
         description="Point your phone at a question and get the answer in seconds. For everyone stuck in a class, a compliance module, or a test they never asked for."
         path="/"
       >
-        {ZineFonts}
         <script type="application/ld+json">{JSON.stringify(SOFTWARE_APP_SCHEMA)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
       </Seo>

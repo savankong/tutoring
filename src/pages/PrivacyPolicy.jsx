@@ -3,7 +3,6 @@ import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
 import ZineResources from '../components/zine/ZineResources.jsx';
-import ZineFonts from '../components/zine/ZineFonts.jsx';
 import '../styles/zine.css';
 
 const LAST_UPDATED = 'August 29, 2026';
@@ -17,9 +16,7 @@ function PrivacyPolicy() {
         title="Privacy Policy — Cambo App"
         description="How Cambo collects, uses, and protects your information."
         path="/privacy"
-      >
-        {ZineFonts}
-      </Seo>
+      />
       <div className="zn-grain" />
       <ZineHeader user={user} />
 

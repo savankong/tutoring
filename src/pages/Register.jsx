@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
-import ZineFonts from '../components/zine/ZineFonts.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
@@ -73,9 +72,7 @@ function Register() {
         description="Create a free Cambo App account — no credit card required."
         path="/register"
         noindex
-      >
-        {ZineFonts}
-      </Seo>
+      />
       <div className="zn-root">
         <ZineAuthNav />
         <div className="zn-auth-page">

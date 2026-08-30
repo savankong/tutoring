@@ -1,33 +1,47 @@
 :root {
-  /* Conservative brand palette — blue/grey on white. Single theme by
-     design (no light-mode variant needed since this already is one), so
-     there's no prefers-color-scheme branch here. */
-  --text: #45526b;
-  --text-h: #16213a;
-  --label: #6b7890;
-  --text-faint: #5a6982;
-  --bg: #ffffff;
-  --bg-gradient: #ffffff;
-  --card-bg: #f5f7fa;
-  --card-bg-2: #eef1f6;
-  --border: rgba(22, 33, 58, 0.12);
-  --border-soft: rgba(22, 33, 58, 0.07);
-  --code-bg: #eef1f6;
-  --accent: #2f5ed6;
-  --accent-contrast: #ffffff;
-  --accent-bg: rgba(47, 94, 214, 0.08);
-  --accent-border: rgba(47, 94, 214, 0.3);
-  --accent2: #64748b;
-  --accent2-bg: rgba(100, 116, 139, 0.12);
-  --social-bg: rgba(238, 241, 246, 0.85);
+  /* Zine palette (ink/paper/burnt-clay) applied to the authenticated app
+     shell as of 2026-08-30 — same tokens-as-source-of-truth approach as
+     the old blue/grey system it replaced, so this one edit recolors
+     Capture/Account/History/Admin without touching any component's own
+     CSS. Deliberately did NOT touch any font-size/spacing/radius rule
+     anywhere in App.css — only color values and the two font-family
+     tokens changed, at Savan's explicit request ("same sizes, new
+     colors"). The camera-scan screen keeps its own hardcoded dark
+     palette regardless (see the note on `.App.camera-mode` below) — it's
+     meant to look like a real device viewfinder, not app chrome, so it
+     was never on these tokens in the first place and isn't part of this
+     change either. Single theme by design (no light-mode variant needed
+     since this already is one), so there's no prefers-color-scheme
+     branch here. */
+  --text: #57534a;
+  --text-h: #141310;
+  --label: #6b6459;
+  --text-faint: #847a6c;
+  --bg: #f0ece1;
+  --bg-gradient: #f0ece1;
+  --card-bg: #e9e3d3;
+  --card-bg-2: #e2dac5;
+  --border: rgba(20, 19, 16, 0.14);
+  --border-soft: rgba(20, 19, 16, 0.07);
+  --code-bg: #e2dac5;
+  --accent: #cf5f33;
+  --accent-contrast: #f0ece1;
+  --accent-bg: rgba(207, 95, 51, 0.08);
+  --accent-border: rgba(207, 95, 51, 0.3);
+  --accent2: #e08a63;
+  --accent2-bg: rgba(224, 138, 99, 0.14);
+  --social-bg: rgba(233, 227, 211, 0.85);
 
-  /* Primary CTA uses the same blue as the main accent. */
-  --cta: #2f5ed6;
-  --cta-hover: #2549ab;
-  --cta-contrast: #ffffff;
+  /* Primary CTA uses the same burnt-clay as the main accent. */
+  --cta: #cf5f33;
+  --cta-hover: #a84a26;
+  --cta-contrast: #f0ece1;
 
-  --sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  --heading: var(--sans);
+  /* Same two fonts as the zine marketing pages (src/styles/zine.css's
+     --zn-body/--zn-display), loaded once globally — see "Design system"
+     further down for why this lives in index.html rather than per-page. */
+  --sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --heading: 'Bricolage Grotesque', var(--sans);
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);

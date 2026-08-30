@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
-import ZineFonts from '../components/zine/ZineFonts.jsx';
 import { ZineArrow } from '../components/zine/ZineArt.jsx';
 import { PLANS } from '../lib/plans.js';
 import '../styles/zine.css';
@@ -53,9 +52,7 @@ function Pricing() {
         title="Pricing — Cambo App"
         description="Free forever up to 5 captures a month. Paid plans from $4.99/mo. Cancel anytime, no contract."
         path="/pricing"
-      >
-        {ZineFonts}
-      </Seo>
+      />
 
       <div className="zn-grain" />
       <ZineHeader user={user} />

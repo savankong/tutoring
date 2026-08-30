@@ -31,22 +31,13 @@
   opacity: 0.85;
 }
 
-.zn-lp-microcopy {
-  display: block;
-  margin-top: 14px;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
 /* Official-source note */
 .zn-lp-official {
   margin: 0 clamp(20px, 5vw, 72px) clamp(36px, 5vw, 60px);
-  padding: 16px 20px;
+  padding: 20px clamp(20px, 3vw, 28px);
   border: 1.6px dashed var(--zn-ink);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .zn-lp-official a {

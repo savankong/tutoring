@@ -38,6 +38,12 @@ services:
         type: SECRET
       - key: STRIPE_PRICE_CREDIT_PACK
         type: SECRET
+      - key: STRIPE_PRICE_PASS_24H
+        type: SECRET
+      - key: STRIPE_PRICE_PASS_7D
+        type: SECRET
+      - key: STRIPE_PRICE_PASS_30D
+        type: SECRET
       - key: GOOGLE_CLIENT_ID
         type: SECRET
       - key: GOOGLE_CLIENT_SECRET

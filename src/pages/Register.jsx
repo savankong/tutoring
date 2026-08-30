@@ -5,10 +5,11 @@ import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
-import { PLANS } from '../lib/plans.js';
+import { PLANS, PASSES } from '../lib/plans.js';
 import '../styles/zine.css';
 
 const PAID_PLAN_KEYS = new Set(['starter', 'personal', 'pro']);
+const PASS_KEYS = new Set(PASSES.map((p) => p.key));
 
 function Register() {
   const { refresh } = useAuthContext();
@@ -21,6 +22,11 @@ function Register() {
 
   const requestedPlan = searchParams.get('plan');
   const plan = PAID_PLAN_KEYS.has(requestedPlan) ? PLANS.find((p) => p.key === requestedPlan) : null;
+  const requestedPass = searchParams.get('pass');
+  // A pass is only relevant when there's no plan request too — the two CTAs
+  // (subscription vs. one-time pass) are mutually exclusive on the pricing
+  // page, so this never has to arbitrate between both being present.
+  const pass = !plan && PASS_KEYS.has(requestedPass) ? PASSES.find((p) => p.key === requestedPass) : null;
   const ref = searchParams.get('ref');
   const googleStartUrl = ref
     ? `/api/google-oauth-start?ref=${encodeURIComponent(ref)}`
@@ -57,6 +63,20 @@ function Register() {
         // blocking signup on a checkout hiccup; they can upgrade from there.
       }
 
+      if (pass) {
+        const checkoutRes = await fetch('/api/create-pass-checkout-session', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ pass: pass.key }),
+        });
+        const checkoutData = await checkoutRes.json();
+        if (checkoutRes.ok && checkoutData.url) {
+          window.location.href = checkoutData.url;
+          return;
+        }
+      }
+
       navigate('/app');
     } catch (err) {
       setError(err.message);
@@ -68,7 +88,7 @@ function Register() {
   return (
     <>
       <Seo
-        title={plan ? `Sign up for ${plan.name} — Cambo App` : 'Sign Up Free — Cambo App'}
+        title={plan ? `Sign up for ${plan.name} — Cambo App` : pass ? `Get the ${pass.name} — Cambo App` : 'Sign Up Free — Cambo App'}
         description="Create a free Cambo App account — no credit card required."
         path="/register"
         noindex
@@ -80,11 +100,13 @@ function Register() {
             <div className="zn-auth-card-logo">
               <Logo size={18} wordmark />
             </div>
-            <h1>{plan ? `Sign up for ${plan.name}` : 'Create your free account'}</h1>
+            <h1>{plan ? `Sign up for ${plan.name}` : pass ? `Get the ${pass.name}` : 'Create your free account'}</h1>
             <p className="zn-auth-subhead">
               {plan
                 ? `${plan.price}${plan.period} — you'll finish checkout right after this.`
-                : 'No card required. Upgrade any time.'}
+                : pass
+                  ? `${pass.price}, ${pass.captureCap} captures, ${pass.duration} — you'll finish checkout right after this.`
+                  : 'No card required. Upgrade any time.'}
             </p>
             <form onSubmit={onSubmit} className="zn-auth-form">
               <label>
@@ -110,9 +132,13 @@ function Register() {
               </label>
               {error && <p className="zn-error-text">{error}</p>}
               <button type="submit" disabled={submitting}>
-                {submitting ? 'Creating account…' : plan ? 'Continue to payment' : 'Create account'}
+                {submitting ? 'Creating account…' : plan || pass ? 'Continue to payment' : 'Create account'}
               </button>
             </form>
+            <p className="zn-auth-consent">
+              By creating an account, you agree to Cambo's <Link to="/terms">Terms of Service</Link> and{' '}
+              <Link to="/privacy">Privacy Policy</Link>.
+            </p>
             <div className="zn-auth-divider">
               <span>or continue with</span>
             </div>

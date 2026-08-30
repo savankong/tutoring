@@ -25,6 +25,39 @@ export async function capturesUsedThisPeriod(db, userId, periodStart) {
     FROM captures
     WHERE user_id = ${userId}
       AND created_at >= COALESCE(${periodStart}, date_trunc('month', now()))
+      AND pass_purchase_id IS NULL
   `;
   return row.count;
+}
+
+/** The soonest-expiring active (non-expired, not-yet-fully-used) one-time
+ * pass for this user, or null. Picking the soonest-expiring one first means
+ * a user with multiple passes never lets an about-to-expire one go to waste
+ * while a longer-lived one still has room. */
+export async function findActivePass(db, userId) {
+  const [row] = await db.sql`
+    SELECT id, pass_type, captures_cap, captures_used, expires_at
+    FROM pass_purchases
+    WHERE user_id = ${userId}
+      AND expires_at > now()
+      AND captures_used < captures_cap
+    ORDER BY expires_at ASC
+    LIMIT 1
+  `;
+  return row ?? null;
+}
+
+/** Best-effort pass debit — mirrors debitCredit's guarded-UPDATE pattern
+ * (never blocks a capture that's already been allowed through, and the
+ * `captures_used < captures_cap` guard keeps concurrent requests from
+ * driving it over cap). */
+export async function debitPass(db, passId) {
+  try {
+    await db.sql`
+      UPDATE pass_purchases SET captures_used = captures_used + 1
+      WHERE id = ${passId} AND captures_used < captures_cap
+    `;
+  } catch (err) {
+    console.error('debitPass failed:', err);
+  }
 }

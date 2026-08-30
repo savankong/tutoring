@@ -67,6 +67,29 @@ export default async (request) => {
         break;
       }
 
+      if (session.mode === 'payment' && session.metadata?.type === 'pass_purchase') {
+        const userId = session.metadata.user_id;
+        const passType = session.metadata.pass_type;
+        const capturesCap = parseInt(session.metadata.captures_cap, 10);
+        const durationHours = parseInt(session.metadata.duration_hours, 10);
+        if (userId && passType && Number.isFinite(capturesCap) && Number.isFinite(durationHours)) {
+          // expires_at is computed here, at purchase confirmation, not at
+          // checkout-session creation — the clock starts on actual payment,
+          // not on however long the customer sat on the Stripe Checkout
+          // page. ON CONFLICT DO NOTHING makes this idempotent against
+          // Stripe retries, same as the credit-purchase branch above.
+          await db.sql`
+            INSERT INTO pass_purchases (user_id, pass_type, captures_cap, amount_cents, stripe_checkout_session_id, expires_at)
+            VALUES (
+              ${userId}, ${passType}, ${capturesCap}, ${session.amount_total ?? 0}, ${session.id},
+              now() + make_interval(hours => ${durationHours})
+            )
+            ON CONFLICT (stripe_checkout_session_id) DO NOTHING
+          `;
+        }
+        break;
+      }
+
       const userId = session.client_reference_id;
       if (userId && session.customer) {
         let currentPeriodStart = null;

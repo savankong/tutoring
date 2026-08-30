@@ -3,11 +3,20 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
 import { submitForm } from '../lib/submitForm.js';
-import { PLANS, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
+import { PLANS, PASSES, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
 
 const PACK_PRICE = CREDIT_PACK_PRICE_CENTS / 100;
 const SHORT_DATE = { month: 'short', day: 'numeric' };
 const LONG_DATE = { month: 'long', day: 'numeric', year: 'numeric' };
+const PASS_BY_KEY = Object.fromEntries(PASSES.map((p) => [p.key, p]));
+
+function formatTimeLeft(expiresAtIso) {
+  const ms = new Date(expiresAtIso).getTime() - Date.now();
+  if (ms <= 0) return 'expired';
+  const hours = Math.ceil(ms / 3600000);
+  if (hours < 24) return `${hours}h left`;
+  return `${Math.ceil(hours / 24)}d left`;
+}
 
 function currentPeriodBounds(periodStartIso) {
   if (periodStartIso) {
@@ -335,6 +344,39 @@ function Account() {
           </>
         )}
       </div>
+
+      {user.active_passes?.length > 0 && (
+        <div className="account-card" id="passes">
+          <div className="account-card-title">One-time passes</div>
+          <div className="account-card-sub">
+            Separate from your plan — these expire on their own clock and are used before your monthly cap or
+            credits.
+          </div>
+          {user.active_passes.map((pass) => {
+            const info = PASS_BY_KEY[pass.pass_type];
+            const remaining = pass.captures_cap - pass.captures_used;
+            const pct = Math.min(100, Math.round((pass.captures_used / pass.captures_cap) * 100));
+            return (
+              <div className="account-breakdown" key={pass.id} style={{ marginTop: 14 }}>
+                <div className="account-breakdown-row">
+                  <span>{info?.name || 'Pass'}</span>
+                  <span>
+                    {remaining} left · {formatTimeLeft(pass.expires_at)}
+                  </span>
+                </div>
+                <div className="account-progress">
+                  <div className="account-progress-bar" style={{ width: `${pct}%` }} />
+                </div>
+              </div>
+            );
+          })}
+          <div className="actions account-card-actions">
+            <Link to="/pricing#passes" className="pill-button pill-button-outline pill-button-sm">
+              Get another pass
+            </Link>
+          </div>
+        </div>
+      )}
 
       {user.credits_allowed && (
         <div className="account-card" id="credits" ref={creditsSectionRef}>

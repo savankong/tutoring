@@ -1163,6 +1163,90 @@
   cursor: default;
 }
 
+/* One-time passes */
+.zn-pass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.zn-pass-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 2.6vw, 30px) clamp(20px, 2.4vw, 26px);
+  border: 2.5px solid var(--zn-ink);
+  background: var(--zn-card);
+}
+
+.zn-pass-card:nth-child(2) {
+  transform: rotate(0.5deg);
+}
+
+.zn-pass-card:nth-child(3) {
+  transform: rotate(-0.4deg);
+}
+
+.zn-pass-card h3 {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--zn-ink);
+}
+
+.zn-pass-price {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: clamp(32px, 3.6vw, 44px);
+  letter-spacing: -0.03em;
+  color: var(--zn-accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.zn-pass-meta {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 14px;
+}
+
+.zn-pass-tagline {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.zn-pass-cta {
+  align-self: flex-start;
+  background: transparent;
+  color: var(--zn-ink);
+  border: 2.5px solid var(--zn-ink);
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 20px 10px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.zn-pass-cta:hover:not(:disabled) {
+  background: var(--zn-ink);
+  color: var(--zn-paper);
+}
+
+.zn-pass-cta:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 .zn-fineprint h3 {
   font-family: var(--zn-display);
   font-weight: 800;
@@ -1310,6 +1394,17 @@
   opacity: 0.6;
   cursor: default;
   box-shadow: none;
+}
+
+.zn-auth-consent {
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin: 14px 0 0;
+}
+
+.zn-auth-consent a {
+  text-decoration: underline;
 }
 
 .zn-auth-divider {

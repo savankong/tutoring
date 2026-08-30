@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { getDatabase } from '../lib/db.js';
 import { requireUser } from '../lib/auth.js';
-import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits } from '../lib/access.js';
+import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits, findActivePass, debitPass } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
 import { PUBLIC_QUESTION_TOPICS, normalizeQuestionKey } from '../lib/publicTopics.js';
 
@@ -166,15 +166,23 @@ export default async (request) => {
     return jsonResponse(403, { error: 'Verify your email to start using captures.', reason: 'email_unverified' });
   }
   const plan = planFor(user);
-  const capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
-  // Free tier hits a hard cap. Paid tiers get a grace buffer beyond their
-  // cap, then draw down purchased credits (see debitCredit below) — once
-  // both are exhausted they're capped too.
-  if (isCapped(user, capturesUsedBefore)) {
-    const error = plan.creditsAllowed
-      ? `You've used all ${plan.captureCap + plan.graceBuffer} captures (including your grace buffer) for this month. Buy credits to keep going.`
-      : `You've used all ${plan.captureCap} captures for this month.`;
-    return jsonResponse(402, { error, reason: 'cap_reached' });
+  // An active one-time pass (see netlify/lib/plans.js) is drawn down before
+  // plan cap/grace/credits — it expires on the wall clock regardless of
+  // whether it's used, so using it first never wastes it. Only fall through
+  // to the plan-cap check when there's no pass to use.
+  const activePass = await findActivePass(db, user.id);
+  let capturesUsedBefore = 0;
+  if (!activePass) {
+    capturesUsedBefore = await capturesUsedThisPeriod(db, user.id, user.current_period_start);
+    // Free tier hits a hard cap. Paid tiers get a grace buffer beyond their
+    // cap, then draw down purchased credits (see debitCredit below) — once
+    // both are exhausted they're capped too.
+    if (isCapped(user, capturesUsedBefore)) {
+      const error = plan.creditsAllowed
+        ? `You've used all ${plan.captureCap + plan.graceBuffer} captures (including your grace buffer) for this month. Buy credits to keep going.`
+        : `You've used all ${plan.captureCap} captures for this month.`;
+      return jsonResponse(402, { error, reason: 'cap_reached' });
+    }
   }
 
   let body;
@@ -219,11 +227,13 @@ export default async (request) => {
 
     if (questionDetected) {
       await db.sql`
-        INSERT INTO captures (user_id, title, question_text, answer, explanation, why_others_wrong)
-        VALUES (${user.id}, ${title}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong})
+        INSERT INTO captures (user_id, title, question_text, answer, explanation, why_others_wrong, pass_purchase_id)
+        VALUES (${user.id}, ${title}, ${questionText}, ${answer}, ${explanation}, ${whyOthersWrong}, ${activePass?.id ?? null})
       `;
 
-      if (isDrawingOnCredits(user, capturesUsedBefore)) {
+      if (activePass) {
+        await debitPass(db, activePass.id);
+      } else if (isDrawingOnCredits(user, capturesUsedBefore)) {
         await debitCredit(db, user);
       }
 

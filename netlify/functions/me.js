@@ -3,6 +3,22 @@ import { requireUser, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
 
+async function activePasses(db, userId) {
+  const rows = await db.sql`
+    SELECT id, pass_type, captures_cap, captures_used, expires_at
+    FROM pass_purchases
+    WHERE user_id = ${userId} AND expires_at > now()
+    ORDER BY expires_at ASC
+  `;
+  return rows.map((row) => ({
+    id: row.id,
+    pass_type: row.pass_type,
+    captures_cap: row.captures_cap,
+    captures_used: row.captures_used,
+    expires_at: row.expires_at,
+  }));
+}
+
 function jsonResponse(status, body, extraHeaders) {
   return new Response(JSON.stringify(body), {
     status,
@@ -29,6 +45,8 @@ export default async (request) => {
     lastCreditPurchase = row?.created_at ?? null;
   }
 
+  const passes = await activePasses(db, user.id);
+
   // Every authenticated load reissues the session cookie with a fresh
   // expiry — a sliding window so an active tutor never gets logged out,
   // instead of a fixed expiry counted from the original sign-in.
@@ -51,6 +69,7 @@ export default async (request) => {
       credit_balance: user.credit_balance ?? 0,
       using_credits: isDrawingOnCredits(user, capturesUsed),
       last_credit_purchase: lastCreditPurchase,
+      active_passes: passes,
       public_captures_opt_out: user.public_captures_opt_out ?? false,
       email_verified: user.email_verified || !!user.google_id,
     },

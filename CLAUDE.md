@@ -91,24 +91,58 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 
 `netlify/lib/plans.js` is the source of truth; `src/lib/plans.js` is a display-only mirror for the frontend (never import backend-only code into the client bundle).
 
+**Pricing updated 2026-08-30** (source: Savan's financial-model spreadsheet, both subscription and one-time-pass numbers). This was a real price *increase* on existing tiers, not just new SKUs — see "Existing-subscriber migration" below, that part doesn't happen automatically.
+
 | Plan | Price | Cap | Grace buffer | Beyond cap+grace |
 |---|---|---|---|---|
 | Free | $0 forever, no card | 5 captures/mo | — | hard block |
-| Starter | $4.99/mo (`STRIPE_PRICE_STARTER`) | 45/mo | 5 | draw down credits, then block |
-| Personal | $9.99/mo (`STRIPE_PRICE_PERSONAL`) | 90/mo | 10 | draw down credits, then block |
-| Pro | $19.99/mo (`STRIPE_PRICE_PRO`) | 180/mo | 20 | draw down credits, then block |
+| Starter | $9.99/mo (`STRIPE_PRICE_STARTER`) | 100/mo | 10 | draw down credits, then block |
+| Personal | $19.99/mo (`STRIPE_PRICE_PERSONAL`) | 200/mo | 20 | draw down credits, then block |
+| Pro | $39.99/mo (`STRIPE_PRICE_PRO`) | 400/mo | 40 | draw down credits, then block |
 
 No Team/Enterprise tier — Free/Starter/Personal/Pro is the whole ladder.
 
-Cap + grace per paid tier is sized so worst-case per-capture cost (~$0.075 at `claude-opus-4-8` rates: large gallery image + hardest reasoning) never exceeds ~75% of the plan price — do the same math before changing any cap or price (see `netlify/lib/plans.js` comment for the derivation).
+Cap alone (before grace) is sized so worst-case per-capture cost (~$0.075 at `claude-opus-4-8` rates: large gallery image + hardest reasoning) sits right at ~75% of the plan price — 100×0.075/9.99, 200×0.075/19.99, and 400×0.075/39.99 all land at ~75.0%, confirming the 2026-08-30 caps were deliberately derived the same way as the original ones. Grace buffer (10% of cap, same ratio as before) sits on top of that margin, not into it — do the same math before changing any cap or price (see `netlify/lib/plans.js` comment for the derivation).
 
 The legacy `STRIPE_PRICE_ID` (old $15/mo plan) is still honored in `stripe-webhook.js`'s price→plan mapping for existing subscribers, treated as Personal-tier caps — don't remove it.
 
-**Add-on credits replace automatic overage billing.** Once a paid subscriber passes cap + grace, further captures debit `users.credit_balance` (1 credit = 1 capture) instead of triggering a Stripe invoice item. If the balance hits 0, captures are blocked (`analyze-question.js` → `isCapped`) until they buy more via `create-credit-checkout-session.js` (`STRIPE_PRICE_CREDIT_PACK`, `CREDIT_PACK_SIZE` = 100 credits / `CREDIT_PACK_PRICE_CENTS` = $15.00 — deliberately priced above the old $0.12/capture rate since credits are now the profit center). Credits roll over indefinitely while the user stays on a paid plan; `customer.subscription.deleted` resets `credit_balance` to 0 on downgrade to Free. Free-tier users cannot buy credits (`plan.creditsAllowed`). Purchases are recorded in `credit_purchases`, keyed on the Stripe checkout session id for webhook idempotency.
+**Add-on credits replace automatic overage billing.** Once a paid subscriber passes cap + grace, further captures debit `users.credit_balance` (1 credit = 1 capture) instead of triggering a Stripe invoice item. If the balance hits 0, captures are blocked (`analyze-question.js` → `isCapped`) until they buy more via `create-credit-checkout-session.js` (`STRIPE_PRICE_CREDIT_PACK`, `CREDIT_PACK_SIZE` = 100 credits / `CREDIT_PACK_PRICE_CENTS` = $15.00 — unchanged in the 2026-08-30 update, deliberately priced above the old $0.12/capture rate since credits are now the profit center). Credits roll over indefinitely while the user stays on a paid plan; `customer.subscription.deleted` resets `credit_balance` to 0 on downgrade to Free. Free-tier users cannot buy credits (`plan.creditsAllowed`). Purchases are recorded in `credit_purchases`, keyed on the Stripe checkout session id for webhook idempotency.
 
 Cancellation (`customer.subscription.deleted`) drops a user back to `plan = 'free'` rather than cutting off access entirely.
 
 Admin bootstrap: `savankong@gmail.com` is the (only) admin, promoted directly in the DB.
+
+### One-time capture passes (added 2026-08-30)
+
+A completely separate capacity pool from the monthly plan cap — not a subscription tier, a real wall-clock-expiring one-time purchase. `netlify/lib/plans.js`'s `PASSES` export is the source of truth (mirrored display-only in `src/lib/plans.js`, same convention as `PLANS`):
+
+| Pass | Price | Captures | Expires |
+|---|---|---|---|
+| 24-Hour Cram Pass | $9.99 (`STRIPE_PRICE_PASS_24H`) | 40 | 24 hours after purchase |
+| 7-Day Prep Pass | $29.99 (`STRIPE_PRICE_PASS_7D`) | 200 | 7 days after purchase |
+| 30-Day Unlimited Pass | $59.99 (`STRIPE_PRICE_PASS_30D`) | 500 | 30 days after purchase |
+
+("Unlimited" in the 30-day pass's name is marketing, not literal — it has a real 500-capture cap, same mechanics as the other two.)
+
+- **Schema**: `pass_purchases` table (migration `20260830000000_add_one_time_passes`) — one row per purchase: `pass_type`, `captures_cap`, `captures_used`, `purchased_at`, `expires_at`, `stripe_checkout_session_id` (unique, webhook idempotency same as `credit_purchases`). `captures.pass_purchase_id` (nullable FK) records which pass, if any, funded a given capture.
+- **Checkout**: `create-pass-checkout-session.js` — `mode: 'payment'` (one-time), not `'subscription'`. Metadata carries `pass_type`, `captures_cap`, and `duration_hours`; `expires_at` is computed in the webhook at purchase confirmation (`now() + make_interval(hours => ...)`), not at checkout-session creation, so the clock starts on actual payment rather than however long the customer sits on the Stripe Checkout page.
+- **Gating** (`netlify/lib/access.js` + `analyze-question.js`): `findActivePass()` picks the soonest-expiring active pass with remaining capacity (`expires_at > now() AND captures_used < captures_cap`, `ORDER BY expires_at ASC`). If one exists, it's consumed **before** plan cap/grace/credits — deliberately, since an unused pass capture just expires and is wasted, unlike plan cap (regenerates every period) or credits (roll over indefinitely on a paid plan). Only when there's no active pass does the existing `isCapped`/`isDrawingOnCredits` plan-cap logic run at all. `capturesUsedThisPeriod()` explicitly excludes pass-funded captures (`pass_purchase_id IS NULL`) so pass usage never eats into a user's regular monthly plan allowance.
+- **Frontend**: `Pricing.jsx` has a "One-time passes" section (`#passes`) below the subscription tier grid; `Register.jsx` handles `?pass=<key>` the same way it already handled `?plan=<key>` (finish checkout right after account creation, mutually exclusive with `?plan=`); `Account.jsx` shows an "Active passes" card (only rendered when `active_passes` is non-empty) with per-pass remaining-captures progress bars and time-left, plus a link back to `/pricing#passes` to buy another — no in-page purchase modal, matching how plan upgrades already link out to the pricing page rather than duplicating tier selection in Account.
+- **Verified against a real local Postgres + a live `node server/index.js`** (not just syntax-checked) before shipping: expired/fully-used passes correctly ignored, soonest-expiring pass chosen first when multiple are active, `debitPass` increments correctly, pass-funded captures excluded from the plan-cap count, and an end-to-end HTTP request confirmed a pass lets a capture through even with the Free plan's cap fully exhausted (then confirmed the same request 402s once the pass is removed). See "Verification patterns that work here" below for the local-Postgres recipe this used.
+
+### Existing-subscriber migration (2026-08-30 price increase) — NOT automatic
+
+Changing `STRIPE_PRICE_STARTER`/`PERSONAL`/`PRO` to new Price IDs only affects **new** signups — Stripe Prices are immutable, and an existing subscriber's subscription stays on whatever Price it was created with until something explicitly changes it. Savan asked for existing subscribers to be migrated onto the new prices too, not grandfathered. This needs real Stripe credentials this environment didn't have, so it's a script, not something already run:
+
+`scripts/migrate-subscribers-to-new-pricing.mjs` — defaults to a dry run (prints what it would change, calls nothing); pass `--execute` to actually apply. Needs both the new Price IDs (`STRIPE_PRICE_STARTER` etc., already-updated) and the old ones (`OLD_STRIPE_PRICE_STARTER` etc., since once you overwrite the env vars the old IDs only live in Stripe's dashboard history or your own notes) — see the script's header comment for full usage. Defaults to `proration_behavior: 'none'` (new price takes effect at the customer's next renewal, no immediate surprise charge) — pass `--prorate-now` for `create_prorations` instead. Its DB query and dry-run reporting were verified against a real local Postgres; the actual Stripe API calls could not be tested here (no live key) — run the dry run first in a real environment and read the output before adding `--execute`.
+
+**Runbook, in order:**
+1. Create the 6 new Stripe Price objects (live mode, in the dashboard): Starter $9.99/mo, Personal $19.99/mo, Pro $39.99/mo, and the 3 one-time passes ($9.99/$29.99/$59.99, `payment` type not recurring). Note the old and new Price IDs for each of Starter/Personal/Pro — you'll need both.
+2. Set the new IDs as `STRIPE_PRICE_STARTER`/`PERSONAL`/`PRO` and the 3 new `STRIPE_PRICE_PASS_*` vars in the DO dashboard; redeploy.
+3. Run `netlify/database/migrations` (via `npm run migrate`) against the production `DATABASE_URL` if not already applied — adds `pass_purchases` and `captures.pass_purchase_id`.
+4. Run the migration script with `OLD_STRIPE_PRICE_*` set to the prices from step 1, **without** `--execute` first, and actually read the output.
+5. Decide proration behavior with Savan (silent-at-next-renewal vs. bill-the-difference-now) before re-running with `--execute`.
+6. Check the Stripe Dashboard's Customer Portal product/price configuration (Settings → Billing → Customer portal) — it has its own separate list of prices customers can self-serve switch between via "Manage billing," independent of this codebase. Update it to the new prices too, or existing customers could switch themselves back to old pricing through the portal.
 
 ## Question analysis model routing
 

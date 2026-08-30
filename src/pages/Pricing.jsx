@@ -4,7 +4,7 @@ import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
 import { ZineArrow } from '../components/zine/ZineArt.jsx';
-import { PLANS } from '../lib/plans.js';
+import { PLANS, PASSES } from '../lib/plans.js';
 import '../styles/zine.css';
 
 const FINE_PRINT = [
@@ -18,6 +18,29 @@ function Pricing() {
   const navigate = useNavigate();
   const [busyKey, setBusyKey] = useState(null);
   const [error, setError] = useState('');
+
+  const choosePass = async (passKey) => {
+    if (!user) {
+      navigate(`/register?pass=${passKey}`);
+      return;
+    }
+    setError('');
+    setBusyKey(passKey);
+    try {
+      const res = await fetch('/api/create-pass-checkout-session', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ pass: passKey }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err.message);
+      setBusyKey(null);
+    }
+  };
 
   const choosePlan = async (planKey) => {
     if (planKey === 'free') {
@@ -50,7 +73,7 @@ function Pricing() {
     <div className="zn-root">
       <Seo
         title="Pricing — Cambo App"
-        description="Free forever up to 5 captures a month. Paid plans from $4.99/mo. Cancel anytime, no contract."
+        description="Free forever up to 5 captures a month. Paid plans from $9.99/mo, or one-time passes from $9.99. Cancel anytime, no contract."
         path="/pricing"
       />
 
@@ -98,6 +121,36 @@ function Pricing() {
             </div>
           );
         })}
+      </div>
+
+      <div className="zn-section" id="passes">
+        <div className="zn-section-head">
+          <h2 className="zn-h2" style={{ fontSize: 'clamp(26px, 3.4vw, 46px)' }}>
+            Just need it for a stretch?
+          </h2>
+          <span className="zn-tag" style={{ transform: 'rotate(1deg)' }}>
+            One-time passes
+          </span>
+        </div>
+        <p style={{ maxWidth: '56ch', margin: '0 0 clamp(28px, 3vw, 44px)', opacity: 0.85 }}>
+          No subscription, no recurring charge — pay once, get a fixed number of captures, use them before the clock
+          runs out.
+        </p>
+        <div className="zn-pass-grid">
+          {PASSES.map((pass) => (
+            <div className="zn-pass-card" key={pass.key}>
+              <h3>{pass.name}</h3>
+              <div className="zn-pass-price">{pass.price}</div>
+              <div className="zn-pass-meta">
+                {pass.captureCap} captures · {pass.duration}
+              </div>
+              <p className="zn-pass-tagline">{pass.tagline}</p>
+              <button type="button" className="zn-pass-cta" disabled={busyKey === pass.key} onClick={() => choosePass(pass.key)}>
+                {busyKey === pass.key ? 'Loading…' : pass.cta}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="zn-section zn-fineprint">

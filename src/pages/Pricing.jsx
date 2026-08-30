@@ -3,20 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
 import { ZineArrow } from '../components/zine/ZineArt.jsx';
 import { PLANS } from '../lib/plans.js';
 import '../styles/zine.css';
-
-const FONT_LINKS = (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&display=swap"
-    />
-  </>
-);
 
 const FINE_PRINT = [
   { title: 'No annual lock-in', body: 'Month to month. Tutoring and test prep are seasonal and the billing should be too.' },
@@ -64,7 +54,7 @@ function Pricing() {
         description="Free forever up to 5 captures a month. Paid plans from $4.99/mo. Cancel anytime, no contract."
         path="/pricing"
       >
-        {FONT_LINKS}
+        {ZineFonts}
       </Seo>
 
       <div className="zn-grain" />
@@ -141,7 +131,6 @@ function Pricing() {
         <nav className="zn-footer-nav">
           <Link to="/">Home</Link>
           <a href="/#resources">Resources</a>
-          <a href="/#ask">Ask a question</a>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
         </nav>

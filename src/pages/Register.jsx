@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import AuthNav from '../components/AuthNav.jsx';
+import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
 import { PLANS } from '../lib/plans.js';
+import '../styles/zine.css';
 
 const PAID_PLAN_KEYS = new Set(['starter', 'personal', 'pro']);
 
@@ -71,57 +73,61 @@ function Register() {
         description="Create a free Cambo App account — no credit card required."
         path="/register"
         noindex
-      />
-      <AuthNav />
-      <div className="auth-page">
-        <div className="auth-card">
-          <div className="auth-card-logo">
-            <Logo size={18} wordmark />
+      >
+        {ZineFonts}
+      </Seo>
+      <div className="zn-root">
+        <ZineAuthNav />
+        <div className="zn-auth-page">
+          <div className="zn-auth-card">
+            <div className="zn-auth-card-logo">
+              <Logo size={18} wordmark />
+            </div>
+            <h1>{plan ? `Sign up for ${plan.name}` : 'Create your free account'}</h1>
+            <p className="zn-auth-subhead">
+              {plan
+                ? `${plan.price}${plan.period} — you'll finish checkout right after this.`
+                : 'No card required. Upgrade any time.'}
+            </p>
+            <form onSubmit={onSubmit} className="zn-auth-form">
+              <label>
+                <span className="zn-auth-label">Email</span>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                />
+              </label>
+              <label>
+                <span className="zn-auth-label">Password</span>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={8}
+                  autoComplete="new-password"
+                />
+              </label>
+              {error && <p className="zn-error-text">{error}</p>}
+              <button type="submit" disabled={submitting}>
+                {submitting ? 'Creating account…' : plan ? 'Continue to payment' : 'Create account'}
+              </button>
+            </form>
+            <div className="zn-auth-divider">
+              <span>or continue with</span>
+            </div>
+            <a className="zn-google-btn" href={googleStartUrl}>
+              <GoogleIcon />
+              Continue with Google
+            </a>
           </div>
-          <h1>{plan ? `Sign up for ${plan.name}` : 'Create your free account'}</h1>
-          <p className="auth-subhead">
-            {plan
-              ? `${plan.price}${plan.period} — you'll finish checkout right after this.`
-              : 'No card required. Upgrade any time.'}
+          <p className="zn-auth-switch">
+            Already have an account? <Link to="/login">Log in</Link>
           </p>
-          <form onSubmit={onSubmit} className="auth-form">
-            <label>
-              <span className="auth-label">Email</span>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-            </label>
-            <label>
-              <span className="auth-label">Password</span>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={8}
-                autoComplete="new-password"
-              />
-            </label>
-            {error && <p className="error-text">{error}</p>}
-            <button type="submit" disabled={submitting}>
-              {submitting ? 'Creating account…' : plan ? 'Continue to payment' : 'Create account'}
-            </button>
-          </form>
-          <div className="auth-divider">
-            <span>or continue with</span>
-          </div>
-          <a className="google-button" href={googleStartUrl}>
-            <GoogleIcon />
-            Continue with Google
-          </a>
         </div>
-        <p className="auth-switch">
-          Already have an account? <Link to="/login">Log in</Link>
-        </p>
       </div>
     </>
   );

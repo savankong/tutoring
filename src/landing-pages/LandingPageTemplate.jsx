@@ -10,13 +10,15 @@ import LpOfficialSource from './components/LpOfficialSource.jsx';
 import LpRelatedLinks from './components/LpRelatedLinks.jsx';
 import LpCtaFooter from './components/LpCtaFooter.jsx';
 import LpResourcesFooter from './components/LpResourcesFooter.jsx';
+import '../styles/zine.css';
+import '../styles/zine-lp.css';
 
 function LandingPageTemplate({ content, allContent }) {
   return (
-    <div className="landing lp-page">
+    <div className="zn-root">
       <LpHead content={content} />
+      <div className="zn-grain" />
       <LpHeader />
-      <div className="mkt-main">
       <LpHero content={content} />
       <LpHowItWorks />
       <LpOfficialSource content={content} />
@@ -27,7 +29,6 @@ function LandingPageTemplate({ content, allContent }) {
       <LpCtaFooter content={content} />
       <LpResourcesFooter />
       <LpFooter />
-      </div>
     </div>
   );
 }

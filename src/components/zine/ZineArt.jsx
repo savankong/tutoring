@@ -30,20 +30,6 @@ export function ZineCircleThin({ color = 'currentColor' }) {
   );
 }
 
-export function ZineCircleSmall({ color = 'currentColor' }) {
-  return (
-    <svg viewBox="0 0 320 40" preserveAspectRatio="none">
-      <path
-        d="M96 4 C 34 5, 5 13, 6 21 C 8 30, 58 37, 148 36 C 236 35, 314 30, 315 20 C 316 11, 258 4, 168 4 C 132 4, 90 6, 62 11"
-        fill="none"
-        stroke={color}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 export function ZineCircleWord({ color = 'currentColor' }) {
   return (
     <svg viewBox="0 0 260 60" preserveAspectRatio="none">

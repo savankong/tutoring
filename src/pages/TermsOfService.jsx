@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import Sidebar from '../components/Sidebar.jsx';
 import Seo from '../components/Seo.jsx';
-import ResourcesFooter from '../components/ResourcesFooter.jsx';
-
-const NAV_ITEMS = [
-  { label: 'How it works', href: '/#how' },
-  { label: 'Why tutors', href: '/#why' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'FAQ', href: '/#faq' },
-];
+import ZineHeader from '../components/zine/ZineHeader.jsx';
+import ZineResources from '../components/zine/ZineResources.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
+import '../styles/zine.css';
 
 const LAST_UPDATED = 'August 29, 2026';
 
@@ -17,23 +12,24 @@ function TermsOfService() {
   const { user } = useAuthContext();
 
   return (
-    <div className="landing">
+    <div className="zn-root">
       <Seo
         title="Terms of Service — Cambo App"
         description="The terms that apply when you use Cambo."
         path="/terms"
-      />
-      <Sidebar navItems={NAV_ITEMS} user={user} />
+      >
+        {ZineFonts}
+      </Seo>
+      <div className="zn-grain" />
+      <ZineHeader user={user} />
 
-      <div className="mkt-main">
-        <section className="pricing-page legal-page">
-          <div className="pricing-page-head">
-            <div className="section-eyebrow">Terms of Service</div>
-            <h1>Terms of Service</h1>
-            <p>Last updated: {LAST_UPDATED}</p>
-          </div>
+      <div className="zn-legal-head">
+        <span className="zn-tag">Terms of Service</span>
+        <h1>Terms of Service</h1>
+        <p>Last updated: {LAST_UPDATED}</p>
+      </div>
 
-          <div className="legal-content">
+      <div className="zn-legal-content">
             <p>
               These terms govern your use of Cambo (camboapp.com and the Cambo app). By
               creating an account or using Cambo, you agree to these terms.
@@ -108,23 +104,22 @@ function TermsOfService() {
 
             <h2>Contact us</h2>
             <p>
-              Questions about these terms? Reach us using the "Ask a question" form on
-              our home page.
+              Questions about these terms? Email us at <a href="mailto:camboapp101@gmail.com">camboapp101@gmail.com</a>.
             </p>
-          </div>
-        </section>
-
-        <ResourcesFooter />
-
-        <div className="footer-bottom pricing-footer-bottom">
-          <div>© 2026 Cambo App</div>
-          <div className="footer-links">
-            <Link to="/">Home</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <a href="/#ask">Ask a question</a>
-          </div>
-        </div>
       </div>
+
+      <ZineResources />
+
+      <footer className="zn-footer">
+        <div>
+          <div className="zn-footer-wordmark">Cambo</div>
+          <div className="zn-footer-sub">© 2026 · Still not an app for cheating</div>
+        </div>
+        <nav className="zn-footer-nav">
+          <Link to="/">Home</Link>
+          <Link to="/privacy">Privacy Policy</Link>
+        </nav>
+      </footer>
     </div>
   );
 }

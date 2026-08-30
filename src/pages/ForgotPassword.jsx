@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import AuthNav from '../components/AuthNav.jsx';
+import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
+import '../styles/zine.css';
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -39,46 +41,50 @@ function ForgotPassword() {
         description="Reset your Cambo App password."
         path="/forgot-password"
         noindex
-      />
-      <AuthNav />
-      <div className="auth-page">
-        <div className="auth-card">
-          <div className="auth-card-logo">
-            <Logo size={18} wordmark />
-          </div>
-          <h1>Reset your password</h1>
-          {sent ? (
-            <p className="auth-subhead">
-              If an account exists for <strong>{email}</strong>, we've sent a link to reset your
-              password. It expires in an hour.
-            </p>
-          ) : (
-            <>
-              <p className="auth-subhead">
-                Enter your email and we'll send you a link to reset your password.
+      >
+        {ZineFonts}
+      </Seo>
+      <div className="zn-root">
+        <ZineAuthNav />
+        <div className="zn-auth-page">
+          <div className="zn-auth-card">
+            <div className="zn-auth-card-logo">
+              <Logo size={18} wordmark />
+            </div>
+            <h1>Reset your password</h1>
+            {sent ? (
+              <p className="zn-auth-subhead">
+                If an account exists for <strong>{email}</strong>, we've sent a link to reset your
+                password. It expires in an hour.
               </p>
-              <form onSubmit={onSubmit} className="auth-form">
-                <label>
-                  <span className="auth-label">Email</span>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    autoComplete="email"
-                  />
-                </label>
-                {error && <p className="error-text">{error}</p>}
-                <button type="submit" disabled={submitting}>
-                  {submitting ? 'Sending…' : 'Send reset link'}
-                </button>
-              </form>
-            </>
-          )}
+            ) : (
+              <>
+                <p className="zn-auth-subhead">
+                  Enter your email and we'll send you a link to reset your password.
+                </p>
+                <form onSubmit={onSubmit} className="zn-auth-form">
+                  <label>
+                    <span className="zn-auth-label">Email</span>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      autoComplete="email"
+                    />
+                  </label>
+                  {error && <p className="zn-error-text">{error}</p>}
+                  <button type="submit" disabled={submitting}>
+                    {submitting ? 'Sending…' : 'Send reset link'}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+          <p className="zn-auth-switch">
+            <Link to="/login">← Back to log in</Link>
+          </p>
         </div>
-        <p className="auth-switch">
-          <Link to="/login">← Back to log in</Link>
-        </p>
       </div>
     </>
   );

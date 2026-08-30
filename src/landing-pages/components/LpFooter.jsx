@@ -1,14 +1,16 @@
 function LpFooter() {
   return (
-    <footer className="footer-bottom lp-footer">
-      <div>© 2026 Cambo App</div>
-      <div className="footer-links">
-        <a href="/pricing/">Pricing</a>
+    <footer className="zn-footer">
+      <div>
+        <div className="zn-footer-wordmark">Cambo</div>
+        <div className="zn-footer-sub">© 2026 · Still not an app for cheating</div>
+      </div>
+      <nav className="zn-footer-nav">
         <a href="/">Home</a>
-        <a href="/#ask">Ask a question</a>
+        <a href="/pricing/">Pricing</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
-      </div>
+      </nav>
     </footer>
   );
 }

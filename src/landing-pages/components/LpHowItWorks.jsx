@@ -6,21 +6,20 @@ const STEPS = [
 
 function LpHowItWorks() {
   return (
-    <section className="how-section lp-how-section">
-      <div>
-        <div className="section-eyebrow">How it works</div>
-        <h2>Three steps, a few seconds each.</h2>
-        <div className="steps-list">
-          {STEPS.map((step, i) => (
-            <div className="step-row" key={step.title}>
-              <div className="step-num">{String(i + 1).padStart(2, '0')}</div>
-              <div className="step-title">{step.title}</div>
-              <div className="step-body">{step.body}</div>
-            </div>
-          ))}
-        </div>
+    <div className="zn-section">
+      <div className="zn-section-head">
+        <h2 className="zn-h2">Three steps, a few seconds each.</h2>
       </div>
-    </section>
+      <div className="zn-grid3">
+        {STEPS.map((step, i) => (
+          <div className="zn-grid3-item" key={step.title}>
+            <span className="zn-grid3-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

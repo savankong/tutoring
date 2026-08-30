@@ -6,14 +6,17 @@ function LpRelatedLinks({ content, allContent }) {
   if (!content.internalLinks || content.internalLinks.length === 0) return null;
 
   return (
-    <section className="lp-related-section">
-      <div className="section-eyebrow">Related</div>
-      <h2>Other practice pages.</h2>
-      <div className="lp-related-links">
+    <section className="zn-section">
+      <div className="zn-section-head">
+        <h2 className="zn-h2" style={{ fontSize: 'clamp(26px, 3.4vw, 46px)' }}>
+          Other practice pages.
+        </h2>
+      </div>
+      <div className="zn-lp-related">
         {content.internalLinks.map((slug) => {
           const target = allContent[slug];
           return (
-            <a className="lp-related-link" href={`/${slug}/`} key={slug}>
+            <a href={`/${slug}/`} key={slug}>
               {target ? target.h1 : humanizeSlug(slug)}
             </a>
           );

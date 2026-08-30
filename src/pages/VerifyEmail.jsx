@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import AuthNav from '../components/AuthNav.jsx';
+import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
+import '../styles/zine.css';
 
 function VerifyEmail() {
   const { refresh } = useAuthContext();
@@ -36,35 +38,39 @@ function VerifyEmail() {
         description="Verify your Cambo App email address."
         path="/verify-email"
         noindex
-      />
-      <AuthNav />
-      <div className="auth-page">
-        <div className="auth-card">
-          <div className="auth-card-logo">
-            <Logo size={18} wordmark />
+      >
+        {ZineFonts}
+      </Seo>
+      <div className="zn-root">
+        <ZineAuthNav />
+        <div className="zn-auth-page">
+          <div className="zn-auth-card">
+            <div className="zn-auth-card-logo">
+              <Logo size={18} wordmark />
+            </div>
+            <h1>
+              {status === 'verifying' && 'Verifying your email…'}
+              {status === 'success' && 'Email verified'}
+              {status === 'error' && 'Verification failed'}
+              {status === 'missing' && 'Missing verification link'}
+            </h1>
+            <p className="zn-auth-subhead">
+              {status === 'verifying' && 'One moment.'}
+              {status === 'success' && "You're all set — captures are unlocked."}
+              {status === 'error' && 'This link is invalid or has expired. Request a new one from your account page.'}
+              {status === 'missing' && 'This link is missing its token.'}
+            </p>
+            {status === 'success' && (
+              <Link to="/app" className="zn-pill-btn">
+                Go to app
+              </Link>
+            )}
+            {status === 'error' && (
+              <Link to="/account" className="zn-pill-btn">
+                Go to account
+              </Link>
+            )}
           </div>
-          <h1>
-            {status === 'verifying' && 'Verifying your email…'}
-            {status === 'success' && 'Email verified'}
-            {status === 'error' && 'Verification failed'}
-            {status === 'missing' && 'Missing verification link'}
-          </h1>
-          <p className="auth-subhead">
-            {status === 'verifying' && 'One moment.'}
-            {status === 'success' && "You're all set — captures are unlocked."}
-            {status === 'error' && 'This link is invalid or has expired. Request a new one from your account page.'}
-            {status === 'missing' && 'This link is missing its token.'}
-          </p>
-          {status === 'success' && (
-            <Link to="/app" className="pill-button pill-button-sm">
-              Go to app
-            </Link>
-          )}
-          {status === 'error' && (
-            <Link to="/account" className="pill-button pill-button-sm">
-              Go to account
-            </Link>
-          )}
         </div>
       </div>
     </>

@@ -1,15 +1,17 @@
 function LpFaq({ content }) {
   return (
-    <section id="faq" className="faq-section lp-faq-section">
-      <div className="section-eyebrow">FAQ</div>
-      <h2>Questions, answered.</h2>
-      <div className="faq-list">
+    <section id="faq" className="zn-section">
+      <h2 className="zn-h2" style={{ marginBottom: 'clamp(24px, 3vw, 38px)' }}>
+        Questions, answered.
+      </h2>
+      <div className="zn-faq-list">
         {content.faqs.map((faq, i) => (
-          <details className="faq-item lp-faq-item" key={faq.q} open={i === 0}>
-            <summary className="faq-question-row">
-              <h3 className="faq-question-text">{faq.q}</h3>
+          <details className="zn-faq-item" key={faq.q} open={i === 0}>
+            <summary>
+              {faq.q}
+              <span className="zn-plus">+</span>
             </summary>
-            <div className="faq-answer">{faq.a}</div>
+            <p>{faq.a}</p>
           </details>
         ))}
       </div>

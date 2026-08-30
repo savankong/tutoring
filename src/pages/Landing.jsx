@@ -4,20 +4,9 @@ import { useAuthContext } from '../lib/AuthContext.jsx';
 import Seo from '../components/Seo.jsx';
 import ZineHeader from '../components/zine/ZineHeader.jsx';
 import ZineResources from '../components/zine/ZineResources.jsx';
-import { ZineUnderline, ZineCircleThin, ZineCircleSmall, ZineCircleWord, ZineTornBorder, ZineArrow } from '../components/zine/ZineArt.jsx';
-import { submitForm } from '../lib/submitForm.js';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
+import { ZineUnderline, ZineCircleThin, ZineCircleWord, ZineTornBorder, ZineArrow } from '../components/zine/ZineArt.jsx';
 import '../styles/zine.css';
-
-const FONT_LINKS = (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&display=swap"
-    />
-  </>
-);
 
 const TICKER_ITEMS = ['Snap the question', 'Get the answer', 'Stay in the room', 'Works on any phone', 'No app store'];
 
@@ -64,12 +53,8 @@ const WHO_CARDS = [
     title: 'Forestry 101 at 8am',
     body: (
       <>
-        You needed three credits. The catalog offered soil science, cloud formations and{' '}
-        <span className="zn-scribble">
-          <span>underwater basket weaving</span>
-          <ZineCircleSmall color="#e08a63" />
-        </span>
-        . You are not going to be a forester. You are going to pass.
+        You needed three credits. The catalog offered soil science, cloud formations and underwater basket weaving. You are not
+        going to be a forester. You are going to pass.
       </>
     ),
   },
@@ -125,12 +110,6 @@ function Landing() {
   const { user, loading } = useAuthContext();
   const [qi, setQi] = useState(0);
   const [revealed, setRevealed] = useState(false);
-  const [askName, setAskName] = useState('');
-  const [askEmail, setAskEmail] = useState('');
-  const [askQuestion, setAskQuestion] = useState('');
-  const [askError, setAskError] = useState('');
-  const [askSubmitting, setAskSubmitting] = useState(false);
-  const [askSent, setAskSent] = useState(false);
 
   if (!loading && user) return <Navigate to="/app" replace />;
 
@@ -148,20 +127,6 @@ function Landing() {
     }
   };
 
-  const submitAskForm = async (e) => {
-    e.preventDefault();
-    setAskError('');
-    setAskSubmitting(true);
-    try {
-      await submitForm('question', { name: askName, email: askEmail, question: askQuestion });
-      setAskSent(true);
-    } catch (err) {
-      setAskError(err.message);
-    } finally {
-      setAskSubmitting(false);
-    }
-  };
-
   return (
     <div className="zn-root">
       <Seo
@@ -169,7 +134,7 @@ function Landing() {
         description="Point your phone at a question and get the answer in seconds. For everyone stuck in a class, a compliance module, or a test they never asked for."
         path="/"
       >
-        {FONT_LINKS}
+        {ZineFonts}
         <script type="application/ld+json">{JSON.stringify(SOFTWARE_APP_SCHEMA)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
       </Seo>
@@ -180,9 +145,6 @@ function Landing() {
       <div id="top" className="zn-hero">
         <div className="zn-hero-tag-row">
           <span className="zn-tag">Read this part first</span>
-          <span className="zn-eyebrow" style={{ opacity: 0.6 }}>
-            No. 01 / Cambo
-          </span>
         </div>
         <h1>
           This is{' '}
@@ -226,7 +188,6 @@ function Landing() {
             <br />
             not four minutes.
           </h2>
-          <span className="zn-eyebrow">How it works</span>
         </div>
         <div className="zn-grid3">
           {STEPS.map((step, i) => (
@@ -244,9 +205,6 @@ function Landing() {
           <h2 className="zn-h2" style={{ maxWidth: '20ch' }}>
             This is what it hands back.
           </h2>
-          <span className="zn-eyebrow">
-            Question {qi + 1} of {QUESTIONS.length}
-          </span>
         </div>
         <div className="zn-demo-grid">
           <div className="zn-demo-question">
@@ -355,39 +313,6 @@ function Landing() {
               <p>{faq.a}</p>
             </details>
           ))}
-        </div>
-      </div>
-
-      <div id="ask" className="zn-section">
-        <div className="zn-section-head">
-          <h2 className="zn-h2" style={{ fontSize: 'clamp(26px, 3.4vw, 46px)' }}>
-            Have a question? Send us a message.
-          </h2>
-        </div>
-        <div className="zn-ask-card">
-          <ZineTornBorder variant={1} />
-          {askSent ? (
-            <p className="zn-ask-sent">Thanks — we'll get back to you at {askEmail}.</p>
-          ) : (
-            <form onSubmit={submitAskForm} className="zn-ask-form">
-              <label className="zn-ask-label">
-                Name
-                <input type="text" value={askName} onChange={(e) => setAskName(e.target.value)} required autoComplete="name" />
-              </label>
-              <label className="zn-ask-label">
-                Email
-                <input type="email" value={askEmail} onChange={(e) => setAskEmail(e.target.value)} required autoComplete="email" />
-              </label>
-              <label className="zn-ask-label">
-                Question
-                <textarea value={askQuestion} onChange={(e) => setAskQuestion(e.target.value)} required rows={4} />
-              </label>
-              {askError && <p className="zn-error-text">{askError}</p>}
-              <button type="submit" className="zn-reveal-btn zn-ask-submit" disabled={askSubmitting}>
-                {askSubmitting ? 'Sending…' : 'Send question'}
-              </button>
-            </form>
-          )}
         </div>
       </div>
 

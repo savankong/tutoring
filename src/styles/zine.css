@@ -160,9 +160,94 @@
   color: var(--zn-paper);
 }
 
+/* Mobile menu — checkbox-hack dropdown, no JS (see ZineHeader.jsx comment).
+   .zn-menu-toggle is visually hidden but stays in the tab order so the
+   hamburger label is keyboard/screen-reader operable. */
+.zn-menu-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.zn-header-right {
+  display: none;
+  align-items: center;
+  gap: 14px;
+}
+
+.zn-menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--zn-ink);
+  cursor: pointer;
+  flex: none;
+}
+
+.zn-menu-btn span {
+  display: block;
+  height: 2px;
+  margin: 0 8px;
+  background: var(--zn-ink);
+}
+
+.zn-menu-toggle:checked ~ .zn-header-right .zn-menu-btn {
+  background: var(--zn-ink);
+}
+
+.zn-menu-toggle:checked ~ .zn-header-right .zn-menu-btn span {
+  background: var(--zn-paper);
+}
+
+.zn-nav-links-account {
+  display: none;
+}
+
 @media (max-width: 760px) {
-  .zn-nav-links {
+  .zn-header {
+    flex-wrap: wrap;
+  }
+
+  .zn-header-right {
+    display: flex;
+  }
+
+  .zn-nav-desktop-only {
     display: none;
+  }
+
+  .zn-nav {
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    gap: 0;
+    transition: max-height 0.2s ease;
+  }
+
+  .zn-menu-toggle:checked ~ .zn-nav {
+    max-height: 400px;
+    margin-top: 18px;
+  }
+
+  .zn-nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 18px;
+    width: 100%;
+  }
+
+  .zn-nav-links-account {
+    display: block;
   }
 }
 
@@ -179,14 +264,6 @@
   justify-content: space-between;
   gap: 16px;
   margin-bottom: clamp(28px, 3vw, 44px);
-}
-
-.zn-eyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.6;
 }
 
 .zn-h2 {
@@ -728,25 +805,6 @@
   opacity: 0.88;
 }
 
-.zn-scribble {
-  position: relative;
-  display: inline-block;
-  padding: 0 6px;
-}
-
-.zn-scribble > span {
-  position: relative;
-}
-
-.zn-scribble svg {
-  position: absolute;
-  left: -3%;
-  top: -26%;
-  width: 106%;
-  height: 152%;
-  overflow: visible;
-}
-
 /* FAQ */
 .zn-faq-list {
   display: flex;
@@ -788,67 +846,6 @@
   margin: 0 0 24px;
   max-width: 62ch;
   opacity: 0.85;
-}
-
-/* Ask a question */
-.zn-ask-card {
-  max-width: 560px;
-  background: var(--zn-card);
-  padding: clamp(24px, 3vw, 36px);
-  position: relative;
-}
-
-.zn-ask-card svg {
-  position: absolute;
-  inset: -6px;
-  width: calc(100% + 12px);
-  height: calc(100% + 12px);
-  overflow: visible;
-}
-
-.zn-ask-form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.zn-ask-label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.zn-ask-form input,
-.zn-ask-form textarea {
-  font-family: var(--zn-body);
-  font-size: 16px;
-  padding: 12px 14px;
-  border: 1.6px solid var(--zn-ink);
-  background: var(--zn-paper);
-  color: var(--zn-ink);
-  resize: vertical;
-}
-
-.zn-ask-form input:focus,
-.zn-ask-form textarea:focus {
-  outline: 2px solid var(--zn-accent);
-  outline-offset: 2px;
-}
-
-.zn-ask-submit {
-  align-self: flex-start;
-}
-
-.zn-ask-sent {
-  position: relative;
-  font-family: var(--zn-display);
-  font-weight: 700;
-  font-size: 18px;
 }
 
 /* Resources chips */
@@ -1194,4 +1191,241 @@
   color: #b3261e;
   font-weight: 600;
   margin: 0 0 20px;
+}
+
+/* Auth pages (Login, Register, Forgot/Reset Password, Verify Email) */
+.zn-auth-nav {
+  display: flex;
+  justify-content: center;
+  padding: 24px clamp(20px, 5vw, 72px);
+  border-bottom: 2.5px solid var(--zn-ink);
+}
+
+.zn-auth-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zn-auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(40px, 6vw, 72px) 20px;
+  min-height: calc(100vh - 78px);
+}
+
+.zn-auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--zn-card);
+  border: 2.5px solid var(--zn-ink);
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 3.4vw, 34px);
+}
+
+.zn-auth-card-logo {
+  margin-bottom: 18px;
+}
+
+.zn-auth-card h1 {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--zn-ink);
+}
+
+.zn-auth-subhead {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin: 0 0 20px;
+}
+
+.zn-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zn-auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zn-auth-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.zn-auth-form input {
+  font-family: var(--zn-body);
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1.6px solid var(--zn-ink);
+  background: var(--zn-paper);
+  color: var(--zn-ink);
+}
+
+.zn-auth-form input:focus {
+  outline: 2px solid var(--zn-accent);
+  outline-offset: 2px;
+}
+
+.zn-auth-form input:disabled {
+  opacity: 0.5;
+}
+
+.zn-auth-forgot {
+  align-self: flex-end;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.zn-auth-form button[type='submit'] {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 17px;
+  text-transform: uppercase;
+  background: var(--zn-accent);
+  color: var(--zn-paper);
+  border: 2.5px solid var(--zn-ink);
+  padding: 13px 22px 11px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--zn-ink);
+  transition: box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.zn-auth-form button[type='submit']:hover:not(:disabled) {
+  background: var(--zn-ink);
+  box-shadow: 2px 2px 0 var(--zn-ink);
+}
+
+.zn-auth-form button[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+
+.zn-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.zn-auth-divider::before,
+.zn-auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: var(--zn-ink);
+  opacity: 0.25;
+}
+
+.zn-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border: 2px solid var(--zn-ink);
+  background: var(--zn-paper);
+  padding: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.zn-google-btn:hover {
+  background: var(--zn-ink);
+  color: var(--zn-paper);
+}
+
+.zn-auth-switch {
+  font-size: 14px;
+  text-align: center;
+}
+
+.zn-pill-btn {
+  display: inline-block;
+  border: 2.5px solid var(--zn-ink);
+  background: var(--zn-ink);
+  color: var(--zn-paper);
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 18px 9px;
+  margin-top: 8px;
+}
+
+.zn-pill-btn:hover {
+  color: var(--zn-paper);
+  background: var(--zn-accent);
+  border-color: var(--zn-accent);
+}
+
+/* Legal pages (Terms, Privacy) */
+.zn-legal-head {
+  padding: clamp(44px, 6vw, 88px) clamp(20px, 5vw, 72px) clamp(24px, 3vw, 40px);
+  border-bottom: 2.5px solid var(--zn-ink);
+}
+
+.zn-legal-head h1 {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: clamp(36px, 5.6vw, 72px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: clamp(18px, 2.4vw, 28px) 0 12px;
+  color: var(--zn-ink);
+}
+
+.zn-legal-head p {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.zn-legal-content {
+  padding: clamp(32px, 4vw, 56px) clamp(20px, 5vw, 72px);
+  max-width: 760px;
+}
+
+.zn-legal-content p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.zn-legal-content ul {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.zn-legal-content li {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.zn-legal-content h2 {
+  font-family: var(--zn-display);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 36px 0 14px;
+  color: var(--zn-ink);
 }

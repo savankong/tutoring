@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
-import AuthNav from '../components/AuthNav.jsx';
+import ZineAuthNav from '../components/zine/ZineAuthNav.jsx';
+import ZineFonts from '../components/zine/ZineFonts.jsx';
 import Logo from '../components/Logo.jsx';
 import Seo from '../components/Seo.jsx';
+import '../styles/zine.css';
 
 function ResetPassword() {
   const { refresh } = useAuthContext();
@@ -43,36 +45,40 @@ function ResetPassword() {
         description="Set a new password for your Cambo App account."
         path="/reset-password"
         noindex
-      />
-      <AuthNav />
-      <div className="auth-page">
-        <div className="auth-card">
-          <div className="auth-card-logo">
-            <Logo size={18} wordmark />
+      >
+        {ZineFonts}
+      </Seo>
+      <div className="zn-root">
+        <ZineAuthNav />
+        <div className="zn-auth-page">
+          <div className="zn-auth-card">
+            <div className="zn-auth-card-logo">
+              <Logo size={18} wordmark />
+            </div>
+            <h1>Set a new password</h1>
+            <form onSubmit={onSubmit} className="zn-auth-form">
+              <label>
+                <span className="zn-auth-label">New password</span>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={8}
+                  autoComplete="new-password"
+                  disabled={!token}
+                />
+              </label>
+              {error && <p className="zn-error-text">{error}</p>}
+              <button type="submit" disabled={submitting || !token}>
+                {submitting ? 'Saving…' : 'Save new password'}
+              </button>
+            </form>
           </div>
-          <h1>Set a new password</h1>
-          <form onSubmit={onSubmit} className="auth-form">
-            <label>
-              <span className="auth-label">New password</span>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={8}
-                autoComplete="new-password"
-                disabled={!token}
-              />
-            </label>
-            {error && <p className="error-text">{error}</p>}
-            <button type="submit" disabled={submitting || !token}>
-              {submitting ? 'Saving…' : 'Save new password'}
-            </button>
-          </form>
+          <p className="zn-auth-switch">
+            <Link to="/login">← Back to log in</Link>
+          </p>
         </div>
-        <p className="auth-switch">
-          <Link to="/login">← Back to log in</Link>
-        </p>
       </div>
     </>
   );

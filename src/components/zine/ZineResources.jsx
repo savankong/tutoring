@@ -12,7 +12,6 @@ function ZineResources() {
         <h2 className="zn-h2" style={{ fontSize: 'clamp(26px, 3.4vw, 46px)' }}>
           What people point it at
         </h2>
-        <span className="zn-eyebrow">Practice banks</span>
       </div>
       <div className="zn-chip-row">
         {CAMPAIGN_CATEGORIES.map((category, i) => (
@@ -29,7 +28,7 @@ function ZineResources() {
             </div>
           </details>
         ))}
-        <a href="#ask" className="zn-chip-static" style={{ transform: 'rotate(0.8deg)' }}>
+        <a href="#resources" className="zn-chip-static" style={{ transform: 'rotate(0.8deg)' }}>
           Everything else you can photograph
         </a>
       </div>

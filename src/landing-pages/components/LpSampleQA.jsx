@@ -36,10 +36,11 @@ function LpSampleQA({ content }) {
   const total = content.sampleQuestions.length;
 
   return (
-    <section id="sample-questions" className="lp-sample-section">
-      <div className="section-eyebrow">Practice quiz</div>
-      <h2>Test yourself with real practice questions.</h2>
-      <div className="lp-flashcard">
+    <section id="sample-questions" className="zn-section zn-lp-sample">
+      <div className="zn-section-head">
+        <h2 className="zn-h2">Test yourself with real practice questions.</h2>
+      </div>
+      <div className="zn-lp-flashcard">
         {content.sampleQuestions.map((_, i) => (
           <input
             type="radio"
@@ -70,7 +71,7 @@ function LpSampleQA({ content }) {
                   <div className="fc-tap-cue">Tap the card to reveal the answer</div>
                 </div>
                 <div className="fc-face fc-back">
-                  <span className="lp-sample-a-label">Answer</span>
+                  <span className="zn-lp-sample-a-label">Answer</span>
                   {sample.options && (
                     <div className="fc-correct">
                       <span className="fc-option-letter fc-option-letter-correct">

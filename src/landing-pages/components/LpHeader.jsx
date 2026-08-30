@@ -1,4 +1,4 @@
-import Sidebar from '../../components/Sidebar.jsx';
+import ZineHeader from '../../components/zine/ZineHeader.jsx';
 
 const NAV_ITEMS = [
   { label: 'Sample questions', href: '#sample-questions' },
@@ -7,7 +7,7 @@ const NAV_ITEMS = [
 ];
 
 function LpHeader() {
-  return <Sidebar navItems={NAV_ITEMS} />;
+  return <ZineHeader navItems={NAV_ITEMS} />;
 }
 
 export default LpHeader;

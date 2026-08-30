@@ -55,3 +55,5 @@ services:
 domains:
   - domain: camboapp.com
     type: PRIMARY
+  - domain: www.camboapp.com
+    type: ALIAS

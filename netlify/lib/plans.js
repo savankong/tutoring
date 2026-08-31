@@ -1,4 +1,4 @@
-// Netlify-style tier ladder: a permanent free tier plus paid tiers that
+// Tier ladder: a permanent free tier plus paid tiers that
 // unlock a higher capture cap and a grace buffer. Once a paid user runs past
 // cap + grace, further captures draw down their purchased credit balance
 // instead of triggering automatic overage billing — see CREDIT_PACK_* below

@@ -8,12 +8,6 @@
       "port": 5173
     },
     {
-      "name": "dev-netlify",
-      "runtimeExecutable": "netlify",
-      "runtimeArgs": ["dev"],
-      "port": 8888
-    },
-    {
       "name": "dist-preview",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "dist", "-l", "5050"],

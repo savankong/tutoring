@@ -130,7 +130,7 @@ export default async (request) => {
     case 'customer.subscription.deleted': {
       const subscription = event.data.object;
       // Cancellation drops back to Free rather than cutting off access
-      // entirely — same as Netlify: stop paying, keep a capped free tier.
+      // entirely — stop paying, keep a capped free tier.
       // Purchased credits are a paid-plan perk (they roll over "as long as
       // you remain on a paid plan"), so they're forfeited on downgrade.
       await db.sql`

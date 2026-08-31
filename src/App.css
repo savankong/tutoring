@@ -2044,7 +2044,7 @@ td.admin-question-cell {
   color: var(--text-h);
 }
 
-/* Standalone /pricing page — Netlify-style tier ladder */
+/* Standalone /pricing page — tier ladder */
 .pricing-page {
   max-width: 1180px;
   margin: 0 auto;

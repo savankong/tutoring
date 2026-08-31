@@ -5,7 +5,7 @@ import { capturesUsedThisPeriod, isCapped, isDrawingOnCredits, findActivePass, d
 import { planFor } from '../lib/plans.js';
 import { PUBLIC_QUESTION_TOPICS, normalizeQuestionKey } from '../lib/publicTopics.js';
 
-const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the Netlify environment
+const client = new Anthropic(); // reads ANTHROPIC_API_KEY from process.env
 
 /** Best-effort credit debit — a capture that's already been allowed through
  * isCapped must never be blocked by a billing hiccup after the fact, so

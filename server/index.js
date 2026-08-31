@@ -141,13 +141,13 @@ async function main() {
     }),
   );
 
-  // Mirrors netlify.toml: /contact was a standalone page briefly, now
-  // inlined as a mailto link on the legal pages (the #ask section it used
-  // to redirect to no longer exists — see "Design system" in CLAUDE.md).
+  // /contact was a standalone page briefly, now inlined as a mailto link on
+  // the legal pages (the #ask section it used to redirect to no longer
+  // exists — see "Design system" in CLAUDE.md).
   app.get('/contact', (req, res) => res.redirect(301, '/'));
 
   // SPA fallback so client-side routes (/app, /history, /account, ...)
-  // survive a direct load or refresh, same as netlify.toml's catch-all.
+  // survive a direct load or refresh.
   app.use((req, res) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return res.status(404).json({ error: 'Not found' });

@@ -13,9 +13,6 @@ dist-ssr
 *.local
 .env
 
-# Netlify CLI local site link
-.netlify
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

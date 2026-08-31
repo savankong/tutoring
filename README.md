@@ -1,6 +1,6 @@
 # Cambo App
 
-Tutor camera app — snap a photo of any quiz/practice-test/worksheet question, Claude grades it and explains the answer. React + Vite SPA with Netlify Functions backend, Postgres (Netlify DB/Neon), Stripe billing, Google + email/password auth, Resend transactional email, and Netlify Forms.
+Tutor camera app — snap a photo of any quiz/practice-test/worksheet question, Claude grades it and explains the answer. React + Vite SPA with an Express backend (`server/index.js`) on DigitalOcean App Platform, DO Managed PostgreSQL, Stripe billing, Google + email/password auth, and Resend transactional email.
 
 Production: https://camboapp.com
 

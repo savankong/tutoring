@@ -50,6 +50,9 @@ export default async (request) => {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      // Managed Payments requires a tax_code on every Product, which ours
+      // don't have — opt out per-session (see create-checkout-session.js).
+      managed_payments: { enabled: false },
       line_items: [{ price: priceId, quantity: packs }],
       client_reference_id: user.id,
       customer: user.stripe_customer_id || undefined,

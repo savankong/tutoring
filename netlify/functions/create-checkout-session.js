@@ -40,6 +40,11 @@ export default async (request) => {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
+      // Managed Payments (Stripe's merchant-of-record tax handling) is on by
+      // default for this account and requires a tax_code on every Product,
+      // which none of ours have — opt out per-session instead of setting tax
+      // codes, so Cambo keeps handling its own sales tax like before.
+      managed_payments: { enabled: false },
       line_items: [{ price: priceId, quantity: 1 }],
       client_reference_id: user.id,
       customer_email: user.email,

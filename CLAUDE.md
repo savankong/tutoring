@@ -78,9 +78,15 @@ Full project docs (strategy, product spec, architecture, marketing/campaign page
 
 ## Email (Resend)
 
-- `netlify/lib/email.js` sends both password-reset and verification emails via the Resend API. Requires `RESEND_API_KEY`.
+- `netlify/lib/email.js` sends password-reset, verification, welcome, and admin-notification emails via the Resend API. Requires `RESEND_API_KEY`.
 - `camboapp.com` is verified as a Resend sending domain via DKIM + SPF + DMARC TXT/MX records added directly to Netlify DNS (not in this repo — check the Netlify DNS zone for `camboapp.com` if these ever need to be re-added). Sends from `noreply@camboapp.com`.
 - **New domains have zero sending reputation.** Outlook/Yahoo/iCloud route mail to spam/Other for the first days-to-weeks after a domain starts sending, regardless of correct DKIM/SPF/DMARC — this is expected, not a misconfiguration. Check the Resend dashboard's delivered/bounced ratio if verification emails seem to be going unanswered.
+
+### Signup notifications & the update-email audience (added 2026-08-31)
+
+- **On every genuinely new account** (both `register.js` and the INSERT branch of `google-oauth-callback.js` — not on a returning user's login, and not on `google-oauth-callback.js`'s "link Google to an existing email/password account" branch): `sendWelcomeEmail(user.email)` and `sendAdminNewUserNotification(user.email, source)` (the latter to `camboapp101@gmail.com`, same inbox `sendFormSubmission` uses). Email/password signups get both this and the existing verification email; Google signups only get the welcome email since Google already verified that address. All three fire independently in their own try/catch — same "never let an email hiccup block signup" pattern the verification email already used, so a Resend outage never blocks account creation.
+- **Update/announcement emails to the user base are sent from Resend's own dashboard (Broadcasts), not from this codebase.** This app's only job is keeping a Resend **Audience** in sync with signups: `addContactToAudience(email)` in `netlify/lib/email.js` adds the new user, gated on `RESEND_AUDIENCE_ID` being set (no-ops harmlessly if it isn't, so this shipped safely before the Audience existed). Composing and sending a Broadcast to that Audience — including unsubscribe handling — all happens in Resend's UI; deliberately not a custom in-app mailer, to avoid re-implementing unsubscribe/suppression/compliance tooling Resend already provides.
+- **Setup, one-time**: create the Audience in the Resend dashboard, set its ID as `RESEND_AUDIENCE_ID` in the DO dashboard. Users who signed up before this existed won't be in the Audience automatically — run `scripts/backfill-resend-audience.mjs` (dry-run by default, `--execute` to apply, same convention as `scripts/migrate-subscribers-to-new-pricing.mjs`) once the Audience is created.
 
 ## Forms
 
@@ -150,7 +156,7 @@ Changing `STRIPE_PRICE_STARTER`/`PERSONAL`/`PRO` to new Price IDs only affects *
 
 ## Required env vars (DO App Platform dashboard — names only, never commit or print actual values)
 
-`DATABASE_URL` (DO Managed PostgreSQL connection string — new as of the DO migration; Netlify DB used to inject this implicitly via `@netlify/database`, DO doesn't), `JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification + form-submission emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records — see "Email (Resend)" above), `ANTHROPIC_API_KEY`. See `.do/app.yaml` for the exact list wired into the App Platform spec, and `.env.example` for local dev.
+`DATABASE_URL` (DO Managed PostgreSQL connection string — new as of the DO migration; Netlify DB used to inject this implicitly via `@netlify/database`, DO doesn't), `JWT_SECRET`, `STRIPE_SECRET_KEY` (live), `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID` (legacy), `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PERSONAL`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_CREDIT_PACK`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `RESEND_API_KEY` (password-reset + email-verification + welcome + form-submission + admin-notification emails; sends from `noreply@camboapp.com`, domain verified in Resend via DNS records — see "Email (Resend)" above), `RESEND_AUDIENCE_ID` (optional — Resend Audience new signups sync into for update/announcement Broadcasts; signup works without it, see "Signup notifications & the update-email audience" above), `ANTHROPIC_API_KEY`. See `.do/app.yaml` for the exact list wired into the App Platform spec, and `.env.example` for local dev.
 
 **`ANTHROPIC_API_KEY`** — read implicitly by the `@anthropic-ai/sdk` default constructor (`new Anthropic()` in `netlify/functions/analyze-question.js:8`, the SDK's standard `process.env.ANTHROPIC_API_KEY` convention). Called on every capture — required, since there's no fallback if it's missing or invalid.
 

@@ -74,3 +74,62 @@ export async function sendVerificationEmail(to, verifyUrl) {
     `,
   });
 }
+
+// Fired once per genuinely new account (both signup paths — see
+// register.js and the INSERT branch of google-oauth-callback.js), not on
+// every subsequent login. Separate from sendVerificationEmail: email/
+// password signups get both (this one isn't gated on verifying), Google
+// signups only get this one since there's nothing to verify.
+export async function sendWelcomeEmail(to) {
+  await sendEmail({
+    to,
+    subject: 'Welcome to Cambo',
+    html: `
+      <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto;">
+        <p>Welcome to Cambo — point your camera at a question, get an answer in seconds.</p>
+        <p>${ctaButton('https://camboapp.com/app', 'Open Cambo')}</p>
+        <p>Free plan gives you 5 captures a month, no card required. Upgrade any time from your account page if you need more.</p>
+      </div>
+    `,
+  });
+}
+
+// Adds a user to the Resend Audience that update/announcement emails are
+// sent to — that sending itself happens entirely in the Resend dashboard
+// (Broadcasts), not in this codebase; this is just the "keep the audience
+// in sync with signups" half. No-ops (doesn't throw) if RESEND_AUDIENCE_ID
+// isn't set yet, so deploying this doesn't require the audience to exist
+// first — see scripts/backfill-resend-audience.mjs for adding users who
+// signed up before the audience was created.
+export async function addContactToAudience(email) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  if (!apiKey || !audienceId) return;
+
+  const res = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${apiKey}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ email, unsubscribed: false }),
+  });
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`Resend audience contact add failed (${res.status}): ${detail}`);
+  }
+}
+
+// Internal heads-up, not user-facing — lands in the same inbox
+// sendFormSubmission already uses for form notifications.
+export async function sendAdminNewUserNotification(userEmail, source) {
+  await sendEmail({
+    to: 'camboapp101@gmail.com',
+    subject: `New Cambo signup: ${userEmail}`,
+    html: `
+      <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto;">
+        <p><strong>${escapeHtml(userEmail)}</strong> just signed up via ${escapeHtml(source)}.</p>
+      </div>
+    `,
+  });
+}

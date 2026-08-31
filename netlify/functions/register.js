@@ -1,6 +1,6 @@
 import { getDatabase } from '../lib/db.js';
 import { generateToken, hashPassword, hashToken, signSession, sessionCookieHeader } from '../lib/auth.js';
-import { sendVerificationEmail } from '../lib/email.js';
+import { addContactToAudience, sendAdminNewUserNotification, sendVerificationEmail, sendWelcomeEmail } from '../lib/email.js';
 import { sanitizeRef } from '../lib/referral.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,6 +65,21 @@ export default async (request) => {
     await sendVerificationEmail(user.email, verifyUrl.toString());
   } catch (err) {
     console.error('Failed to send verification email:', err);
+  }
+  try {
+    await sendWelcomeEmail(user.email);
+  } catch (err) {
+    console.error('Failed to send welcome email:', err);
+  }
+  try {
+    await sendAdminNewUserNotification(user.email, 'email/password');
+  } catch (err) {
+    console.error('Failed to send admin new-user notification:', err);
+  }
+  try {
+    await addContactToAudience(user.email);
+  } catch (err) {
+    console.error('Failed to add user to Resend audience:', err);
   }
 
   const token = signSession(user.id);

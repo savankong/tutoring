@@ -50,6 +50,8 @@ services:
         type: SECRET
       - key: RESEND_API_KEY
         type: SECRET
+      - key: RESEND_AUDIENCE_ID
+        type: SECRET
       - key: ANTHROPIC_API_KEY
         type: SECRET
 domains:

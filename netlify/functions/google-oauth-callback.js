@@ -12,6 +12,7 @@ import {
 } from '../lib/auth.js';
 import { sanitizeRef } from '../lib/referral.js';
 import { planCheckoutSessionParams, passCheckoutSessionParams } from '../lib/checkout.js';
+import { addContactToAudience, sendAdminNewUserNotification, sendWelcomeEmail } from '../lib/email.js';
 
 function redirectToLogin(origin, message) {
   const url = new URL('/login', origin);
@@ -109,6 +110,7 @@ export default async (request) => {
   const db = getDatabase();
   const signupRef = sanitizeRef(readOauthRefCookie(request));
 
+  let isNewUser = false;
   let [user] = await db.sql`SELECT * FROM users WHERE google_id = ${googleId}`;
   if (!user) {
     const [existingByEmail] = await db.sql`SELECT * FROM users WHERE email = ${email}`;
@@ -124,6 +126,28 @@ export default async (request) => {
         VALUES (${email}, ${googleId}, ${signupRef})
         RETURNING *
       `;
+      isNewUser = true;
+    }
+  }
+
+  if (isNewUser) {
+    // Fire-and-forget-ish, same pattern as register.js: never let an email
+    // hiccup block sign-in. No verification email here — Google already
+    // verified this address (checked above), unlike the email/password path.
+    try {
+      await sendWelcomeEmail(user.email);
+    } catch (err) {
+      console.error('Failed to send welcome email:', err);
+    }
+    try {
+      await sendAdminNewUserNotification(user.email, 'Google');
+    } catch (err) {
+      console.error('Failed to send admin new-user notification:', err);
+    }
+    try {
+      await addContactToAudience(user.email);
+    } catch (err) {
+      console.error('Failed to add user to Resend audience:', err);
     }
   }
 

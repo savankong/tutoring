@@ -1,13 +1,17 @@
+import Stripe from 'stripe';
 import { getDatabase } from '../lib/db.js';
 import {
+  clearedOauthCheckoutCookieHeader,
   clearedOauthRefCookieHeader,
   clearedOauthStateCookieHeader,
+  readOauthCheckoutCookie,
   readOauthRefCookie,
   readOauthStateCookie,
   sessionCookieHeader,
   signSession,
 } from '../lib/auth.js';
 import { sanitizeRef } from '../lib/referral.js';
+import { planCheckoutSessionParams, passCheckoutSessionParams } from '../lib/checkout.js';
 
 function redirectToLogin(origin, message) {
   const url = new URL('/login', origin);
@@ -15,7 +19,44 @@ function redirectToLogin(origin, message) {
   const headers = new Headers({ location: url.toString() });
   headers.append('set-cookie', clearedOauthStateCookieHeader());
   headers.append('set-cookie', clearedOauthRefCookieHeader());
+  headers.append('set-cookie', clearedOauthCheckoutCookieHeader());
   return new Response(null, { status: 302, headers });
+}
+
+// Parses the "plan:<key>" / "pass:<key>" cookie set by google-oauth-start.js
+// and, if there's a working Stripe checkout for it, returns the URL to send
+// the user to instead of /app — mirrors what Register.jsx does for the
+// email/password signup path, just server-side since there's no client-side
+// fetch step in an OAuth redirect.
+async function checkoutRedirectUrl(request, origin, user) {
+  const intent = readOauthCheckoutCookie(request);
+  if (!intent) return null;
+  const [kind, key] = intent.split(':');
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) return null;
+
+  const params =
+    kind === 'plan'
+      ? planCheckoutSessionParams({ origin, planKey: key, userId: user.id, userEmail: user.email })
+      : kind === 'pass'
+        ? passCheckoutSessionParams({
+            origin,
+            passKey: key,
+            userId: user.id,
+            userEmail: user.email,
+            stripeCustomerId: user.stripe_customer_id,
+          })
+        : null;
+  if (!params) return null;
+
+  try {
+    const stripe = new Stripe(secretKey);
+    const session = await stripe.checkout.sessions.create(params);
+    return session.url;
+  } catch (err) {
+    console.error('google-oauth-callback checkout error:', err);
+    return null;
+  }
 }
 
 export default async (request) => {
@@ -87,9 +128,11 @@ export default async (request) => {
   }
 
   const token = signSession(user.id);
-  const appUrl = new URL('/app', origin);
-  const headers = new Headers({ location: appUrl.toString() });
+  const checkoutUrl = await checkoutRedirectUrl(request, origin, user);
+  const location = checkoutUrl || new URL('/app', origin).toString();
+  const headers = new Headers({ location });
   headers.append('set-cookie', sessionCookieHeader(token));
   headers.append('set-cookie', clearedOauthRefCookieHeader());
+  headers.append('set-cookie', clearedOauthCheckoutCookieHeader());
   return new Response(null, { status: 302, headers });
 };

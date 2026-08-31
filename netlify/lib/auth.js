@@ -10,6 +10,7 @@ const SESSION_MAX_AGE_DAYS = 90;
 const OAUTH_STATE_COOKIE = 'oauth_state';
 const OAUTH_STATE_MAX_AGE_SECONDS = 600;
 const OAUTH_REF_COOKIE = 'oauth_ref';
+const OAUTH_CHECKOUT_COOKIE = 'oauth_checkout';
 
 function jwtSecret() {
   const secret = process.env.JWT_SECRET;
@@ -100,6 +101,22 @@ export function oauthRefCookieHeader(ref) {
 
 export function clearedOauthRefCookieHeader() {
   return `${OAUTH_REF_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
+}
+
+// Carries a pending plan/pass purchase (e.g. "plan:starter" or
+// "pass:cram_24h") across the Google redirect round-trip, same mechanism as
+// oauth_ref above — Register.jsx's ?plan=/?pass= only reaches the backend
+// this way, since the Google button is a plain link, not a form post.
+export function readOauthCheckoutCookie(request) {
+  return parseCookies(request)[OAUTH_CHECKOUT_COOKIE] || null;
+}
+
+export function oauthCheckoutCookieHeader(value) {
+  return `${OAUTH_CHECKOUT_COOKIE}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${OAUTH_STATE_MAX_AGE_SECONDS}`;
+}
+
+export function clearedOauthCheckoutCookieHeader() {
+  return `${OAUTH_CHECKOUT_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 }
 
 /** Returns the logged-in user's row, or null if there's no valid session. */

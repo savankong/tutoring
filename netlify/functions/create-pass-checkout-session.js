@@ -2,6 +2,7 @@ import Stripe from 'stripe';
 import { getDatabase } from '../lib/db.js';
 import { requireUser } from '../lib/auth.js';
 import { PASSES } from '../lib/plans.js';
+import { passCheckoutSessionParams } from '../lib/checkout.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -26,38 +27,25 @@ export default async (request) => {
     // no body is fine — falls through to the "unknown pass" error below
   }
 
-  const pass = PASSES[body?.pass];
-  if (!pass) return jsonResponse(400, { error: 'Unknown pass.' });
+  if (!PASSES[body?.pass]) return jsonResponse(400, { error: 'Unknown pass.' });
 
-  const priceId = process.env[pass.priceEnvVar];
   const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!priceId || !secretKey) {
+  const origin = new URL(request.url).origin;
+  const params = passCheckoutSessionParams({
+    origin,
+    passKey: body.pass,
+    userId: user.id,
+    userEmail: user.email,
+    stripeCustomerId: user.stripe_customer_id,
+  });
+  if (!params || !secretKey) {
     return jsonResponse(500, { error: 'Billing is not configured yet.' });
   }
 
   const stripe = new Stripe(secretKey);
-  const origin = new URL(request.url).origin;
 
   try {
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      // Managed Payments requires a tax_code on every Product, which ours
-      // don't have — opt out per-session (see create-checkout-session.js).
-      managed_payments: { enabled: false },
-      line_items: [{ price: priceId, quantity: 1 }],
-      client_reference_id: user.id,
-      customer: user.stripe_customer_id || undefined,
-      customer_email: user.stripe_customer_id ? undefined : user.email,
-      metadata: {
-        type: 'pass_purchase',
-        user_id: user.id,
-        pass_type: pass.key,
-        captures_cap: String(pass.captureCap),
-        duration_hours: String(pass.durationHours),
-      },
-      success_url: `${origin}/account?pass=success`,
-      cancel_url: `${origin}/account?pass=cancel`,
-    });
+    const session = await stripe.checkout.sessions.create(params);
     return jsonResponse(200, { url: session.url });
   } catch (err) {
     console.error('create-pass-checkout-session error:', err);

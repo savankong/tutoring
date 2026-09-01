@@ -1,5 +1,5 @@
 import { getDatabase } from '../lib/db.js';
-import { hashPassword, hashToken, sessionCookieHeader, signSession } from '../lib/auth.js';
+import { hashPassword, hashToken, passwordError, sessionCookieHeader, signSession } from '../lib/auth.js';
 
 function jsonResponse(status, body, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -26,8 +26,9 @@ export default async (request) => {
   if (!token) {
     return jsonResponse(400, { error: 'Missing reset token.' });
   }
-  if (password.length < 8) {
-    return jsonResponse(400, { error: 'Password must be at least 8 characters.' });
+  const pwError = passwordError(password);
+  if (pwError) {
+    return jsonResponse(400, { error: pwError });
   }
 
   const db = getDatabase();

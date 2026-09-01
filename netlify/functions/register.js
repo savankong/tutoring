@@ -1,5 +1,5 @@
 import { getDatabase } from '../lib/db.js';
-import { generateToken, hashPassword, hashToken, signSession, sessionCookieHeader } from '../lib/auth.js';
+import { generateToken, hashPassword, hashToken, passwordError, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { addContactToAudience, sendAdminNewUserNotification, sendVerificationEmail, sendWelcomeEmail } from '../lib/email.js';
 import { sanitizeRef } from '../lib/referral.js';
 
@@ -32,8 +32,9 @@ export default async (request) => {
   if (!EMAIL_RE.test(email)) {
     return jsonResponse(400, { error: 'Enter a valid email address.' });
   }
-  if (password.length < 8) {
-    return jsonResponse(400, { error: 'Password must be at least 8 characters.' });
+  const pwError = passwordError(password);
+  if (pwError) {
+    return jsonResponse(400, { error: pwError });
   }
 
   const db = getDatabase();

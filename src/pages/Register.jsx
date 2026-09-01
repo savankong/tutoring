@@ -131,8 +131,14 @@ function Register() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={8}
+                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                  title="At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special character."
                   autoComplete="new-password"
                 />
+                <span className="zn-field-hint">
+                  At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special
+                  character.
+                </span>
               </label>
               {error && <p className="zn-error-text">{error}</p>}
               <button type="submit" disabled={submitting}>

@@ -1396,6 +1396,14 @@
   box-shadow: none;
 }
 
+.zn-field-hint {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.65;
+  margin-top: 4px;
+}
+
 .zn-auth-consent {
   font-size: 12.5px;
   line-height: 1.5;

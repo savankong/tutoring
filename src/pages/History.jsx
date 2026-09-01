@@ -50,6 +50,7 @@ function History() {
     <div className="App">
       <div className="top-nav">
         <Link to="/app">Capture</Link>
+        <Link to="/account#invite">Invite</Link>
         <Link to="/account">Account</Link>
         {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
       </div>

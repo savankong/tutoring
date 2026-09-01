@@ -2,6 +2,7 @@ import { getDatabase } from '../lib/db.js';
 import { requireUser, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { capturesUsedThisPeriod, isDrawingOnCredits } from '../lib/access.js';
 import { planFor } from '../lib/plans.js';
+import { inviteCodeForUserId } from '../lib/referral.js';
 
 async function activePasses(db, userId) {
   const rows = await db.sql`
@@ -47,6 +48,15 @@ export default async (request) => {
 
   const passes = await activePasses(db, user.id);
 
+  // Only counts friends whose reward has actually been granted (i.e. they
+  // verified, or signed up with Google) — someone who registered but never
+  // verified their email doesn't count yet, same gate the reward itself is
+  // held to.
+  const [{ count: invitedFriendsCount }] = await db.sql`
+    SELECT count(*)::int AS count FROM users
+    WHERE invited_by_user_id = ${user.id} AND invite_reward_granted_at IS NOT NULL
+  `;
+
   // Every authenticated load reissues the session cookie with a fresh
   // expiry — a sliding window so an active tutor never gets logged out,
   // instead of a fixed expiry counted from the original sign-in.
@@ -72,6 +82,9 @@ export default async (request) => {
       active_passes: passes,
       public_captures_opt_out: user.public_captures_opt_out ?? false,
       email_verified: user.email_verified || !!user.google_id,
+      invite_code: inviteCodeForUserId(user.id),
+      invited_friends_count: invitedFriendsCount,
+      invite_modal_seen: user.invite_modal_seen_at != null,
     },
     { 'set-cookie': sessionCookieHeader(refreshedToken) },
   );

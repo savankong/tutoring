@@ -297,6 +297,45 @@
   margin-top: 14px;
 }
 
+.invite-share-block {
+  margin-top: 12px;
+}
+
+.invite-share-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.invite-qr {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  flex: none;
+  background: #fff;
+  padding: 6px;
+}
+
+.invite-share-link-col {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.invite-link-input {
+  width: 100%;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--card-bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 10px;
+  box-sizing: border-box;
+}
+
+.invite-share-count {
+  margin-top: 12px;
+}
+
 .account-usage-row {
   display: flex;
   align-items: center;

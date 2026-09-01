@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
+import InviteFriendsModal from '../components/InviteFriendsModal.jsx';
 
 function answerRows(answer) {
   return Math.min(6, Math.max(2, Math.ceil(answer.length / 30)));
@@ -304,6 +305,7 @@ function Capture() {
 
   return (
     <div className={`App${status === 'done' ? ' has-sticky-actions' : ' camera-mode'}`}>
+      <InviteFriendsModal />
       {status !== 'done' ? (
         <div className="camera-view">
           <div className="camera-topbar">
@@ -387,6 +389,7 @@ function Capture() {
           <div className="top-nav">
             <span className="top-nav-email">{user?.email}</span>
             <Link to="/history">History</Link>
+            <Link to="/account#invite">Invite</Link>
             <Link to="/account">Account</Link>
             {user?.role === 'admin' && <Link to="/admin">Admin</Link>}
           </div>

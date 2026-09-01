@@ -90,6 +90,16 @@ export const CREDIT_PACK_SIZE = 100;
 export const CREDIT_PACK_PRICE_CENTS = 1500;
 export const CREDIT_PACK_PRICE_ENV_VAR = 'STRIPE_PRICE_CREDIT_PACK';
 
+// Invite-a-friend referral reward, added 2026-09-01 — added straight to
+// credit_balance (same field purchased credits use), which is why
+// isCapped()/isDrawingOnCredits() in access.js check credit_balance
+// regardless of plan.creditsAllowed: this has to be spendable by Free-tier
+// users too, since they can't buy credits but can earn these. Granted once
+// per invited friend, when that friend's email is verified (or
+// immediately for a Google signup, since Google already verified it) —
+// see verify-email.js and google-oauth-callback.js.
+export const INVITE_REWARD_CREDITS = 15;
+
 // One-time, non-recurring capture passes — added 2026-08-30. A separate
 // capacity pool from the monthly plan cap: time-limited instead of
 // period-limited (a real wall-clock expiration, not tied to a billing

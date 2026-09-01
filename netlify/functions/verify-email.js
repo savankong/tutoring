@@ -1,5 +1,6 @@
 import { getDatabase } from '../lib/db.js';
 import { hashToken } from '../lib/auth.js';
+import { grantInviteReward } from '../lib/referral.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -42,6 +43,17 @@ export default async (request) => {
     SET email_verified = true, verify_token_hash = NULL, verify_token_expires_at = NULL
     WHERE id = ${user.id}
   `;
+
+  // If this account was invited by someone, this is the moment their
+  // reward fires — deferred until now (rather than at signup) so a
+  // disposable-email "friend" invited purely to farm free captures can't
+  // trigger it, same anti-farming rationale as email_verified gating
+  // captures in analyze-question.js.
+  try {
+    await grantInviteReward(db, user.id);
+  } catch (err) {
+    console.error('Failed to grant invite reward:', err);
+  }
 
   return jsonResponse(200, { verified: true });
 };

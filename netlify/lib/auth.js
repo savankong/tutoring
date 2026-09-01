@@ -11,6 +11,7 @@ const OAUTH_STATE_COOKIE = 'oauth_state';
 const OAUTH_STATE_MAX_AGE_SECONDS = 600;
 const OAUTH_REF_COOKIE = 'oauth_ref';
 const OAUTH_CHECKOUT_COOKIE = 'oauth_checkout';
+const OAUTH_INVITED_BY_COOKIE = 'oauth_invited_by';
 
 function jwtSecret() {
   const secret = process.env.JWT_SECRET;
@@ -134,6 +135,21 @@ export function oauthCheckoutCookieHeader(value) {
 
 export function clearedOauthCheckoutCookieHeader() {
   return `${OAUTH_CHECKOUT_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
+}
+
+// Carries a pending invite-a-friend code (the inviting user's id — see
+// netlify/lib/referral.js) across the Google redirect round-trip, same
+// mechanism as oauth_ref/oauth_checkout above.
+export function readOauthInvitedByCookie(request) {
+  return parseCookies(request)[OAUTH_INVITED_BY_COOKIE] || null;
+}
+
+export function oauthInvitedByCookieHeader(userId) {
+  return `${OAUTH_INVITED_BY_COOKIE}=${userId}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${OAUTH_STATE_MAX_AGE_SECONDS}`;
+}
+
+export function clearedOauthInvitedByCookieHeader() {
+  return `${OAUTH_INVITED_BY_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 }
 
 /** Returns the logged-in user's row, or null if there's no valid session. */

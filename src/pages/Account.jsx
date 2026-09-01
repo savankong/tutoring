@@ -2,8 +2,9 @@ import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../lib/AuthContext.jsx';
 import Logo from '../components/Logo.jsx';
+import InviteShareBlock from '../components/InviteShareBlock.jsx';
 import { submitForm } from '../lib/submitForm.js';
-import { PLANS, PASSES, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS } from '../lib/plans.js';
+import { PLANS, PASSES, CREDIT_PACK_SIZE, CREDIT_PACK_PRICE_CENTS, INVITE_REWARD_CREDITS } from '../lib/plans.js';
 
 const PACK_PRICE = CREDIT_PACK_PRICE_CENTS / 100;
 const SHORT_DATE = { month: 'short', day: 'numeric' };
@@ -378,28 +379,40 @@ function Account() {
         </div>
       )}
 
-      {user.credits_allowed && (
+      {(user.credits_allowed || user.credit_balance > 0) && (
         <div className="account-card" id="credits" ref={creditsSectionRef}>
           <div className="account-card-title">Credit balance</div>
           <div className="account-card-sub">
-            Credits are spent once your monthly cap and grace buffer run out, in the order they were purchased.
+            Credits are spent once your monthly cap and grace buffer run out, in the order they were added —
+            whether purchased or earned by inviting a friend.
           </div>
           <div className="account-credit-balance-row">
             <span className="account-credit-balance">{user.credit_balance.toLocaleString()}</span>
-            <span className="account-balance-tag">No expiration on a paid plan</span>
+            <span className="account-balance-tag">No expiration</span>
           </div>
           {user.last_credit_purchase && (
             <div className="account-card-sub">
               Last purchased {new Date(user.last_credit_purchase).toLocaleDateString(undefined, LONG_DATE)}
             </div>
           )}
-          <div className="actions account-card-actions">
-            <button className="pill-button pill-button-sm" onClick={() => setShowPurchaseModal(true)}>
-              Purchase credits
-            </button>
-          </div>
+          {user.credits_allowed && (
+            <div className="actions account-card-actions">
+              <button className="pill-button pill-button-sm" onClick={() => setShowPurchaseModal(true)}>
+                Purchase credits
+              </button>
+            </div>
+          )}
         </div>
       )}
+
+      <div className="account-card" id="invite">
+        <div className="account-card-title">Invite friends</div>
+        <div className="account-card-sub">
+          Share your link. Once a friend joins, you get {INVITE_REWARD_CREDITS} bonus captures — no expiration, on
+          top of whatever plan you're on.
+        </div>
+        <InviteShareBlock user={user} />
+      </div>
 
       {!isActive && (
         <p className="account-cancel-note">

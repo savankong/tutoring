@@ -1,7 +1,7 @@
 import { getDatabase } from '../lib/db.js';
 import { generateToken, hashPassword, hashToken, passwordError, signSession, sessionCookieHeader } from '../lib/auth.js';
 import { addContactToAudience, sendAdminNewUserNotification, sendVerificationEmail, sendWelcomeEmail } from '../lib/email.js';
-import { sanitizeRef } from '../lib/referral.js';
+import { sanitizeRef, userIdFromInviteCode } from '../lib/referral.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const VERIFY_TOKEN_TTL_HOURS = 24;
@@ -44,6 +44,16 @@ export default async (request) => {
     return jsonResponse(409, { error: 'An account with that email already exists.' });
   }
 
+  // Reward isn't granted here — only once this account's email is verified
+  // (see verify-email.js) — so all that's needed at signup is recording who
+  // gets credit, after confirming that user id still actually exists.
+  const invitedByCandidate = userIdFromInviteCode(body?.invited_by);
+  let invitedByUserId = null;
+  if (invitedByCandidate) {
+    const [inviter] = await db.sql`SELECT id FROM users WHERE id = ${invitedByCandidate}`;
+    if (inviter) invitedByUserId = inviter.id;
+  }
+
   const passwordHash = await hashPassword(password);
   const verifyToken = generateToken();
   const verifyTokenHash = await hashToken(verifyToken);
@@ -55,8 +65,8 @@ export default async (request) => {
   // (see analyze-question.js), which is the point: it's the friction that
   // keeps disposable-email signups from farming free-tier captures.
   const [user] = await db.sql`
-    INSERT INTO users (email, password_hash, signup_ref, verify_token_hash, verify_token_expires_at)
-    VALUES (${email}, ${passwordHash}, ${signupRef}, ${verifyTokenHash}, ${verifyTokenExpiresAt})
+    INSERT INTO users (email, password_hash, signup_ref, invited_by_user_id, verify_token_hash, verify_token_expires_at)
+    VALUES (${email}, ${passwordHash}, ${signupRef}, ${invitedByUserId}, ${verifyTokenHash}, ${verifyTokenExpiresAt})
     RETURNING id, email, plan, subscription_status
   `;
 

@@ -28,8 +28,10 @@ function Register() {
   // page, so this never has to arbitrate between both being present.
   const pass = !plan && PASS_KEYS.has(requestedPass) ? PASSES.find((p) => p.key === requestedPass) : null;
   const ref = searchParams.get('ref');
+  const invitedBy = searchParams.get('invited_by');
   const googleParams = new URLSearchParams();
   if (ref) googleParams.set('ref', ref);
+  if (invitedBy) googleParams.set('invited_by', invitedBy);
   if (plan) googleParams.set('plan', plan.key);
   else if (pass) googleParams.set('pass', pass.key);
   const googleStartUrl = googleParams.toString()
@@ -45,7 +47,7 @@ function Register() {
         method: 'POST',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email, password, ref }),
+        body: JSON.stringify({ email, password, ref, invited_by: invitedBy }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Could not create account.');

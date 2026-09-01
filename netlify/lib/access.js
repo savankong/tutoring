@@ -2,21 +2,26 @@ import { OVERAGE_UNIT_CENTS, planFor } from './plans.js';
 
 export { OVERAGE_UNIT_CENTS };
 
-/** True once a user cannot make another capture: Free tier hits a hard
- * block at its cap; paid tiers hit a hard block once past cap + grace
- * buffer with no purchased credits left to draw down. */
+/** True once a user cannot make another capture: a hard block once past
+ * cap + grace buffer with no credits left to draw down. credit_balance is
+ * checked regardless of plan — Free tier can't *purchase* credits
+ * (create-credit-checkout-session.js still blocks that), but can *earn*
+ * some via the invite-a-friend reward (see verify-email.js /
+ * google-oauth-callback.js), and those need to actually be usable. Free
+ * tier's graceBuffer is 0, so this is exactly the old cap-only behavior
+ * for anyone with a zero balance — which is everyone who hasn't been
+ * referred. */
 export function isCapped(user, capturesUsed) {
   const plan = planFor(user);
-  if (!plan.creditsAllowed) return capturesUsed >= plan.captureCap;
   return capturesUsed >= plan.captureCap + plan.graceBuffer && (user?.credit_balance ?? 0) <= 0;
 }
 
-/** True once a paid subscriber has used their plan's cap plus its grace
- * buffer — this is when the usage indicator should appear and when captures
- * start drawing down the purchased credit balance. */
+/** True once a user has used their plan's cap plus its grace buffer — this
+ * is when the usage indicator should appear and when captures start
+ * drawing down the credit balance (purchased or invite-earned). */
 export function isDrawingOnCredits(user, capturesUsed) {
   const plan = planFor(user);
-  return plan.creditsAllowed && capturesUsed >= plan.captureCap + plan.graceBuffer;
+  return capturesUsed >= plan.captureCap + plan.graceBuffer;
 }
 
 export async function capturesUsedThisPeriod(db, userId, periodStart) {

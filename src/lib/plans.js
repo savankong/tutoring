@@ -53,6 +53,9 @@ export const CREDIT_PACK_SIZE = 100;
 export const CREDIT_PACK_PRICE = '$15.00';
 export const CREDIT_PACK_PRICE_CENTS = 1500;
 
+// Invite-a-friend reward — mirrors the backend's netlify/lib/plans.js.
+export const INVITE_REWARD_CREDITS = 15;
+
 // One-time capture passes — added 2026-08-30. No account required to
 // picture how these differ from a plan: a real wall-clock expiration, not a
 // billing cycle, and a one-time charge, not a subscription. See the

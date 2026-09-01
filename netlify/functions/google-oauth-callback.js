@@ -2,15 +2,17 @@ import Stripe from 'stripe';
 import { getDatabase } from '../lib/db.js';
 import {
   clearedOauthCheckoutCookieHeader,
+  clearedOauthInvitedByCookieHeader,
   clearedOauthRefCookieHeader,
   clearedOauthStateCookieHeader,
   readOauthCheckoutCookie,
+  readOauthInvitedByCookie,
   readOauthRefCookie,
   readOauthStateCookie,
   sessionCookieHeader,
   signSession,
 } from '../lib/auth.js';
-import { sanitizeRef } from '../lib/referral.js';
+import { grantInviteReward, sanitizeRef, userIdFromInviteCode } from '../lib/referral.js';
 import { planCheckoutSessionParams, passCheckoutSessionParams } from '../lib/checkout.js';
 import { addContactToAudience, sendAdminNewUserNotification, sendWelcomeEmail } from '../lib/email.js';
 
@@ -21,6 +23,7 @@ function redirectToLogin(origin, message) {
   headers.append('set-cookie', clearedOauthStateCookieHeader());
   headers.append('set-cookie', clearedOauthRefCookieHeader());
   headers.append('set-cookie', clearedOauthCheckoutCookieHeader());
+  headers.append('set-cookie', clearedOauthInvitedByCookieHeader());
   return new Response(null, { status: 302, headers });
 }
 
@@ -120,10 +123,19 @@ export default async (request) => {
         RETURNING *
       `;
     } else {
+      // Same existence check register.js does — google-oauth-start.js only
+      // validated the cookie's shape, not that the user is still real.
+      const invitedByCandidate = userIdFromInviteCode(readOauthInvitedByCookie(request));
+      let invitedByUserId = null;
+      if (invitedByCandidate) {
+        const [inviter] = await db.sql`SELECT id FROM users WHERE id = ${invitedByCandidate}`;
+        if (inviter) invitedByUserId = inviter.id;
+      }
+
       // plan defaults to 'free' — no trial clock, no card required.
       [user] = await db.sql`
-        INSERT INTO users (email, google_id, signup_ref)
-        VALUES (${email}, ${googleId}, ${signupRef})
+        INSERT INTO users (email, google_id, signup_ref, invited_by_user_id)
+        VALUES (${email}, ${googleId}, ${signupRef}, ${invitedByUserId})
         RETURNING *
       `;
       isNewUser = true;
@@ -149,6 +161,13 @@ export default async (request) => {
     } catch (err) {
       console.error('Failed to add user to Resend audience:', err);
     }
+    // Granted immediately (not deferred like the email/password path in
+    // verify-email.js) since Google already verified this email address.
+    try {
+      await grantInviteReward(db, user.id);
+    } catch (err) {
+      console.error('Failed to grant invite reward:', err);
+    }
   }
 
   const token = signSession(user.id);
@@ -158,5 +177,6 @@ export default async (request) => {
   headers.append('set-cookie', sessionCookieHeader(token));
   headers.append('set-cookie', clearedOauthRefCookieHeader());
   headers.append('set-cookie', clearedOauthCheckoutCookieHeader());
+  headers.append('set-cookie', clearedOauthInvitedByCookieHeader());
   return new Response(null, { status: 302, headers });
 };

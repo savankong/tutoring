@@ -1,5 +1,10 @@
-import { oauthCheckoutCookieHeader, oauthRefCookieHeader, oauthStateCookieHeader } from '../lib/auth.js';
-import { sanitizeRef } from '../lib/referral.js';
+import {
+  oauthCheckoutCookieHeader,
+  oauthInvitedByCookieHeader,
+  oauthRefCookieHeader,
+  oauthStateCookieHeader,
+} from '../lib/auth.js';
+import { sanitizeRef, userIdFromInviteCode } from '../lib/referral.js';
 import { PLANS, PASSES } from '../lib/plans.js';
 
 const PAID_PLAN_KEYS = new Set(['starter', 'personal', 'pro']);
@@ -9,6 +14,10 @@ export default async (request) => {
   const origin = url.origin;
   const state = crypto.randomUUID();
   const ref = sanitizeRef(url.searchParams.get('ref'));
+  // Format-checked only here (no DB access on this redirect step) — whether
+  // it's a real user id is confirmed in google-oauth-callback.js, which
+  // already queries the database.
+  const invitedByUserId = userIdFromInviteCode(url.searchParams.get('invited_by'));
 
   const planParam = url.searchParams.get('plan');
   const passParam = url.searchParams.get('pass');
@@ -32,6 +41,7 @@ export default async (request) => {
   headers.append('set-cookie', oauthStateCookieHeader(state));
   if (ref) headers.append('set-cookie', oauthRefCookieHeader(ref));
   if (checkoutIntent) headers.append('set-cookie', oauthCheckoutCookieHeader(checkoutIntent));
+  if (invitedByUserId) headers.append('set-cookie', oauthInvitedByCookieHeader(invitedByUserId));
 
   return new Response(null, { status: 302, headers });
 };

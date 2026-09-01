@@ -129,11 +129,22 @@ async function main() {
   // this — they're addressed by content hash, so far-future caching is
   // actually correct for them, and is what makes the fetch cheap on
   // repeat visits once the HTML itself is fresh).
+  //
+  // `no-store`, not just `no-cache`: `no-cache` still lets the browser
+  // *store* the response (it just has to revalidate before reusing it),
+  // which meant a tab that returned to a page via back/forward or a
+  // suspended-tab restore could still get served straight from
+  // back/forward cache (bfcache) — a frozen snapshot with no network
+  // round trip and no Cache-Control check at all, so stale HTML kept
+  // showing up on a page that had been sitting open a while, until a
+  // hard reload (which never uses bfcache) fixed it. Browsers specifically
+  // exclude `no-store` responses from bfcache eligibility, so this closes
+  // that gap — confirmed to be recurring in production 2026-08-31.
   app.use(
     express.static(DIST_DIR, {
       setHeaders: (res, filePath) => {
         if (filePath.endsWith('.html')) {
-          res.setHeader('Cache-Control', 'no-cache');
+          res.setHeader('Cache-Control', 'no-store');
         } else if (/[/\\]assets[/\\]/.test(filePath)) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         }

@@ -124,7 +124,7 @@ A completely separate capacity pool from the monthly plan cap — not a subscrip
 
 | Pass | Price | Captures | Expires |
 |---|---|---|---|
-| 24-Hour Cram Pass | $9.99 (`STRIPE_PRICE_PASS_24H`) | 40 | 24 hours after purchase |
+| 24-Hour Cram Pass | $7.99 (`STRIPE_PRICE_PASS_24H`) | 40 | 24 hours after purchase |
 | 7-Day Prep Pass | $29.99 (`STRIPE_PRICE_PASS_7D`) | 200 | 7 days after purchase |
 | 30-Day Unlimited Pass | $59.99 (`STRIPE_PRICE_PASS_30D`) | 500 | 30 days after purchase |
 

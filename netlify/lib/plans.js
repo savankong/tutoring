@@ -105,8 +105,8 @@ export const PASSES = {
   cram_24h: {
     key: 'cram_24h',
     name: '24-Hour Cram Pass',
-    priceLabel: '$9.99',
-    priceCents: 999,
+    priceLabel: '$7.99',
+    priceCents: 799,
     captureCap: 40,
     durationHours: 24,
     tagline: 'One focused session, gone by tomorrow.',

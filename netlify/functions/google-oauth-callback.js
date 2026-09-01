@@ -135,7 +135,7 @@ export default async (request) => {
     // hiccup block sign-in. No verification email here — Google already
     // verified this address (checked above), unlike the email/password path.
     try {
-      await sendWelcomeEmail(user.email);
+      await sendWelcomeEmail(user.email, 'google');
     } catch (err) {
       console.error('Failed to send welcome email:', err);
     }

@@ -80,15 +80,55 @@ export async function sendVerificationEmail(to, verifyUrl) {
 // every subsequent login. Separate from sendVerificationEmail: email/
 // password signups get both (this one isn't gated on verifying), Google
 // signups only get this one since there's nothing to verify.
-export async function sendWelcomeEmail(to) {
+//
+// Styling matches the Cambo Brand Guide (Ink/Clay/Newsprint palette, zero
+// border radius, hard offset shadow on the button instead of a soft drop
+// shadow) — same tokens as the zine design system elsewhere in the app
+// (see "Design system" in CLAUDE.md), just inlined since email clients
+// don't read a stylesheet. Display/body fonts fall back to system fonts:
+// email clients strip custom fonts unless hosted via @font-face, which
+// isn't set up for transactional email.
+export async function sendWelcomeEmail(to, signupMethod) {
+  const personalizedLine =
+    signupMethod === 'google'
+      ? 'Signed in with Google — nothing else to set up.'
+      : "Signed up with email — verify your inbox if you haven't already, then you're in.";
+
   await sendEmail({
     to,
     subject: 'Welcome to Cambo',
     html: `
-      <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto;">
-        <p>Welcome to Cambo — point your camera at a question, get an answer in seconds.</p>
-        <p>${ctaButton('https://camboapp.com/app', 'Open Cambo')}</p>
-        <p>Free plan gives you 5 captures a month, no card required. Upgrade any time from your account page if you need more.</p>
+      <div style="font-family: -apple-system, 'Archivo', sans-serif; max-width: 480px; margin: 0 auto; background: #F0ECE1; color: #141310; padding: 32px 28px; border: 1.5px solid #141310;">
+        <p style="font-family: 'Bricolage Grotesque', -apple-system, sans-serif; font-weight: 800; font-size: 28px; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 16px;">
+          Welcome to Cambo.
+        </p>
+        <p style="font-size: 15px; line-height: 1.55; margin: 0 0 20px;">
+          Point your camera at a question, get an answer in about ten seconds. That's the whole product.
+        </p>
+        <p style="font-size: 15px; line-height: 1.55; margin: 0 0 8px;">
+          <strong>${personalizedLine}</strong>
+        </p>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin: 20px 0 24px; border-collapse: separate;">
+          <tr>
+            <td style="background: #E9E3D3; border: 1.5px solid #141310; padding: 16px 18px;">
+              <p style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 10px;">
+                What's included — free
+              </p>
+              <p style="font-size: 15px; line-height: 1.7; margin: 0;">
+                5 captures a month, no card required<br />
+                Photo capture + AI answers<br />
+                Answer history, saved automatically
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p>
+          <a href="https://camboapp.com/app" style="display: inline-block; padding: 12px 22px; background: #141310; color: #d7ff3f; text-decoration: none; font-family: Archivo, sans-serif; font-weight: 700; box-shadow: 7px 7px 0 #CF5F33;">Open Cambo</a>
+        </p>
+        <p style="font-size: 14px; line-height: 1.55; color: #141310; margin: 28px 0 0;">
+          Nobody grades you on how long it took. Upgrade any time from your account page if five a month isn't enough —
+          <a href="https://camboapp.com/pricing" style="color: #141310;">plans start at $9.99/mo</a>.
+        </p>
       </div>
     `,
   });

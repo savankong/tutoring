@@ -68,7 +68,7 @@ export default async (request) => {
     console.error('Failed to send verification email:', err);
   }
   try {
-    await sendWelcomeEmail(user.email);
+    await sendWelcomeEmail(user.email, 'password');
   } catch (err) {
     console.error('Failed to send welcome email:', err);
   }

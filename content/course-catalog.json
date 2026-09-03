@@ -41,7 +41,9 @@
     { "key": "south-carolina", "name": "University of South Carolina", "hubSlug": "south-carolina-study-tools", "catalogUrl": "https://academicbulletins.sc.edu/undergraduate/course-descriptions/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against academicbulletins.sc.edu, 2026-09-03", "note": "No confirmed Intro to Business gateway course found for Darla Moore School — intro-to-business omitted rather than guessed." },
     { "key": "arkansas", "name": "University of Arkansas", "hubSlug": "arkansas-study-tools", "catalogUrl": "https://catalog.uark.edu/undergraduatecatalog/coursesofinstruction/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.uark.edu, 2026-09-03", "note": "No confirmed general Intro to Business course found (MGMT 2053 Business Foundations appears business-major-track, not a gen-ed intro) — intro-to-business omitted rather than guessed." },
     { "key": "tennessee", "name": "University of Tennessee Knoxville", "hubSlug": "tennessee-study-tools", "catalogUrl": "https://catalog.utk.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.utk.edu, 2026-09-03", "note": "US History survey uses the HIUS prefix (not HIST) in the current catalog. BUAD 200 (Haslam Leaders Curriculum) is a professional-development sequence, not an Intro to Business content course — omitted rather than guessed." },
-    { "key": "arizona", "name": "University of Arizona", "hubSlug": "arizona-study-tools", "catalogUrl": "https://catalog.arizona.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.arizona.edu, 2026-09-03", "note": "US History I ('to 1877') companion to HIST 150C3 could not be confirmed against the current catalog (only an archived-catalog reference to a since-superseded code was found) — omitted rather than guessed. No confirmed general Intro to Business course found either — also omitted. Distinct school from Arizona State University (already in this catalog as 'asu')." }
+    { "key": "arizona", "name": "University of Arizona", "hubSlug": "arizona-study-tools", "catalogUrl": "https://catalog.arizona.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.arizona.edu, 2026-09-03", "note": "US History I ('to 1877') companion to HIST 150C3 could not be confirmed against the current catalog (only an archived-catalog reference to a since-superseded code was found) — omitted rather than guessed. No confirmed general Intro to Business course found either — also omitted. Distinct school from Arizona State University (already in this catalog as 'asu')." },
+    { "key": "texas-am", "name": "Texas A&M University", "hubSlug": "texas-am-study-tools", "catalogUrl": "https://catalog.tamu.edu/undergraduate/", "verifiedAt": "2026-09-03", "verifiedBy": "direct fetch + read of catalog.tamu.edu department course-listing PDFs, 2026-09-03", "note": "ECON's two Principles of Economics courses are numbered opposite the usual convention: ECON 202 (2302) is Microeconomics, ECON 203 (2301) is Macroeconomics. intro-to-business mapped to BUSN 101 (Freshman Business Initiative) — the closest general intro/orientation course open to all Mays Business School freshmen; no separate content-survey 'Intro to Business' course exists." },
+    { "key": "clemson", "name": "Clemson University", "hubSlug": "clemson-study-tools", "catalogUrl": "https://catalog.clemson.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.clemson.edu course pages, 2026-09-03", "note": "No confirmed general Intro to Business course found (MGT 2010 is Principles of Management, a major-track course) — intro-to-business omitted rather than guessed. introductory-biology mapped to BIOL 1100 (Principles of Biology I, majors track); Clemson also offers a separate BIOL 1030 General Biology I non-majors track." }
   ],
   "codes": [
     { "courseKey": "intro-psychology", "schoolKey": "alabama", "code": "PY 101" },
@@ -328,6 +330,31 @@
     { "courseKey": "college-algebra-precalc", "schoolKey": "arizona", "code": "MATH 112" },
     { "courseKey": "intro-statistics", "schoolKey": "arizona", "code": "MATH 163" },
     { "courseKey": "intro-sociology", "schoolKey": "arizona", "code": "SOC 101" },
-    { "courseKey": "us-history-survey-2", "schoolKey": "arizona", "code": "HIST 150C3" }
+    { "courseKey": "us-history-survey-2", "schoolKey": "arizona", "code": "HIST 150C3" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "texas-am", "code": "PBSI 107" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "texas-am", "code": "ECON 202" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "texas-am", "code": "ECON 203" },
+    { "courseKey": "financial-accounting", "schoolKey": "texas-am", "code": "ACCT 229" },
+    { "courseKey": "introductory-biology", "schoolKey": "texas-am", "code": "BIOL 111" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "texas-am", "code": "CHEM 119" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "texas-am", "code": "MATH 102" },
+    { "courseKey": "intro-statistics", "schoolKey": "texas-am", "code": "STAT 201" },
+    { "courseKey": "intro-sociology", "schoolKey": "texas-am", "code": "SOCI 205" },
+    { "courseKey": "us-history-survey-1", "schoolKey": "texas-am", "code": "HIST 105" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "texas-am", "code": "HIST 106" },
+    { "courseKey": "intro-to-business", "schoolKey": "texas-am", "code": "BUSN 101" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "clemson", "code": "PSYC 2010" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "clemson", "code": "ECON 2110" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "clemson", "code": "ECON 2120" },
+    { "courseKey": "financial-accounting", "schoolKey": "clemson", "code": "ACCT 2010" },
+    { "courseKey": "introductory-biology", "schoolKey": "clemson", "code": "BIOL 1100" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "clemson", "code": "CH 1010" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "clemson", "code": "MATH 1980" },
+    { "courseKey": "intro-statistics", "schoolKey": "clemson", "code": "STAT 2300" },
+    { "courseKey": "intro-sociology", "schoolKey": "clemson", "code": "SOC 2010" },
+    { "courseKey": "us-history-survey-1", "schoolKey": "clemson", "code": "HIST 1010" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "clemson", "code": "HIST 1020" }
   ]
 }

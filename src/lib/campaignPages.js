@@ -144,4 +144,6 @@ export const SCHOOL_HUBS = [
   { slug: 'arkansas-study-tools', label: 'University of Arkansas' },
   { slug: 'tennessee-study-tools', label: 'University of Tennessee Knoxville' },
   { slug: 'arizona-study-tools', label: 'University of Arizona' },
+  { slug: 'texas-am-study-tools', label: 'Texas A&M University' },
+  { slug: 'clemson-study-tools', label: 'Clemson University' },
 ];

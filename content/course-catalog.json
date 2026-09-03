@@ -37,7 +37,11 @@
     { "key": "ut-austin", "name": "University of Texas at Austin", "hubSlug": "ut-austin-study-tools", "catalogUrl": "https://catalog.utexas.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.utexas.edu, 2026-09-03", "note": "BA 101 (found in search) is a McCombs career-planning course restricted to BBA majors, not a general Intro to Business course — intro-to-business omitted rather than force-fit." },
     { "key": "florida", "name": "University of Florida", "hubSlug": "florida-study-tools", "catalogUrl": "https://catalog.ufl.edu/UGRD/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.ufl.edu, 2026-09-03", "note": "Source doc's ECO 2013/2023 micro/macro assignment was backwards — corrected here (2013=Macro, 2023=Micro) after independent verification." },
     { "key": "penn-state", "name": "Penn State University", "hubSlug": "penn-state-study-tools", "catalogUrl": "https://bulletins.psu.edu/university-course-descriptions/undergraduate/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against bulletins.psu.edu, 2026-09-03" },
-    { "key": "syracuse", "name": "Syracuse University", "hubSlug": "syracuse-study-tools", "catalogUrl": "https://coursecatalog.syracuse.edu/undergraduate/courses/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against coursecatalog.syracuse.edu, 2026-09-03", "note": "Source doc's HST 111/112 guess for US History was wrong — those are European history courses; corrected to HST 101/102 after verification. Source doc's MAT 121 guess (actually Probability & Statistics) was reassigned from college-algebra-precalc to intro-statistics; MAT 194 (Precalculus) used for college-algebra-precalc instead." }
+    { "key": "syracuse", "name": "Syracuse University", "hubSlug": "syracuse-study-tools", "catalogUrl": "https://coursecatalog.syracuse.edu/undergraduate/courses/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against coursecatalog.syracuse.edu, 2026-09-03", "note": "Source doc's HST 111/112 guess for US History was wrong — those are European history courses; corrected to HST 101/102 after verification. Source doc's MAT 121 guess (actually Probability & Statistics) was reassigned from college-algebra-precalc to intro-statistics; MAT 194 (Precalculus) used for college-algebra-precalc instead." },
+    { "key": "south-carolina", "name": "University of South Carolina", "hubSlug": "south-carolina-study-tools", "catalogUrl": "https://academicbulletins.sc.edu/undergraduate/course-descriptions/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against academicbulletins.sc.edu, 2026-09-03", "note": "No confirmed Intro to Business gateway course found for Darla Moore School — intro-to-business omitted rather than guessed." },
+    { "key": "arkansas", "name": "University of Arkansas", "hubSlug": "arkansas-study-tools", "catalogUrl": "https://catalog.uark.edu/undergraduatecatalog/coursesofinstruction/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.uark.edu, 2026-09-03", "note": "No confirmed general Intro to Business course found (MGMT 2053 Business Foundations appears business-major-track, not a gen-ed intro) — intro-to-business omitted rather than guessed." },
+    { "key": "tennessee", "name": "University of Tennessee Knoxville", "hubSlug": "tennessee-study-tools", "catalogUrl": "https://catalog.utk.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.utk.edu, 2026-09-03", "note": "US History survey uses the HIUS prefix (not HIST) in the current catalog. BUAD 200 (Haslam Leaders Curriculum) is a professional-development sequence, not an Intro to Business content course — omitted rather than guessed." },
+    { "key": "arizona", "name": "University of Arizona", "hubSlug": "arizona-study-tools", "catalogUrl": "https://catalog.arizona.edu/", "verifiedAt": "2026-09-03", "verifiedBy": "web-search verification against catalog.arizona.edu, 2026-09-03", "note": "US History I ('to 1877') companion to HIST 150C3 could not be confirmed against the current catalog (only an archived-catalog reference to a since-superseded code was found) — omitted rather than guessed. No confirmed general Intro to Business course found either — also omitted. Distinct school from Arizona State University (already in this catalog as 'asu')." }
   ],
   "codes": [
     { "courseKey": "intro-psychology", "schoolKey": "alabama", "code": "PY 101" },
@@ -277,6 +281,53 @@
     { "courseKey": "intro-sociology", "schoolKey": "syracuse", "code": "SOC 101" },
     { "courseKey": "us-history-survey-1", "schoolKey": "syracuse", "code": "HST 101" },
     { "courseKey": "us-history-survey-2", "schoolKey": "syracuse", "code": "HST 102" },
-    { "courseKey": "intro-to-business", "schoolKey": "syracuse", "code": "SOM 122" }
+    { "courseKey": "intro-to-business", "schoolKey": "syracuse", "code": "SOM 122" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "south-carolina", "code": "PSYC 101" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "south-carolina", "code": "ECON 221" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "south-carolina", "code": "ECON 222" },
+    { "courseKey": "financial-accounting", "schoolKey": "south-carolina", "code": "ACCT 225" },
+    { "courseKey": "introductory-biology", "schoolKey": "south-carolina", "code": "BIOL 101" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "south-carolina", "code": "CHEM 111" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "south-carolina", "code": "MATH 111" },
+    { "courseKey": "intro-statistics", "schoolKey": "south-carolina", "code": "STAT 201" },
+    { "courseKey": "intro-sociology", "schoolKey": "south-carolina", "code": "SOCY 101" },
+    { "courseKey": "us-history-survey-1", "schoolKey": "south-carolina", "code": "HIST 111" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "south-carolina", "code": "HIST 112" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "arkansas", "code": "PSYC 2003" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "arkansas", "code": "ECON 2023" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "arkansas", "code": "ECON 2013" },
+    { "courseKey": "financial-accounting", "schoolKey": "arkansas", "code": "ACCT 2013" },
+    { "courseKey": "introductory-biology", "schoolKey": "arkansas", "code": "BIOL 1543" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "arkansas", "code": "CHEM 1103" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "arkansas", "code": "MATH 1203" },
+    { "courseKey": "intro-statistics", "schoolKey": "arkansas", "code": "STAT 2303" },
+    { "courseKey": "intro-sociology", "schoolKey": "arkansas", "code": "SOCI 2013" },
+    { "courseKey": "us-history-survey-1", "schoolKey": "arkansas", "code": "HIST 2003" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "arkansas", "code": "HIST 2013" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "tennessee", "code": "PSYC 110" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "tennessee", "code": "ECON 211" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "tennessee", "code": "ECON 213" },
+    { "courseKey": "financial-accounting", "schoolKey": "tennessee", "code": "ACCT 200" },
+    { "courseKey": "introductory-biology", "schoolKey": "tennessee", "code": "BIOL 101" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "tennessee", "code": "CHEM 120" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "tennessee", "code": "MATH 119" },
+    { "courseKey": "intro-statistics", "schoolKey": "tennessee", "code": "STAT 201" },
+    { "courseKey": "intro-sociology", "schoolKey": "tennessee", "code": "SOCI 120" },
+    { "courseKey": "us-history-survey-1", "schoolKey": "tennessee", "code": "HIUS 221" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "tennessee", "code": "HIUS 222" },
+
+    { "courseKey": "intro-psychology", "schoolKey": "arizona", "code": "PSY 101" },
+    { "courseKey": "principles-of-microeconomics", "schoolKey": "arizona", "code": "ECON 201A" },
+    { "courseKey": "principles-of-macroeconomics", "schoolKey": "arizona", "code": "ECON 201B" },
+    { "courseKey": "financial-accounting", "schoolKey": "arizona", "code": "ACCT 200" },
+    { "courseKey": "introductory-biology", "schoolKey": "arizona", "code": "MCB 181R" },
+    { "courseKey": "general-chemistry-1", "schoolKey": "arizona", "code": "CHEM 141" },
+    { "courseKey": "college-algebra-precalc", "schoolKey": "arizona", "code": "MATH 112" },
+    { "courseKey": "intro-statistics", "schoolKey": "arizona", "code": "MATH 163" },
+    { "courseKey": "intro-sociology", "schoolKey": "arizona", "code": "SOC 101" },
+    { "courseKey": "us-history-survey-2", "schoolKey": "arizona", "code": "HIST 150C3" }
   ]
 }

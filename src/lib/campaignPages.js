@@ -140,4 +140,8 @@ export const SCHOOL_HUBS = [
   { slug: 'florida-study-tools', label: 'University of Florida' },
   { slug: 'penn-state-study-tools', label: 'Penn State University' },
   { slug: 'syracuse-study-tools', label: 'Syracuse University' },
+  { slug: 'south-carolina-study-tools', label: 'University of South Carolina' },
+  { slug: 'arkansas-study-tools', label: 'University of Arkansas' },
+  { slug: 'tennessee-study-tools', label: 'University of Tennessee Knoxville' },
+  { slug: 'arizona-study-tools', label: 'University of Arizona' },
 ];

@@ -1,7 +1,12 @@
 import Stripe from 'stripe';
 import { getDatabase } from '../lib/db.js';
 import { planKeyForPriceId } from '../lib/plans.js';
-import { firePlausibleEvent, PURCHASE_EVENT_NAMES } from '../lib/plausible.js';
+import {
+  firePlausibleEvent,
+  PURCHASE_CATCHALL_EVENT_NAME,
+  PURCHASE_EVENT_NAMES,
+  PURCHASE_PLAN_LABELS,
+} from '../lib/plausible.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -105,7 +110,11 @@ export default async (request) => {
             ON CONFLICT (stripe_checkout_session_id) DO NOTHING
           `;
           const eventName = PURCHASE_EVENT_NAMES[passType];
+          const planLabel = PURCHASE_PLAN_LABELS[passType];
           if (eventName) await firePlausibleEvent(eventName, '/account?pass=success');
+          if (planLabel) {
+            await firePlausibleEvent(PURCHASE_CATCHALL_EVENT_NAME, '/account?pass=success', { plan: planLabel });
+          }
         }
         break;
       }
@@ -131,7 +140,11 @@ export default async (request) => {
           WHERE id = ${userId}
         `;
         const eventName = PURCHASE_EVENT_NAMES[plan];
+        const planLabel = PURCHASE_PLAN_LABELS[plan];
         if (eventName) await firePlausibleEvent(eventName, '/account?checkout=success');
+        if (planLabel) {
+          await firePlausibleEvent(PURCHASE_CATCHALL_EVENT_NAME, '/account?checkout=success', { plan: planLabel });
+        }
       }
       break;
     }

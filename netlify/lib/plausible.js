@@ -19,16 +19,18 @@
 const PLAUSIBLE_EVENT_URL = 'https://plausible.io/api/event';
 const PLAUSIBLE_DOMAIN = 'camboapp.com';
 
-export async function firePlausibleEvent(name, path) {
+export async function firePlausibleEvent(name, path, props) {
   try {
+    const body = {
+      name,
+      url: `https://${PLAUSIBLE_DOMAIN}${path}`,
+      domain: PLAUSIBLE_DOMAIN,
+    };
+    if (props) body.props = props;
     const res = await fetch(PLAUSIBLE_EVENT_URL, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        url: `https://${PLAUSIBLE_DOMAIN}${path}`,
-        domain: PLAUSIBLE_DOMAIN,
-      }),
+      body: JSON.stringify(body),
     });
     if (!res.ok) {
       console.error(`Plausible event "${name}" failed (${res.status}):`, await res.text().catch(() => ''));
@@ -51,3 +53,24 @@ export const PURCHASE_EVENT_NAMES = {
   prep_7d: 'Purchase: Prep Pass',
   unlimited_30d: 'Purchase: Unlimited Pass',
 };
+
+// Short labels for the generic catch-all "Purchase" event's `plan` property
+// (see stripe-webhook.js) — same pattern already used for the "Form:
+// Submission" goal's "path" property (one event name, broken down by a
+// property value, viewed as its own tab in the goal's dashboard page). This
+// is fired *alongside* the specific PURCHASE_EVENT_NAMES event above, not
+// instead of it, so both a combined total and a per-tier breakdown exist.
+// Requires "plan" to be added to Site Settings → Custom Properties in the
+// Plausible dashboard (same one-time setup "path" already went through) —
+// otherwise the property is accepted by the API but won't show up as a
+// breakdown in the UI.
+export const PURCHASE_PLAN_LABELS = {
+  starter: 'Starter',
+  personal: 'Personal',
+  pro: 'Pro',
+  cram_24h: 'Cram Pass',
+  prep_7d: 'Prep Pass',
+  unlimited_30d: 'Unlimited Pass',
+};
+
+export const PURCHASE_CATCHALL_EVENT_NAME = 'Purchase';

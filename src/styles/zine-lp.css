@@ -40,9 +40,47 @@
   line-height: 1.7;
 }
 
+.zn-lp-official p {
+  margin: 0;
+}
+
 .zn-lp-official a {
   font-weight: 700;
   text-decoration: underline;
+}
+
+/* The "try Cambo instead of leaving" intercept — visually heavier than the
+   outbound-link line above it (solid border vs. dashed, own background) so
+   it's the thing that actually catches the eye in this box, not the exit. */
+.zn-lp-official-intercept {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1.6px solid var(--zn-ink);
+}
+
+.zn-lp-official-intercept p {
+  font-weight: 600;
+  max-width: 42ch;
+}
+
+/* Relies on source order, not specificity, to win over .zn-btn's own
+   font-size/padding: both are single-class selectors (equal specificity),
+   and zine-lp.css is imported after zine.css wherever both are used (see
+   LandingPageTemplate.jsx) — same convention the rest of this file uses. */
+.zn-btn-sm {
+  font-size: 15px;
+  padding: 10px 18px 9px;
+  gap: 8px;
+}
+
+.zn-btn-sm .zn-btn-arrow {
+  width: 26px;
+  height: 12px;
 }
 
 /* Why-it-works — single dynamic paragraph per page */

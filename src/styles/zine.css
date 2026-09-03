@@ -912,15 +912,27 @@
 
 .zn-chip-panel {
   flex-basis: 100%;
-  padding: 18px 4px 6px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  border-top: 1.5px solid var(--zn-ink);
+  border-left: 1.5px solid var(--zn-ink);
 }
 
 .zn-chip-panel a {
-  font-size: 14px;
-  opacity: 0.85;
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  padding: 13px 16px;
+  border-right: 1.5px solid var(--zn-ink);
+  border-bottom: 1.5px solid var(--zn-ink);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.zn-chip-panel a:hover {
+  background: var(--zn-ink);
+  color: var(--zn-paper);
 }
 
 /* Footer CTA band */

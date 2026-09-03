@@ -1,6 +1,7 @@
 import Stripe from 'stripe';
 import { getDatabase } from '../lib/db.js';
 import { planKeyForPriceId } from '../lib/plans.js';
+import { firePlausibleEvent, PURCHASE_EVENT_NAMES } from '../lib/plausible.js';
 
 function jsonResponse(status, body) {
   return new Response(JSON.stringify(body), {
@@ -42,6 +43,23 @@ export default async (request) => {
   }
 
   const db = getDatabase();
+
+  // Global de-dupe for this whole handler, keyed on Stripe's own event.id
+  // (Stripe's documented retry key — see the migration's comment). Existing
+  // branches below already guard their own DB writes independently
+  // (ON CONFLICT on stripe_checkout_session_id), but this catches a retried
+  // delivery up front for every branch — including the plan-subscription
+  // branch, which had no dedup of its own — so the new Plausible purchase
+  // events below can't be double-fired by a Stripe retry.
+  const [inserted] = await db.sql`
+    INSERT INTO stripe_webhook_events (stripe_event_id)
+    VALUES (${event.id})
+    ON CONFLICT (stripe_event_id) DO NOTHING
+    RETURNING stripe_event_id
+  `;
+  if (!inserted) {
+    return jsonResponse(200, { received: true, duplicate: true });
+  }
 
   switch (event.type) {
     case 'checkout.session.completed': {
@@ -86,6 +104,8 @@ export default async (request) => {
             )
             ON CONFLICT (stripe_checkout_session_id) DO NOTHING
           `;
+          const eventName = PURCHASE_EVENT_NAMES[passType];
+          if (eventName) await firePlausibleEvent(eventName, '/account?pass=success');
         }
         break;
       }
@@ -110,6 +130,8 @@ export default async (request) => {
               plan = ${plan}
           WHERE id = ${userId}
         `;
+        const eventName = PURCHASE_EVENT_NAMES[plan];
+        if (eventName) await firePlausibleEvent(eventName, '/account?checkout=success');
       }
       break;
     }

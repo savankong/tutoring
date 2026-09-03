@@ -1,0 +1,111 @@
+{
+  "slug": "food-handler-card-practice-test",
+  "h1": "Food Handler Card Practice Test & Quiz",
+  "subhead": "Take a free practice quiz or get instant, explained answers to food handler card questions — temperature control, cross-contamination, and allergens, without the guesswork.",
+  "metaTitle": "Food Handler Card Practice Test & Quiz | Cambo",
+  "metaDescription": "Free food handler card practice test and quiz questions with instant, explained answers. Temperature danger zone, cross-contamination, allergens, and handwashing.",
+  "whyItWorks": "Food handler exam questions often describe a specific kitchen scenario — a thawing method, a cutting board mix-up, a delivery left on the loading dock — and ask you to apply a rule to it. Cambo reads the exact scenario and explains which food safety principle applies and why, not just the letter to bubble in.",
+  "sampleQuestions": [
+    {
+      "q": "What is the temperature danger zone for food, in which bacteria grow most rapidly?",
+      "options": [
+        "0°F to 32°F",
+        "41°F to 135°F",
+        "150°F to 212°F",
+        "It only applies to raw meat, not other foods"
+      ],
+      "correct": 1,
+      "a": "41°F to 135°F — food should spend as little time as possible in this range, whether it's cooling down, heating up, or being held for service."
+    },
+    {
+      "q": "What is cross-contamination?",
+      "options": [
+        "Cooking two different foods in the same oven",
+        "The transfer of harmful microorganisms from one food, surface, or person to another food",
+        "Serving a dish that has cooled below 135°F",
+        "Storing raw and cooked food in the same walk-in cooler at any position"
+      ],
+      "correct": 1,
+      "a": "The transfer of harmful microorganisms from one surface, food, or person to another — for example, cutting raw chicken and then chopping vegetables on the same board without washing it first."
+    },
+    {
+      "q": "In a walk-in cooler, where should raw ground beef be stored relative to ready-to-eat food like a fruit salad?",
+      "options": [
+        "Above the ready-to-eat food",
+        "Below the ready-to-eat food",
+        "Storage position doesn't matter as long as containers are sealed",
+        "In the same container to save space"
+      ],
+      "correct": 1,
+      "a": "Below the ready-to-eat food — raw meat should be stored on the lowest shelves so any drips or leaks can't fall onto food that won't be cooked before it's eaten."
+    },
+    {
+      "q": "What is the minimum recommended handwashing time?",
+      "options": [
+        "5 seconds",
+        "10 seconds",
+        "20 seconds",
+        "60 seconds"
+      ],
+      "correct": 2,
+      "a": "20 seconds of scrubbing with soap and warm water — a quick rinse under running water isn't enough to remove pathogens effectively."
+    },
+    {
+      "q": "A customer tells the server they have a severe peanut allergy. What is the most important food safety response?",
+      "options": [
+        "Assure the customer that a small amount of peanut won't cause a reaction",
+        "Confirm the dish's ingredients and prevent any cross-contact with peanuts during preparation",
+        "Serve the dish as usual, since the kitchen doesn't use peanuts as a primary ingredient",
+        "Ask the customer to sign a waiver before serving"
+      ],
+      "correct": 1,
+      "a": "Confirm the ingredients and prevent cross-contact — even trace amounts from a shared surface, oil, or utensil can trigger a severe allergic reaction, so allergen awareness requires more than just checking the recipe."
+    },
+    {
+      "q": "What is the safest way to thaw frozen food?",
+      "options": [
+        "On the counter at room temperature",
+        "In a sink filled with hot standing water",
+        "In the refrigerator, or as part of the cooking process",
+        "Outside on a loading dock"
+      ],
+      "correct": 2,
+      "a": "In the refrigerator (or as part of continuous cooking) — thawing at room temperature lets the food's surface sit in the temperature danger zone long enough for bacteria to multiply, even if the center is still frozen."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the food handler exam, and what score do I need to pass?",
+      "a": "The standard ServSafe Food Handler assessment is 40 questions, and you need at least 75% correct — 30 out of 40 — to pass."
+    },
+    {
+      "q": "Is there a time limit on the food handler test?",
+      "a": "Generally no — the ServSafe Food Handler assessment is untimed and non-proctored, though local jurisdictions administering their own version may set their own rules."
+    },
+    {
+      "q": "How many times can I retake the food handler exam if I don't pass?",
+      "a": "You typically get multiple attempts (commonly up to three) to pass, depending on the specific program or state requirement you're taking it under."
+    },
+    {
+      "q": "Is Cambo affiliated with ServSafe or the National Restaurant Association?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by ServSafe or the National Restaurant Association."
+    },
+    {
+      "q": "Is a food handler card the same as a ServSafe Manager certification?",
+      "a": "No — a food handler card covers basic food safety for any food service employee and is a shorter, lower-stakes assessment. The ServSafe Manager exam is longer, harder, and intended for the person in charge of food safety at an establishment."
+    },
+    {
+      "q": "Does every state require a food handler card?",
+      "a": "No — requirements vary by state and even by county or city, including which programs are accepted and how long the card is valid. Check your local health department for the specific rule that applies to you."
+    }
+  ],
+  "internalLinks": [
+    "servsafe-manager-exam-practice",
+    "texas-food-handler-card-practice-test",
+    "california-food-handler-card-practice-test"
+  ],
+  "officialSource": {
+    "label": "servsafe.com — Food Handler",
+    "url": "https://www.servsafe.com/"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "slug": "comptia-security-plus-practice-test",
+  "h1": "CompTIA Security+ Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Security+ question for an instant, explained answer — threats, architecture, and operations, without the guesswork.",
+  "metaTitle": "CompTIA Security+ Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free CompTIA Security+ quiz and practice questions with instant, explained answers. Threats, security architecture, operations, and program management domains.",
+  "whyItWorks": "Security+ questions often present several controls that all sound like reasonable security measures, and the exam's performance-based questions ask you to apply the right control to a specific scenario rather than just recall a definition. Cambo reads the exact scenario and explains why one control is the best fit, not just which letter to pick.",
+  "sampleQuestions": [
+    {
+      "q": "A company wants to ensure that if one authentication factor is compromised, an attacker still cannot access an account. Which control BEST achieves this?",
+      "options": [
+        "A complex password policy",
+        "Multifactor authentication",
+        "An account lockout policy",
+        "Single sign-on"
+      ],
+      "correct": 1,
+      "a": "Multifactor authentication — requiring a second, independent factor means a compromised password alone isn't enough to gain access."
+    },
+    {
+      "q": "A security analyst notices repeated failed logins from a single IP address in a short time window, followed by a successful login. This is most consistent with which attack?",
+      "options": [
+        "A brute-force attack",
+        "SQL injection",
+        "Cross-site scripting",
+        "An on-path (man-in-the-middle) attack"
+      ],
+      "correct": 0,
+      "a": "A brute-force attack — repeated failed attempts followed by a success is the classic signature of an attacker guessing credentials until one works."
+    },
+    {
+      "q": "Which security principle ensures a user is granted only the access necessary to perform their job?",
+      "options": [
+        "Defense in depth",
+        "Least privilege",
+        "Zero trust",
+        "Separation of duties"
+      ],
+      "correct": 1,
+      "a": "Least privilege — restricting access rights to only what's needed reduces the damage an account can cause if it's compromised."
+    },
+    {
+      "q": "After detecting a ransomware infection on a single workstation, what should the incident responder do FIRST?",
+      "options": [
+        "Restore the workstation from backup immediately",
+        "Isolate the affected system from the network",
+        "Notify all employees company-wide",
+        "Wipe and reimage the drive"
+      ],
+      "correct": 1,
+      "a": "Isolate the affected system from the network — containment comes before eradication or recovery, to stop the ransomware from spreading further."
+    },
+    {
+      "q": "A company's policy requires that no single employee can both request and approve a purchase. This is an example of which concept?",
+      "options": [
+        "Least privilege",
+        "Separation of duties",
+        "Non-repudiation",
+        "Defense in depth"
+      ],
+      "correct": 1,
+      "a": "Separation of duties — dividing critical tasks between different people reduces the risk of fraud or error by any one individual."
+    },
+    {
+      "q": "Which document defines the maximum acceptable time a system can be down after an incident before causing unacceptable business impact?",
+      "options": [
+        "Recovery Point Objective (RPO)",
+        "Recovery Time Objective (RTO)",
+        "Service Level Agreement (SLA)",
+        "Business Impact Analysis (BIA)"
+      ],
+      "correct": 1,
+      "a": "Recovery Time Objective (RTO) — it specifies the maximum tolerable downtime, guiding how fast systems must be restored after a disruption."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the Security+ exam?",
+      "a": "Up to 90 questions in 90 minutes, mixing multiple-choice questions with hands-on performance-based questions (PBQs)."
+    },
+    {
+      "q": "What score do I need to pass Security+?",
+      "a": "750 on a scaled range of 100 to 900 — CompTIA weights questions by difficulty, so the passing score isn't a fixed percentage of questions answered correctly."
+    },
+    {
+      "q": "What are the five Security+ domains?",
+      "a": "General Security Concepts, Threats/Vulnerabilities/Mitigations, Security Architecture, Security Operations, and Security Program Management and Oversight, weighted roughly 12%, 22%, 18%, 28%, and 20%."
+    },
+    {
+      "q": "Is Cambo affiliated with CompTIA?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with CompTIA."
+    },
+    {
+      "q": "Do I need any prerequisites to take Security+?",
+      "a": "No official prerequisite — CompTIA recommends Network+ certification and around two years of security or systems administration experience, but neither is required to register."
+    },
+    {
+      "q": "How many times can I retake Security+?",
+      "a": "There's no cap on attempts, but you must wait 14 calendar days after a second (or later) failed attempt, and each attempt requires a new exam voucher."
+    }
+  ],
+  "internalLinks": [
+    "comptia-a-plus-practice-test",
+    "aws-cloud-practitioner-practice-test"
+  ],
+  "officialSource": {
+    "label": "comptia.org — Security+ Certification",
+    "url": "https://www.comptia.org/certifications/security"
+  }
+}

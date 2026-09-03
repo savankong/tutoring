@@ -17,7 +17,7 @@ import ResetPassword from './pages/ResetPassword.jsx';
 import TermsOfService from './pages/TermsOfService.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
 import './App.css';
-// zine-lp.css styles the 24 SEO campaign pages (src/landing-pages/), which
+// zine-lp.css styles the SEO campaign pages (src/landing-pages/), which
 // render via renderToStaticMarkup and are never part of this client bundle's
 // component tree — so nothing here actually reaches LandingPageTemplate.jsx.
 // This import exists solely so the rule set lands in the compiled stylesheet

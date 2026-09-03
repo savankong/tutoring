@@ -1,0 +1,104 @@
+{
+  "slug": "cdl-general-knowledge-practice-test",
+  "h1": "CDL General Knowledge Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any CDL general knowledge question for an instant, explained answer — air brakes, vehicle inspection, and federal rules, without the guesswork.",
+  "metaTitle": "CDL General Knowledge Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free CDL General Knowledge practice test questions with instant, explained answers. Federal FMCSA rules on vehicle inspection, safe driving, hours of service, and air brakes.",
+  "whyItWorks": "The General Knowledge test is built on federal FMCSA regulations (49 CFR Part 383) that nearly every state's written CDL permit exam draws from, but the material covers a lot of narrow, specific rules — pre-trip inspection steps, air brake system components, hours-of-service limits — that are easy to mix up under pressure. Cambo reads the exact question and explains the specific federal rule or safe-driving principle behind the correct answer.",
+  "sampleQuestions": [
+    {
+      "q": "What is the minimum passing score required on a CDL knowledge test under federal regulation?",
+      "options": [
+        "70%",
+        "75%",
+        "80%",
+        "90%"
+      ],
+      "correct": 2,
+      "a": "80% — 49 CFR 383.135 requires every state to set the passing score at correctly answering at least 80% of the questions on each knowledge test."
+    },
+    {
+      "q": "During a pre-trip inspection, a driver finds the low air pressure warning device activates before the pressure drops below 60 psi. What should the driver do?",
+      "options": [
+        "Continue the trip as normal, since the warning is just a precaution",
+        "Not drive the vehicle until it's fixed",
+        "Drive slower than usual to compensate",
+        "Only avoid using the brakes until pressure rises"
+      ],
+      "correct": 1,
+      "a": "The driver should not operate the vehicle until it's repaired — a properly functioning low air pressure warning is a critical safety system, and driving with a known air brake problem is unsafe and a violation."
+    },
+    {
+      "q": "How does hydroplaning affect a commercial vehicle, and what should a driver do to help prevent it?",
+      "options": [
+        "It only affects vehicles going under 20 mph; slow down further to avoid it",
+        "It happens when tires lose contact with the road on a film of water; reduce speed, especially in the first minutes of rain",
+        "It only occurs with empty trailers; keeping trailers loaded prevents it",
+        "It cannot happen to vehicles with good tire tread"
+      ],
+      "correct": 1,
+      "a": "Hydroplaning happens when tires ride up on a layer of water and lose contact with the road; reducing speed — particularly during the first rain after a dry spell, when oils rise to the road surface — reduces the risk."
+    },
+    {
+      "q": "Under federal hours-of-service rules for property-carrying drivers, what is the maximum number of hours a driver may drive after coming on duty following 10 consecutive hours off duty?",
+      "options": [
+        "8 hours",
+        "10 hours",
+        "11 hours",
+        "14 hours"
+      ],
+      "correct": 2,
+      "a": "11 hours — a property-carrying driver may drive a maximum of 11 hours after 10 consecutive hours off duty, within the broader 14-hour on-duty window."
+    },
+    {
+      "q": "What is the correct action if a commercial vehicle's brakes fail while going down a steep grade?",
+      "options": [
+        "Shift into neutral and coast to slow down",
+        "Pump the brakes repeatedly to try to rebuild pressure, then use an escape ramp or runaway lane if available",
+        "Turn off the engine immediately to stop the vehicle",
+        "Accelerate to gain enough control to steer off the grade"
+      ],
+      "correct": 1,
+      "a": "Pump the brakes to try to build pressure and use an escape ramp or runaway lane if one is available and brakes don't recover — shifting to neutral or cutting the engine removes engine braking and control, making things worse."
+    },
+    {
+      "q": "What should a driver check for as part of a proper pre-trip inspection of the vehicle's tires?",
+      "options": [
+        "Tread depth, sidewall condition, and matching tire types on the same axle",
+        "Only that the tires are the correct brand",
+        "Only tire pressure — tread and sidewalls are checked at annual inspection only",
+        "Nothing — tire condition is the responsibility of the maintenance shop only"
+      ],
+      "correct": 0,
+      "a": "Tread depth, sidewall condition (cuts, bulges, exposed cords), and that mismatched tire types (e.g., radial and bias-ply) aren't mixed on the same axle — all are required pre-trip checks, and the driver is responsible for catching them before driving."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the CDL General Knowledge test?",
+      "a": "Federal rules set a minimum of 30 questions, but most states use a longer General Knowledge test form, commonly 50 questions."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "80% — federal regulation (49 CFR 383.135) requires every state to set this same passing threshold on each CDL knowledge test."
+    },
+    {
+      "q": "Do I need to pass other knowledge tests besides General Knowledge?",
+      "a": "It depends on the class of CDL and any endorsements you're pursuing. Everyone takes General Knowledge; driving a vehicle with air brakes requires the Air Brakes test, combination vehicles (like a tractor-trailer) require the Combination Vehicles test, and endorsements like Hazmat, Passenger, School Bus, or Tanker each have their own additional test."
+    },
+    {
+      "q": "How many times can I retake the test if I fail?",
+      "a": "Most states allow multiple attempts, but a mandatory waiting period between attempts (commonly a few days to a week) and any cap on total tries before reapplying vary by state — check your state's DMV or licensing agency for exact rules."
+    },
+    {
+      "q": "Is Cambo affiliated with the FMCSA or any state DMV?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Federal Motor Carrier Safety Administration or any state motor vehicle agency."
+    },
+    {
+      "q": "What are the basic prerequisites to take the CDL knowledge test?",
+      "a": "Requirements vary by state, but generally include holding a valid regular driver's license, meeting minimum age requirements (18 for intrastate driving, 21 for interstate or hazmat), and passing a DOT medical exam to hold a valid medical certificate."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": { "label": "fmcsa.dot.gov — Federal Motor Carrier Safety Administration", "url": "https://www.fmcsa.dot.gov/" }
+}

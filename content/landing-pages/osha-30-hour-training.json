@@ -1,0 +1,111 @@
+{
+  "slug": "osha-30-hour-training",
+  "h1": "OSHA 30-Hour Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to OSHA 30-hour construction training questions — fall protection, electrical, scaffolding, and excavation, without the guesswork.",
+  "metaTitle": "OSHA 30-Hour Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free OSHA 30-hour Outreach quiz and practice questions with instant, explained answers. Fall protection, electrical hazards, scaffolding, excavation, and supervisor responsibilities.",
+  "whyItWorks": "OSHA 30-hour material goes deeper than the 10-hour course into supervisor-level topics — scaffold and excavation protective systems, specific height and depth thresholds, who qualifies as a \"competent person\" — where the right answer often hinges on an exact number or responsibility. Cambo reads the exact question and explains the standard behind it.",
+  "sampleQuestions": [
+    {
+      "q": "Who is the OSHA 30-hour Outreach course primarily intended for?",
+      "options": [
+        "Entry-level workers with no prior safety training",
+        "Supervisors or workers with some level of safety responsibility",
+        "Only OSHA-certified safety consultants",
+        "Workers who have already completed the 10-hour course twice"
+      ],
+      "correct": 1,
+      "a": "Supervisors or workers with some safety responsibility — the 30-hour course builds on the 10-hour's general awareness content with topics like managing a safety program and job hazard analysis."
+    },
+    {
+      "q": "Which topic is required in the 30-hour construction course but not the 10-hour course?",
+      "options": [
+        "Introduction to OSHA",
+        "Personal Protective Equipment",
+        "Managing Safety and Health (a supervisor-focused topic)",
+        "Stairways and Ladders"
+      ],
+      "correct": 2,
+      "a": "Managing Safety and Health — this two-hour, supervisor-focused topic doesn't appear in the 10-hour course at all, reflecting the 30-hour's focus on people who have some responsibility for others' safety on site."
+    },
+    {
+      "q": "Under OSHA's excavation standard, at what depth is a protective system (such as sloping, shoring, or shielding) generally required?",
+      "options": [
+        "3 feet or deeper",
+        "5 feet or deeper, except in stable rock",
+        "10 feet or deeper",
+        "Only when a trench is wider than it is deep"
+      ],
+      "correct": 1,
+      "a": "5 feet or deeper, except when the excavation is made entirely in stable rock — below that depth, a competent person may determine a protective system isn't needed. Trenches 20 feet or deeper require a system designed by a registered professional engineer."
+    },
+    {
+      "q": "Under OSHA's scaffolding standard, at what height above a lower level is fall protection (a guardrail system, personal fall arrest system, or both) generally required?",
+      "options": [
+        "4 feet",
+        "6 feet",
+        "10 feet",
+        "15 feet"
+      ],
+      "correct": 2,
+      "a": "10 feet — this is the general \"10-foot rule\" for scaffolds, distinct from the 4-foot (general industry) and 6-foot (construction) thresholds that apply outside of scaffold work."
+    },
+    {
+      "q": "What defines a \"competent person\" under OSHA standards?",
+      "options": [
+        "Anyone who has completed the OSHA 30-hour course",
+        "Someone capable of identifying existing and predictable hazards and who has the authority to take prompt corrective action to eliminate them",
+        "A licensed professional engineer, exclusively",
+        "Any worker with more than one year of experience on the job"
+      ],
+      "correct": 1,
+      "a": "Someone capable of identifying existing and predictable hazards in the workplace and who has the employer-given authority to take prompt corrective measures — training alone doesn't confer that authority, since only the employer can grant it."
+    },
+    {
+      "q": "Which of the following is one of OSHA's \"Focus Four\" hazards in construction, emphasized throughout the 30-hour course?",
+      "options": [
+        "Repetitive motion injury",
+        "Caught-in or caught-between hazards",
+        "Chemical odor exposure",
+        "Noise-induced hearing loss"
+      ],
+      "correct": 1,
+      "a": "Caught-in or caught-between hazards — along with falls, electrocution, and struck-by incidents, these are the Focus Four, which together cause the majority of construction worker deaths and receive dedicated mandatory hours in the 30-hour course."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is the OSHA 30-hour card a certification?",
+      "a": "No — like the 10-hour, OSHA is clear that no course in the Outreach Training Program is considered a certification. It's a completion card showing the required hours and topics were covered."
+    },
+    {
+      "q": "Do I need the 10-hour course before taking the 30-hour course?",
+      "a": "OSHA doesn't require it, but many trainers and employers treat the 10-hour as a practical prerequisite since the 30-hour builds directly on that foundational material."
+    },
+    {
+      "q": "How long is the OSHA 30-hour card valid?",
+      "a": "OSHA doesn't set an expiration date on the card itself, though many employers and job sites require renewal every 5 years as a matter of policy — the same convention as the 10-hour card."
+    },
+    {
+      "q": "Is Cambo affiliated with OSHA?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Occupational Safety and Health Administration."
+    },
+    {
+      "q": "Is OSHA 30-hour training required by law?",
+      "a": "Not by OSHA itself in most cases, though some states, cities, and individual employers or contracts require it for supervisors or workers with safety responsibilities on a jobsite."
+    },
+    {
+      "q": "How many topics does the 30-hour construction course cover compared to the 10-hour?",
+      "a": "The 30-hour course covers a significantly broader set of topics — around 84 possible elective and mandatory topics versus a much shorter list for the 10-hour — reflecting its deeper, supervisor-level scope."
+    }
+  ],
+  "internalLinks": [
+    "osha-10-hour-training",
+    "forklift-certification-training",
+    "hazwoper-40-hour-training"
+  ],
+  "officialSource": {
+    "label": "osha.gov — Outreach Training Program",
+    "url": "https://www.osha.gov/training/outreach"
+  }
+}

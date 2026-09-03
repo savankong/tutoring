@@ -1,4 +1,4 @@
-/* Zine-redesign styles specific to the 24 SEO campaign pages
+/* Zine-redesign styles specific to the SEO campaign pages
    (src/landing-pages/). Loaded via App.jsx (see the comment there) since
    these pages render via renderToStaticMarkup and are never part of the
    client bundle's own component tree. Reuses .zn-root tokens/reset from

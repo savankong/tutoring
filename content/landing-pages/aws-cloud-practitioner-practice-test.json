@@ -1,0 +1,109 @@
+{
+  "slug": "aws-cloud-practitioner-practice-test",
+  "h1": "AWS Cloud Practitioner Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any AWS Cloud Practitioner question for an instant, explained answer — cloud concepts, security, and billing, without the guesswork.",
+  "metaTitle": "AWS Cloud Practitioner Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free AWS Cloud Practitioner quiz and practice questions with instant, explained answers. Cloud concepts, security and compliance, core services, and billing.",
+  "whyItWorks": "Cloud Practitioner questions usually describe a business scenario and ask which AWS service or pricing model fits best out of several plausible-sounding options — the exam is testing judgment, not memorized definitions. Cambo reads the exact scenario and explains which service applies and why, not just which letter is correct.",
+  "sampleQuestions": [
+    {
+      "q": "Which AWS pricing model lets you pay only for the compute capacity you actually use, with no upfront commitment?",
+      "options": [
+        "Reserved Instances",
+        "On-Demand pricing",
+        "Savings Plans",
+        "Spot Instances"
+      ],
+      "correct": 1,
+      "a": "On-Demand pricing — you pay for compute by the second or hour with no long-term commitment, ideal for unpredictable or short-term workloads."
+    },
+    {
+      "q": "A company wants durable, low-cost storage for infrequently accessed backup files, and retrieval times of several hours are acceptable. Which service is the BEST fit?",
+      "options": [
+        "Amazon S3 Standard",
+        "Amazon EBS",
+        "Amazon S3 Glacier",
+        "Amazon EC2 instance store"
+      ],
+      "correct": 2,
+      "a": "Amazon S3 Glacier — it's built for long-term archival storage at very low cost, trading slower retrieval times for a much lower price than S3 Standard."
+    },
+    {
+      "q": "Which AWS service lets a company run code in response to events without provisioning or managing servers?",
+      "options": [
+        "Amazon EC2",
+        "AWS Lambda",
+        "Amazon RDS",
+        "Amazon VPC"
+      ],
+      "correct": 1,
+      "a": "AWS Lambda — it's a serverless compute service that runs your code in response to triggers, and you're only charged for the compute time it uses."
+    },
+    {
+      "q": "Under the AWS Shared Responsibility Model, who is responsible for patching the underlying hypervisor and physical infrastructure?",
+      "options": [
+        "The customer",
+        "AWS",
+        "A third-party auditor",
+        "Both AWS and the customer equally"
+      ],
+      "correct": 1,
+      "a": "AWS — AWS handles security \"of\" the cloud (physical infrastructure, hypervisor, host OS), while the customer handles security \"in\" the cloud (their data, applications, and configurations)."
+    },
+    {
+      "q": "Which AWS support plan is the minimum required to get a dedicated Technical Account Manager (TAM)?",
+      "options": [
+        "Basic",
+        "Developer",
+        "Business",
+        "Enterprise"
+      ],
+      "correct": 3,
+      "a": "Enterprise — a dedicated Technical Account Manager is a benefit of the Enterprise support plan, aimed at organizations running mission-critical workloads."
+    },
+    {
+      "q": "A startup wants to estimate the monthly cost of a proposed AWS architecture before deploying it. Which tool should they use?",
+      "options": [
+        "AWS Cost Explorer",
+        "AWS Pricing Calculator",
+        "AWS Budgets",
+        "AWS Trusted Advisor"
+      ],
+      "correct": 1,
+      "a": "AWS Pricing Calculator — it's designed to estimate costs for a planned architecture before you build it, unlike Cost Explorer and Budgets, which analyze costs already incurred."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the AWS Cloud Practitioner exam?",
+      "a": "65 questions total (50 scored, 15 unscored) to complete in 90 minutes."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "700 on a scaled range of 100 to 1,000."
+    },
+    {
+      "q": "What are the exam's domains?",
+      "a": "Cloud Concepts (24%), Security and Compliance (30%), Cloud Technology and Services (34%), and Billing, Pricing, and Support (12%)."
+    },
+    {
+      "q": "Is Cambo affiliated with Amazon Web Services?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Amazon Web Services (AWS)."
+    },
+    {
+      "q": "Are there any prerequisites for the Cloud Practitioner exam?",
+      "a": "No formal prerequisites — AWS recommends around six months of exposure to AWS Cloud concepts, but anyone can register and sit for the exam."
+    },
+    {
+      "q": "How many times can I retake the exam?",
+      "a": "There's no limit on attempts, but you must wait 14 calendar days after a failed attempt before retaking, and pay the exam fee again each time."
+    }
+  ],
+  "internalLinks": [
+    "comptia-security-plus-practice-test"
+  ],
+  "officialSource": {
+    "label": "aws.amazon.com — AWS Certified Cloud Practitioner",
+    "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/"
+  }
+}

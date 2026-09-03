@@ -1,0 +1,110 @@
+{
+  "slug": "forklift-certification-training",
+  "h1": "Forklift Certification Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to forklift certification questions — stability, load capacity, and recertification rules, without the guesswork.",
+  "metaTitle": "Forklift Certification Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free forklift certification quiz and practice questions with instant, explained answers. Stability triangle, load capacity, recertification triggers, and OSHA requirements.",
+  "whyItWorks": "Forklift certification questions frequently combine a physics concept, like how the stability triangle shifts under a raised or off-center load, with a specific OSHA requirement, like when retraining is triggered. Cambo reads the exact question and explains both the mechanics and the rule, not just the multiple-choice answer.",
+  "sampleQuestions": [
+    {
+      "q": "Under OSHA's Powered Industrial Truck standard, how often must an operator's performance be evaluated at minimum?",
+      "options": [
+        "Every year",
+        "Every 3 years",
+        "Every 5 years",
+        "Only once, at initial hire"
+      ],
+      "correct": 1,
+      "a": "Every 3 years, at minimum — this is the outer limit of the cycle. Certain events, like an accident or a switch to a different truck type, can trigger a required evaluation sooner."
+    },
+    {
+      "q": "What three components must forklift operator training include?",
+      "options": [
+        "A written test only",
+        "Formal instruction (lecture or video), practical hands-on training, and an evaluation of the operator's performance in the actual workplace",
+        "A background check, a physical exam, and a written test",
+        "Watching a training video once, with no hands-on component"
+      ],
+      "correct": 1,
+      "a": "Formal instruction, practical training, and a workplace performance evaluation — all three are required for both initial certification and recertification, not just a classroom or video component alone."
+    },
+    {
+      "q": "Which of the following would require an operator to be retrained before the standard 3-year cycle is up?",
+      "options": [
+        "The operator takes a scheduled lunch break",
+        "The operator is involved in an accident or near-miss, or is observed operating unsafely",
+        "The forklift is due for a routine wash",
+        "The employer switches insurance providers"
+      ],
+      "correct": 1,
+      "a": "An accident, a near-miss, or observed unsafe operation all trigger retraining before the 3-year mark — the same is true if the operator is assigned to a different type of truck or the workplace conditions change enough to affect safe operation."
+    },
+    {
+      "q": "What does a forklift's \"stability triangle\" represent?",
+      "options": [
+        "The three warning labels required on every forklift",
+        "The area formed by the front wheels and the pivot point of the rear axle, within which the combined center of gravity of the truck and its load must stay to avoid tipping",
+        "The three-point turning radius of the vehicle",
+        "A required inspection checklist with three sections"
+      ],
+      "correct": 1,
+      "a": "It's the triangular area formed by the front wheels and the rear axle's pivot point — as long as the combined center of gravity of the truck and load stays inside that triangle, the forklift remains stable; raising, tilting, or shifting a load off-center can push the center of gravity outside it and cause a tip-over."
+    },
+    {
+      "q": "Where should an operator check a forklift's rated load capacity before lifting a load?",
+      "options": [
+        "The operator's personal judgment based on the load's size",
+        "The data plate (nameplate) attached to the truck by the manufacturer",
+        "The most recent maintenance invoice",
+        "It doesn't vary between attachments or lift heights"
+      ],
+      "correct": 1,
+      "a": "The data plate attached to the truck — it lists the rated capacity for that specific configuration, which can change with attachments or lift height, so it's the operator's reference point every time, not a guess."
+    },
+    {
+      "q": "Who is responsible for certifying that a forklift operator has completed the required training?",
+      "options": [
+        "The operator, through self-certification",
+        "The employer",
+        "The forklift manufacturer",
+        "A third-party OSHA inspector, on every occasion"
+      ],
+      "correct": 1,
+      "a": "The employer — OSHA holds the employer responsible for certifying each operator, and it's the employer who is cited if an uncertified operator is found running equipment."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is forklift certification the same everywhere, or does it depend on the workplace?",
+      "a": "OSHA sets the baseline requirements, but training must also be specific to the type of truck and the actual workplace conditions the operator will encounter — a certification from one employer doesn't automatically transfer to a different truck type or site without additional evaluation."
+    },
+    {
+      "q": "How long does forklift certification last?",
+      "a": "OSHA requires operator evaluations at least every 3 years, though specific events — an accident, unsafe operation, a new truck type, or changed conditions — can require retraining sooner."
+    },
+    {
+      "q": "Do I need a license to operate a forklift?",
+      "a": "There's no government-issued \"license\" for forklift operation the way there is for driving a car — OSHA requires employer-provided training and certification instead, which is specific to the employer and equipment."
+    },
+    {
+      "q": "Is Cambo affiliated with OSHA?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Occupational Safety and Health Administration."
+    },
+    {
+      "q": "What information must be included in an operator's certification record?",
+      "a": "The operator's name, the date of training, the date of the evaluation, and the identity of the person who performed the training or evaluation."
+    },
+    {
+      "q": "Can I operate different types of forklifts with one certification?",
+      "a": "Not automatically — training and certification are specific to the type of truck. An operator certified on a sit-down counterbalance forklift generally needs additional training before operating a different type, like a reach truck or rough-terrain forklift."
+    }
+  ],
+  "internalLinks": [
+    "osha-10-hour-training",
+    "osha-30-hour-training"
+  ],
+  "officialSource": {
+    "label": "osha.gov — Powered Industrial Trucks",
+    "url": "https://www.osha.gov/powered-industrial-trucks"
+  }
+}

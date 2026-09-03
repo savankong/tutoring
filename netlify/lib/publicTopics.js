@@ -1,4 +1,4 @@
-// The 24 landing-page slugs eligible to receive auto-published captured
+// The landing-page slugs eligible to receive auto-published captured
 // questions. Mirrors src/lib/campaignPages.js — kept as a separate backend
 // constant rather than importing that frontend file, matching this repo's
 // existing plans.js pattern of not crossing the client/server boundary.
@@ -27,6 +27,36 @@ export const PUBLIC_QUESTION_TOPICS = new Set([
   'hogan-assessment-practice',
   'asvab-practice-test',
   'pmp-exam-practice',
+  'dod-annual-security-awareness-refresher-training',
+  'derivative-classification-training',
+  'sapr-training',
+  'suicide-prevention-training',
+  'marking-classified-information-training',
+  'anti-terrorism-level-2-training',
+  'counterintelligence-awareness-training',
+  'privileged-user-cybersecurity-training',
+  'bloodborne-pathogens-training',
+  'osha-30-hour-training',
+  'forklift-certification-training',
+  'food-handler-card-practice-test',
+  'servsafe-manager-exam-practice',
+  'hazwoper-40-hour-training',
+  'california-mandated-reporter-training',
+  'comptia-security-plus-practice-test',
+  'comptia-a-plus-practice-test',
+  'aws-cloud-practitioner-practice-test',
+  'nclex-rn-practice-questions',
+  'teas-7-practice-test',
+  'sie-exam-practice',
+  'ptce-practice-test',
+  'epa-608-practice-test',
+  'texas-real-estate-exam-prep',
+  'california-real-estate-exam-prep',
+  'florida-real-estate-exam-prep',
+  'life-and-health-insurance-license-exam-prep',
+  'cdl-general-knowledge-practice-test',
+  'texas-food-handler-card-practice-test',
+  'california-food-handler-card-practice-test',
 ]);
 
 // Collapse whitespace/case/trailing punctuation so the same question typed

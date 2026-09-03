@@ -1,0 +1,104 @@
+{
+  "slug": "california-real-estate-exam-prep",
+  "h1": "California Real Estate Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any California real estate exam question for an instant, explained answer — national principles and DRE-specific law, without the guesswork.",
+  "metaTitle": "California Real Estate Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free California Real Estate Salesperson Exam quiz and practice questions with instant, explained answers. National real estate principles plus California Real Estate Law, agency, and disclosure rules.",
+  "whyItWorks": "California blends national real estate principles with a dense body of state-specific law — the Real Estate Law, agency disclosure duties, trust fund handling, and disclosure statutes like Transfer Disclosure Statements — and it's easy to answer a question correctly under a \"general\" rule while missing the California-specific twist the exam is actually testing. Cambo reads the exact scenario and explains which rule, national or California, the correct answer is built on.",
+  "sampleQuestions": [
+    {
+      "q": "Under California law, what document must most residential sellers provide to buyers disclosing known material facts about a property's condition?",
+      "options": [
+        "Natural Hazard Disclosure Statement only",
+        "Transfer Disclosure Statement (TDS)",
+        "Preliminary Title Report",
+        "Certificate of Occupancy"
+      ],
+      "correct": 1,
+      "a": "The Transfer Disclosure Statement (TDS) — California Civil Code requires most residential sellers to disclose known material facts about the property's condition to prospective buyers, separate from other required disclosures like natural hazards."
+    },
+    {
+      "q": "A California real estate salesperson receives trust funds (like earnest money) on behalf of a buyer. What must the salesperson generally do with those funds?",
+      "options": [
+        "Deposit them into their own personal checking account temporarily",
+        "Give them directly to the buyer's lender",
+        "Turn them over to their responsible broker or deposit into a trust account per DRE rules",
+        "Hold them in cash until closing"
+      ],
+      "correct": 2,
+      "a": "Turn the funds over to the responsible broker (or deposit into a neutral escrow/trust account) — California's Real Estate Law imposes strict trust fund handling rules, and a salesperson commingling trust funds with personal funds is a serious violation."
+    },
+    {
+      "q": "Which agency oversees real estate licensing and enforces the Real Estate Law in California?",
+      "options": [
+        "California Association of Realtors (CAR)",
+        "California Department of Real Estate (DRE)",
+        "National Association of Realtors (NAR)",
+        "California Bureau of Real Estate Appraisers"
+      ],
+      "correct": 1,
+      "a": "The California Department of Real Estate (DRE) — it licenses salespersons and brokers and enforces the Real Estate Law, distinct from CAR, which is a trade association, not a regulator."
+    },
+    {
+      "q": "On the national portion of the exam, which type of listing agreement gives one broker the exclusive right to a commission regardless of who finds the buyer?",
+      "options": [
+        "Open listing",
+        "Exclusive agency listing",
+        "Exclusive right-to-sell listing",
+        "Net listing"
+      ],
+      "correct": 2,
+      "a": "An exclusive right-to-sell listing — the listing broker earns a commission no matter who ultimately produces the buyer, including the seller themselves, which distinguishes it from an exclusive agency listing."
+    },
+    {
+      "q": "A California seller's property is located in a designated high fire severity zone. What is the seller generally required to do?",
+      "options": [
+        "Nothing — fire zone status is only relevant to insurance companies",
+        "Disclose this on the Natural Hazard Disclosure Statement",
+        "Personally pay for brush clearance before every showing",
+        "Obtain a fire marshal inspection before listing"
+      ],
+      "correct": 1,
+      "a": "Disclose it on the Natural Hazard Disclosure Statement — California law requires sellers to disclose whether a property lies within a state-mapped natural hazard zone, including high fire severity zones."
+    },
+    {
+      "q": "What is the maximum commission rate a California broker may legally charge on a residential sale?",
+      "options": [
+        "6%, set by state law",
+        "5%, set by the DRE",
+        "There is no state-mandated maximum — commission rates are negotiable",
+        "3%, matching the national average"
+      ],
+      "correct": 2,
+      "a": "There is no state-mandated maximum — commission rates in California (and nationally) are negotiable between the broker and client, and the exam tests this as a point antitrust law specifically protects."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the California real estate salesperson exam?",
+      "a": "150 multiple-choice questions, covering both national real estate principles and California-specific law, taken over a 3-hour testing window."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "70%, meaning at least 105 of the 150 questions answered correctly."
+    },
+    {
+      "q": "How many pre-licensing education hours does California require?",
+      "a": "135 hours across three DRE-approved courses: Real Estate Principles, Real Estate Practice, and one approved elective."
+    },
+    {
+      "q": "How many times can I retake the exam?",
+      "a": "As many times as needed within your 2-year application window — California has no fixed retake limit — though you'll pay the exam fee again each attempt and must wait for your prior result before scheduling the next one."
+    },
+    {
+      "q": "Is Cambo affiliated with the DRE?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the California Department of Real Estate."
+    },
+    {
+      "q": "Who administers the California real estate exam?",
+      "a": "The exam is administered directly by the California Department of Real Estate at DRE testing locations, not by a third-party vendor like Pearson VUE."
+    }
+  ],
+  "internalLinks": ["texas-real-estate-exam-prep", "florida-real-estate-exam-prep"],
+  "officialSource": { "label": "dre.ca.gov — California Department of Real Estate", "url": "https://www.dre.ca.gov/" }
+}

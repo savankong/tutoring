@@ -1,0 +1,104 @@
+{
+  "slug": "texas-food-handler-card-practice-test",
+  "h1": "Texas Food Handler Card Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Texas food handler question for an instant, explained answer — food safety basics and DSHS rules, without the guesswork.",
+  "metaTitle": "Texas Food Handler Card Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Texas Food Handler Card quiz and practice questions with instant, explained answers. Food safety temperatures, cross-contamination, and DSHS training requirements.",
+  "whyItWorks": "Texas requires food handler training statewide through a single DSHS-accredited system, so the course content is consistent no matter which approved provider you use — but the actual test questions hinge on specific numbers (temperature danger zone, cooking temps by food type, hand-washing steps) that are easy to blur together. Cambo reads the exact question and explains the specific rule or number behind the right answer.",
+  "sampleQuestions": [
+    {
+      "q": "What is the temperature range generally known as the 'danger zone,' where bacteria grow most rapidly on food?",
+      "options": [
+        "0°F to 32°F",
+        "41°F to 135°F",
+        "150°F to 212°F",
+        "32°F to 40°F"
+      ],
+      "correct": 1,
+      "a": "41°F to 135°F — food held in this range for too long allows bacteria to multiply rapidly, which is why time and temperature control is a central food safety concept."
+    },
+    {
+      "q": "How long can food safely sit in the temperature danger zone before it should be discarded, per standard food safety guidance?",
+      "options": [
+        "1 hour",
+        "2 hours (cumulative)",
+        "6 hours",
+        "24 hours"
+      ],
+      "correct": 1,
+      "a": "2 hours cumulative in the danger zone — beyond that, bacterial growth is considered high enough that the food should be discarded, and the clock is cumulative across multiple exposures, not just one continuous stretch."
+    },
+    {
+      "q": "What is the most effective way to prevent cross-contamination between raw chicken and ready-to-eat vegetables?",
+      "options": [
+        "Store raw chicken above ready-to-eat vegetables in the walk-in cooler",
+        "Use the same cutting board for both, just rinse it with water between uses",
+        "Use separate cutting boards and utensils, and store raw chicken below ready-to-eat foods",
+        "Wash your hands only after handling the vegetables"
+      ],
+      "correct": 2,
+      "a": "Use separate cutting boards and utensils for raw meat versus ready-to-eat food, and store raw meat below (never above) ready-to-eat items so drips can't contaminate food that won't be cooked."
+    },
+    {
+      "q": "Within how many days of employment does Texas require a food employee to complete an accredited food handler training course?",
+      "options": [
+        "7 days",
+        "14 days",
+        "30 days",
+        "60 days"
+      ],
+      "correct": 2,
+      "a": "30 days — under the Texas Food Establishment Rules (TFER), food employees must complete an accredited food handler course within 30 days of starting employment."
+    },
+    {
+      "q": "How long is a Texas Food Handler Card valid before it needs to be renewed?",
+      "options": [
+        "1 year",
+        "2 years",
+        "3 years",
+        "5 years"
+      ],
+      "correct": 1,
+      "a": "2 years from the date the training program is completed."
+    },
+    {
+      "q": "A food worker just finished handling raw ground beef and is about to plate a salad. What must they do first?",
+      "options": [
+        "Nothing, as long as they wash the salad after plating",
+        "Wipe their hands on their apron",
+        "Wash their hands thoroughly with soap and water",
+        "Put on gloves without washing their hands first"
+      ],
+      "correct": 2,
+      "a": "Wash their hands thoroughly with soap and water before touching ready-to-eat food — gloves are not a substitute for hand-washing, since contaminated hands can still contaminate the outside of a glove while putting it on."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is a food handler card required statewide in Texas?",
+      "a": "Yes. Under Texas Health and Safety Code §438.046, a food handler certificate from any DSHS-accredited (or ANSI/ANAB-accredited) training program is recognized statewide — local jurisdictions can't require an additional local-specific card or registration fee on top of it."
+    },
+    {
+      "q": "How many questions are on the Texas food handler course exam?",
+      "a": "This varies by accredited provider, since Texas doesn't mandate one single statewide test — most accredited courses use a short quiz (commonly around 20–40 questions) with a passing score in the 70–75% range, administered at the end of the course."
+    },
+    {
+      "q": "How long is the Texas Food Handler Card valid?",
+      "a": "2 years from the date you complete the training."
+    },
+    {
+      "q": "Is Cambo affiliated with Texas DSHS?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Texas Department of State Health Services."
+    },
+    {
+      "q": "Who needs a food handler card in Texas?",
+      "a": "Generally, any employee who works with unpackaged food, food equipment, or food-contact surfaces in a Texas food establishment, unless they already hold an accredited food manager certification, which covers the food handler requirement."
+    },
+    {
+      "q": "Does a Texas food handler card work if I move to another state?",
+      "a": "It depends on the destination state's own rules — some states honor an ANSI-accredited card from another state, others require their own. Texas itself grants reciprocity to out-of-state cards only if the issuing program is ANSI-accredited."
+    }
+  ],
+  "internalLinks": ["food-handler-card-practice-test", "california-food-handler-card-practice-test"],
+  "officialSource": { "label": "dshs.texas.gov — Texas Food Handler Education", "url": "https://www.dshs.texas.gov/food-handlers" }
+}

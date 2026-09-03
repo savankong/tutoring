@@ -1,0 +1,107 @@
+{
+  "slug": "suicide-prevention-training",
+  "h1": "Suicide Prevention Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Suicide Prevention (Ask, Care, Escort) questions — recognizing warning signs and intervening the right way, without the guesswork.",
+  "metaTitle": "Suicide Prevention Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Suicide Prevention (ACE) quiz and practice questions with instant, explained answers. Warning signs, the Ask-Care-Escort model, and how to intervene.",
+  "whyItWorks": "ACE scenarios test whether you take the direct, active step the model actually calls for — asking plainly, staying with the person, escorting them to help — instead of a softer, well-meaning response that leaves them alone. Cambo explains why the direct option is correct, not just which one it is.",
+  "sampleQuestions": [
+    {
+      "q": "What does the acronym ACE stand for in DoD suicide prevention training?",
+      "options": [
+        "Assess, Contact, Evaluate",
+        "Ask, Care, Escort",
+        "Alert, Counsel, Engage",
+        "Assist, Coordinate, Elevate"
+      ],
+      "correct": 1,
+      "a": "ACE stands for Ask, Care, Escort — a three-step model for recognizing warning signs and directly intervening with someone who may be at risk of suicide."
+    },
+    {
+      "q": "A coworker mentions offhand that they feel like giving up and don't see the point anymore. According to the ACE model, what's the first step?",
+      "options": [
+        "Wait a few days to see if they bring it up again",
+        "Report the comment to their supervisor without speaking to them directly",
+        "Ask them directly and calmly whether they are thinking about suicide",
+        "Change the subject to avoid making the moment more uncomfortable"
+      ],
+      "correct": 2,
+      "a": "Ask them directly and calmly whether they're thinking about suicide — the first step in ACE is asking the question plainly rather than dancing around it or waiting to see if it comes up again."
+    },
+    {
+      "q": "Why does ACE training specifically emphasize asking the direct question, using the word \"suicide\" rather than a softer phrase?",
+      "options": [
+        "Because using the word is a legal reporting requirement",
+        "Because asking directly does not increase risk, and can open the door for the person to talk honestly instead of feeling like their pain has to stay hidden",
+        "Because indirect questions take longer to ask",
+        "Because only medical professionals are permitted to ask indirect questions"
+      ],
+      "correct": 1,
+      "a": "Asking directly does not increase risk — research behind the ACE model shows a direct question can actually come as a relief, opening the door for the person to talk honestly instead of guessing at what you mean."
+    },
+    {
+      "q": "After a coworker admits they've been thinking about suicide, what does the \"Escort\" step of ACE require?",
+      "options": [
+        "Give them space and check back in the next day",
+        "Never leave the at-risk person alone — escort them to a chaplain, behavioral health provider, primary care, or emergency care",
+        "Ask a mutual friend to check on them later instead",
+        "Refer them to a phone hotline and consider your responsibility fulfilled"
+      ],
+      "correct": 1,
+      "a": "Never leave the person alone — the \"Escort\" step means physically staying with them and getting them to a chaplain, behavioral health provider, or emergency care, not just pointing them toward a resource and stepping away."
+    },
+    {
+      "q": "Which of the following is a recognized warning sign covered in suicide prevention training?",
+      "options": [
+        "Giving away prized possessions or making final arrangements",
+        "Taking on additional responsibilities at work",
+        "Scheduling routine leave in advance",
+        "Expressing enthusiasm about an upcoming promotion"
+      ],
+      "correct": 0,
+      "a": "Giving away prized possessions, making final arrangements, or a sudden sense of calm after a period of visible depression are recognized warning signs — they can indicate the person has already made a decision, not that they're improving."
+    },
+    {
+      "q": "Under the ACE model, whose responsibility is it to intervene when a peer shows warning signs?",
+      "options": [
+        "Only unit leadership and commanders",
+        "Only behavioral health professionals",
+        "Everyone — ACE is designed as a peer-level intervention skill, not something limited to leaders or clinicians",
+        "Only chaplains and medical personnel"
+      ],
+      "correct": 2,
+      "a": "Everyone — ACE is built around peer intervention, so any trained individual who notices warning signs is expected to act, not just leadership or behavioral health professionals."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is suicide prevention training required?",
+      "a": "Annually, typically delivered as unit-level training — the exact regulation and cadence varies by service branch."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "All service members; it's also made available to DoD civilian employees in most components, though specific requirements vary by branch."
+    },
+    {
+      "q": "What does the ACE acronym stand for?",
+      "a": "Ask, Care, Escort — ask directly if someone is thinking about suicide, show you care by staying calm and listening without judgment, and escort them to help rather than leaving them alone."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or the Defense Suicide Prevention Office?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or the Defense Suicide Prevention Office."
+    },
+    {
+      "q": "How long does the training take?",
+      "a": "It varies by service and audience — some versions run around 90 minutes for service members and closer to two hours for civilian employees, though exact timing depends on the specific course modules assigned."
+    },
+    {
+      "q": "Where can someone get help right now?",
+      "a": "The Veterans/Military Crisis Line is available 24/7 — dial 988 and press 1, or text 838255. It's confidential and available to service members, veterans, and their families."
+    }
+  ],
+  "internalLinks": ["sapr-training", "active-shooter-training"],
+  "officialSource": {
+    "label": "dspo.mil — Defense Suicide Prevention Office",
+    "url": "https://www.dspo.mil/"
+  }
+}

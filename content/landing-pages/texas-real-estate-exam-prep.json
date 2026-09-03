@@ -1,0 +1,104 @@
+{
+  "slug": "texas-real-estate-exam-prep",
+  "h1": "Texas Real Estate Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Texas real estate exam question for an instant, explained answer — national principles and Texas-specific law, without the guesswork.",
+  "metaTitle": "Texas Real Estate Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Texas Real Estate Salesperson Exam quiz and practice questions with instant, explained answers. National real estate principles plus TREC-specific law, contracts, and agency rules.",
+  "whyItWorks": "The Texas exam is really two exams in one — an 80-question national portion on general real estate principles and a 40-question state portion on Texas-specific law, and it's easy to confuse a general rule you studied with the TREC-specific version that actually applies (promulgated contract forms, intermediary status, homestead protections). Cambo reads the exact scenario and explains which rule — national or Texas — actually governs it.",
+  "sampleQuestions": [
+    {
+      "q": "A Texas real estate license holder represents both the buyer and the seller in the same transaction with written consent from both parties. What is this arrangement called under TREC rules?",
+      "options": [
+        "Dual agency",
+        "Intermediary status",
+        "Subagency",
+        "Designated agency"
+      ],
+      "correct": 1,
+      "a": "Intermediary status — Texas law specifically uses this term (not \"dual agency\") for a broker who represents both parties in one transaction with written consent, and may appoint associated license holders to work with each side."
+    },
+    {
+      "q": "Which document must a Texas license holder provide to a prospective buyer or seller at the first substantive contact, disclosing how brokerage relationships work?",
+      "options": [
+        "Information About Brokerage Services (IABS)",
+        "Seller's Disclosure Notice",
+        "One to Four Family Residential Contract",
+        "Addendum for Property Subject to Mandatory Membership"
+      ],
+      "correct": 0,
+      "a": "The Information About Brokerage Services (IABS) form — TREC requires it be provided at the first substantive contact so the party understands the license holder's role before sharing confidential information."
+    },
+    {
+      "q": "In Texas, what is the general rule for a seller's disclosure of the property's condition?",
+      "options": [
+        "Sellers of all Texas residential property must complete a Seller's Disclosure Notice",
+        "Only sellers of new construction must disclose known defects",
+        "Disclosure is optional unless the buyer specifically requests it",
+        "Only licensed inspectors can complete a valid property disclosure"
+      ],
+      "correct": 0,
+      "a": "Sellers of most residential property in Texas (with limited statutory exemptions, like certain new-home sales or transfers between family members) must complete a Seller's Disclosure Notice under the Texas Property Code."
+    },
+    {
+      "q": "Under the general national real estate principles tested on the exam, what type of deed offers the grantee the fewest warranties?",
+      "options": [
+        "General warranty deed",
+        "Special warranty deed",
+        "Quitclaim deed",
+        "Bargain and sale deed"
+      ],
+      "correct": 2,
+      "a": "A quitclaim deed — it conveys only whatever interest the grantor actually has, with no warranties at all, unlike a general or special warranty deed."
+    },
+    {
+      "q": "A buyer's earnest money is held by a title company under a standard Texas contract. If the buyer terminates during the option period, what generally happens to the earnest money?",
+      "options": [
+        "It is automatically forfeited to the seller",
+        "It is returned to the buyer, since the option period allows termination for any reason",
+        "It is split 50/50 between buyer and seller",
+        "It is donated to a state real estate recovery fund"
+      ],
+      "correct": 1,
+      "a": "It's returned to the buyer — the Texas option period exists specifically so a buyer can terminate for any reason (or no reason) and still get their earnest money back, as long as they act within the option period."
+    },
+    {
+      "q": "What is the primary purpose of the Texas Real Estate Recovery Trust Account?",
+      "options": [
+        "To fund TREC's marketing and advertising budget",
+        "To reimburse consumers who win a judgment against a license holder for certain violations and can't collect",
+        "To pay license holders' continuing education costs",
+        "To insure brokers against errors and omissions automatically"
+      ],
+      "correct": 1,
+      "a": "It reimburses consumers who obtain a court judgment against a Texas license holder for specific violations (like fraud) and are unable to collect the judgment directly — a consumer-protection fund, not insurance for the license holder."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the Texas real estate exam?",
+      "a": "120 scored questions total — 80 on the national portion and 40 on the Texas state portion — plus up to 15 unscored pretest questions mixed in, for up to 135 items you'll actually see."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "You need 70% on each portion separately: at least 56 of 80 correct on the national section and 28 of 40 correct on the state section. Passing one portion but not the other means retaking only the portion you failed."
+    },
+    {
+      "q": "How many pre-licensing education hours does Texas require?",
+      "a": "180 hours across six TREC-approved courses (Principles of Real Estate I and II, Law of Agency, Law of Contracts, Promulgated Contracts and Forms, and Real Estate Finance) before you're eligible to sit for the exam."
+    },
+    {
+      "q": "How many times can I retake the exam?",
+      "a": "You get 3 attempts per application. If you fail one portion three times, TREC requires an additional 30 hours of qualifying education before you can try again; failing both portions three times requires 60 additional hours."
+    },
+    {
+      "q": "Is Cambo affiliated with TREC?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Texas Real Estate Commission."
+    },
+    {
+      "q": "Who administers the Texas real estate exam?",
+      "a": "Pearson VUE administers the exam on TREC's behalf, at Pearson VUE testing centers across Texas."
+    }
+  ],
+  "internalLinks": ["california-real-estate-exam-prep", "florida-real-estate-exam-prep"],
+  "officialSource": { "label": "trec.texas.gov — Texas Real Estate Commission", "url": "https://www.trec.texas.gov/" }
+}

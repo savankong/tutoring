@@ -1,0 +1,104 @@
+{
+  "slug": "california-food-handler-card-practice-test",
+  "h1": "California Food Handler Card Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any California food handler question for an instant, explained answer — food safety basics and county-specific rules, without the guesswork.",
+  "metaTitle": "California Food Handler Card Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free California Food Handler Card quiz and practice questions with instant, explained answers. Food safety temperatures, cross-contamination, and county-by-county requirements.",
+  "whyItWorks": "California's food handler card law is statewide, but it isn't uniform: Riverside, San Bernardino, and San Diego counties are exempt from the statewide program because they had their own county-run food handler training in place before the state law passed, so they run their own separate card systems. Get the county wrong and you can end up with a card your local health department won't accept. Cambo reads the exact question and explains both the underlying food safety concept and which set of rules — statewide or county-specific — applies.",
+  "sampleQuestions": [
+    {
+      "q": "Which California counties are exempt from the statewide Food Handler Card Law and run their own county-specific food handler programs instead?",
+      "options": [
+        "Los Angeles, Orange, and Ventura",
+        "Riverside, San Bernardino, and San Diego",
+        "Sacramento, Fresno, and Alameda",
+        "No counties are exempt — the law is fully uniform statewide"
+      ],
+      "correct": 1,
+      "a": "Riverside, San Bernardino, and San Diego counties — they had their own county-run food handler training programs in place before the state law (SB 602/SB 303) passed, so state law exempted them and let their existing local programs continue."
+    },
+    {
+      "q": "Within how many days of hire does California's statewide law generally require a new food employee to obtain a food handler card?",
+      "options": [
+        "5 days",
+        "15 days",
+        "30 days",
+        "90 days"
+      ],
+      "correct": 2,
+      "a": "30 days after the date of hire, under the statewide law (in the counties it applies to) — San Diego County's separate local program shortens this to the first 10 days of employment."
+    },
+    {
+      "q": "How long is a California food handler card valid before it needs to be renewed?",
+      "options": [
+        "1 year",
+        "3 years",
+        "5 years",
+        "It never expires"
+      ],
+      "correct": 1,
+      "a": "3 years from the date the card is issued."
+    },
+    {
+      "q": "What is the temperature range generally known as the 'danger zone,' where bacteria grow most rapidly on food?",
+      "options": [
+        "41°F to 135°F",
+        "32°F to 40°F",
+        "150°F to 212°F",
+        "0°F to 32°F"
+      ],
+      "correct": 0,
+      "a": "41°F to 135°F — food left in this range too long lets bacteria multiply quickly, which is why time and temperature control is one of the core concepts on every version of the exam."
+    },
+    {
+      "q": "A food worker touches their phone, then goes straight to plating a sandwich without washing their hands. What food safety principle does this violate?",
+      "options": [
+        "Time-temperature control",
+        "Preventing cross-contamination",
+        "FIFO (first in, first out) stock rotation",
+        "Allergen labeling"
+      ],
+      "correct": 1,
+      "a": "Preventing cross-contamination — hands that touch a non-food surface like a phone can transfer bacteria or contaminants to food, which is why hand-washing before handling ready-to-eat food is required."
+    },
+    {
+      "q": "Who is generally required to pay for an employee's California food handler card training, as of the current statewide rule?",
+      "options": [
+        "The employee, out of pocket",
+        "The employer must cover the cost as a business expense",
+        "The county health department, at no cost to anyone",
+        "There is no cost for California food handler training"
+      ],
+      "correct": 1,
+      "a": "The employer — California law now requires employers to cover the cost of an employee's food handler card training, and requires at least one approved course to be priced at $15 or less."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does California have one statewide food handler card requirement, or does it vary by county?",
+      "a": "Both, in a specific way: California has a statewide law (SB 602/SB 303) requiring food handler cards in most counties, but Riverside, San Bernardino, and San Diego counties are exempted and run their own separate, county-specific food handler programs instead, since those programs predate the state law."
+    },
+    {
+      "q": "How long is a California food handler card valid?",
+      "a": "3 years under the statewide program. County-specific programs (Riverside, San Bernardino, San Diego) may set their own validity period, so check your county's program directly."
+    },
+    {
+      "q": "How many questions are on a California food handler exam?",
+      "a": "This varies by accredited provider and by county program, since there's no single mandated statewide test — most courses use a short quiz, commonly in the 20–40 question range, with a passing score around 70%."
+    },
+    {
+      "q": "Is Cambo affiliated with ServSafe or any California county health department?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by ServSafe, the California Department of Public Health, or any county health department."
+    },
+    {
+      "q": "Who has to pay for food handler training in California?",
+      "a": "As of a recent change to state law, employers are required to cover the cost of required food handler card training for their employees, rather than employees paying out of pocket."
+    },
+    {
+      "q": "Do I need a new card if I move to a different county in California?",
+      "a": "If you're moving between two counties both covered by the statewide program, your existing card generally remains valid until it expires. If you're moving into or out of Riverside, San Bernardino, or San Diego County, check that county's specific program, since it may not automatically recognize a statewide card, and vice versa."
+    }
+  ],
+  "internalLinks": ["food-handler-card-practice-test", "texas-food-handler-card-practice-test"],
+  "officialSource": { "label": "servsafe.com — Food Handler", "url": "https://www.servsafe.com/" }
+}

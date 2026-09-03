@@ -1,0 +1,109 @@
+{
+  "slug": "servsafe-manager-exam-practice",
+  "h1": "ServSafe Manager Exam Practice",
+  "subhead": "Take a free practice quiz or get instant, explained answers to ServSafe Manager exam questions — HACCP, active managerial control, and food safety management systems, without the guesswork.",
+  "metaTitle": "ServSafe Manager Exam Practice | Cambo",
+  "metaDescription": "Free ServSafe Manager exam practice questions with instant, explained answers. HACCP principles, active managerial control, critical control points, and food safety management systems.",
+  "whyItWorks": "ServSafe Manager exam questions frequently present a HACCP scenario — a monitoring log, a cooking temperature, a corrective action — and ask you to identify the specific step or control point involved, which takes applying a process rather than recalling an isolated fact. Cambo reads the exact scenario and walks through the reasoning, not just the letter to pick.",
+  "sampleQuestions": [
+    {
+      "q": "What does HACCP stand for?",
+      "options": [
+        "Health And Cleanliness Compliance Program",
+        "Hazard Analysis Critical Control Point",
+        "Hospitality And Catering Certification Process",
+        "Health Agency Consumer Complaint Procedure"
+      ],
+      "correct": 1,
+      "a": "Hazard Analysis Critical Control Point — a systematic, science-based approach to identifying and controlling food safety hazards throughout a process, rather than only inspecting the finished product."
+    },
+    {
+      "q": "What is a \"critical control point\" (CCP) in a HACCP plan?",
+      "options": [
+        "Any step in the food preparation process",
+        "A step where a food safety hazard can be prevented, eliminated, or reduced to a safe level",
+        "The point where food is plated for service",
+        "A step that requires a manager's signature before proceeding"
+      ],
+      "correct": 1,
+      "a": "A point in the process — like cooking, cooling, or holding — where action can be taken to prevent, eliminate, or reduce a hazard to a safe level. Not every step in a process is a CCP; only the ones where control actually makes a measurable difference."
+    },
+    {
+      "q": "What is \"active managerial control\"?",
+      "options": [
+        "Reacting to a foodborne illness complaint after it's reported",
+        "A manager's ongoing, deliberate effort to identify and control risk factors that cause foodborne illness before problems occur",
+        "A requirement that a manager be physically present at all times",
+        "A policy of manually inspecting every dish before it leaves the kitchen"
+      ],
+      "correct": 1,
+      "a": "The ongoing, deliberate effort to identify and control the risk factors known to cause foodborne illness before they cause a problem — the emphasis is on prevention through monitoring and correction, not reacting after the fact."
+    },
+    {
+      "q": "What is the minimum internal cooking temperature for poultry?",
+      "options": [
+        "135°F for 15 seconds",
+        "145°F for 15 seconds",
+        "155°F for 15 seconds",
+        "165°F for 15 seconds"
+      ],
+      "correct": 3,
+      "a": "165°F for 15 seconds — poultry requires the highest minimum cooking temperature of the major food categories because of its higher risk of pathogens like Salmonella."
+    },
+    {
+      "q": "During routine monitoring, a manager finds a walk-in cooler holding food at 45°F instead of 41°F or below. What should happen next?",
+      "options": [
+        "Ignore it, since it's only a few degrees off",
+        "Wait until the next scheduled check to see if it corrects itself",
+        "Take a corrective action immediately — such as moving the food to a working cooler or discarding it if it's been out of range too long",
+        "Record it in the log with no further action required"
+      ],
+      "correct": 2,
+      "a": "Take a corrective action immediately — a HACCP plan isn't complete without a defined response when monitoring shows a critical limit has been exceeded, and that response has to happen right away, not at the next scheduled check."
+    },
+    {
+      "q": "Which of the following best describes a Food Safety Management System?",
+      "options": [
+        "A single inspection performed once a year by the health department",
+        "A group of programs and procedures an establishment uses to prevent foodborne illness, including HACCP-based plans",
+        "A software program required by all restaurants",
+        "A checklist filled out only when a customer complains"
+      ],
+      "correct": 1,
+      "a": "A Food Safety Management System is the group of programs and procedures — including HACCP-based plans, cleaning schedules, and staff training — an establishment relies on together to actively prevent foodborne illness, not a single one-time check."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the ServSafe Manager exam, and what score do I need to pass?",
+      "a": "The exam has 90 multiple-choice questions, but only 80 are scored (10 are unscored pilot questions mixed in). You need 75% of the scored questions correct — 60 out of 80 — to pass."
+    },
+    {
+      "q": "Is there a time limit on the ServSafe Manager exam?",
+      "a": "Yes — you generally have 2 hours to complete it."
+    },
+    {
+      "q": "How is the ServSafe Manager exam different from the Food Handler exam?",
+      "a": "It's longer, harder, and covers management-level material like HACCP and active managerial control, versus the shorter, entry-level Food Handler assessment intended for any food service employee."
+    },
+    {
+      "q": "Is Cambo affiliated with ServSafe or the National Restaurant Association?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by ServSafe or the National Restaurant Association."
+    },
+    {
+      "q": "How long does a ServSafe Manager certification last?",
+      "a": "It's generally valid for 5 years from the date you pass, though local jurisdictions may set their own renewal requirements."
+    },
+    {
+      "q": "What topics make up the largest share of the ServSafe Manager exam?",
+      "a": "Foodborne microorganisms and allergens make up the largest domain, with food safety management systems — including HACCP and active managerial control — as the second-largest, along with purchasing/receiving/storage, preparation, and facilities/pest management."
+    }
+  ],
+  "internalLinks": [
+    "food-handler-card-practice-test"
+  ],
+  "officialSource": {
+    "label": "servsafe.com — Manager Certification",
+    "url": "https://www.servsafe.com/manager"
+  }
+}

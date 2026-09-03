@@ -1,0 +1,104 @@
+{
+  "slug": "life-and-health-insurance-license-exam-prep",
+  "h1": "Life & Health Insurance License Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any life and health insurance exam question for an instant, explained answer — policy types, provisions, and state rules, without the guesswork.",
+  "metaTitle": "Life & Health Insurance License Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Life & Health Insurance license exam quiz and practice questions with instant, explained answers. Policy types, riders, underwriting, and standard policy provisions covering most states' exam content.",
+  "whyItWorks": "Life and health licensing exams live and die on precise definitions — the difference between a whole life and universal life policy, what makes a provision 'incontestable' versus 'grace period,' or which health policy renewability class actually lets an insurer cancel. The wording is intentionally close, and one word can flip the correct answer. Cambo reads the exact question and explains the specific definition or rule the correct answer depends on.",
+  "sampleQuestions": [
+    {
+      "q": "Which type of life insurance policy combines permanent coverage with a cash value component that can earn interest, but keeps a level premium for life?",
+      "options": [
+        "Term life insurance",
+        "Whole life insurance",
+        "Group credit life insurance",
+        "Decreasing term insurance"
+      ],
+      "correct": 1,
+      "a": "Whole life insurance — it provides permanent, level-premium coverage with a guaranteed cash value, unlike term insurance, which has no cash value and expires after a set period."
+    },
+    {
+      "q": "Under a standard life insurance policy's incontestable clause, what happens after the policy has been in force for a specified period (typically two years)?",
+      "options": [
+        "The insurer can still contest the policy for any reason",
+        "The insurer generally cannot contest the policy's validity, except for nonpayment of premium",
+        "The policyholder can no longer file a claim",
+        "The beneficiary designation becomes permanent and unchangeable"
+      ],
+      "correct": 1,
+      "a": "The insurer generally can no longer contest the policy's validity (for example, over misstatements on the application) after the incontestability period, except for nonpayment of premium — this protects beneficiaries from denied claims years later over old application errors."
+    },
+    {
+      "q": "In a health insurance policy, what does 'guaranteed renewable' mean for the insurer's ability to cancel coverage?",
+      "options": [
+        "The insurer can cancel at any time with 30 days' notice",
+        "The insurer must renew the policy as long as premiums are paid, but may raise rates for an entire class of insureds",
+        "The insurer can never raise the premium under any circumstance",
+        "The policy automatically converts to a group plan after five years"
+      ],
+      "correct": 1,
+      "a": "The insurer must renew as long as premiums are paid on time, but can raise premiums for the whole class the insured belongs to — this is different from 'noncancelable,' where neither the coverage nor the premium can change."
+    },
+    {
+      "q": "What is the purpose of a life insurance policy's 'free look' period?",
+      "options": [
+        "It lets the insurer cancel the policy without cause",
+        "It gives the policyholder a set number of days after delivery to review the policy and return it for a full premium refund if unsatisfied",
+        "It waives the first month's premium",
+        "It allows a medical exam to be completed after the policy is issued"
+      ],
+      "correct": 1,
+      "a": "It gives the new policyholder a window (commonly 10 days, varies by state) after receiving the policy to review it and cancel for a full refund if it isn't what they expected."
+    },
+    {
+      "q": "Which term describes the practice of an insurer classifying and pricing risk based on a health questionnaire and other underwriting information before issuing a policy?",
+      "options": [
+        "Reinsurance",
+        "Underwriting",
+        "Coinsurance",
+        "Adverse selection"
+      ],
+      "correct": 1,
+      "a": "Underwriting — the process an insurer uses to evaluate and classify risk (and set the premium accordingly) before agreeing to issue a policy."
+    },
+    {
+      "q": "An agent tells a prospective client that a whole life policy is 'just as good as a savings account, but better,' without fully explaining the policy's costs and risks. What insurance practice does this most likely violate?",
+      "options": [
+        "Rebating",
+        "Twisting",
+        "Misrepresentation",
+        "Coordination of benefits"
+      ],
+      "correct": 2,
+      "a": "Misrepresentation — making false or misleading statements about a policy's benefits to induce a sale is prohibited in every state and is a common exam topic under unfair trade practices."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the life and health insurance license exam?",
+      "a": "It varies by state, but most states' combined Life & Health exam runs roughly 100–150 questions over about 2.5 to 3 hours. Check your specific state's insurance department or testing vendor (Pearson VUE, PSI, or Prometric, depending on the state) for the exact count."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "Most states set the passing score around 70%, though the exact threshold and scaling method can differ — confirm the current number with your state's insurance department before test day."
+    },
+    {
+      "q": "How many pre-licensing education hours are required?",
+      "a": "This varies significantly by state — some states require no pre-licensing hours at all for Life & Health, while others require 20–40+ hours (and a few, like Colorado, require significantly more). Check your specific state's requirement rather than assuming a national standard applies."
+    },
+    {
+      "q": "Is Cambo affiliated with the NAIC or any state insurance department?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the National Association of Insurance Commissioners or any state department of insurance."
+    },
+    {
+      "q": "Do exam requirements differ by state?",
+      "a": "Yes, substantially — the number of questions, pre-licensing hours, passing score, retake rules, and testing vendor all vary by state. This page covers concepts common to most states' Life & Health exams; always verify the specifics with your own state's insurance department before you register."
+    },
+    {
+      "q": "How many times can I retake the exam if I fail?",
+      "a": "Most states allow multiple attempts, but retake fees, waiting periods between attempts, and any cap on total tries (some states require additional education after repeated failures) vary by state — check your state's rules directly."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": { "label": "naic.org — National Association of Insurance Commissioners", "url": "https://www.naic.org/" }
+}

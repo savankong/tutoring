@@ -9,7 +9,7 @@ const DEFAULT_NAV_ITEMS = [
 ];
 
 // Top-nav header for the zine redesign — used by every zine-themed page
-// (homepage, pricing, legal pages, auth pages, the 24 SEO campaign pages).
+// (homepage, pricing, legal pages, auth pages, the SEO campaign pages).
 // Plain <a> tags throughout (not react-router's <Link>) so it also works
 // unmodified on the campaign pages, which render via renderToStaticMarkup
 // with no router context and zero client JS.

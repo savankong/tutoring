@@ -1,0 +1,107 @@
+{
+  "slug": "dod-annual-security-awareness-refresher-training",
+  "h1": "DoD Annual Security Awareness Refresher Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to DoD Annual Security Awareness Refresher questions — classification basics, security incidents, and foreign travel/contact reporting, without the guesswork.",
+  "metaTitle": "DoD Annual Security Awareness Refresher Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free DoD Annual Security Awareness Refresher quiz and practice questions with instant, explained answers. Classification basics, security incidents, and foreign travel/contact reporting.",
+  "whyItWorks": "This refresher packs a lot of separate rules — classification basics, incident vs. violation definitions, foreign travel and contact reporting, CUI handling — into one course, and it's easy to mix up which rule governs which scenario. Cambo reads the exact question on your screen and explains which specific requirement applies, not just which bubble to fill in.",
+  "sampleQuestions": [
+    {
+      "q": "What is the difference between a security infraction and a security violation?",
+      "options": [
+        "An infraction is an isolated, inadvertent failure to follow security regulations with no likely loss of classified information; a violation is a knowing, willful, or negligent failure that could reasonably result in loss or compromise",
+        "An infraction only applies to civilians, while a violation only applies to military personnel",
+        "An infraction is reported to the FBI, while a violation is handled internally",
+        "There is no practical difference between the two terms"
+      ],
+      "correct": 0,
+      "a": "An infraction is an isolated, inadvertent failure to follow security regulations that isn't likely to result in loss or compromise of classified information; a violation is a knowing, willful, or negligent failure that could reasonably be expected to cause that loss or compromise."
+    },
+    {
+      "q": "You're contacted online by someone you've never met who asks specific questions about your job duties and access level. What does your annual security refresher training require you to do?",
+      "options": [
+        "Ignore the message since no classified information was requested",
+        "Report the contact to your security office, since unsolicited requests about your work and access are a reportable indicator regardless of whether classified information was actually discussed",
+        "Respond only with information you're sure is unclassified",
+        "Wait to see if the person contacts you again before deciding whether to report"
+      ],
+      "correct": 1,
+      "a": "Report the contact to your security office — unsolicited requests about your job and access level are a reportable indicator on their own, even if no classified information was ever asked for directly."
+    },
+    {
+      "q": "Under DoD security policy, what must cleared personnel generally do before engaging in unofficial foreign travel?",
+      "options": [
+        "Nothing — only official travel needs to be reported",
+        "Report the intended travel in advance, in accordance with their organization's foreign travel reporting requirements",
+        "Obtain a new security clearance investigation before departing",
+        "Notify only their immediate supervisor verbally, with no written record required"
+      ],
+      "correct": 1,
+      "a": "Report the intended travel in advance through the channel your organization designates — foreign travel reporting requirements exist so continuous evaluation can flag unusual contact or influence risk before it becomes a problem."
+    },
+    {
+      "q": "Why is annual security awareness refresher training required for all cleared personnel, even those who completed initial training years ago?",
+      "options": [
+        "Because clearances automatically expire every year without it",
+        "Because it's purely a paperwork requirement with no substantive content",
+        "Because threats, reporting requirements, and specific policies evolve, and personnel need a recurring refresher to stay current, per DoD security training policy",
+        "Because it replaces the need for a periodic reinvestigation"
+      ],
+      "correct": 2,
+      "a": "Because security threats and specific policy requirements change over time — the annual refresher, required under DoD security training policy, keeps cleared personnel current rather than relying on a one-time initial briefing."
+    },
+    {
+      "q": "You discover that a coworker with a clearance has been under noticeable financial strain and has started asking unusual questions about programs outside their need-to-know. What should you do?",
+      "options": [
+        "Say nothing since it's a personal matter unrelated to security",
+        "Confront the coworker directly and demand an explanation",
+        "Report the observed behavior through your security or insider threat reporting channel",
+        "Wait until you have concrete proof of wrongdoing before mentioning it to anyone"
+      ],
+      "correct": 2,
+      "a": "Report it through your security or insider threat reporting channel — unexplained financial stress combined with attempts to access information outside one's need-to-know are exactly the kind of indicators cleared personnel are trained to report early, not investigate themselves."
+    },
+    {
+      "q": "Which of the following best describes Controlled Unclassified Information (CUI)?",
+      "options": [
+        "Information that is classified but at a lower level than SECRET",
+        "Unclassified information that still requires safeguarding or dissemination controls under law, regulation, or government-wide policy",
+        "Any document that has not yet been reviewed for classification",
+        "Information that was once classified but has since been fully released to the public"
+      ],
+      "correct": 1,
+      "a": "CUI is unclassified information that still requires safeguarding or dissemination controls under law, regulation, or government-wide policy — it isn't classified, but it isn't handled like ordinary unclassified information either."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is the DoD Annual Security Awareness Refresher required?",
+      "a": "Annually, per DoD security training policy — it's typically assigned in JKO under a course code like JS-US077, or an agency-specific equivalent such as DHA-US438, depending on your component."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "Anyone with access to classified national security information — military members, DoD civilians, and contractors alike."
+    },
+    {
+      "q": "What topics does the refresher cover?",
+      "a": "Classification basics, recognizing and reporting security incidents, protecting Controlled Unclassified Information (CUI), insider threat awareness, and reporting requirements for foreign travel and foreign contacts."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or CDSE?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or the Center for Development of Security Excellence."
+    },
+    {
+      "q": "What happens if I don't complete it on time?",
+      "a": "Late or missed completion can result in your access to classified systems or facilities being suspended until the training is finished — timelines vary by organization."
+    },
+    {
+      "q": "How is this different from initial security training?",
+      "a": "Initial training is a one-time briefing given when someone first receives access to classified information; the annual refresher is the recurring training required to keep that awareness current every year after."
+    }
+  ],
+  "internalLinks": ["derivative-classification-training", "insider-threat-awareness-training", "cui-training"],
+  "officialSource": {
+    "label": "securityawareness.usalearning.gov — CDSE training catalog",
+    "url": "https://securityawareness.usalearning.gov/"
+  }
+}

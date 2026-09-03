@@ -1,0 +1,107 @@
+{
+  "slug": "ptce-practice-test",
+  "h1": "PTCE Practice Test & Quiz",
+  "subhead": "Take a free practice quiz or point your phone at any PTCE question for an instant, explained answer — medications, safety, and federal law, without the guesswork.",
+  "metaTitle": "PTCE Practice Test & Quiz | Cambo",
+  "metaDescription": "Free PTCE quiz and practice questions with instant, explained answers. Medications, patient safety, order entry and processing, and federal pharmacy requirements.",
+  "whyItWorks": "PTCE questions often test recall of exact medication names, dosage calculations, and specific federal pharmacy regulations, where a single wrong digit or mixed-up drug name changes the answer. Cambo reads the exact question and walks through the correct calculation or rule, not just which choice to circle.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following is a Schedule II controlled substance under the Controlled Substances Act?",
+      "options": [
+        "Alprazolam (Xanax)",
+        "Oxycodone",
+        "Diazepam (Valium)",
+        "Amoxicillin"
+      ],
+      "correct": 1,
+      "a": "Oxycodone — it's a Schedule II opioid, meaning it has accepted medical use but a high potential for abuse; alprazolam and diazepam are Schedule IV, and amoxicillin isn't a controlled substance."
+    },
+    {
+      "q": "A prescription calls for 250 mg of a medication, and the stock bottle contains a suspension of 125 mg/5 mL. How many mL should be dispensed per dose?",
+      "options": [
+        "5 mL",
+        "8 mL",
+        "10 mL",
+        "12.5 mL"
+      ],
+      "correct": 2,
+      "a": "10 mL — (250 mg ÷ 125 mg) × 5 mL = 10 mL."
+    },
+    {
+      "q": "Which auxiliary label would MOST appropriately be added to a prescription for a monoamine oxidase inhibitor (MAOI)?",
+      "options": [
+        "\"May cause drowsiness\"",
+        "\"Take with food\"",
+        "\"Avoid tyramine-rich foods\"",
+        "\"Shake well before using\""
+      ],
+      "correct": 2,
+      "a": "\"Avoid tyramine-rich foods\" — MAOIs can cause a dangerous hypertensive crisis when combined with tyramine-containing foods like aged cheese and cured meats."
+    },
+    {
+      "q": "What is the primary purpose of the National Drug Code (NDC) number on a medication label?",
+      "options": [
+        "To identify the prescriber",
+        "To uniquely identify the drug, its strength, and its manufacturer/packager",
+        "To indicate the drug's controlled substance schedule",
+        "To show the expiration date"
+      ],
+      "correct": 1,
+      "a": "To uniquely identify the drug, its strength, and its manufacturer/packager — the NDC's segments identify the labeler, the specific product, and the package size."
+    },
+    {
+      "q": "Under HIPAA, which of the following is generally required before a pharmacy can disclose a patient's protected health information to a third party for purposes unrelated to treatment, payment, or operations?",
+      "options": [
+        "Verbal approval from any family member",
+        "The patient's written authorization",
+        "Nothing — pharmacies may disclose freely",
+        "Approval from the prescribing physician only"
+      ],
+      "correct": 1,
+      "a": "The patient's written authorization — HIPAA generally requires the patient's explicit written consent for disclosures outside of treatment, payment, and healthcare operations."
+    },
+    {
+      "q": "A pharmacy technician receives a new prescription and notices the prescriber's DEA number appears altered. What should the technician do?",
+      "options": [
+        "Fill the prescription as written since it's not the technician's responsibility",
+        "Correct the number themselves based on the prescriber's other prescriptions",
+        "Alert the pharmacist so it can be verified before dispensing",
+        "Discard the prescription without informing anyone"
+      ],
+      "correct": 2,
+      "a": "Alert the pharmacist — technicians work under a pharmacist's supervision and must escalate anything that raises a legal or safety concern rather than resolving or ignoring it themselves."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the PTCE?",
+      "a": "90 multiple-choice questions total, with 80 scored and 10 unscored pretest questions, in 1 hour 50 minutes."
+    },
+    {
+      "q": "What score do I need to pass the PTCE?",
+      "a": "1,400 on a scaled range of 1,000 to 1,600."
+    },
+    {
+      "q": "What are the PTCE's knowledge domains?",
+      "a": "Medications (35%), Patient Safety and Quality Assurance (23.75%), Order Entry and Processing (22.5%), and Federal Requirements (18.75%)."
+    },
+    {
+      "q": "Is Cambo affiliated with PTCB?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with the Pharmacy Technician Certification Board (PTCB)."
+    },
+    {
+      "q": "What are the eligibility requirements for the PTCE?",
+      "a": "A high school diploma or GED (or being within 60 days of completing one), plus either a PTCB-recognized education/training program or at least 500 hours of pharmacy technician work experience, along with full disclosure of any criminal history."
+    },
+    {
+      "q": "How many times can I retake the PTCE?",
+      "a": "You can reapply for a second or third attempt as soon as you receive your score report; a fourth attempt requires a six-month wait plus documented additional preparation."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "ptcb.org — Pharmacy Technician Certification",
+    "url": "https://www.ptcb.org/"
+  }
+}

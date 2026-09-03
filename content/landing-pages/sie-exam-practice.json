@@ -1,0 +1,107 @@
+{
+  "slug": "sie-exam-practice",
+  "h1": "SIE Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any SIE exam question for an instant, explained answer — capital markets, products, and regulations, without the guesswork.",
+  "metaTitle": "SIE Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free SIE exam quiz and practice questions with instant, explained answers. Capital markets, products and risks, trading and customer accounts, and regulatory framework.",
+  "whyItWorks": "SIE questions test broad securities-industry vocabulary and rules across products, markets, and regulation, where the wrong answers are often closely related terms designed to trip you up. Cambo reads the exact question and explains why the correct term or rule applies, not just which option to pick.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the following BEST describes a bond's \"coupon rate\"?",
+      "options": [
+        "The bond's current market price",
+        "The fixed annual interest rate the issuer pays to the bondholder",
+        "The bond's yield to maturity",
+        "The bond's credit rating"
+      ],
+      "correct": 1,
+      "a": "The fixed annual interest rate the issuer pays — the coupon rate is set at issuance and determines the periodic interest payments, regardless of the bond's later market price."
+    },
+    {
+      "q": "An investor buys a call option. What does this give the investor?",
+      "options": [
+        "The obligation to sell the underlying security at the strike price",
+        "The right, but not the obligation, to buy the underlying security at the strike price",
+        "The right to receive dividends from the underlying security",
+        "The obligation to buy the underlying security at the strike price"
+      ],
+      "correct": 1,
+      "a": "The right, but not the obligation, to buy the underlying security at the strike price — that's the defining feature of a call option, as opposed to an obligation, which applies to the option's seller."
+    },
+    {
+      "q": "Which regulatory body is primarily responsible for writing and enforcing rules governing broker-dealers in the United States?",
+      "options": [
+        "The Federal Reserve",
+        "FINRA",
+        "The FDIC",
+        "The Department of the Treasury"
+      ],
+      "correct": 1,
+      "a": "FINRA (the Financial Industry Regulatory Authority) — it's the self-regulatory organization that oversees broker-dealers and registered representatives, subject to SEC oversight."
+    },
+    {
+      "q": "A mutual fund that invests primarily in short-term, high-quality debt instruments to maintain a stable share price is best classified as which type of fund?",
+      "options": [
+        "A growth fund",
+        "A money market fund",
+        "A sector fund",
+        "A balanced fund"
+      ],
+      "correct": 1,
+      "a": "A money market fund — it invests in short-term, high-quality debt to preserve principal and maintain a stable net asset value, unlike growth, sector, or balanced funds."
+    },
+    {
+      "q": "Which account type allows a married couple to jointly own securities with automatic right of survivorship, meaning a deceased owner's share passes directly to the surviving owner?",
+      "options": [
+        "Tenants in Common (TIC)",
+        "Joint Tenants with Rights of Survivorship (JTWROS)",
+        "An individual account",
+        "A custodial account (UTMA)"
+      ],
+      "correct": 1,
+      "a": "Joint Tenants with Rights of Survivorship (JTWROS) — ownership passes automatically to the surviving joint owner, unlike Tenants in Common, where a deceased owner's share goes to their estate."
+    },
+    {
+      "q": "What is the primary purpose of the Securities Investor Protection Corporation (SIPC)?",
+      "options": [
+        "To guarantee against investment losses from market declines",
+        "To insure customer accounts against brokerage firm failure, up to certain limits",
+        "To set interest rates for savings accounts",
+        "To regulate the stock exchanges directly"
+      ],
+      "correct": 1,
+      "a": "To insure customer accounts against brokerage firm failure — SIPC protects against the loss of cash and securities if a brokerage fails, not against ordinary market losses."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the SIE exam?",
+      "a": "75 scored questions plus 5 unscored pretest questions, for 80 total, in 1 hour 45 minutes."
+    },
+    {
+      "q": "What score do I need to pass the SIE?",
+      "a": "70%, meaning at least 53 of the 75 scored questions correct."
+    },
+    {
+      "q": "Do I need to be sponsored by a firm to take the SIE?",
+      "a": "No — unlike most FINRA exams, the SIE can be taken by anyone 18 or older without being associated with or sponsored by a member firm, which is why it's accessible to students and career changers."
+    },
+    {
+      "q": "Is Cambo affiliated with FINRA?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with the Financial Industry Regulatory Authority (FINRA)."
+    },
+    {
+      "q": "How long is my SIE score valid?",
+      "a": "Four years from the date you pass — you must register with a FINRA member firm and pass a relevant top-off exam, such as the Series 7 or Series 63, within that window to become fully registered."
+    },
+    {
+      "q": "How many times can I retake the SIE?",
+      "a": "After your first or second failed attempt, you must wait 30 days; after a third or later failed attempt, the waiting period extends to 180 days."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "finra.org — Securities Industry Essentials (SIE) Exam",
+    "url": "https://www.finra.org/registration-exams-ce/qualification-exams/sie-exam"
+  }
+}

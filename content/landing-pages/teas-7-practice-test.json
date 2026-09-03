@@ -1,0 +1,109 @@
+{
+  "slug": "teas-7-practice-test",
+  "h1": "TEAS 7 Practice Test & Quiz",
+  "subhead": "Take a free practice quiz or point your phone at any TEAS 7 question for an instant, explained answer — reading, math, science, and English, without the guesswork.",
+  "metaTitle": "TEAS 7 Practice Test & Quiz | Cambo",
+  "metaDescription": "Free TEAS 7 quiz and practice questions with instant, explained answers. Reading, mathematics, science, and English & language usage sections.",
+  "whyItWorks": "TEAS 7 tests whether you can quickly and accurately apply reading comprehension, basic math, and science reasoning under time pressure — exactly the speed-plus-accuracy skill nursing programs use the exam to predict. Cambo reads the exact question and shows the reasoning, so you can see exactly where a wrong answer went wrong instead of just memorizing the right one.",
+  "sampleQuestions": [
+    {
+      "q": "A prescription label reads: \"Take 2 tablets by mouth every 6 hours as needed for pain, not to exceed 8 tablets in 24 hours.\" Based on this label, what is the MAXIMUM number of doses a patient may take in one day?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct": 1,
+      "a": "4 doses — 8 tablets maximum divided by 2 tablets per dose equals 4 doses in 24 hours."
+    },
+    {
+      "q": "Convert 3/8 to a decimal.",
+      "options": [
+        "0.325",
+        "0.375",
+        "0.400",
+        "0.425"
+      ],
+      "correct": 1,
+      "a": "0.375 — 3 divided by 8 equals 0.375."
+    },
+    {
+      "q": "A patient's weight is 154 pounds. What is this weight in kilograms (1 kg ≈ 2.2 lb)?",
+      "options": [
+        "60 kg",
+        "65 kg",
+        "70 kg",
+        "75 kg"
+      ],
+      "correct": 2,
+      "a": "70 kg — 154 divided by 2.2 equals 70."
+    },
+    {
+      "q": "Which blood component is primarily responsible for carrying oxygen to body tissues?",
+      "options": [
+        "Platelets",
+        "Plasma",
+        "White blood cells",
+        "Red blood cells"
+      ],
+      "correct": 3,
+      "a": "Red blood cells — they contain hemoglobin, the protein that binds oxygen in the lungs and releases it to tissues throughout the body."
+    },
+    {
+      "q": "Which of the following is the correct order of the digestive process, from first to last?",
+      "options": [
+        "Stomach, mouth, small intestine, large intestine",
+        "Mouth, stomach, small intestine, large intestine",
+        "Mouth, small intestine, stomach, large intestine",
+        "Large intestine, stomach, small intestine, mouth"
+      ],
+      "correct": 1,
+      "a": "Mouth, stomach, small intestine, large intestine — food is chewed and enters the stomach for initial digestion, then nutrients are absorbed in the small intestine before waste moves through the large intestine."
+    },
+    {
+      "q": "Choose the correctly punctuated sentence.",
+      "options": [
+        "The patient's chart which was updated this morning showed improved vital signs.",
+        "The patient's chart, which was updated this morning, showed improved vital signs.",
+        "The patient's chart, which was updated this morning showed improved vital signs.",
+        "The patient's chart which was updated this morning, showed improved vital signs."
+      ],
+      "correct": 1,
+      "a": "The second option — the nonessential clause \"which was updated this morning\" needs a comma both before and after it to be set off correctly."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the TEAS 7?",
+      "a": "170 questions across four sections (Reading, Mathematics, Science, and English & Language Usage) in 209 minutes; about 150 are scored and 20 are unscored pilot questions."
+    },
+    {
+      "q": "What score do I need to pass the TEAS 7?",
+      "a": "There's no universal passing score set by ATI — each nursing or allied health program sets its own minimum composite score, commonly in the 60-75% range."
+    },
+    {
+      "q": "What sections are on the TEAS 7?",
+      "a": "Reading (45 questions), Mathematics (38 questions), Science (50 questions), and English & Language Usage (37 questions)."
+    },
+    {
+      "q": "Is Cambo affiliated with ATI Testing?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Assessment Technologies Institute (ATI), publisher of the TEAS exam."
+    },
+    {
+      "q": "How many times can I retake the TEAS 7?",
+      "a": "ATI itself doesn't cap attempts, but individual nursing programs set their own retake limits and waiting periods — commonly two to three attempts per year, with at least 14 days between attempts."
+    },
+    {
+      "q": "Do I need to take the TEAS before nursing school?",
+      "a": "Most nursing and allied health programs require a TEAS score as part of admission, since it's designed to predict readiness for program coursework — check your specific program's requirement and minimum score."
+    }
+  ],
+  "internalLinks": [
+    "nclex-rn-practice-questions"
+  ],
+  "officialSource": {
+    "label": "atitesting.com — TEAS Exam",
+    "url": "https://www.atitesting.com/teas"
+  }
+}

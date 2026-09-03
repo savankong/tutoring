@@ -1,0 +1,107 @@
+{
+  "slug": "sapr-training",
+  "h1": "SAPR Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Sexual Assault Prevention and Response (SAPR) questions — restricted vs. unrestricted reporting and bystander intervention, without the guesswork.",
+  "metaTitle": "SAPR Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free SAPR (Sexual Assault Prevention & Response) quiz and practice questions with instant, explained answers. Restricted vs. unrestricted reporting, SARC/Victim Advocate roles, bystander intervention.",
+  "whyItWorks": "SAPR questions often hinge on exactly which reporting option preserves confidentiality and who is authorized to receive that information without breaking it — small differences in wording change the correct answer. Cambo reads the exact scenario on your screen and explains which reporting path applies and why, not just which option to pick.",
+  "sampleQuestions": [
+    {
+      "q": "What is the primary difference between Restricted and Unrestricted Reporting under the SAPR program?",
+      "options": [
+        "Restricted Reporting allows a victim to confidentially disclose a sexual assault without triggering an official investigation or command notification; Unrestricted Reporting triggers both",
+        "Restricted Reporting is only available to officers, while Unrestricted Reporting is available to everyone",
+        "Restricted Reporting requires a written statement, while Unrestricted Reporting can be made verbally",
+        "There is no meaningful difference — both options result in the same investigative process"
+      ],
+      "correct": 0,
+      "a": "Restricted Reporting lets an eligible victim confidentially access medical care and support services without triggering an official investigation or notifying command, while Unrestricted Reporting notifies command and initiates a law enforcement investigation."
+    },
+    {
+      "q": "A service member reports a sexual assault to a SARC and elects Restricted Reporting. Which of the following can she also disclose the details to without converting her report to Unrestricted?",
+      "options": [
+        "Her unit commander",
+        "The military police on duty",
+        "A Sexual Assault Prevention and Response Victim Advocate or healthcare personnel involved in her care",
+        "Any coworker she trusts"
+      ],
+      "correct": 2,
+      "a": "A SAPR Victim Advocate and healthcare personnel providing her care are among the specified individuals who can receive a Restricted Report without it becoming Unrestricted — disclosing to command or law enforcement generally converts the report."
+    },
+    {
+      "q": "Why can't a Restricted Report be converted back to Restricted once it has become Unrestricted?",
+      "options": [
+        "Because once command and/or law enforcement have been notified, the confidentiality protections that define Restricted Reporting no longer apply",
+        "Because Restricted Reporting is only available for the first 24 hours after an assault",
+        "Because a victim can only choose a reporting option once in their entire career",
+        "Because Unrestricted Reports are automatically classified"
+      ],
+      "correct": 0,
+      "a": "Once command and/or law enforcement have been notified, the investigative and notification process is already underway — the confidentiality that defines Restricted Reporting can't be restored after that point, which is why a victim can convert Restricted to Unrestricted but not the reverse."
+    },
+    {
+      "q": "At a unit function, you notice a visibly intoxicated coworker being led away alone by someone displaying predatory behavior. What does SAPR bystander intervention training call for?",
+      "options": [
+        "Assume someone else will step in if it's really a problem",
+        "Wait until the next morning to mention it to your supervisor",
+        "Take safe, appropriate action to intervene — directly, or by distracting the situation or enlisting others to help",
+        "Do nothing unless you witness an assault actually occurring"
+      ],
+      "correct": 2,
+      "a": "Take safe, appropriate action — bystander intervention training emphasizes acting before a situation escalates, whether that's directly stepping in, creating a distraction, or getting others involved, rather than assuming someone else will handle it."
+    },
+    {
+      "q": "What is the role of a Sexual Assault Response Coordinator (SARC)?",
+      "options": [
+        "To determine whether a reported assault actually occurred before support services are provided",
+        "To oversee case management and coordinate the victim's access to support services, regardless of which reporting option they choose",
+        "To represent the accused in any resulting legal proceeding",
+        "To handle only Unrestricted Reports, referring Restricted Reports elsewhere"
+      ],
+      "correct": 1,
+      "a": "A SARC oversees case management and coordinates a victim's access to support services and care, and this role applies whether the victim has chosen Restricted or Unrestricted Reporting."
+    },
+    {
+      "q": "Who is eligible to make a Restricted Report under the DoD SAPR program?",
+      "options": [
+        "Only active-duty service members",
+        "Any civilian employee, with no age restriction",
+        "Service members and their military dependents who are 18 years of age or older",
+        "Only personnel who report the assault within 24 hours of it occurring"
+      ],
+      "correct": 2,
+      "a": "Restricted Reporting is available to service members and their military dependents who are 18 or older — it's specifically designed to give adult victims a confidential path to care without an immediate investigation."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is SAPR training required?",
+      "a": "Annually for all service members DoD-wide, with additional training typically required at accession, before deployment, and for personnel in specialized roles like SARCs and Victim Advocates."
+    },
+    {
+      "q": "Who has to complete SAPR training?",
+      "a": "All military service members; DoD civilian employees typically complete related, separately structured training requirements."
+    },
+    {
+      "q": "What's the role of a SAPR Victim Advocate?",
+      "a": "A Victim Advocate provides crisis intervention, support, and referrals to victims, working alongside the SARC to coordinate a victim's access to care."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or the SAPR Office?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or the DoD Sexual Assault Prevention and Response Office."
+    },
+    {
+      "q": "Where can someone get confidential help right now?",
+      "a": "The DoD Safe Helpline (1-877-995-5247, available 24/7) offers confidential, worldwide support specifically for the DoD community, separate from your chain of command."
+    },
+    {
+      "q": "Can a Restricted Report later become an Unrestricted Report?",
+      "a": "Yes — a victim can convert a Restricted Report to Unrestricted at any time. The reverse isn't possible once command and/or law enforcement have been notified."
+    }
+  ],
+  "internalLinks": ["suicide-prevention-training", "insider-threat-awareness-training"],
+  "officialSource": {
+    "label": "sapr.mil — DoD Sexual Assault Prevention & Response Office",
+    "url": "https://www.sapr.mil/"
+  }
+}

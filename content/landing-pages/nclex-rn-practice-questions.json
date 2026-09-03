@@ -1,0 +1,109 @@
+{
+  "slug": "nclex-rn-practice-questions",
+  "h1": "NCLEX-RN Practice Questions & Quiz",
+  "subhead": "Take a free practice quiz or point your phone at any NCLEX-RN question for an instant, explained answer — clinical judgment and prioritization, without the guesswork.",
+  "metaTitle": "NCLEX-RN Practice Questions & Quiz | Cambo",
+  "metaDescription": "Free NCLEX-RN quiz and practice questions with instant, explained answers. Clinical judgment, prioritization, delegation, and Next Generation NCLEX case studies.",
+  "whyItWorks": "The Next Generation NCLEX's Clinical Judgment Measurement Model asks you to recognize cues, prioritize hypotheses, and pick the safest nursing action out of several options that all sound clinically reasonable — the hard part is ranking them, not just naming one. Cambo reads the exact scenario and explains which action comes first and why, not just which option is correct.",
+  "sampleQuestions": [
+    {
+      "q": "A nurse is caring for four patients. Which patient should the nurse assess FIRST?",
+      "options": [
+        "A patient reporting incisional pain rated 4/10 two hours after surgery",
+        "A patient with new-onset shortness of breath and an oxygen saturation of 88%",
+        "A patient requesting a scheduled pain medication",
+        "A patient asking for help getting to the bathroom"
+      ],
+      "correct": 1,
+      "a": "The patient with new-onset shortness of breath and low oxygen saturation — this signals a possible airway/breathing emergency and takes priority over pain, routine requests, or ambulation."
+    },
+    {
+      "q": "Using the ABC (Airway, Breathing, Circulation) framework, which finding requires the most immediate nursing intervention?",
+      "options": [
+        "Blood pressure of 138/86 mmHg",
+        "Heart rate of 92 beats per minute",
+        "Stridor and use of accessory muscles to breathe",
+        "Temperature of 100.4°F (38°C)"
+      ],
+      "correct": 2,
+      "a": "Stridor with accessory muscle use signals airway compromise — under the ABC framework, airway problems are addressed before breathing, circulation, or other vital sign changes."
+    },
+    {
+      "q": "A nurse is delegating tasks to a licensed practical nurse (LPN) and an unlicensed assistive personnel (UAP). Which task is appropriate to delegate to the UAP?",
+      "options": [
+        "Administering an oral medication",
+        "Assessing a new patient's admission vital signs baseline",
+        "Taking routine vital signs on a stable patient",
+        "Teaching a patient how to use an insulin pen"
+      ],
+      "correct": 2,
+      "a": "Taking routine vital signs on a stable patient — this task is within a UAP's scope, while medication administration, assessment, and patient teaching require licensed nursing judgment."
+    },
+    {
+      "q": "A patient with heart failure suddenly develops severe shortness of breath, pink frothy sputum, and crackles throughout both lung fields. The nurse recognizes these findings as most consistent with which condition?",
+      "options": [
+        "Pulmonary embolism",
+        "Acute pulmonary edema",
+        "Pneumothorax",
+        "Asthma exacerbation"
+      ],
+      "correct": 1,
+      "a": "Acute pulmonary edema — pink frothy sputum with bilateral crackles in a patient with heart failure is a classic sign of fluid backing up into the lungs, requiring immediate intervention."
+    },
+    {
+      "q": "Which laboratory value is most important for the nurse to verify before administering a scheduled dose of warfarin?",
+      "options": [
+        "White blood cell count",
+        "INR (International Normalized Ratio)",
+        "Blood glucose",
+        "Serum creatinine"
+      ],
+      "correct": 1,
+      "a": "INR — warfarin is an anticoagulant, and the INR shows how much the drug is thinning the blood; a value outside the therapeutic range signals a need to hold the dose and notify the provider."
+    },
+    {
+      "q": "A postoperative patient's urine output has been less than 20 mL/hour for the past two hours. What should the nurse do FIRST?",
+      "options": [
+        "Increase the IV fluid rate without notifying the provider",
+        "Document the finding and reassess in four hours",
+        "Notify the healthcare provider of the decreased urine output",
+        "Encourage the patient to drink more fluids orally"
+      ],
+      "correct": 2,
+      "a": "Notify the healthcare provider — urine output this low can signal hypovolemia, kidney injury, or a postoperative complication, and needs prompt provider notification rather than waiting or self-treating."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the NCLEX-RN?",
+      "a": "Between 85 and 150, since it's a computer-adaptive test (CAT) that stops once it's 95% confident in a pass or fail determination."
+    },
+    {
+      "q": "What is the passing standard for the NCLEX-RN?",
+      "a": "There's no fixed percentage or number correct — passing is based on your estimated ability relative to a passing standard set in logits, which NCSBN reviews periodically."
+    },
+    {
+      "q": "What is the Next Generation NCLEX (NGN)?",
+      "a": "The current NCLEX format, which added Clinical Judgment Measurement Model case studies (like several of the practice items above) that test recognizing cues and prioritizing actions, not just recalling facts."
+    },
+    {
+      "q": "Is Cambo affiliated with NCSBN or the official NCLEX program?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with the National Council of State Boards of Nursing (NCSBN)."
+    },
+    {
+      "q": "How soon can I retake the NCLEX-RN if I fail?",
+      "a": "Most candidates must wait 45 days from their last test date before retaking, though some state boards of nursing set longer waiting periods."
+    },
+    {
+      "q": "How many times can I take the NCLEX-RN?",
+      "a": "Up to eight times per year under NCSBN's policy, though individual state boards may set more restrictive limits, and most require passing within a set window after nursing program graduation."
+    }
+  ],
+  "internalLinks": [
+    "teas-7-practice-test"
+  ],
+  "officialSource": {
+    "label": "nclex.com — NCLEX-RN Examination",
+    "url": "https://www.nclex.com/"
+  }
+}

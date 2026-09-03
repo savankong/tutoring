@@ -1,0 +1,107 @@
+{
+  "slug": "anti-terrorism-level-2-training",
+  "h1": "Antiterrorism Level II Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Antiterrorism Officer (ATO) Level II questions — AT plans, threat and vulnerability assessments, and officer-level responsibilities, without the guesswork.",
+  "metaTitle": "Antiterrorism Level II (ATO) Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Antiterrorism Level II (ATO, GS109.16) quiz and practice questions with instant, explained answers. AT plans, threat/vulnerability/criticality assessments, and ATO responsibilities.",
+  "whyItWorks": "Level II questions go beyond Level I awareness into the actual job of an Antiterrorism Officer — building a threat assessment, running a vulnerability assessment, developing an AT plan — so the right answer usually depends on process and role, not a flat definition. Cambo reads the exact question and explains where in the AT program that step actually belongs.",
+  "sampleQuestions": [
+    {
+      "q": "What is the main purpose of Antiterrorism Level II training compared to Level I?",
+      "options": [
+        "Level II is a shorter refresher version of Level I for personnel who ran out of time",
+        "Level II qualifies personnel to serve as Antiterrorism Officers (ATOs) and conduct Level I briefings, going well beyond the baseline awareness everyone receives in Level I",
+        "Level II is required only for personnel stationed outside the continental United States",
+        "Level II replaces the need for Level I training entirely"
+      ],
+      "correct": 1,
+      "a": "Level II qualifies personnel to serve as unit or installation Antiterrorism Officers and to conduct Level I briefings — it goes well beyond the general awareness content everyone gets in Level I, into the actual planning and assessment responsibilities of the role."
+    },
+    {
+      "q": "As a newly appointed unit ATO, which of the following is one of your primary responsibilities?",
+      "options": [
+        "Personally approving all leave requests for the unit",
+        "Developing and maintaining the unit's antiterrorism plan, and coordinating required threat, vulnerability, and criticality assessments",
+        "Handling all classified document destruction for the unit",
+        "Serving as the unit's sole point of contact for pay and personnel issues"
+      ],
+      "correct": 1,
+      "a": "Developing and maintaining the unit's AT plan, and coordinating the required threat, vulnerability, and criticality assessments that feed into it, are core ATO responsibilities under the DoD Antiterrorism Program."
+    },
+    {
+      "q": "Which assessment combines threat, vulnerability, and criticality information to help prioritize a unit's antiterrorism resources?",
+      "options": [
+        "The personnel security assessment",
+        "The risk assessment",
+        "The physical fitness assessment",
+        "The classification assessment"
+      ],
+      "correct": 1,
+      "a": "The risk assessment combines and analyzes threat, vulnerability, and criticality assessments to give commanders an overall picture they can use to prioritize antiterrorism resources and countermeasures."
+    },
+    {
+      "q": "The Antiterrorism Level II course uses the 1996 Khobar Towers bombing as a case study. What is it primarily used to illustrate?",
+      "options": [
+        "The benefits of relying entirely on host-nation security forces",
+        "How inadequate standoff distance and physical security planning contributed to the attack's severity, which shaped current DoD standoff distance and perimeter security standards",
+        "The effectiveness of a specific piece of surveillance equipment",
+        "A case where AT planning had no bearing on the outcome"
+      ],
+      "correct": 1,
+      "a": "Khobar Towers is used to illustrate how inadequate standoff distance and physical security planning contributed to the scale of the attack — it's one of the incidents that directly shaped today's DoD standards for standoff distance and perimeter security."
+    },
+    {
+      "q": "Level II training covers insider threat alongside traditional antiterrorism topics. Why is insider threat included in an antiterrorism officer's training?",
+      "options": [
+        "Because insider threat and antiterrorism have no real connection and the topic is included by mistake",
+        "Because an ATO's AT plan and program must also account for threats originating from trusted insiders, not just external attackers",
+        "Because insider threat replaces the need for physical security measures",
+        "Because only cyber-specific personnel need to understand insider threat"
+      ],
+      "correct": 1,
+      "a": "An ATO's program has to account for threats from trusted insiders as well as external attackers — insider threat awareness is folded into Level II because a complete AT plan can't ignore that category of risk."
+    },
+    {
+      "q": "Who is responsible for approving a unit or installation's antiterrorism plan?",
+      "options": [
+        "The Antiterrorism Officer alone, without further review",
+        "The commander, based on the plan the ATO develops and recommends",
+        "Any individual unit member who requests to review it",
+        "A civilian contractor hired specifically for that purpose"
+      ],
+      "correct": 1,
+      "a": "The commander approves the AT plan. The ATO develops, coordinates, and recommends it, but final approval and responsibility for the plan rests with the commander."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who needs Antiterrorism Level II training?",
+      "a": "Personnel designated as an Antiterrorism Officer (ATO) at the unit, installation, or higher echelon level — it's not required of general personnel the way Level I is."
+    },
+    {
+      "q": "How is Level II different from Level I?",
+      "a": "Level I is the universal annual awareness training required of all DoD personnel. Level II is ATO qualification training, with far greater depth on AT plan development, assessments, and program management, required only of those designated to serve in that role."
+    },
+    {
+      "q": "Is Level II training publicly accessible like Level I?",
+      "a": "No — Level II is generally restricted (For Official Use Only) to those with appropriate DoD network access, unlike some public-facing Level I modules."
+    },
+    {
+      "q": "Is Cambo affiliated with the DoD or JKO?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Department of Defense or Joint Knowledge Online."
+    },
+    {
+      "q": "What topics does Level II add beyond Level I?",
+      "a": "Terrorist group operations, hostage-taking and survival, terrorist use of weapons of mass destruction, active shooter threats, insider threat, and the full antiterrorism plan development process — including physical security, vulnerability assessments, and resource management."
+    },
+    {
+      "q": "Does completing Level II satisfy the Level I requirement too?",
+      "a": "Completion of Level II training can satisfy the annual Level I requirement, since ATOs are also qualified to deliver Level I briefings — but check your organization's specific policy to confirm."
+    }
+  ],
+  "internalLinks": ["anti-terrorism-level-1-training", "tarp-training", "sere-100-2-training"],
+  "officialSource": {
+    "label": "JKO — official DoD training portal",
+    "url": "https://jkodirect.jten.mil/"
+  }
+}

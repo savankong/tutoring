@@ -1,0 +1,104 @@
+{
+  "slug": "florida-real-estate-exam-prep",
+  "h1": "Florida Real Estate Exam Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Florida real estate exam question for an instant, explained answer — national principles, Florida license law, and the math questions, without the guesswork.",
+  "metaTitle": "Florida Real Estate Exam Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Florida Real Estate Sales Associate Exam quiz and practice questions with instant, explained answers. National real estate principles, Florida license law, and real estate math.",
+  "whyItWorks": "The Florida sales associate exam splits almost evenly between national real estate principles and Florida-specific license law, and folds in a real math component — prorations, commission splits, and loan calculations — that trips up candidates who studied concepts but not computation. Cambo reads the exact question, walks through the math where there is any, and explains which rule (national or Florida Chapter 475) the correct answer rests on.",
+  "sampleQuestions": [
+    {
+      "q": "Which entity regulates real estate licensees and enforces license law in Florida?",
+      "options": [
+        "Florida Realtors (FR)",
+        "Florida Real Estate Commission (FREC), under the DBPR",
+        "National Association of Realtors (NAR)",
+        "Florida Housing Finance Corporation"
+      ],
+      "correct": 1,
+      "a": "The Florida Real Estate Commission (FREC), operating under the Department of Business and Professional Regulation (DBPR) — Florida Realtors is a trade association, not a regulator."
+    },
+    {
+      "q": "A property sells for $310,000 and closes on May 1. Annual property taxes of $3,720 were not yet paid for the year. Using a 360-day year and the seller responsible for the day of closing, roughly how much does the seller owe in prorated taxes for January 1 through April 30?",
+      "options": [
+        "$930",
+        "$1,240",
+        "$1,860",
+        "$3,720"
+      ],
+      "correct": 1,
+      "a": "$1,240 — $3,720 ÷ 360 days = $10.33/day; the seller owes for 120 days (Jan 1–Apr 30, day of closing counted to seller), which is 120 × $10.33 ≈ $1,240. Florida's math questions frequently test day-count proration like this."
+    },
+    {
+      "q": "Under Florida license law, what is the required pre-licensing course for a sales associate applicant?",
+      "options": [
+        "The 45-hour post-licensing course",
+        "The 63-hour Sales Associate Pre-License course (FREC Course I)",
+        "The 72-hour Broker Pre-License course",
+        "No pre-licensing course is required in Florida"
+      ],
+      "correct": 1,
+      "a": "The 63-hour Sales Associate Pre-License course, commonly called FREC Course I — it must be completed and passed (70% or higher on the course final) before applying to sit for the state exam."
+    },
+    {
+      "q": "On the national portion, a buyer signs a contract to purchase a home 'subject to' the seller's existing mortgage. What does this mean for the buyer?",
+      "options": [
+        "The buyer becomes personally liable for the original loan",
+        "The seller remains personally liable for the loan, and the buyer takes title without assuming personal liability",
+        "The lender must approve the buyer before closing can occur",
+        "The mortgage is automatically paid off at closing"
+      ],
+      "correct": 1,
+      "a": "The seller remains personally liable — buying 'subject to' an existing mortgage means the buyer takes the property (and makes the payments) but does not personally assume the debt, unlike a loan assumption."
+    },
+    {
+      "q": "A Florida licensee is found to have commingled client trust funds with personal funds. What is this a violation of?",
+      "options": [
+        "IRS reporting requirements only",
+        "Florida license law's escrow/trust fund handling requirements",
+        "Fair Housing Act advertising rules",
+        "The Florida homestead exemption statute"
+      ],
+      "correct": 1,
+      "a": "Florida license law's escrow and trust fund handling requirements — commingling client funds with a licensee's own money is one of the most serious violations FREC disciplines, regardless of intent."
+    },
+    {
+      "q": "A buyer's agent in Florida is showing homes and represents the buyer, not the seller, in the transaction. Under Florida law, what disclosure must occur about this relationship?",
+      "options": [
+        "None — brokerage relationship disclosure is optional in Florida",
+        "The relationship must be disclosed in writing to the buyer, generally at first contact or before showing property",
+        "Only the seller needs to be told, not the buyer",
+        "Disclosure is only required if the buyer asks"
+      ],
+      "correct": 1,
+      "a": "A written brokerage relationship disclosure is required, generally provided to the buyer before or at the time of the first showing, so the buyer understands whether the licensee represents them, the seller, or acts as a transaction broker."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the Florida real estate sales associate exam?",
+      "a": "100 multiple-choice questions — 45 on national real estate principles, 45 on Florida-specific content, and 10 that involve math calculations — taken over a 3.5-hour window."
+    },
+    {
+      "q": "What score do I need to pass?",
+      "a": "75%, meaning at least 75 of the 100 questions correct."
+    },
+    {
+      "q": "How many pre-licensing education hours does Florida require?",
+      "a": "63 hours (FREC Course I), completed with a passing grade of 70% or higher on the course final exam, before you're eligible to sit for the state exam."
+    },
+    {
+      "q": "How many times can I retake the exam?",
+      "a": "As many times as needed, with no cap on attempts, as long as it's within the 2-year window your DBPR application stays valid. Each attempt costs a separate exam fee, and you can retest after a 24-hour wait."
+    },
+    {
+      "q": "Is Cambo affiliated with the DBPR or FREC?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Florida Department of Business and Professional Regulation or the Florida Real Estate Commission."
+    },
+    {
+      "q": "Who administers the Florida real estate exam?",
+      "a": "Pearson VUE administers the exam on behalf of the DBPR, at Pearson VUE testing centers throughout Florida."
+    }
+  ],
+  "internalLinks": ["texas-real-estate-exam-prep", "california-real-estate-exam-prep"],
+  "officialSource": { "label": "myfloridalicense.com — Florida DBPR", "url": "https://www.myfloridalicense.com/" }
+}

@@ -1,0 +1,111 @@
+{
+  "slug": "bloodborne-pathogens-training",
+  "h1": "Bloodborne Pathogens Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to bloodborne pathogens training questions — universal precautions, exposure control, and PPE, without the guesswork.",
+  "metaTitle": "Bloodborne Pathogens Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free bloodborne pathogens quiz and practice questions with instant, explained answers. Universal precautions, exposure control plans, PPE, and exposure incident response.",
+  "whyItWorks": "Bloodborne pathogens questions often test whether you can apply universal precautions to a specific scenario — is this task exposure-risk, does this incident count as reportable — where the wording matters. Cambo reads the exact question and explains the OSHA 1910.1030 rule behind the answer, not just which option to pick.",
+  "sampleQuestions": [
+    {
+      "q": "What does \"universal precautions\" mean under OSHA's Bloodborne Pathogens Standard?",
+      "options": [
+        "Treating all human blood and certain other bodily fluids as if they are infectious, regardless of the source",
+        "Treating only blood from patients with a confirmed bloodborne infection as infectious",
+        "A precaution required only in hospital operating rooms",
+        "A voluntary best practice with no regulatory basis"
+      ],
+      "correct": 0,
+      "a": "Universal precautions means treating all human blood and certain other bodily fluids as if they're infectious, since you usually can't know a person's infection status at the point of contact — it's the foundational concept behind PPE and exposure control requirements."
+    },
+    {
+      "q": "How often must an employer review and update its written Exposure Control Plan?",
+      "options": [
+        "Only after an employee files a complaint",
+        "Once, when the plan is first created",
+        "At least annually, and whenever necessary to reflect new or modified tasks and procedures",
+        "Every 5 years, on a fixed schedule"
+      ],
+      "correct": 2,
+      "a": "At least annually — and more often whenever new or modified tasks, procedures, or job positions change employees' occupational exposure. Employers must also document their annual review of safer medical device technology."
+    },
+    {
+      "q": "Under OSHA's Bloodborne Pathogens Standard, when must an employer offer the Hepatitis B vaccine to an employee with occupational exposure?",
+      "options": [
+        "Only after the employee experiences an exposure incident",
+        "Free of charge, within 10 working days of initial assignment to a job with exposure risk",
+        "Only if the employee requests it in writing",
+        "At the employee's own expense, as a condition of employment"
+      ],
+      "correct": 1,
+      "a": "Free of charge, within 10 working days of initial assignment — employees may decline, but the offer (and a signed declination if refused) is required regardless of whether an exposure incident has occurred."
+    },
+    {
+      "q": "What is the purpose of engineering controls, like sharps disposal containers and self-sheathing needles, under the standard?",
+      "options": [
+        "To eliminate the need for employees to wear PPE",
+        "To isolate or remove the bloodborne pathogens hazard from the workplace before it reaches the worker",
+        "To satisfy a paperwork requirement with no effect on actual exposure risk",
+        "To reduce the employer's laundry costs for reusable PPE"
+      ],
+      "correct": 1,
+      "a": "Engineering controls are meant to isolate or remove the hazard at its source — OSHA's standard places them ahead of PPE and work-practice controls in the hierarchy, since preventing the exposure is more reliable than protecting against it after the fact."
+    },
+    {
+      "q": "What should happen to PPE, like gloves or a gown, once it becomes contaminated with blood?",
+      "options": [
+        "It can be rinsed and reused for the remainder of the shift",
+        "It must be removed as soon as feasible and placed in a designated container for storage, laundering, or disposal",
+        "It can be worn home and laundered by the employee",
+        "It only needs to be removed if visibly soaked through"
+      ],
+      "correct": 1,
+      "a": "It must be removed as soon as feasible and placed in an appropriately designated container — contaminated PPE is never taken home for personal laundering, and the employer is responsible for cleaning, laundering, or disposing of it."
+    },
+    {
+      "q": "A worker sustains a needlestick injury from a used syringe. What is the correct first step?",
+      "options": [
+        "Wash the exposed area with soap and water, then report the incident immediately",
+        "Finish the current task and report the incident at the end of the shift",
+        "Report the incident only if symptoms develop later",
+        "Dispose of the needle and continue working without reporting"
+      ],
+      "correct": 0,
+      "a": "Wash the exposed area and report the incident right away — prompt reporting starts the clock on post-exposure evaluation, testing, and any recommended treatment, which is time-sensitive."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is bloodborne pathogens training required?",
+      "a": "At the time of initial assignment to a job with occupational exposure, and at least annually after that — plus any time new tasks or procedures change an employee's exposure risk."
+    },
+    {
+      "q": "Who needs bloodborne pathogens training?",
+      "a": "Any employee with occupational exposure to blood or other potentially infectious materials as part of their job duties — this covers far more than clinical staff, including custodial, laundry, and first-aid/safety personnel in many workplaces."
+    },
+    {
+      "q": "What counts as an \"exposure incident\"?",
+      "a": "A specific eye, mouth, other mucous membrane, non-intact skin, or parenteral (e.g., needlestick) contact with blood or other potentially infectious materials that results from the performance of an employee's duties."
+    },
+    {
+      "q": "Is Cambo affiliated with OSHA?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Occupational Safety and Health Administration."
+    },
+    {
+      "q": "Does the Bloodborne Pathogens Standard require a Hepatitis B vaccine?",
+      "a": "It requires employers to offer the vaccine free of charge to employees with occupational exposure — employees have the right to decline, though a declination must be documented in writing."
+    },
+    {
+      "q": "What's the difference between bloodborne pathogens training and OSHA 10-hour training?",
+      "a": "OSHA 10-hour training is a broad, awareness-level course covering many hazard categories at once. Bloodborne pathogens training is a standalone, standard-specific requirement (1910.1030) for anyone with occupational exposure to blood or OPIM, regardless of industry."
+    }
+  ],
+  "internalLinks": [
+    "hipaa-training",
+    "osha-30-hour-training",
+    "hazwoper-40-hour-training"
+  ],
+  "officialSource": {
+    "label": "osha.gov — Bloodborne Pathogens",
+    "url": "https://www.osha.gov/bloodborne-pathogens"
+  }
+}

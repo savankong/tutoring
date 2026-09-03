@@ -1,0 +1,110 @@
+{
+  "slug": "hazwoper-40-hour-training",
+  "h1": "HAZWOPER 40-Hour Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to HAZWOPER 40-hour training questions — site characterization, PPE levels, and decontamination, without the guesswork.",
+  "metaTitle": "HAZWOPER 40-Hour Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free HAZWOPER 40-hour quiz and practice questions with instant, explained answers. Site characterization, PPE levels A through D, decontamination, and refresher requirements.",
+  "whyItWorks": "HAZWOPER questions often ask you to match a specific site condition — an unknown hazard, a known but airborne contaminant, a fully characterized clean area — to the correct PPE level or procedure, and the levels are easy to mix up. Cambo reads the exact scenario and explains which level or step applies and why.",
+  "sampleQuestions": [
+    {
+      "q": "Who is 40-hour HAZWOPER training generally required for?",
+      "options": [
+        "Any employee who has ever visited a construction site",
+        "General site workers who are, or may reasonably be expected to be, exposed to hazardous substances at a hazardous waste site on a regular basis",
+        "Only workers who wear a respirator for any reason",
+        "Office staff at a company that owns a hazardous waste site"
+      ],
+      "correct": 1,
+      "a": "General site workers with regular exposure potential — occasional site visitors with a lower exposure profile may qualify for the shorter 24-hour course instead, while general site workers need the full 40 hours."
+    },
+    {
+      "q": "How often must a HAZWOPER-trained worker complete refresher training to keep their certification current?",
+      "options": [
+        "Every 5 years",
+        "Every 3 years",
+        "8 hours annually (every 12 months)",
+        "Only if they change employers"
+      ],
+      "correct": 2,
+      "a": "8 hours of refresher training every 12 months — this applies to anyone who completed the initial 40-hour (or 24-hour) course and continues to work at hazardous waste operations, including supervisors."
+    },
+    {
+      "q": "Which PPE level provides maximum protection using a fully encapsulating, gas-tight suit and self-contained breathing apparatus (SCBA), and is used when the hazard is unknown or extremely dangerous?",
+      "options": [
+        "Level A",
+        "Level B",
+        "Level C",
+        "Level D"
+      ],
+      "correct": 0,
+      "a": "Level A — it's reserved for situations with the highest respiratory and skin contact risk, including unknown or extremely hazardous atmospheres, since it fully seals the wearer off from the surrounding environment."
+    },
+    {
+      "q": "Which PPE level is essentially standard work clothing, used in a fully characterized environment with no respiratory or skin contact hazard?",
+      "options": [
+        "Level A",
+        "Level B",
+        "Level C",
+        "Level D"
+      ],
+      "correct": 3,
+      "a": "Level D — the lowest level of protection, appropriate only once the site has been characterized and confirmed to pose no meaningful risk to the respiratory system or skin."
+    },
+    {
+      "q": "What is the purpose of \"site characterization\" before hazardous waste operations begin?",
+      "options": [
+        "To decide which company will win the cleanup contract",
+        "To evaluate the site's hazards — through records review, sampling, and monitoring — in order to determine the risks present and the appropriate controls and PPE",
+        "To determine the site's property value",
+        "It's an optional step only required for federal Superfund sites"
+      ],
+      "correct": 1,
+      "a": "To evaluate what hazards are actually present, using records review, visual inspection, and air/soil monitoring, so the site safety plan, PPE level, and work procedures are matched to the real risk rather than assumed."
+    },
+    {
+      "q": "What is the primary purpose of decontamination procedures at a hazardous waste site?",
+      "options": [
+        "To make equipment look clean for inspection",
+        "To remove or neutralize contaminants from personnel and equipment before they leave the exclusion zone, preventing the spread of contamination",
+        "To dispose of unused PPE at the end of a shift",
+        "To reduce the amount of required air monitoring"
+      ],
+      "correct": 1,
+      "a": "To remove or neutralize contaminants from people and equipment before they exit the contaminated (exclusion) zone — this protects workers, keeps contamination from spreading to clean areas, and is a required part of every site safety plan."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long is the initial HAZWOPER training course?",
+      "a": "40 hours for general site workers with regular exposure potential — some roles, like occasional site visitors, may qualify for a shorter 24-hour course instead."
+    },
+    {
+      "q": "Do supervisors need additional training beyond the 40-hour course?",
+      "a": "Yes — supervisors of HAZWOPER operations complete the same initial-level training as the workers they oversee, plus at least 8 additional hours of specialized supervisor training."
+    },
+    {
+      "q": "Does HAZWOPER certification expire?",
+      "a": "It doesn't expire outright, but it lapses if the annual 8-hour refresher isn't completed — workers who miss a refresher generally need to requalify before returning to covered work."
+    },
+    {
+      "q": "Is Cambo affiliated with OSHA?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Occupational Safety and Health Administration."
+    },
+    {
+      "q": "What's the difference between the 40-hour and 24-hour HAZWOPER courses?",
+      "a": "The 40-hour course is for general site workers with regular exposure potential to hazardous substances. The 24-hour course is a shorter option for workers with only occasional exposure, such as certain site visitors."
+    },
+    {
+      "q": "What does HAZWOPER stand for?",
+      "a": "Hazardous Waste Operations and Emergency Response — the OSHA standard (29 CFR 1910.120) that sets training and safety requirements for workers involved in hazardous waste cleanup, storage, disposal, and emergency response."
+    }
+  ],
+  "internalLinks": [
+    "osha-30-hour-training",
+    "bloodborne-pathogens-training"
+  ],
+  "officialSource": {
+    "label": "osha.gov — HAZWOPER",
+    "url": "https://www.osha.gov/hazwoper"
+  }
+}

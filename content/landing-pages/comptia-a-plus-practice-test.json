@@ -1,0 +1,109 @@
+{
+  "slug": "comptia-a-plus-practice-test",
+  "h1": "CompTIA A+ Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any CompTIA A+ question for an instant, explained answer — hardware, networking, and troubleshooting, without the guesswork.",
+  "metaTitle": "CompTIA A+ Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free CompTIA A+ quiz and practice questions with instant, explained answers. Hardware, networking, operating systems, and troubleshooting across Core 1 and Core 2.",
+  "whyItWorks": "A+ splits across two exams — Core 1 covers hardware and networking, Core 2 covers operating systems and troubleshooting — and most questions describe a symptom and ask you to pick the most likely cause or the correct next troubleshooting step. Cambo reads the exact symptom and walks through the reasoning, not just which answer to circle.",
+  "sampleQuestions": [
+    {
+      "q": "A desktop computer powers on but displays nothing on the monitor, and the case speaker emits a series of continuous beeps. What should a technician check FIRST?",
+      "options": [
+        "The power supply's wattage rating",
+        "Whether the RAM is properly seated",
+        "The hard drive cable",
+        "The Wi-Fi adapter"
+      ],
+      "correct": 1,
+      "a": "Whether the RAM is properly seated — a repeating beep code at POST is a classic symptom of a memory seating problem, and reseating the RAM is the standard first troubleshooting step."
+    },
+    {
+      "q": "Which connector type is used for a SATA hard drive's data connection?",
+      "options": [
+        "A 4-pin Molex connector",
+        "A 7-pin L-shaped connector",
+        "A 24-pin ATX connector",
+        "An RJ-45 connector"
+      ],
+      "correct": 1,
+      "a": "The 7-pin L-shaped connector — SATA data cables use a distinctive flat 7-pin connector, separate from the wider 15-pin SATA power connector."
+    },
+    {
+      "q": "A user reports their laptop won't connect to the office Wi-Fi, though other devices connect fine. Which is the BEST first troubleshooting step?",
+      "options": [
+        "Reinstall the operating system",
+        "Replace the laptop's motherboard",
+        "Verify the laptop's Wi-Fi adapter is enabled and in range",
+        "Replace the office router"
+      ],
+      "correct": 2,
+      "a": "Verify the Wi-Fi adapter is enabled and in range — since other devices connect fine, the problem is most likely local to this one laptop, so check the simplest, most local cause first."
+    },
+    {
+      "q": "Which Windows tool would a technician use to view and manage startup programs and running processes?",
+      "options": [
+        "Disk Management",
+        "Task Manager",
+        "Device Manager",
+        "Control Panel"
+      ],
+      "correct": 1,
+      "a": "Task Manager — it shows running processes and resource usage and lets a technician disable startup programs that are slowing down boot."
+    },
+    {
+      "q": "A technician needs to permanently and securely wipe a hard drive containing sensitive data before disposal. What should they use?",
+      "options": [
+        "A quick format",
+        "A low-level format or certified data-destruction utility",
+        "Deleting all files and emptying the recycle bin",
+        "Defragmenting the drive"
+      ],
+      "correct": 1,
+      "a": "A low-level format or certified data-destruction utility — quick formats and simple deletion leave data recoverable, while a proper wipe overwrites it so it can't be reconstructed."
+    },
+    {
+      "q": "Which of the following BEST describes the purpose of an uninterruptible power supply (UPS)?",
+      "options": [
+        "It permanently increases a device's power capacity",
+        "It provides short-term battery backup and surge protection during a power outage",
+        "It filters network traffic",
+        "It cools server hardware"
+      ],
+      "correct": 1,
+      "a": "It provides short-term battery backup and surge protection during a power outage — giving equipment enough time to save work and shut down safely, or keep running briefly on battery."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the CompTIA A+ exam?",
+      "a": "Each of the two exams (Core 1 and Core 2) has up to 90 questions, with a 90-minute time limit per exam."
+    },
+    {
+      "q": "What score do I need to pass CompTIA A+?",
+      "a": "675 on Core 1 (220-1201) and 700 on Core 2 (220-1202), each on a 100-900 scale — you must pass both exams to earn the certification."
+    },
+    {
+      "q": "Do I need to take two exams for A+?",
+      "a": "Yes. Core 1 covers hardware, networking, and mobile devices, and Core 2 covers operating systems, security, software troubleshooting, and operational procedures — both must be passed."
+    },
+    {
+      "q": "Is Cambo affiliated with CompTIA?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with CompTIA."
+    },
+    {
+      "q": "How many times can I retake CompTIA A+?",
+      "a": "There's no limit on attempts, but you must wait 14 calendar days between attempts and pay the exam fee again each time."
+    },
+    {
+      "q": "How long does the A+ certification last?",
+      "a": "Three years from the date you're certified, after which it can be renewed through continuing education credits or by retaking the current exams."
+    }
+  ],
+  "internalLinks": [
+    "comptia-security-plus-practice-test"
+  ],
+  "officialSource": {
+    "label": "comptia.org — A+ Certification",
+    "url": "https://www.comptia.org/certifications/a"
+  }
+}

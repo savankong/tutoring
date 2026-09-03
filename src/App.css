@@ -1354,7 +1354,7 @@ td.admin-question-cell {
 /* Marketing sidebar nav — fixed left rail on desktop, reflows into a plain
    sticky top bar on mobile via flex-direction alone (no JS), so the same
    markup works whether hydrated (Landing, Pricing) or fully static
-   zero-JS pages (LpHeader on the 24 campaign pages). */
+   zero-JS pages (LpHeader on the campaign pages). */
 .mkt-sidebar {
   position: fixed;
   top: 0;

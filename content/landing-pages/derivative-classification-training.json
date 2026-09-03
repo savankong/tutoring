@@ -1,0 +1,107 @@
+{
+  "slug": "derivative-classification-training",
+  "h1": "Derivative Classification Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Derivative Classification (IF103.16) questions — applying source documents and classification guides correctly, without the guesswork.",
+  "metaTitle": "Derivative Classification Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Derivative Classification (IF103.16) quiz and practice questions with instant, explained answers. Source documents, classification guides, markings, and declassification.",
+  "whyItWorks": "Derivative classification questions usually turn on picking the right authorized source and correctly carrying forward its classification level, reason, and declassification instructions — a subtle, easy-to-flip distinction. Cambo reads the exact scenario on your screen and explains which source governs it and why, not just which letter is correct.",
+  "sampleQuestions": [
+    {
+      "q": "What is derivative classification?",
+      "options": [
+        "The original decision to classify information for the first time",
+        "Incorporating, paraphrasing, restating, or generating in new form information that is already classified, and marking the new material consistent with the classification of the source",
+        "The process of declassifying a document once its retention period expires",
+        "A one-time briefing given to new employees before they receive a clearance"
+      ],
+      "correct": 1,
+      "a": "Derivative classification is incorporating, paraphrasing, restating, or generating in new form information that's already classified, then marking that new material consistent with the classification markings that apply to the source information. Most people who work with classified information are derivative classifiers, not original classification authorities."
+    },
+    {
+      "q": "What are the two authorized sources a derivative classifier may rely on when classifying new material?",
+      "options": [
+        "A personal judgment call and a supervisor's verbal approval",
+        "A security classification guide (SCG) and an existing classified source document",
+        "A news article and a public government website",
+        "The classification level used on the derivative classifier's own previous documents"
+      ],
+      "correct": 1,
+      "a": "A security classification guide (SCG) and an existing classified source document are the two authorized sources — a derivative classifier applies the classification instructions from one of these rather than making an independent judgment."
+    },
+    {
+      "q": "You're writing a report that incorporates classified information from a source document marked SECRET with specific declassification instructions. What must your new document reflect?",
+      "options": [
+        "Nothing — the new document is automatically UNCLASSIFIED unless someone else reviews it",
+        "A classification level and declassification instructions consistent with the source document",
+        "Whatever classification level feels appropriate given the topic",
+        "The lowest classification level appearing anywhere in the source material"
+      ],
+      "correct": 1,
+      "a": "Your new document must carry forward a classification level and declassification instructions consistent with the source document — that's the core obligation of derivative classification."
+    },
+    {
+      "q": "Who is responsible for the accuracy of the classification markings on a derivatively classified document?",
+      "options": [
+        "Only the original classification authority who classified the source information",
+        "The derivative classifier who incorporates the source information into the new document",
+        "The security office, after the fact",
+        "No one — accuracy isn't verified once markings are applied"
+      ],
+      "correct": 1,
+      "a": "The derivative classifier is responsible for the accuracy of the markings they apply — relying on a source document or classification guide doesn't remove the individual's own responsibility to get it right."
+    },
+    {
+      "q": "You're compiling a report that combines several individually unclassified pieces of information from different sources. Could the resulting compilation be classified even though none of the individual pieces are?",
+      "options": [
+        "No — if every individual piece is unclassified, the compiled document must also be unclassified",
+        "Yes, if the compilation reveals an additional association or fact that is itself classified — this is known as classification by compilation",
+        "Only if the compiled document exceeds 50 pages",
+        "Only if a foreign government requests a copy of the compiled document"
+      ],
+      "correct": 1,
+      "a": "Yes — this is classification by compilation. Combining individually unclassified pieces of information can reveal something classified in aggregate, even when no single piece would be classified on its own."
+    },
+    {
+      "q": "When must a derivative classifier use the \"Multiple Sources\" declassification instruction on a new document?",
+      "options": [
+        "Whenever the document is longer than 10 pages",
+        "When the information is derived from more than one source with different declassification instructions and it's impractical to list them all on the document itself",
+        "Whenever the document contains any Controlled Unclassified Information",
+        "Never — \"Multiple Sources\" is not a valid declassification instruction"
+      ],
+      "correct": 1,
+      "a": "\"Multiple Sources\" is used when information is drawn from more than one source with differing declassification instructions and listing each one on the face of the document is impractical — the sources are instead cited in an attached source list or bibliography."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Derivative Classification training required?",
+      "a": "Annually, for anyone authorized to derivatively classify documents — separate from, but often paired with, the DoD's broader annual security refresher."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "Anyone who generates classified material by incorporating, paraphrasing, or restating information from a classification guide or classified source document — not every cleared employee, only those who actually derivatively classify."
+    },
+    {
+      "q": "What's a passing score on the exam?",
+      "a": "CDSE's Derivative Classification exam (IF103.16) requires 75% to pass, and it must be completed in a single session without bookmarking."
+    },
+    {
+      "q": "Is Cambo affiliated with CDSE or the DoD?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Center for Development of Security Excellence or the Department of Defense."
+    },
+    {
+      "q": "What's the difference between an original classification authority and a derivative classifier?",
+      "a": "An original classification authority (OCA) has the delegated authority to classify information for the first time. A derivative classifier applies or extends an existing classification decision that an OCA already made — most people who work with classified material fall into this second category."
+    },
+    {
+      "q": "What is classification by compilation?",
+      "a": "It's when combining several unclassified or lower-classified pieces of information reveals something additional that is itself classified — meaning the compiled document requires a higher classification than any individual piece within it."
+    }
+  ],
+  "internalLinks": ["marking-classified-information-training", "dod-annual-security-awareness-refresher-training", "cui-training"],
+  "officialSource": {
+    "label": "CDSE — Derivative Classification",
+    "url": "https://securityawareness.usalearning.gov/derivative/"
+  }
+}

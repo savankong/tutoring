@@ -1,0 +1,107 @@
+{
+  "slug": "marking-classified-information-training",
+  "h1": "Marking Classified Information Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Marking Classified Information questions — portion marks, banner lines, and classification authority blocks, without the guesswork.",
+  "metaTitle": "Marking Classified Information Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Marking Classified Information quiz and practice questions with instant, explained answers. Banner lines, portion markings, classification authority blocks, and dissemination controls.",
+  "whyItWorks": "Marking questions live in the details — telling a banner line apart from a portion mark, or knowing exactly which elements belong in a classification authority block — and it's easy to transpose one for the other under time pressure. Cambo reads the exact marking example on your screen and explains which element is which and why.",
+  "sampleQuestions": [
+    {
+      "q": "What is the purpose of a banner marking on a classified document?",
+      "options": [
+        "It identifies who is authorized to read the document",
+        "It identifies the highest overall classification level of the entire document, and appears at the top and bottom of every page",
+        "It records the date the document was created",
+        "It lists every person who has ever accessed the document"
+      ],
+      "correct": 1,
+      "a": "A banner marking identifies the highest overall classification level of the entire document and appears at the top and bottom of every page — it reflects the most sensitive information anywhere in the document, not just that page."
+    },
+    {
+      "q": "A paragraph in a classified document begins with \"(S)\" before the first word. What does this portion marking indicate?",
+      "options": [
+        "The entire document is classified SECRET",
+        "That specific paragraph is classified SECRET, independent of what the overall document's banner marking says",
+        "The paragraph was written by a Senior official",
+        "The paragraph has been approved for public release"
+      ],
+      "correct": 1,
+      "a": "It means that specific paragraph is classified SECRET. Portion markings apply to individual sections — a document's overall banner marking reflects its highest classified portion, but each portion is still marked according to its own classification level."
+    },
+    {
+      "q": "Which of the following must appear in a classification authority block?",
+      "options": [
+        "Classified By, Derived From, and Declassify On",
+        "Author's home address and personal phone number",
+        "A list of every prior draft of the document",
+        "The document's page count and file size"
+      ],
+      "correct": 0,
+      "a": "A classification authority block must include \"Classified By\" (who classified it), \"Derived From\" (the source or guide used), and \"Declassify On\" (when or under what event the classification ends)."
+    },
+    {
+      "q": "What does the dissemination control marking \"NOFORN\" mean?",
+      "options": [
+        "The document cannot be released to foreign nationals, regardless of its classification level",
+        "The document is not classified and can be shared freely",
+        "The document must be destroyed within 24 hours",
+        "The document has been formally declassified"
+      ],
+      "correct": 0,
+      "a": "\"NOFORN\" means \"Not Releasable to Foreign Nationals\" — it restricts dissemination to foreign nationals regardless of the document's classification level, and it's a control separate from the classification itself."
+    },
+    {
+      "q": "You're creating a working paper that contains classified information and expect to keep it for reference for less than 180 days. How should it be marked?",
+      "options": [
+        "It doesn't need to be marked since it's only a working paper",
+        "With the highest classification level it contains, the words \"WORKING PAPER,\" and the date it was created",
+        "Only with the author's name and no classification marking",
+        "As UNCLASSIFIED until a final version is produced"
+      ],
+      "correct": 1,
+      "a": "Mark it with its highest classification level, the words \"WORKING PAPER,\" and the date created — if it's retained beyond 180 days or transmitted outside the originating agency, it must then be marked as a finished document instead."
+    },
+    {
+      "q": "A short portion of a classified document contains no classified information at all. How should that portion be marked?",
+      "options": [
+        "It should be left without any portion marking",
+        "With \"(U)\" immediately preceding it, indicating that specific portion is unclassified",
+        "With the same marking as the highest classified portion in the document",
+        "With \"(TS)\" to be safe"
+      ],
+      "correct": 1,
+      "a": "An unclassified portion within an otherwise classified document is marked with \"(U)\" immediately preceding it — every portion needs its own marking, including the ones that aren't classified at all."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Marking Classified Information training required?",
+      "a": "Annually, typically alongside Derivative Classification training, for anyone who creates or handles classified documents."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "Personnel who create, mark, or derivatively classify documents — generally the same audience required to take Derivative Classification training."
+    },
+    {
+      "q": "What's the difference between this and Derivative Classification training?",
+      "a": "Derivative Classification training covers the decision of what should be classified and at what level; Marking Classified Information training covers how to correctly display that decision on the document itself — banner lines, portion marks, and the classification authority block."
+    },
+    {
+      "q": "Is Cambo affiliated with CDSE or the DoD?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Center for Development of Security Excellence or the Department of Defense."
+    },
+    {
+      "q": "What does NOFORN mean?",
+      "a": "\"Not Releasable to Foreign Nationals\" — a dissemination control marking that restricts release to foreign nationals regardless of the document's classification level."
+    },
+    {
+      "q": "Where is the official guidance for classification markings?",
+      "a": "DoDM 5200.01, Volume 2, and the Information Security Oversight Office's (ISOO) marking guidance are the primary references behind this training."
+    }
+  ],
+  "internalLinks": ["derivative-classification-training", "cui-training"],
+  "officialSource": {
+    "label": "securityawareness.usalearning.gov — CDSE training catalog",
+    "url": "https://securityawareness.usalearning.gov/"
+  }
+}

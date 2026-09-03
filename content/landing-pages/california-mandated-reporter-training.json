@@ -1,0 +1,109 @@
+{
+  "slug": "california-mandated-reporter-training",
+  "h1": "California Mandated Reporter Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to California mandated reporter training questions — who must report, reporting timelines, and legal protections, without the guesswork.",
+  "metaTitle": "California Mandated Reporter Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free California mandated reporter quiz and practice questions with instant, explained answers. Who must report, reporting timelines, and legal immunity under Penal Code 11165.7.",
+  "whyItWorks": "Mandated reporter questions usually describe a specific situation — a comment a child makes, an injury a teacher notices — and ask whether it triggers a legal duty to report, which depends on exact statutory language most people haven't memorized. Cambo reads the exact scenario and explains the reasoning under California's reporting law, not just yes or no.",
+  "sampleQuestions": [
+    {
+      "q": "Under California Penal Code 11165.7, what triggers a mandated reporter's legal duty to report?",
+      "options": [
+        "Having absolute proof that abuse occurred",
+        "Having knowledge of or observing a child whom the reporter, in their professional capacity, knows or reasonably suspects has been the victim of abuse or neglect",
+        "Only a written complaint submitted by the child's parent",
+        "A court order specifically directing the reporter to investigate"
+      ],
+      "correct": 1,
+      "a": "Reasonable suspicion, formed in the reporter's professional capacity, is enough — the law does not require proof. Waiting for certainty before reporting is a common and serious mistake."
+    },
+    {
+      "q": "What is the required timeline for a mandated reporter's initial report?",
+      "options": [
+        "By telephone, immediately or as soon as practicably possible",
+        "Within 30 days, in writing",
+        "Only at the end of the reporter's next scheduled shift",
+        "There is no specific timeline — it can wait for the next staff meeting"
+      ],
+      "correct": 0,
+      "a": "By telephone, immediately or as soon as practicably possible — the initial report should not be delayed to gather more information or consult with others first."
+    },
+    {
+      "q": "After making the initial phone report, how soon must a mandated reporter submit a written follow-up report?",
+      "options": [
+        "Within 36 hours of learning the information",
+        "Within 7 business days",
+        "Within 30 days",
+        "A written report is optional if the phone report was detailed enough"
+      ],
+      "correct": 0,
+      "a": "Within 36 hours of receiving the information — the written report supplements the immediate phone report and is required, not optional."
+    },
+    {
+      "q": "What legal protection does a mandated reporter have if they make a good-faith report that turns out to be unfounded?",
+      "options": [
+        "None — they can be sued if the report turns out to be wrong",
+        "Immunity from civil and criminal liability for the report, as long as it was made in good faith",
+        "Immunity only if the report is later proven true",
+        "Protection only if the reporter is a licensed healthcare provider"
+      ],
+      "correct": 1,
+      "a": "Immunity from civil and criminal liability, as long as the report was made in good faith — this protection exists precisely so reporters aren't discouraged from reporting reasonable suspicion out of fear of being wrong."
+    },
+    {
+      "q": "What is the potential penalty for a mandated reporter who knowingly fails to report suspected abuse?",
+      "options": [
+        "No penalty — reporting is discretionary once the immediate situation is addressed",
+        "A misdemeanor, punishable by up to 6 months in jail, a fine of up to $1,000, or both",
+        "Automatic loss of professional license, with no other penalty",
+        "A civil lawsuit only, never a criminal charge"
+      ],
+      "correct": 1,
+      "a": "It's a misdemeanor, punishable by up to 6 months in jail, a fine of up to $1,000, or both — and unlike making a report, failing to report carries no immunity."
+    },
+    {
+      "q": "Which of the following is one of the roughly 46 professional categories Penal Code 11165.7 designates as mandated reporters?",
+      "options": [
+        "Teachers and other school employees",
+        "Any private citizen with no professional relationship to the child",
+        "Retail cashiers",
+        "Bank tellers"
+      ],
+      "correct": 0,
+      "a": "Teachers and school employees — the mandated reporter list covers professionals in regular contact with children, including educators, healthcare providers, mental health practitioners, clergy in specific circumstances, and many others, but it isn't a universal duty on every adult."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Who is considered a mandated reporter in California?",
+      "a": "Roughly 46 categories of professionals defined in Penal Code 11165.7, including teachers and school personnel, healthcare providers, mental health practitioners, clergy members in certain circumstances, childcare workers, firefighters, and law enforcement — people whose jobs put them in regular contact with children."
+    },
+    {
+      "q": "Is California mandated reporter training required?",
+      "a": "Yes, for many mandated reporter categories — school employees, for example, are required to complete training, and licensing bodies for several other professions require it as well."
+    },
+    {
+      "q": "How often must mandated reporter training be renewed?",
+      "a": "It varies by profession and employer, but many California mandated reporters — including school personnel — are required to complete training annually."
+    },
+    {
+      "q": "Is Cambo affiliated with California's official mandated reporter training program?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the State of California or its official mandated reporter training program."
+    },
+    {
+      "q": "Can a mandated reporter remain anonymous?",
+      "a": "The reporter's identity is kept confidential and is not disclosed to the alleged abuser, though it is generally known to the agency receiving the report and can be disclosed to certain other agencies as required by law."
+    },
+    {
+      "q": "Does a mandated reporter need to investigate before reporting?",
+      "a": "No — mandated reporters are required to report based on reasonable suspicion, not to conduct their own investigation to confirm abuse occurred before contacting the appropriate agency."
+    }
+  ],
+  "internalLinks": [
+    "sexual-harassment-prevention-training"
+  ],
+  "officialSource": {
+    "label": "mandatedreporterca.com — California's official mandated reporter training",
+    "url": "https://www.mandatedreporterca.com/"
+  }
+}

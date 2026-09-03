@@ -25,7 +25,7 @@ async function debitCredit(db, user) {
 /** Auto-publishes a captured Q&A onto the matching landing page's public
  * question bank, so real usage grows real, indexable content over time
  * instead of only the hand-written starter set. Only runs for users who
- * signed up via one of the 24 campaign pages (signup_ref) and haven't
+ * signed up via one of the campaign pages (signup_ref) and haven't
  * opted out — best-effort, never blocks the capture response. */
 async function publishPublicQuestion(db, user, { questionText, answer, explanation, whyOthersWrong }) {
   if (user.public_captures_opt_out) return;

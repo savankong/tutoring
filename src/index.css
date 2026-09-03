@@ -62,6 +62,17 @@
 body {
   margin: 0;
   background: var(--bg-gradient) var(--bg);
+  /* index.html's viewport-fit=cover + apple-mobile-web-app-status-bar-style
+     "black-translucent" (needed for the standalone home-screen PWA — see
+     manifest.json's display: "standalone") together mean the page renders
+     edge-to-edge under the iOS status bar/notch instead of Safari reserving
+     that space itself. Without this, the very top of every page — the zine
+     header, the authenticated app shell's top-nav, the camera screen's
+     topbar — sits physically underneath the status bar and gets covered by
+     it. env(safe-area-inset-top) is 0 in a normal browser tab (nothing to
+     push away from), so this is a no-op there and only actually pads
+     anything in the standalone/notched case it's fixing. */
+  padding-top: env(safe-area-inset-top);
 }
 
 #root {

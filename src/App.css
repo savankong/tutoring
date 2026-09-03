@@ -955,7 +955,11 @@ a:focus-visible {
 /* Auth nav (Register / Login) */
 .auth-nav {
   position: sticky;
-  top: 0;
+  /* Not just 0 — see index.css's body padding-top comment. A sticky element
+     re-anchors to the literal viewport edge once scrolled, which would put
+     it right back under the status bar/notch in the standalone PWA even
+     with body's padding pushing its initial position down. */
+  top: env(safe-area-inset-top);
   z-index: 50;
   display: flex;
   align-items: center;

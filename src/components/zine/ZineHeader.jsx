@@ -39,9 +39,14 @@ function ZineHeader({ user, navItems = DEFAULT_NAV_ITEMS }) {
             Go to app
           </a>
         ) : (
-          <a href="/register" className="zn-nav-cta zn-nav-cta-mobile">
-            Sign up free
-          </a>
+          <>
+            <a href="/login" className="zn-nav-outline zn-nav-cta-mobile">
+              Log in
+            </a>
+            <a href="/register" className="zn-nav-cta zn-nav-cta-mobile">
+              Sign up free
+            </a>
+          </>
         )}
         <label htmlFor="zn-menu-toggle" className="zn-menu-btn" aria-label="Menu">
           <span />
@@ -73,9 +78,14 @@ function ZineHeader({ user, navItems = DEFAULT_NAV_ITEMS }) {
             </a>
           </>
         ) : (
-          <a href="/register" className="zn-nav-cta zn-nav-desktop-only">
-            Sign up free
-          </a>
+          <>
+            <a href="/login" className="zn-nav-outline zn-nav-desktop-only">
+              Log in
+            </a>
+            <a href="/register" className="zn-nav-cta zn-nav-desktop-only">
+              Sign up free
+            </a>
+          </>
         )}
       </nav>
     </header>

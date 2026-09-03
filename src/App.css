@@ -446,6 +446,26 @@
   height: 24vh;
 }
 
+/* Shown instead of the photo/video frame when the question was typed or
+   pasted rather than captured — no image to display, just the submitted
+   text itself, scrollable if long. No corner brackets either (those are a
+   camera-viewfinder cue, meaningless here). */
+.media-frame-text {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.14);
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.media-frame-text p {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
 .media-frame video,
 .media-frame img {
   position: absolute;
@@ -502,11 +522,17 @@
   margin-top: 14px;
 }
 
+/* Primary action (only "New Question" today — see Capture.jsx), so it
+   takes the same accent-filled treatment every other primary CTA in the
+   app uses (.camera-submit-button, .zn-btn), not the neutral --card-bg-2
+   tone — that tone is for informational content like .answer-display,
+   which used to be visually identical to this button (same --card-bg-2
+   family) with nothing to tell a tutor which one was actually clickable. */
 .pill-action-button {
-  background: var(--card-bg-2);
-  border: 3px solid var(--border);
+  background: var(--accent);
+  border: none;
   border-radius: 100px;
-  color: var(--text-h);
+  color: var(--accent-contrast);
   font-weight: 800;
   box-shadow: none;
 }
@@ -700,11 +726,22 @@ a:focus-visible {
   z-index: 40;
 }
 
-/* Camera scan screen — dark, full-bleed, independent of the light app theme */
+/* Camera scan screen — 2026-09-03: brought onto the same light ink/paper
+   palette as the rest of the app shell (was previously "dark, full-bleed,
+   independent of the light app theme," deliberately kept off these tokens —
+   see git history around 2026-08-30 for that original reasoning). Reversed
+   at Savan's explicit request once the black chrome sat next to the new
+   white text-entry box and looked inconsistent with the rest of the site.
+   The camera viewfinder itself (.camera-viewfinder below, and .media-frame
+   on the done screen) intentionally KEEPS its own dark gradient regardless
+   — that's a real camera/photo display surface, not page chrome, same
+   reasoning a scanner app's viewfinder stays dark inside an otherwise light
+   UI. Only the surrounding screen — background, topbar, tabs, instruction
+   text, control borders — moved onto --bg/--text/--card-bg/--border. */
 .App.camera-mode {
   padding: 0;
   max-width: none;
-  background: #0b0b0d;
+  background: var(--bg);
 }
 
 .camera-view {
@@ -716,7 +753,7 @@ a:focus-visible {
   margin: 0 auto;
   padding: calc(16px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom));
   box-sizing: border-box;
-  color: #f3f4f6;
+  color: var(--text);
 }
 
 .camera-topbar {
@@ -728,21 +765,55 @@ a:focus-visible {
 }
 
 .camera-topbar .logo-lockup {
-  color: #fff;
+  color: var(--text-h);
 }
 
 /* Deliberately low-emphasis — usage isn't something a tutor needs to
    think about mid-session, just have available if they glance at it. */
 .camera-usage-faded {
   font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-faint);
+}
+
+/* Camera / Upload / Text mode switcher. "Upload" never shows an active
+   state — selecting it just opens the native file picker (see
+   selectInputMode in Capture.jsx), it isn't a persistent mode like the
+   other two. */
+.camera-tabs {
+  flex: none;
+  display: flex;
+  margin-top: 20px;
+  padding: 3px;
+  border-radius: 12px;
+  background: var(--card-bg);
+}
+
+.camera-tab {
+  flex: 1;
+  min-height: 0;
+  padding: 9px 0;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--label);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Dark ink pill on the light track, not a plain white one — needs its own
+   visible weight now that the track itself is a light card tone instead of
+   translucent white-on-black. */
+.camera-tab-active {
+  background: var(--text-h);
+  color: var(--bg);
 }
 
 .camera-instruction {
   flex: none;
   text-align: center;
   font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--label);
   margin: 18px 0 14px;
 }
 
@@ -754,6 +825,46 @@ a:focus-visible {
   overflow: hidden;
   background: linear-gradient(160deg, #3a3c40, #0f1012 75%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Text-entry mode reuses .camera-viewfinder's footprint/rounding but reads
+   as an actual input surface, not another camera-style dark box — plain
+   white, standing out against the surrounding light chrome the same way it
+   stood out against the dark chrome before the 2026-09-03 palette change
+   above, text color pulled from the app's real --text-h token rather than a
+   new one-off value. Must come AFTER .camera-viewfinder in source order:
+   both are single-class selectors (equal specificity), so an earlier
+   position here would silently lose to .camera-viewfinder's own
+   background/border — confirmed this the hard way with a real screenshot,
+   not just by reasoning about it (see CLAUDE.md's "explicit rule always
+   beats an earlier one at equal specificity" gotcha, same root cause).
+   display: flex + the textarea as a flex:1 child, not height: 100% on the
+   textarea directly — percentage heights on a <textarea> are unreliable
+   cross-browser (confirmed broken on iOS Safari specifically: the box
+   collapsed to native/intrinsic height instead of filling this container,
+   caught with a real device screenshot), flex-filling a single child
+   sidesteps that class of bug entirely. */
+.camera-viewfinder-text {
+  display: flex;
+  background: #fff;
+  border-color: var(--border);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.question-textarea {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .camera-viewfinder video {
@@ -880,19 +991,33 @@ a:focus-visible {
   margin-top: 22px;
 }
 
-.camera-icon-button {
-  flex: none;
-  width: 46px;
-  height: 46px;
+/* Text mode's bottom bar is a wide CTA + Settings, not two circular icons
+   flanking a shutter — tighter gap than the camera bar's, matching how
+   much narrower the remaining icon (Settings) is next to it. */
+.camera-controls-text {
+  gap: 16px;
+}
+
+.camera-submit-button {
+  flex: 1;
+  max-width: 280px;
+  height: 56px;
   min-height: 0;
-  padding: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0 20px;
+  border-radius: 28px;
+  background: var(--accent);
+  border: none;
   box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--accent-contrast);
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.camera-submit-button:disabled {
+  opacity: 0.4;
 }
 
 .camera-shutter-button {
@@ -903,7 +1028,7 @@ a:focus-visible {
   padding: 0;
   border-radius: 50%;
   background: #fff;
-  border: 4px solid rgba(255, 255, 255, 0.25);
+  border: 3px solid var(--border);
   box-shadow: none;
   display: flex;
   align-items: center;
@@ -920,6 +1045,7 @@ a:focus-visible {
   height: 46px;
   border-radius: 50%;
   background: #fff;
+  border: 1.5px solid var(--border);
   box-shadow: none;
   display: flex;
   align-items: center;

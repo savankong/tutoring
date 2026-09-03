@@ -8,7 +8,7 @@ function LpFaq({ content }) {
         {content.faqs.map((faq, i) => (
           <details className="zn-faq-item" key={faq.q} open={i === 0}>
             <summary>
-              {faq.q}
+              <h3>{faq.q}</h3>
               <span className="zn-plus">+</span>
             </summary>
             <p>{faq.a}</p>

@@ -832,6 +832,19 @@
   letter-spacing: -0.015em;
 }
 
+/* Each question is a real <h3> (under this section's <h2>) purely for
+   heading-hierarchy signal — search/AI crawlers that parse visible content
+   structure (not just the FAQPage JSON-LD in LpHead.jsx/Landing.jsx) pick
+   up Q&A pairs more reliably from real headings than from styled <summary>
+   text alone. Reset to inherit <summary>'s own typography so this is a
+   semantic-only change, zero visual difference. */
+.zn-faq-item summary h3 {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
 .zn-plus {
   flex: none;
   font-size: 26px;

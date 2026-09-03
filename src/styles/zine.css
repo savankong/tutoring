@@ -1371,6 +1371,29 @@
   font-weight: 600;
 }
 
+/* "Try a different email" in the Login.jsx Google-only callout reuses this
+   class but is a real <button>, not an <a> — the sitewide link-color reset
+   (:where(.zn-root) a, see comment above it) doesn't apply to buttons, and
+   without an explicit reset it'd render with default browser button chrome. */
+button.zn-auth-forgot {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 14px auto 0;
+  cursor: pointer;
+  color: var(--zn-ink);
+  font-family: var(--zn-body);
+}
+
+button.zn-auth-forgot:hover {
+  color: var(--zn-accent);
+}
+
+.zn-auth-google-only .zn-google-btn {
+  margin-top: 4px;
+}
+
 .zn-auth-form button[type='submit'] {
   font-family: var(--zn-display);
   font-weight: 800;

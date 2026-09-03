@@ -18,6 +18,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [googleAccount, setGoogleAccount] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const requestedPlan = searchParams.get('plan');
@@ -41,6 +42,7 @@ function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setGoogleAccount(false);
     setSubmitting(true);
     try {
       const res = await fetch('/api/register', {
@@ -50,7 +52,17 @@ function Register() {
         body: JSON.stringify({ email, password, ref, invited_by: invitedBy }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Could not create account.');
+      if (!res.ok) {
+        // Surfaced as an inline Google button below, not just an error
+        // sentence — this email already has an account, and it's a Google
+        // one, so "log in instead" would just relocate the same dead end to
+        // login.js/forgot-password.js. One click here resolves it directly.
+        if (data.code === 'google_account') {
+          setGoogleAccount(true);
+          return;
+        }
+        throw new Error(data.error || 'Could not create account.');
+      }
       await refresh();
       if (typeof window.plausible === 'function') {
         window.plausible('Signup', { props: { method: 'email' } });
@@ -117,50 +129,71 @@ function Register() {
                   ? `${pass.price}, ${pass.captureCap} captures, ${pass.duration} — you'll finish checkout right after this.`
                   : 'No card required. Upgrade any time.'}
             </p>
-            <form onSubmit={onSubmit} className="zn-auth-form">
-              <label>
-                <span className="zn-auth-label">Email</span>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  autoComplete="email"
-                />
-              </label>
-              <label>
-                <span className="zn-auth-label">Password</span>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  minLength={8}
-                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
-                  title="At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special character."
-                  autoComplete="new-password"
-                />
-                <span className="zn-field-hint">
-                  At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special
-                  character.
-                </span>
-              </label>
-              {error && <p className="zn-error-text">{error}</p>}
-              <button type="submit" disabled={submitting}>
-                {submitting ? 'Creating account…' : plan || pass ? 'Continue to payment' : 'Create account'}
-              </button>
-            </form>
-            <p className="zn-auth-consent">
-              By creating an account, you agree to Cambo's <Link to="/terms">Terms of Service</Link> and{' '}
-              <Link to="/privacy">Privacy Policy</Link>.
-            </p>
-            <div className="zn-auth-divider">
-              <span>or continue with</span>
-            </div>
-            <a className="zn-google-btn" href={googleStartUrl}>
-              <GoogleIcon />
-              Continue with Google
-            </a>
+            {googleAccount ? (
+              // Replaces the form entirely — this email already has an
+              // account and it's a Google one, so there's nothing left for
+              // the signup form to do except get in the way of the one
+              // action that actually works.
+              <div className="zn-auth-google-only">
+                <p className="zn-auth-subhead">
+                  <strong>{email}</strong> already has a Cambo account via Google Sign-In. Continue below to log in.
+                </p>
+                <a className="zn-google-btn" href={googleStartUrl}>
+                  <GoogleIcon />
+                  Continue with Google
+                </a>
+                <button type="button" className="zn-auth-forgot" onClick={() => setGoogleAccount(false)}>
+                  Try a different email
+                </button>
+              </div>
+            ) : (
+              <>
+                <form onSubmit={onSubmit} className="zn-auth-form">
+                  <label>
+                    <span className="zn-auth-label">Email</span>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      autoComplete="email"
+                    />
+                  </label>
+                  <label>
+                    <span className="zn-auth-label">Password</span>
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength={8}
+                      pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                      title="At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special character."
+                      autoComplete="new-password"
+                    />
+                    <span className="zn-field-hint">
+                      At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a special
+                      character.
+                    </span>
+                  </label>
+                  {error && <p className="zn-error-text">{error}</p>}
+                  <button type="submit" disabled={submitting}>
+                    {submitting ? 'Creating account…' : plan || pass ? 'Continue to payment' : 'Create account'}
+                  </button>
+                </form>
+                <p className="zn-auth-consent">
+                  By creating an account, you agree to Cambo's <Link to="/terms">Terms of Service</Link> and{' '}
+                  <Link to="/privacy">Privacy Policy</Link>.
+                </p>
+                <div className="zn-auth-divider">
+                  <span>or continue with</span>
+                </div>
+                <a className="zn-google-btn" href={googleStartUrl}>
+                  <GoogleIcon />
+                  Continue with Google
+                </a>
+              </>
+            )}
           </div>
           <p className="zn-auth-switch">
             Already have an account? <Link to="/login">Log in</Link>

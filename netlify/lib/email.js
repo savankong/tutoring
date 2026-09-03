@@ -46,6 +46,27 @@ export async function sendPasswordResetEmail(to, resetUrl) {
   });
 }
 
+// Sent from forgot-password.js instead of silently no-op'ing when the
+// account on file has no password_hash (signed up via Google). The HTTP
+// response to the browser stays identical either way (see forgot-password.js)
+// so this doesn't create an email-enumeration side channel — but the account
+// owner, who's the only person who receives it, gets an actual path forward
+// instead of a reset email that can never arrive.
+export async function sendGoogleAccountResetAttemptEmail(to) {
+  await sendEmail({
+    to,
+    subject: 'Your Cambo account uses Google Sign-In',
+    html: `
+      <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto;">
+        <p>Someone (probably you) just requested a password reset for this email on Cambo.</p>
+        <p>This account was created with Google Sign-In, so it doesn't have a password to reset — there's nothing to change here. Just continue with Google instead:</p>
+        <p>${ctaButton('https://camboapp.com/api/google-oauth-start', 'Continue with Google')}</p>
+        <p>If you didn't request this, you can safely ignore this email.</p>
+      </div>
+    `,
+  });
+}
+
 // Replaces Netlify Forms (build-time HTML crawler, no DO equivalent) — the
 // "question" (homepage #ask) and "help" (Account page) forms both submit
 // here via netlify/functions/submit-form.js and land in the same inbox

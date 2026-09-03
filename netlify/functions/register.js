@@ -39,9 +39,16 @@ export default async (request) => {
 
   const db = getDatabase();
 
-  const [existing] = await db.sql`SELECT id FROM users WHERE email = ${email}`;
+  const [existing] = await db.sql`SELECT id, password_hash FROM users WHERE email = ${email}`;
   if (existing) {
-    return jsonResponse(409, { error: 'An account with that email already exists.' });
+    // Already-revealed information either way (this endpoint always confirms
+    // "email taken" to let people register) — but distinguishing Google-only
+    // accounts lets Register.jsx point them straight at the Google button
+    // instead of a dead-end "log in" suggestion that just relocates the same
+    // problem to login.js/forgot-password.js.
+    return existing.password_hash
+      ? jsonResponse(409, { error: 'An account with that email already exists.' })
+      : jsonResponse(409, { error: 'This email already has a Cambo account via Google Sign-In.', code: 'google_account' });
   }
 
   // Reward isn't granted here — only once this account's email is verified

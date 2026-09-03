@@ -1,6 +1,6 @@
 import { getDatabase } from '../lib/db.js';
 import { generateToken, hashToken } from '../lib/auth.js';
-import { sendPasswordResetEmail } from '../lib/email.js';
+import { sendGoogleAccountResetAttemptEmail, sendPasswordResetEmail } from '../lib/email.js';
 
 const RESET_TOKEN_TTL_MINUTES = 60;
 
@@ -35,8 +35,24 @@ export default async (request) => {
   const db = getDatabase();
   const [user] = await db.sql`SELECT id, email, password_hash FROM users WHERE email = ${email}`;
 
-  // Google-only accounts have no password_hash and nothing to reset.
-  if (!user || !user.password_hash) return genericResponse();
+  if (!user) return genericResponse();
+
+  // Google-only accounts have no password_hash and nothing to reset — used
+  // to silently no-op here, which was a dead end: the browser gets the same
+  // "check your email" response as a real reset, but no email ever arrives,
+  // so the user has no way to know a password reset was never possible for
+  // this account. Send them an actual path forward instead. The HTTP
+  // response back to the browser is unchanged either way (genericResponse()
+  // below), so this doesn't open an email-enumeration side channel — only
+  // the account owner, who receives the email, learns anything.
+  if (!user.password_hash) {
+    try {
+      await sendGoogleAccountResetAttemptEmail(user.email);
+    } catch (err) {
+      console.error('Failed to send Google-account reset-attempt email:', err);
+    }
+    return genericResponse();
+  }
 
   const token = generateToken();
   const tokenHash = await hashToken(token);

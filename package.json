@@ -10,7 +10,8 @@
     "migrate": "node scripts/migrate-db.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
-    "social:generate": "node scripts/generate-social-content.mjs"
+    "social:generate": "node scripts/generate-social-content.mjs",
+    "catalog:check": "node scripts/check-course-catalog-freshness.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.3",

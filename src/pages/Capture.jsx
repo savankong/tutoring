@@ -52,22 +52,6 @@ function CameraIcon() {
   );
 }
 
-function GalleryIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="#fff" strokeWidth="1.6" />
-      <circle cx="8.5" cy="9.5" r="1.6" stroke="#fff" strokeWidth="1.4" />
-      <path
-        d="M4 16.5l4.5-4.5a1.6 1.6 0 0 1 2.2 0l2.3 2.3M13 15l2.3-2.3a1.6 1.6 0 0 1 2.2 0L20.5 15.7"
-        stroke="#fff"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function SettingsIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -97,6 +81,8 @@ function Capture() {
   const dragCornerRef = useRef(null); // 'tl' | 'tr' | 'bl' | 'br' | null
 
   const [image, setImage] = useState(null);
+  const [submittedText, setSubmittedText] = useState('');
+  const [textInput, setTextInput] = useState('');
   const [ocrPending, setOcrPending] = useState(false);
   const [ocrError, setOcrError] = useState('');
   const [upgradeReason, setUpgradeReason] = useState('');
@@ -108,6 +94,16 @@ function Capture() {
   const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [status, setStatus] = useState('idle'); // idle, live, done
   const [cropRect, setCropRect] = useState(DEFAULT_CROP_RECT);
+  // Camera vs. typed/pasted text as the way to get a question in — 'upload'
+  // isn't a persistent mode, just an instant file-picker trigger (see
+  // selectInputMode), so it's never a value here. Defaults to 'text' on a
+  // non-touch device: rear-camera capture is effectively unusable on desktop
+  // (startCamera requests facingMode: 'environment', which desktops don't
+  // have), and paste-a-screenshot-or-type is the realistic desktop behavior.
+  const [inputMode, setInputMode] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return 'camera';
+    return window.matchMedia('(pointer: coarse)').matches ? 'camera' : 'text';
+  });
 
   useEffect(() => {
     return () => {
@@ -170,10 +166,13 @@ function Capture() {
     }
   };
 
-  const runAnalysis = (dataUrl, mediaType) => {
+  // Either { dataUrl, mediaType } for a photo/upload, or { text } for a
+  // typed/pasted question — exactly one of the two, never both.
+  const runAnalysis = ({ dataUrl, mediaType, text }) => {
     const requestId = ++requestIdRef.current;
 
-    setImage(dataUrl);
+    setImage(dataUrl || null);
+    setSubmittedText(text || '');
     setAnswer('');
     setExplanation('');
     setWhyOthersWrong('');
@@ -187,13 +186,13 @@ function Capture() {
     // Teacher mode: don't block on the analysis call — the answer box is
     // usable immediately, and Claude's answer fills in whenever it's ready.
     setOcrPending(true);
-    const base64 = dataUrl.split(',')[1];
+    const body = dataUrl ? { image: dataUrl.split(',')[1], mediaType } : { text };
 
     fetch('/api/analyze-question', {
       method: 'POST',
       credentials: 'include',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ image: base64, mediaType }),
+      body: JSON.stringify(body),
     })
       .then(async (res) => {
         const data = await res.json();
@@ -285,7 +284,7 @@ function Capture() {
     streamRef.current = null;
     videoRef.current.srcObject = null;
 
-    runAnalysis(dataUrl, 'image/jpeg');
+    runAnalysis({ dataUrl, mediaType: 'image/jpeg' });
   };
 
   const handleFileUpload = (e) => {
@@ -298,8 +297,33 @@ function Capture() {
     if (videoRef.current) videoRef.current.srcObject = null;
 
     const reader = new FileReader();
-    reader.onload = () => runAnalysis(reader.result, file.type || 'image/jpeg');
+    reader.onload = () => runAnalysis({ dataUrl: reader.result, mediaType: file.type || 'image/jpeg' });
     reader.readAsDataURL(file);
+  };
+
+  const submitTextQuestion = () => {
+    const text = textInput.trim();
+    if (!text) return;
+    runAnalysis({ text });
+  };
+
+  // 'upload' isn't a persistent mode — it just triggers the same native file
+  // picker the old Gallery icon did, then leaves inputMode wherever it was.
+  // Switching away from 'camera' releases the stream if one is live, same
+  // cleanup captureAndAnalyze already does after a real capture.
+  const selectInputMode = (mode) => {
+    if (mode === 'upload') {
+      fileInputRef.current?.click();
+      return;
+    }
+    if (mode === inputMode) return;
+    if (inputMode === 'camera') {
+      streamRef.current?.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+      if (videoRef.current) videoRef.current.srcObject = null;
+      setStatus('idle');
+    }
+    setInputMode(mode);
   };
 
   const nextQuestion = () => {
@@ -308,6 +332,8 @@ function Capture() {
     // tries to attach the stream — otherwise videoRef.current is still null.
     setStatus('idle');
     setImage(null);
+    setSubmittedText('');
+    setTextInput('');
     setOcrPending(false);
     setOcrError('');
     setUpgradeReason('');
@@ -318,7 +344,9 @@ function Capture() {
     setActiveTab('answer');
     answerEditedRef.current = false;
     setCropRect(DEFAULT_CROP_RECT);
-    startCamera(); // stream was released after the last capture — reacquire it
+    // Only camera mode needs the stream reacquired (released after the last
+    // capture) — text mode just needs the empty textarea reset above.
+    if (inputMode === 'camera') startCamera();
   };
 
   return (
@@ -335,60 +363,97 @@ function Capture() {
             )}
           </div>
 
-          <p className="camera-instruction">
-            {status === 'live'
-              ? 'Frame the question. Drag a corner to resize.'
-              : 'Start your camera to scan a question.'}
-          </p>
-
-          <div className="camera-viewfinder" ref={viewfinderRef}>
-            <video ref={videoRef} playsInline muted />
-            <div
-              className="crop-rect"
-              style={{
-                left: `${cropRect.x}%`,
-                top: `${cropRect.y}%`,
-                width: `${cropRect.w}%`,
-                height: `${cropRect.h}%`,
-              }}
+          <div className="camera-tabs">
+            <button
+              type="button"
+              className={`camera-tab${inputMode === 'camera' ? ' camera-tab-active' : ''}`}
+              onClick={() => selectInputMode('camera')}
             >
-              <div className="crop-grid" aria-hidden="true">
-                <span className="crop-grid-line crop-grid-v" style={{ left: '33.333%' }} />
-                <span className="crop-grid-line crop-grid-v" style={{ left: '66.666%' }} />
-                <span className="crop-grid-line crop-grid-h" style={{ top: '33.333%' }} />
-                <span className="crop-grid-line crop-grid-h" style={{ top: '66.666%' }} />
-              </div>
-              {['tl', 'tr', 'bl', 'br'].map((corner) => (
-                <div
-                  key={corner}
-                  className={`crop-handle crop-handle-${corner}`}
-                  onPointerDown={startCornerDrag(corner)}
-                  onPointerMove={onCornerPointerMove(corner)}
-                  onPointerUp={endCornerDrag}
-                  onPointerCancel={endCornerDrag}
-                />
-              ))}
-            </div>
+              Camera
+            </button>
+            <button type="button" className="camera-tab" onClick={() => selectInputMode('upload')}>
+              Upload
+            </button>
+            <button
+              type="button"
+              className={`camera-tab${inputMode === 'text' ? ' camera-tab-active' : ''}`}
+              onClick={() => selectInputMode('text')}
+            >
+              Text
+            </button>
           </div>
 
-          <div className="camera-controls">
-            <button
-              type="button"
-              className="camera-icon-button"
-              onClick={() => fileInputRef.current?.click()}
-              aria-label="Upload a photo"
-            >
-              <GalleryIcon />
-            </button>
-            <button
-              type="button"
-              ref={primaryButtonRef}
-              className="camera-shutter-button"
-              onClick={status === 'idle' ? startCamera : captureAndAnalyze}
-              aria-label={status === 'idle' ? 'Start camera' : 'Capture'}
-            >
-              <CameraIcon />
-            </button>
+          <p className="camera-instruction">
+            {inputMode === 'text'
+              ? 'Type your question, or paste a screenshot.'
+              : status === 'live'
+                ? 'Frame the question. Drag a corner to resize.'
+                : 'Start your camera to scan a question.'}
+          </p>
+
+          {inputMode === 'text' ? (
+            <div className="camera-viewfinder camera-viewfinder-text">
+              <textarea
+                className="question-textarea"
+                value={textInput}
+                onChange={(e) => setTextInput(e.target.value)}
+                placeholder="Paste your question here, or type it out…"
+              />
+            </div>
+          ) : (
+            <div className="camera-viewfinder" ref={viewfinderRef}>
+              <video ref={videoRef} playsInline muted />
+              <div
+                className="crop-rect"
+                style={{
+                  left: `${cropRect.x}%`,
+                  top: `${cropRect.y}%`,
+                  width: `${cropRect.w}%`,
+                  height: `${cropRect.h}%`,
+                }}
+              >
+                <div className="crop-grid" aria-hidden="true">
+                  <span className="crop-grid-line crop-grid-v" style={{ left: '33.333%' }} />
+                  <span className="crop-grid-line crop-grid-v" style={{ left: '66.666%' }} />
+                  <span className="crop-grid-line crop-grid-h" style={{ top: '33.333%' }} />
+                  <span className="crop-grid-line crop-grid-h" style={{ top: '66.666%' }} />
+                </div>
+                {['tl', 'tr', 'bl', 'br'].map((corner) => (
+                  <div
+                    key={corner}
+                    className={`crop-handle crop-handle-${corner}`}
+                    onPointerDown={startCornerDrag(corner)}
+                    onPointerMove={onCornerPointerMove(corner)}
+                    onPointerUp={endCornerDrag}
+                    onPointerCancel={endCornerDrag}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className={`camera-controls${inputMode === 'text' ? ' camera-controls-text' : ''}`}>
+            {inputMode === 'text' ? (
+              <button
+                type="button"
+                ref={primaryButtonRef}
+                className="camera-submit-button"
+                onClick={submitTextQuestion}
+                disabled={!textInput.trim()}
+              >
+                Get the answer
+              </button>
+            ) : (
+              <button
+                type="button"
+                ref={primaryButtonRef}
+                className="camera-shutter-button"
+                onClick={status === 'idle' ? startCamera : captureAndAnalyze}
+                aria-label={status === 'idle' ? 'Start camera' : 'Capture'}
+              >
+                <CameraIcon />
+              </button>
+            )}
             <Link to="/account" className="camera-settings-button" aria-label="Account">
               <SettingsIcon />
             </Link>
@@ -416,13 +481,19 @@ function Capture() {
             <Logo size={26} wordmark />
           </h1>
 
-          <div className="media-frame media-frame-compact">
-            <img src={image} alt="Captured question" />
-            <div className="media-frame-corner media-frame-corner-tl" />
-            <div className="media-frame-corner media-frame-corner-tr" />
-            <div className="media-frame-corner media-frame-corner-bl" />
-            <div className="media-frame-corner media-frame-corner-br" />
-          </div>
+          {image ? (
+            <div className="media-frame media-frame-compact">
+              <img src={image} alt="Captured question" />
+              <div className="media-frame-corner media-frame-corner-tl" />
+              <div className="media-frame-corner media-frame-corner-tr" />
+              <div className="media-frame-corner media-frame-corner-bl" />
+              <div className="media-frame-corner media-frame-corner-br" />
+            </div>
+          ) : (
+            <div className="media-frame media-frame-compact media-frame-text">
+              <p>{submittedText}</p>
+            </div>
+          )}
 
           <div>
             <div className="capture-tabs">

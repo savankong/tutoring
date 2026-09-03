@@ -446,6 +446,26 @@
   height: 24vh;
 }
 
+/* Shown instead of the photo/video frame when the question was typed or
+   pasted rather than captured — no image to display, just the submitted
+   text itself, scrollable if long. No corner brackets either (those are a
+   camera-viewfinder cue, meaningless here). */
+.media-frame-text {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.14);
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.media-frame-text p {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
 .media-frame video,
 .media-frame img {
   position: absolute;
@@ -738,6 +758,37 @@ a:focus-visible {
   color: rgba(255, 255, 255, 0.35);
 }
 
+/* Camera / Upload / Text mode switcher. "Upload" never shows an active
+   state — selecting it just opens the native file picker (see
+   selectInputMode in Capture.jsx), it isn't a persistent mode like the
+   other two. */
+.camera-tabs {
+  flex: none;
+  display: flex;
+  margin-top: 20px;
+  padding: 3px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.camera-tab {
+  flex: 1;
+  min-height: 0;
+  padding: 9px 0;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.camera-tab-active {
+  background: #fff;
+  color: #0b0b0d;
+}
+
 .camera-instruction {
   flex: none;
   text-align: center;
@@ -754,6 +805,37 @@ a:focus-visible {
   overflow: hidden;
   background: linear-gradient(160deg, #3a3c40, #0f1012 75%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Text-entry mode reuses .camera-viewfinder's footprint/rounding but reads
+   as an actual input surface, not another camera-style dark box — plain
+   white against the surrounding dark chrome (per the approved design), text
+   color still pulled from the app's real --text-h token rather than a new
+   one-off value. Must come AFTER .camera-viewfinder in source order: both
+   are single-class selectors (equal specificity), so an earlier position
+   here would silently lose to .camera-viewfinder's own background/border —
+   confirmed this the hard way with a real screenshot, not just by reasoning
+   about it (see CLAUDE.md's "explicit rule always beats an earlier one at
+   equal specificity" gotcha, same root cause). */
+.camera-viewfinder-text {
+  background: #fff;
+  border-color: var(--border);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.question-textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .camera-viewfinder video {
@@ -880,19 +962,33 @@ a:focus-visible {
   margin-top: 22px;
 }
 
-.camera-icon-button {
-  flex: none;
-  width: 46px;
-  height: 46px;
+/* Text mode's bottom bar is a wide CTA + Settings, not two circular icons
+   flanking a shutter — tighter gap than the camera bar's, matching how
+   much narrower the remaining icon (Settings) is next to it. */
+.camera-controls-text {
+  gap: 16px;
+}
+
+.camera-submit-button {
+  flex: 1;
+  max-width: 280px;
+  height: 56px;
   min-height: 0;
-  padding: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0 20px;
+  border-radius: 28px;
+  background: var(--accent);
+  border: none;
   box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #0b0b0d;
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.camera-submit-button:disabled {
+  opacity: 0.4;
 }
 
 .camera-shutter-button {

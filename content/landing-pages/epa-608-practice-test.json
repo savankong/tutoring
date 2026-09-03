@@ -1,0 +1,107 @@
+{
+  "slug": "epa-608-practice-test",
+  "h1": "EPA 608 Practice Test & Quiz",
+  "subhead": "Take a free practice quiz or point your phone at any EPA 608 question for an instant, explained answer — refrigerant recovery and Clean Air Act rules, without the guesswork.",
+  "metaTitle": "EPA 608 Practice Test & Quiz | Cambo",
+  "metaDescription": "Free EPA 608 quiz and practice questions with instant, explained answers. Refrigerant recovery rules for Core, Type I, Type II, Type III, and Universal certification.",
+  "whyItWorks": "EPA 608 questions hinge on specific numeric thresholds and procedural rules — recovery pressure levels, leak-rate limits, refrigerant-handling requirements — that are easy to mix up between Type I, II, and III systems. Cambo reads the exact question and explains which rule or number applies, not just which letter to bubble in.",
+  "sampleQuestions": [
+    {
+      "q": "Under Section 608 of the Clean Air Act, it is illegal to knowingly do which of the following?",
+      "options": [
+        "Recover refrigerant from a system before servicing",
+        "Vent refrigerant to the atmosphere while repairing equipment",
+        "Recycle refrigerant on-site using approved equipment",
+        "Reclaim refrigerant to industry purity standards"
+      ],
+      "correct": 1,
+      "a": "Venting refrigerant to the atmosphere — Section 608 prohibits knowingly releasing refrigerant into the air during the maintenance, service, repair, or disposal of equipment, with narrow exceptions."
+    },
+    {
+      "q": "What is the difference between \"recovery\" and \"recycling\" of refrigerant?",
+      "options": [
+        "They are the same process",
+        "Recovery removes refrigerant from a system; recycling reduces contaminants but doesn't meet reclaiming's purity standard",
+        "Recovery only applies to Type I appliances",
+        "Recycling always requires shipping refrigerant off-site"
+      ],
+      "correct": 1,
+      "a": "Recovery removes refrigerant from a system and stores it, while recycling reduces contamination such as moisture and acid without fully meeting the strict purity standard that reclaiming achieves."
+    },
+    {
+      "q": "Which of the following is classified as a \"small appliance\" under Section 608?",
+      "options": [
+        "A residential central air conditioning system",
+        "A household refrigerator",
+        "A large commercial chiller",
+        "A supermarket rack refrigeration system"
+      ],
+      "correct": 1,
+      "a": "A household refrigerator — small appliances are factory-sealed systems holding 5 pounds or less of refrigerant, like refrigerators, window units, and water coolers."
+    },
+    {
+      "q": "Before a small appliance, such as a household refrigerator, is sent for final disposal, EPA regulations require which of the following?",
+      "options": [
+        "The refrigerant must be recovered before final disposal",
+        "The refrigerant may be vented since the unit is being scrapped",
+        "Recovery is only required for appliances built after 1993",
+        "Recovery is optional if the appliance is non-functional"
+      ],
+      "correct": 0,
+      "a": "The refrigerant must be recovered before final disposal — Section 608 requires recovering refrigerant from appliances, small appliances included, before they're scrapped or disposed of."
+    },
+    {
+      "q": "Low-pressure appliances, such as centrifugal chillers, typically use which type of refrigerant?",
+      "options": [
+        "High-pressure refrigerants like R-410A",
+        "Low-pressure refrigerants like R-123 or R-11",
+        "Only natural refrigerants like ammonia",
+        "No refrigerant — they use only water"
+      ],
+      "correct": 1,
+      "a": "Low-pressure refrigerants like R-123 or R-11 — low-pressure (Type III) chillers operate below atmospheric pressure for much of their cycle and use refrigerants formulated for that application."
+    },
+    {
+      "q": "A technician holds a Universal EPA 608 certification. What does this allow them to service?",
+      "options": [
+        "Only small appliances",
+        "Only high-pressure systems",
+        "Small, high-pressure, and low-pressure appliances (all three types)",
+        "Only systems using natural refrigerants"
+      ],
+      "correct": 2,
+      "a": "All three appliance types — small appliances (Type I), high-pressure systems (Type II), and low-pressure systems (Type III) — since Universal certification means passing the Core exam plus all three type-specific sections."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many questions are on the EPA 608 exam?",
+      "a": "The Core section and each Type section (I, II, III) have 25 questions each; Universal certification requires passing Core plus all three Type sections, 100 questions in total."
+    },
+    {
+      "q": "What score do I need to pass EPA 608?",
+      "a": "70% per section (at least 18 of 25 correct) in a proctored setting; the Core and Type I sections can also be taken open-book and non-proctored, which requires 84% to pass."
+    },
+    {
+      "q": "What are the EPA 608 certification types?",
+      "a": "Type I (small appliances), Type II (high-pressure appliances), Type III (low-pressure appliances), and Universal, which covers all three and requires passing Core plus all three Type sections."
+    },
+    {
+      "q": "Is Cambo affiliated with the EPA?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with the U.S. Environmental Protection Agency (EPA)."
+    },
+    {
+      "q": "Are there any prerequisites to take the EPA 608 exam?",
+      "a": "No formal education or work experience requirements — anyone can register and test through an EPA-approved certifying organization with a valid government-issued photo ID."
+    },
+    {
+      "q": "Does EPA 608 certification expire?",
+      "a": "No — once earned, Section 608 Technician Certification doesn't expire and has no renewal requirement or fee, regardless of which type you hold."
+    }
+  ],
+  "internalLinks": [],
+  "officialSource": {
+    "label": "epa.gov — Section 608 Technician Certification",
+    "url": "https://www.epa.gov/section608"
+  }
+}

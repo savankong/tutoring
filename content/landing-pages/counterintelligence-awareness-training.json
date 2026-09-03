@@ -1,0 +1,107 @@
+{
+  "slug": "counterintelligence-awareness-training",
+  "h1": "Counterintelligence Awareness Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Counterintelligence Awareness and Reporting questions — recognizing foreign intelligence threats and reportable indicators, without the guesswork.",
+  "metaTitle": "Counterintelligence Awareness Training Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Counterintelligence Awareness and Reporting quiz and practice questions with instant, explained answers. Foreign Intelligence Entities, Potential Espionage Indicators, and reporting requirements.",
+  "whyItWorks": "Counterintelligence questions ask you to tell a genuinely reportable indicator apart from an ordinary oddity — the collection methods covered are deliberately designed to look unremarkable. Cambo reads the exact scenario on your screen and explains which specific indicator or reporting requirement applies, not just which option to pick.",
+  "sampleQuestions": [
+    {
+      "q": "What is a Foreign Intelligence Entity (FIE)?",
+      "options": [
+        "Any foreign company that does business with the U.S. government",
+        "A known or suspected foreign organization, person, or group — government or non-government — that conducts intelligence activities to acquire U.S. information or affect U.S. policy",
+        "A foreign national who has been granted a U.S. security clearance",
+        "An international nonprofit organization focused on humanitarian aid"
+      ],
+      "correct": 1,
+      "a": "An FIE is a known or suspected foreign organization, person, or group — government-affiliated or not — that conducts intelligence activities aimed at acquiring U.S. information, technology, or influencing U.S. policy."
+    },
+    {
+      "q": "Which of the following is an example of a Potential Espionage Indicator (PEI)?",
+      "options": [
+        "Taking approved leave without giving a detailed reason",
+        "Sudden, unexplained affluence, or repeated unreported contact with foreign nationals",
+        "Requesting a routine transfer to another duty station",
+        "Declining a voluntary overtime assignment"
+      ],
+      "correct": 1,
+      "a": "Sudden, unexplained affluence and repeated unreported foreign contact are both recognized PEIs — financial and behavioral anomalies that, especially combined with access to sensitive information, warrant a report even without proof of wrongdoing."
+    },
+    {
+      "q": "You're contacted by someone you don't know who asks you to assist informally on a DoD-related project you're not actually qualified for, or offers you a position well above your current experience level. What does this scenario illustrate?",
+      "options": [
+        "A normal networking opportunity that doesn't need to be reported",
+        "A possible FIE recruitment or elicitation attempt — being offered a role or asked to assist beyond your qualifications is a recognized solicitation indicator",
+        "A routine HR process that should be handled through your personnel office",
+        "An opportunity that should only be reported if money changes hands"
+      ],
+      "correct": 1,
+      "a": "Being offered a position you're overqualified for, or asked to assist on a project outside your normal role, is a recognized FIE solicitation indicator — the mismatch between the offer and your actual qualifications is the red flag, not any explicit request for classified information."
+    },
+    {
+      "q": "You receive an unsolicited email from an unfamiliar sender asking detailed questions about your work and containing a link to \"verify your credentials.\" What should you do?",
+      "options": [
+        "Click the link since it claims to be for a routine verification",
+        "Reply and ask the sender to identify themselves before deciding whether to click",
+        "Report it to your security or counterintelligence office and avoid clicking the link — this pattern combines elicitation with a cyber-enabled collection attempt",
+        "Delete the email and take no further action"
+      ],
+      "correct": 2,
+      "a": "Report it and don't click the link. Unsolicited detailed questions about your work paired with a suspicious link is a common pattern combining elicitation with a cyber-enabled collection attempt, and deleting it without reporting means analysts never see the pattern."
+    },
+    {
+      "q": "What legal requirement obligates DoD personnel to report contacts, activities, indicators, and behaviors associated with foreign intelligence threats?",
+      "options": [
+        "DoD Directive 5240.06",
+        "The Freedom of Information Act",
+        "The Uniform Code of Military Justice alone, with no separate directive",
+        "There is no formal requirement — reporting is only encouraged, not required"
+      ],
+      "correct": 0,
+      "a": "DoD Directive 5240.06 establishes the requirement for DoD personnel to report contacts, activities, indicators, and behaviors associated with foreign intelligence entities — it's the regulatory basis behind counterintelligence awareness and reporting training."
+    },
+    {
+      "q": "Which of the following is LEAST likely, on its own, to be treated as a reportable counterintelligence indicator?",
+      "options": [
+        "An employee reading publicly available news coverage related to their agency's general mission",
+        "An employee who repeatedly attempts to access information outside their need-to-know",
+        "An employee with sudden, unexplained financial affluence and no clear source",
+        "An employee who receives a foreign contact requesting sensitive details about their assignment"
+      ],
+      "correct": 0,
+      "a": "Reading publicly available news is normal and not, by itself, a reportable indicator — the other three all involve unusual access, unexplained financial change, or a foreign contact seeking sensitive information, which are the kinds of patterns CI training asks you to actually report."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Counterintelligence Awareness training required?",
+      "a": "Annually, for DoD personnel with access to classified information or sensitive systems, under the reporting requirements of DoDD 5240.06."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "All DoD military, civilian, and contractor personnel with access to classified information or sensitive systems."
+    },
+    {
+      "q": "What's the difference between Counterintelligence Awareness training and TARP?",
+      "a": "They cover very similar ground. TARP (Threat Awareness and Reporting Program) is the Army's specific implementation, governed by its own regulation (AR 381-12); Counterintelligence Awareness and Reporting is the broader DoD-wide baseline course covering the same core concepts."
+    },
+    {
+      "q": "Is Cambo affiliated with CDSE or the DoD?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Center for Development of Security Excellence or the Department of Defense."
+    },
+    {
+      "q": "What are common categories of Potential Espionage Indicators?",
+      "a": "Financial indicators (unexplained wealth or sudden financial distress), behavioral indicators (unreported foreign contacts or travel), and technical indicators (attempts to access information outside one's need-to-know)."
+    },
+    {
+      "q": "Where do I report a suspicious contact or indicator?",
+      "a": "Through your local counterintelligence or security office — reporting channels are covered specifically in the training and vary by organization."
+    }
+  ],
+  "internalLinks": ["tarp-training", "insider-threat-awareness-training"],
+  "officialSource": {
+    "label": "cdse.edu — Security training catalog",
+    "url": "https://www.cdse.edu/Training/eLearning/"
+  }
+}

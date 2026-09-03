@@ -1,0 +1,107 @@
+{
+  "slug": "privileged-user-cybersecurity-training",
+  "h1": "Privileged User Cybersecurity Responsibilities Training Quiz & Practice Questions",
+  "subhead": "Take a free practice quiz or get instant, explained answers to Privileged User Cybersecurity Responsibilities questions — least privilege, PKI credentials, and reporting requirements, without the guesswork.",
+  "metaTitle": "Privileged User Cybersecurity Responsibilities Quiz & Practice Questions | Cambo",
+  "metaDescription": "Free Privileged User Cybersecurity Responsibilities quiz and practice questions with instant, explained answers. Least privilege, PKI credentials, restricted actions, and reporting requirements.",
+  "whyItWorks": "Privileged-user questions test the extra restrictions and reporting duties that come with admin-level access — obligations that go beyond the standard cyber awareness course — and it's easy to assume the general-user rules still apply. Cambo reads the exact scenario on your screen and explains which privileged-user-specific rule governs it.",
+  "sampleQuestions": [
+    {
+      "q": "Who is considered a \"privileged user\" under DoD cybersecurity policy?",
+      "options": [
+        "Anyone with a Common Access Card",
+        "Someone granted access to a DoD information system above that of an authorized general user — for example, root, administrator, or super-user access",
+        "Any employee who has completed the standard annual Cyber Awareness Challenge",
+        "A user who has been employed by the DoD for more than five years"
+      ],
+      "correct": 1,
+      "a": "A privileged user is someone with access elevated above a standard authorized user — root, administrator, or super-user access to a DoD information system — which comes with additional responsibilities beyond the standard Cyber Awareness Challenge."
+    },
+    {
+      "q": "As a privileged user, you notice your account has access to files and systems far beyond what your actual job requires. What should you do?",
+      "options": [
+        "Use the extra access if it ever becomes convenient, since it was already granted",
+        "Say nothing, since having more access than needed isn't a security concern",
+        "Report it and request that your access be adjusted to reflect the principle of least privilege",
+        "Share the extra access with a coworker who might need it"
+      ],
+      "correct": 2,
+      "a": "Report it and request your access be scoped down — privileged users are specifically responsible for helping enforce least privilege, not for using excess access just because it happens to be available."
+    },
+    {
+      "q": "What does the principle of least privilege mean?",
+      "options": [
+        "Granting the minimum access necessary for a user to perform their assigned duties, and nothing more",
+        "Granting every user administrator-level access by default for convenience",
+        "Restricting cybersecurity training to only the most senior personnel",
+        "Automatically revoking all access after 90 days regardless of role"
+      ],
+      "correct": 0,
+      "a": "Least privilege means granting only the access necessary to perform assigned duties — nothing extra \"just in case,\" since every additional privilege is also additional risk if that account is ever compromised."
+    },
+    {
+      "q": "A fellow admin is going on leave and asks to borrow your PKI certificate credentials so they can keep systems running while they're out. What should you do?",
+      "options": [
+        "Share the credentials temporarily since it's a legitimate operational need",
+        "Refuse — PKI credentials are for the individual they were issued to and must never be shared, even for a seemingly reasonable operational reason",
+        "Share only the password, but not the physical CAC",
+        "Share the credentials only if a supervisor verbally approves it"
+      ],
+      "correct": 1,
+      "a": "Refuse. PKI credentials identify a specific individual and are never shared, no matter how reasonable the operational justification sounds — sharing them breaks the accountability the credential system exists to provide."
+    },
+    {
+      "q": "You notice that another privileged user's admin account appears to have been used by someone other than that person. What are you required to do?",
+      "options": [
+        "Nothing, unless you can confirm actual harm occurred",
+        "Mention it casually the next time you see that person",
+        "Report it immediately through your organization's incident reporting channel",
+        "Change your own password as a precaution and take no further action"
+      ],
+      "correct": 2,
+      "a": "Report it immediately — privileged users have a heightened reporting responsibility, and suspected unauthorized use of an admin account is exactly the kind of incident that needs to reach security or your organization's incident response channel right away."
+    },
+    {
+      "q": "A privileged user is informally asked to bypass a security control to help meet a project deadline. What's the correct response?",
+      "options": [
+        "Bypass the control just this once, since the deadline is a legitimate business need",
+        "Refuse — bypassing a security control is a prohibited action regardless of the reason, and the request itself should be reported if it continues",
+        "Bypass the control but document it afterward for the record",
+        "Ask a lower-privileged coworker to do it instead"
+      ],
+      "correct": 1,
+      "a": "Refuse. Bypassing a security control is a restricted/prohibited action under privileged user responsibilities regardless of intent or urgency, and being pressured to do so should itself be reported."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How often is Privileged User Cybersecurity Responsibilities training required?",
+      "a": "Annually, in addition to (not instead of) the standard DoD Cyber Awareness Challenge, for anyone holding privileged/administrative access."
+    },
+    {
+      "q": "Who has to complete this training?",
+      "a": "Only privileged users — those with root, administrator, or super-user access to a DoD information system — not general users, who instead complete the standard Cyber Awareness Challenge."
+    },
+    {
+      "q": "Is Cambo affiliated with DISA, cyber.mil, or the DoD?",
+      "a": "No. Cambo is an independent study tool, not produced or endorsed by the Defense Information Systems Agency, cyber.mil, or the Department of Defense."
+    },
+    {
+      "q": "What does \"least privilege\" mean?",
+      "a": "Granting only the access necessary to perform assigned duties — nothing more — so that a compromised account carries the smallest possible risk."
+    },
+    {
+      "q": "Where is this training typically assigned?",
+      "a": "It's commonly listed as DS-IA112.06 on CDSE's training catalog, or DISA-US1372 on JKO, depending on which platform your organization uses."
+    },
+    {
+      "q": "What happens if a privileged user violates these responsibilities?",
+      "a": "Consequences can range from suspension or revocation of privileged access up to administrative or legal action, depending on the severity of the violation."
+    }
+  ],
+  "internalLinks": ["dod-cyber-awareness-challenge", "information-assurance-training"],
+  "officialSource": {
+    "label": "cyber.mil — DoD Cyber Exchange",
+    "url": "https://www.cyber.mil/"
+  }
+}

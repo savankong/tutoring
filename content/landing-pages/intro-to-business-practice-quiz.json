@@ -1,0 +1,108 @@
+{
+  "slug": "intro-to-business-practice-quiz",
+  "courseKey": "intro-to-business",
+  "h1": "Intro to Business Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Intro to Business exam question for an instant, explained answer — business structures, management basics, and marketing fundamentals, without the guesswork.",
+  "metaTitle": "Intro to Business Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Intro to Business quiz and practice questions with instant, explained answers. Business ownership structures, management functions, marketing, and finance basics.",
+  "whyItWorks": "Intro to Business exams cover a wide sweep of topics in a single course — ownership structures, management theory, marketing, basic finance — so it's easy to mix up which term belongs to which category. Cambo reads the exact question and explains which business function or concept it's actually testing, not just the right letter.",
+  "sampleQuestions": [
+    {
+      "q": "What is the main advantage of a sole proprietorship as a business structure?",
+      "options": [
+        "The owner has limited personal liability for business debts",
+        "It's simple and inexpensive to set up, with the owner keeping full control and all profits",
+        "It can raise capital by selling shares of stock",
+        "The business continues automatically if the owner leaves"
+      ],
+      "correct": 1,
+      "a": "Simplicity and full control — a sole proprietorship is the easiest and cheapest structure to start, and the owner keeps all profits, but in exchange takes on unlimited personal liability for business debts."
+    },
+    {
+      "q": "What is the key difference between a corporation and a partnership in terms of liability?",
+      "options": [
+        "Both offer the same liability protection to owners",
+        "A corporation offers limited liability to its shareholders, while a general partnership typically exposes partners to personal liability",
+        "A partnership offers limited liability, while a corporation does not",
+        "Liability depends only on the number of employees, not the structure"
+      ],
+      "correct": 1,
+      "a": "A corporation is a separate legal entity, so shareholders' liability is generally limited to their investment, while partners in a general partnership are typically personally liable for business debts."
+    },
+    {
+      "q": "In the four functions of management (planning, organizing, leading, controlling), which function involves comparing actual performance against goals and making corrections?",
+      "options": [
+        "Planning",
+        "Organizing",
+        "Leading",
+        "Controlling"
+      ],
+      "correct": 3,
+      "a": "Controlling — this function involves monitoring performance, comparing it against the goals set during planning, and making adjustments when results fall short."
+    },
+    {
+      "q": "What are the \"4 Ps\" of the marketing mix?",
+      "options": [
+        "Profit, People, Process, Performance",
+        "Product, Price, Place, Promotion",
+        "Planning, Positioning, Pricing, Publicity",
+        "Product, Production, Personnel, Profit"
+      ],
+      "correct": 1,
+      "a": "Product, Price, Place, and Promotion — the classic marketing mix framework businesses use to plan how they'll bring a product to market."
+    },
+    {
+      "q": "What does \"economies of scale\" mean?",
+      "options": [
+        "A company's total revenue divided by its total costs",
+        "The cost advantage a business gains as production volume increases and per-unit costs decrease",
+        "The practice of scaling a business into new international markets",
+        "A measure of how many employees a company has relative to its competitors"
+      ],
+      "correct": 1,
+      "a": "The cost advantage from producing at a larger scale — as output increases, fixed costs get spread across more units, lowering the average cost per unit."
+    },
+    {
+      "q": "What is the primary purpose of a SWOT analysis in business strategy?",
+      "options": [
+        "To calculate a company's tax liability",
+        "To evaluate a company's internal Strengths and Weaknesses alongside external Opportunities and Threats",
+        "To determine an employee's eligibility for promotion",
+        "To set the company's annual advertising budget"
+      ],
+      "correct": 1,
+      "a": "To evaluate Strengths, Weaknesses, Opportunities, and Threats — a SWOT analysis pairs internal factors (strengths/weaknesses) with external factors (opportunities/threats) to inform strategic planning."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Intro to Business usually cover?",
+      "a": "Forms of business ownership, the functions of management, marketing basics, finance and accounting fundamentals, human resources, and an overview of the global business environment."
+    },
+    {
+      "q": "Is Intro to Business required for all business majors?",
+      "a": "Yes, in most programs it's the foundational gateway course taken before declaring a specific business concentration like marketing, finance, or management."
+    },
+    {
+      "q": "Is Intro to Business usually curved?",
+      "a": "It varies by school and instructor, though because the course covers broad concepts rather than heavy computation, grading is often more consistent than in quantitative business courses."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Do I need to take Intro to Business before other business courses?",
+      "a": "Most business programs treat it as a prerequisite for upper-level courses like Marketing Principles, Management Principles, and Intro to Finance, since it introduces vocabulary and concepts those courses build on."
+    },
+    {
+      "q": "How many credit hours is Intro to Business usually worth?",
+      "a": "Typically 3 credit hours as a standard lecture course."
+    }
+  ],
+  "internalLinks": [
+    "financial-accounting-practice-quiz",
+    "marketing-principles-practice-quiz",
+    "management-principles-practice-quiz"
+  ]
+}

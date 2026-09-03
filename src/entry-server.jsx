@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './lib/AuthContext.jsx';
 import App from './App.jsx';
 import LandingPageTemplate from './landing-pages/LandingPageTemplate.jsx';
+import SchoolHubTemplate from './landing-pages/SchoolHubTemplate.jsx';
 
 export function render(url) {
   const helmetContext = {};
@@ -30,6 +31,17 @@ export function renderLandingPage(content, allContent) {
   const html = renderToStaticMarkup(
     <StrictMode>
       <LandingPageTemplate content={content} allContent={allContent} />
+    </StrictMode>,
+  );
+  return { html };
+}
+
+// School hub pages (course-code directories, not quizzes) — separate
+// component tree, see SchoolHubTemplate.jsx for why.
+export function renderSchoolHub(content, allContent) {
+  const html = renderToStaticMarkup(
+    <StrictMode>
+      <SchoolHubTemplate content={content} allContent={allContent} />
     </StrictMode>,
   );
   return { html };

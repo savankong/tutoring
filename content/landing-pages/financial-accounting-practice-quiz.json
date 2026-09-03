@@ -1,0 +1,107 @@
+{
+  "slug": "financial-accounting-practice-quiz",
+  "courseKey": "financial-accounting",
+  "h1": "Financial Accounting Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Financial Accounting exam question for an instant, explained answer — debits, credits, and the accounting equation, without the guesswork.",
+  "metaTitle": "Financial Accounting Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Financial Accounting quiz and practice questions with instant, explained answers. T-accounts, the accounting equation, financial statements, debits and credits.",
+  "whyItWorks": "Financial Accounting questions usually give you a transaction and ask you to classify it correctly — which account it hits, whether it's a debit or credit, which financial statement it flows to — and one flipped sign changes the whole answer. Cambo reads the exact transaction and walks through which accounts move and why, not just the final number.",
+  "sampleQuestions": [
+    {
+      "q": "A company purchases equipment for $10,000 cash. What is the effect on the accounting equation (Assets = Liabilities + Equity)?",
+      "options": [
+        "Total assets increase by $10,000",
+        "One asset (equipment) increases and another asset (cash) decreases by the same amount, so total assets are unchanged",
+        "Liabilities increase by $10,000",
+        "Equity decreases by $10,000"
+      ],
+      "correct": 1,
+      "a": "One asset increases (equipment) while another asset decreases (cash) by the same amount — total assets stay the same, since this is an exchange within the asset side of the equation, not new financing."
+    },
+    {
+      "q": "Which of the following is the correct rule for a debit entry?",
+      "options": [
+        "Debits increase asset and expense accounts, and decrease liability, equity, and revenue accounts",
+        "Debits always increase every account",
+        "Debits increase liability and revenue accounts, and decrease asset accounts",
+        "Debits only apply to cash transactions"
+      ],
+      "correct": 0,
+      "a": "Debits increase asset and expense accounts while decreasing liability, equity, and revenue accounts — the reverse is true for credits, and every transaction must keep total debits equal to total credits."
+    },
+    {
+      "q": "A business receives $5,000 cash from a customer for services that will be performed next month. How should this be recorded?",
+      "options": [
+        "As revenue, since cash was received",
+        "As unearned revenue, a liability, since the service hasn't been performed yet",
+        "As an expense",
+        "It should not be recorded until the service is performed"
+      ],
+      "correct": 1,
+      "a": "As unearned revenue, a liability — the company owes the customer a service, so revenue can't be recognized yet under accrual accounting even though cash has already changed hands."
+    },
+    {
+      "q": "Which financial statement reports a company's revenues and expenses over a period of time to determine net income?",
+      "options": [
+        "The balance sheet",
+        "The statement of cash flows",
+        "The income statement",
+        "The statement of retained earnings"
+      ],
+      "correct": 2,
+      "a": "The income statement — it reports revenues and expenses over a specific period and calculates net income (or net loss) as the difference between them."
+    },
+    {
+      "q": "A company's total assets are $150,000 and total liabilities are $60,000. What is total equity?",
+      "options": [
+        "$90,000",
+        "$150,000",
+        "$210,000",
+        "$60,000"
+      ],
+      "correct": 0,
+      "a": "$90,000 — using the accounting equation, Assets = Liabilities + Equity, so Equity = Assets − Liabilities = $150,000 − $60,000."
+    },
+    {
+      "q": "Under accrual accounting, when should revenue be recognized?",
+      "options": [
+        "When cash is received, regardless of when the goods or services are provided",
+        "When the goods or services are provided to the customer, regardless of when cash is received",
+        "At the end of the fiscal year, regardless of when the transaction occurred",
+        "Only when the customer's invoice has been fully paid"
+      ],
+      "correct": 1,
+      "a": "Revenue is recognized when goods or services are actually provided to the customer, not necessarily when cash changes hands — this is the core principle distinguishing accrual accounting from cash-basis accounting."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Financial Accounting usually cover?",
+      "a": "The accounting equation, debits and credits, journal entries and T-accounts, the four main financial statements (income statement, balance sheet, statement of cash flows, statement of retained earnings), accrual vs. cash accounting, and basic ratio analysis."
+    },
+    {
+      "q": "Do I need a business major to take Financial Accounting?",
+      "a": "No — it's commonly a required foundational course for business, accounting, finance, and economics majors, and is sometimes taken as an elective by others as well."
+    },
+    {
+      "q": "Is Financial Accounting usually curved?",
+      "a": "It varies by school, but many sections curve exams since the problem-set format (journal entries, T-accounts, statement preparation) can produce a wide spread of raw scores."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "What's the difference between financial accounting and managerial accounting?",
+      "a": "Financial accounting focuses on producing standardized statements for external users like investors and creditors, following GAAP. Managerial accounting focuses on internal reporting to help managers make decisions, and doesn't have to follow the same standardized rules."
+    },
+    {
+      "q": "How many credit hours is Financial Accounting usually worth?",
+      "a": "Typically 3 credit hours, most often required in the first or second year of a business or accounting program."
+    }
+  ],
+  "internalLinks": [
+    "intro-to-business-practice-quiz",
+    "microeconomics-practice-quiz"
+  ]
+}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CAMPAIGN_CATEGORIES } from '../../lib/campaignPages.js';
+import { CAMPAIGN_CATEGORIES, SCHOOL_HUBS } from '../../lib/campaignPages.js';
 
 // "Condensed to categories" per the design brief — each category collapses
 // to a chip with its page count and expands (native <details>, no JS) into
@@ -28,6 +28,18 @@ function ZineResources() {
             </div>
           </details>
         ))}
+        <details className="zn-chip" style={{ transform: 'rotate(-0.6deg)' }}>
+          <summary>
+            Campus Study Hubs <span className="zn-chip-count">{SCHOOL_HUBS.length}</span>
+          </summary>
+          <div className="zn-chip-panel">
+            {SCHOOL_HUBS.map((school) => (
+              <Link key={school.slug} to={`/${school.slug}/`}>
+                {school.label}
+              </Link>
+            ))}
+          </div>
+        </details>
         <span className="zn-chip-static" style={{ transform: 'rotate(0.8deg)' }}>
           Everything else you can photograph
         </span>

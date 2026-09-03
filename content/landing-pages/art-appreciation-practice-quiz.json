@@ -1,0 +1,73 @@
+{
+  "slug": "art-appreciation-practice-quiz",
+  "h1": "Art Appreciation Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Art Appreciation exam question for an instant, explained answer — art movements and famous works made clear, without the guesswork.",
+  "metaTitle": "Art Appreciation Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Art Appreciation quiz and practice questions with instant, explained answers. Art movements, elements and principles of design, and famous works and artists.",
+  "whyItWorks": "Art Appreciation exams often show an image and ask you to identify its movement or artist based on visual clues, which is tough if you're memorizing names without connecting them to actual style. Cambo reads the image or description and explains which visual features point to the correct answer.",
+  "sampleQuestions": [
+    {
+      "q": "Which art movement, associated with artists like Monet and Renoir, is known for capturing fleeting light and everyday scenes with visible brushstrokes?",
+      "options": ["Cubism", "Impressionism", "Surrealism", "Baroque"],
+      "correct": 1,
+      "a": "Impressionism — characterized by loose, visible brushwork and a focus on capturing the fleeting effects of light, rather than precise detail."
+    },
+    {
+      "q": "Which element of art refers to the use of light and dark to create the illusion of depth or volume?",
+      "options": ["Color", "Line", "Value", "Texture"],
+      "correct": 2,
+      "a": "Value — the range from light to dark, used by artists to create shading, contrast, and a sense of three-dimensional form."
+    },
+    {
+      "q": "Pablo Picasso and Georges Braque are most closely associated with which early 20th-century art movement, known for fragmented, geometric forms shown from multiple angles?",
+      "options": ["Cubism", "Fauvism", "Pop Art", "Realism"],
+      "correct": 0,
+      "a": "Cubism — pioneered by Picasso and Braque, it broke subjects into geometric fragments shown from multiple viewpoints simultaneously."
+    },
+    {
+      "q": "What is the term for the principle of design that refers to the visual weight distributed across a composition?",
+      "options": ["Balance", "Emphasis", "Rhythm", "Unity"],
+      "correct": 0,
+      "a": "Balance — the way visual weight (through color, size, or placement) is distributed to create a sense of equilibrium in a composition."
+    },
+    {
+      "q": "Which artistic movement emerged in the 1920s and is known for dreamlike, irrational imagery, as seen in works by Salvador Dalí?",
+      "options": ["Surrealism", "Minimalism", "Neoclassicism", "Abstract Expressionism"],
+      "correct": 0,
+      "a": "Surrealism — drew on dream imagery and the unconscious mind to create irrational, often startling visual combinations, as in Dalí's melting clocks."
+    },
+    {
+      "q": "In the elements of art, what does 'texture' refer to?",
+      "options": ["The arrangement of colors in a piece", "The perceived or actual surface quality of a work, such as rough or smooth", "The size relationship between objects", "The path the eye follows through a composition"],
+      "correct": 1,
+      "a": "Texture is the surface quality of a work — how it looks or feels, whether that's an actual physical texture (like thick paint) or an implied one created visually."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Art Appreciation course usually cover?",
+      "a": "Typically the elements and principles of design, major Western art movements from ancient through contemporary, and analysis of specific famous works and the artists behind them."
+    },
+    {
+      "q": "Do I need to be able to draw or paint for Art Appreciation?",
+      "a": "No — it's a survey/analysis course, not a studio course, so it focuses on visual analysis, art history, and critical thinking rather than producing your own artwork."
+    },
+    {
+      "q": "What's the difference between the elements and principles of art?",
+      "a": "Elements (line, shape, color, value, texture, form, space) are the basic visual building blocks of a work; principles (balance, emphasis, movement, unity, contrast, rhythm) describe how those elements are organized together."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "How do I tell art movements apart on an exam?",
+      "a": "Most exams key off recognizable visual traits — like Impressionism's visible brushstrokes or Cubism's geometric fragmentation — so pairing each movement with a mental image of its signature style helps more than memorizing dates alone."
+    },
+    {
+      "q": "Can Cambo identify a painting or artwork from a photo?",
+      "a": "Cambo is built to read and explain exam questions — including ones that show an image and ask you to identify its style, movement, or artist — point your phone at the question for an instant, explained answer."
+    }
+  ],
+  "internalLinks": ["music-appreciation-practice-quiz"]
+}

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/build-landing-pages.mjs && node scripts/prerender.mjs && node scripts/generate-og-images.mjs && node scripts/generate-sitemap.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/build-landing-pages.mjs && node scripts/build-school-hubs.mjs && node scripts/prerender.mjs && node scripts/generate-og-images.mjs && node scripts/generate-sitemap.mjs",
     "start": "node server/index.js",
     "migrate": "node scripts/migrate-db.mjs",
     "lint": "oxlint",

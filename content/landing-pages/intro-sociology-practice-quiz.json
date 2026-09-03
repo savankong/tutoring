@@ -1,0 +1,108 @@
+{
+  "slug": "intro-sociology-practice-quiz",
+  "courseKey": "intro-sociology",
+  "h1": "Introductory Sociology Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Intro Sociology exam question for an instant, explained answer — theories and concepts made clear, without the guesswork.",
+  "metaTitle": "Introductory Sociology Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Introductory Sociology quiz and practice questions with instant, explained answers. Socialization, social stratification, institutions, and research methods.",
+  "whyItWorks": "Intro Sociology exams often ask you to apply one of the major theoretical perspectives — functionalism, conflict theory, symbolic interactionism — to a specific example, and the trap is picking a plausible-sounding lens instead of the one the question is actually pointing to. Cambo reads the exact scenario and explains which perspective or concept fits and why the others don't.",
+  "sampleQuestions": [
+    {
+      "q": "A sociologist studies how the education system helps prepare young people for their future roles in the workforce and reinforces shared social values. Which theoretical perspective does this best represent?",
+      "options": [
+        "Symbolic interactionism",
+        "Functionalism",
+        "Conflict theory",
+        "Feminist theory"
+      ],
+      "correct": 1,
+      "a": "Functionalism — it views social institutions like education as serving positive functions that help maintain the stability and smooth operation of society as a whole."
+    },
+    {
+      "q": "A researcher argues that schools primarily serve to preserve existing inequalities by giving wealthier students more resources and better outcomes. This best reflects which perspective?",
+      "options": [
+        "Functionalism",
+        "Conflict theory",
+        "Structural strain theory",
+        "Rational choice theory"
+      ],
+      "correct": 1,
+      "a": "Conflict theory — it focuses on how social institutions can perpetuate inequality and serve the interests of more powerful groups, rather than benefiting society equally."
+    },
+    {
+      "q": "The process by which individuals learn the norms, values, and behaviors expected within their society is called:",
+      "options": [
+        "Socialization",
+        "Stratification",
+        "Assimilation",
+        "Institutionalization"
+      ],
+      "correct": 0,
+      "a": "Socialization — the lifelong process through which individuals internalize a society's or group's norms, values, and expected behaviors, beginning in childhood through family, school, and peers."
+    },
+    {
+      "q": "A society is described as having distinct social classes, where movement between classes is possible but not guaranteed based on individual achievement. This describes which type of stratification system?",
+      "options": [
+        "A caste system",
+        "A class system",
+        "An estate system",
+        "A meritocracy with no stratification"
+      ],
+      "correct": 1,
+      "a": "A class system — unlike a caste system, where social position is fixed at birth, a class system allows for social mobility based on factors like education, income, and occupation."
+    },
+    {
+      "q": "A sociologist observes two people negotiating the meaning of a handshake, a nod, or a specific greeting in everyday interaction. This focus on how people create and interpret shared meanings through interaction is most associated with:",
+      "options": [
+        "Functionalism",
+        "Conflict theory",
+        "Symbolic interactionism",
+        "Structural functionalism"
+      ],
+      "correct": 2,
+      "a": "Symbolic interactionism — this micro-level perspective focuses on how individuals create, interpret, and negotiate meaning through everyday face-to-face interactions and symbols."
+    },
+    {
+      "q": "A researcher distributes a written survey to a large sample of college students to measure attitudes toward campus policies. What type of research method is this?",
+      "options": [
+        "Participant observation",
+        "A quantitative survey",
+        "An in-depth ethnography",
+        "A case study"
+      ],
+      "correct": 1,
+      "a": "A quantitative survey — it collects standardized, numerically analyzable data from a large sample, making it well suited for identifying broad patterns and trends across a population."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Introductory Sociology usually cover?",
+      "a": "Socialization, culture, social stratification (class, race, and gender), social institutions like family and education, deviance and social control, and an overview of major theoretical perspectives and research methods."
+    },
+    {
+      "q": "What are the three main theoretical perspectives in sociology?",
+      "a": "Functionalism, conflict theory, and symbolic interactionism — functionalism and conflict theory are macro-level perspectives looking at society as a whole, while symbolic interactionism is a micro-level perspective focused on individual interactions."
+    },
+    {
+      "q": "Is Intro Sociology usually curved?",
+      "a": "It varies by instructor, and since intro sociology exams often lean more conceptual/essay-based than purely calculation-based, curving practices differ more from section to section than in quantitative courses."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Is Intro Sociology usually a gen-ed requirement?",
+      "a": "Yes — it commonly fulfills a social/behavioral science general education requirement and is often taken by students well outside the sociology major."
+    },
+    {
+      "q": "How many credit hours is Introductory Sociology usually worth?",
+      "a": "Typically 3 credit hours as a standard lecture course."
+    }
+  ],
+  "internalLinks": [
+    "us-history-survey-1-practice-quiz",
+    "us-history-survey-2-practice-quiz",
+    "intro-psychology-practice-quiz"
+  ]
+}

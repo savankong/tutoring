@@ -1,0 +1,103 @@
+{
+  "slug": "aplia-answers",
+  "h1": "Aplia Answers & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Aplia question for an instant, explained answer — Microeconomics and Macroeconomics problem sets, without the guesswork.",
+  "metaTitle": "Aplia Answers & Practice Questions | Cambo",
+  "metaDescription": "Free practice questions and instant, explained answers for Aplia economics problem sets and homework. Microeconomics and Macroeconomics graphing and numeric questions.",
+  "whyItWorks": "Aplia problem sets lean heavily on graphs — shifting a supply or demand curve, reading off an equilibrium point, computing a numeric value from a chart — so the challenge is usually connecting the visual to the underlying economic concept, not just picking an answer from memory. Cambo reads the exact graph or numeric setup on your screen and explains the economic reasoning behind it, the same way it would a plain text question.",
+  "sampleQuestions": [
+    {
+      "q": "If the price of a complementary good rises, what happens to the demand curve for the original good?",
+      "options": [
+        "It shifts to the right (demand increases)",
+        "It shifts to the left (demand decreases)",
+        "It stays the same, only price changes",
+        "It becomes perfectly inelastic"
+      ],
+      "correct": 1,
+      "a": "The demand curve shifts left — when a complementary good becomes more expensive, people buy less of it, which reduces demand for the original good that's used alongside it."
+    },
+    {
+      "q": "At the market equilibrium price, quantity supplied equals quantity demanded. If the government sets a price ceiling below equilibrium, what results?",
+      "options": [
+        "A surplus of the good",
+        "A shortage of the good",
+        "No change in the quantity traded",
+        "The equilibrium price rises to match the ceiling"
+      ],
+      "correct": 1,
+      "a": "A shortage results — a price ceiling set below equilibrium keeps price artificially low, so quantity demanded exceeds quantity supplied at that price."
+    },
+    {
+      "q": "A country's real GDP grew by 2% while its population grew by 3% over the same year. What happened to real GDP per capita?",
+      "options": [
+        "It increased",
+        "It decreased",
+        "It stayed exactly the same",
+        "It cannot be determined from this information"
+      ],
+      "correct": 1,
+      "a": "It decreased — since population (the denominator) grew faster than real GDP (the numerator), GDP per capita fell even though total output grew."
+    },
+    {
+      "q": "On a standard supply and demand graph, a technological improvement in production would most directly cause:",
+      "options": [
+        "A rightward shift of the supply curve",
+        "A leftward shift of the demand curve",
+        "A movement along the existing supply curve only",
+        "A rightward shift of the demand curve"
+      ],
+      "correct": 0,
+      "a": "A rightward shift of the supply curve — a technological improvement lets producers supply more at every price point, which is represented as the whole curve shifting outward."
+    },
+    {
+      "q": "The Federal Reserve raises the target federal funds rate. In the short run, this is most likely intended to:",
+      "options": [
+        "Stimulate borrowing and increase inflation",
+        "Cool down an overheating economy and reduce inflationary pressure",
+        "Directly set retail prices for consumer goods",
+        "Increase the money supply immediately"
+      ],
+      "correct": 1,
+      "a": "Raising the federal funds rate makes borrowing more expensive, which slows spending and investment — a tool typically used to cool an overheating economy and rein in inflation."
+    },
+    {
+      "q": "If a good has a price elasticity of demand equal to 0.4, this good is best described as:",
+      "options": [
+        "Perfectly elastic",
+        "Elastic",
+        "Inelastic",
+        "Perfectly inelastic"
+      ],
+      "correct": 2,
+      "a": "Inelastic — an elasticity value below 1 means quantity demanded changes proportionally less than price does, which is the definition of inelastic demand."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is Aplia?",
+      "a": "Aplia is an online homework and problem-set platform owned by Cengage Learning, built specifically around auto-graded, often graph-based economics problem sets."
+    },
+    {
+      "q": "What subjects is Aplia most commonly used for?",
+      "a": "Aplia is dominant in Microeconomics and Macroeconomics courses, where its interactive graphing tools are widely assigned for problem sets on supply/demand, elasticity, and market equilibrium."
+    },
+    {
+      "q": "Is Aplia the same as Cengage MindTap?",
+      "a": "No — both are Cengage products, but Aplia is a separate, more specialized platform built around economics problem sets and graphing exercises, while MindTap is Cengage's broader digital-textbook courseware used across many subjects. See our dedicated MindTap page for that use case."
+    },
+    {
+      "q": "Does Aplia use randomized numbers in its problem sets?",
+      "a": "Many Aplia economics problems use algorithmically generated values so different students see different numbers on the same problem template — Cambo reads whatever specific numbers and graph are on your screen rather than a fixed answer key."
+    },
+    {
+      "q": "Is Cambo affiliated with Cengage Learning?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Cengage Learning."
+    },
+    {
+      "q": "Can Cambo help with graph-reading questions, not just multiple choice?",
+      "a": "Yes — point your phone at the graph and question as shown, and Cambo walks through what the graph represents and explains the economic reasoning behind the answer."
+    }
+  ],
+  "internalLinks": ["pearson-mylab-answers", "cengage-mindtap-answers"]
+}

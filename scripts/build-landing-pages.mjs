@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { loadLandingPagesContent } from './landing-pages-content.mjs';
 import { fetchPublicQuestionsBySlug } from './fetch-public-questions.mjs';
 import { normalizeQuestionKey } from '../netlify/lib/publicTopics.js';
+import { loadCourseCatalog, schoolCodesForCourse } from './course-catalog-content.mjs';
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const distDir = join(rootDir, 'dist');
@@ -40,8 +41,22 @@ const { renderLandingPage } = await import(join(rootDir, 'dist-ssr', 'entry-serv
 
 const staticContent = loadLandingPagesContent(rootDir);
 const realQuestionsBySlug = await fetchPublicQuestionsBySlug();
+const catalog = loadCourseCatalog(rootDir);
+
+// A Big 12 course page (content.courseKey set) gets its "also known as"
+// section computed here from course-catalog.json rather than hand-authored
+// — see LpSchoolCodes.jsx. Every other page's courseKey is undefined, so
+// schoolCodes stays empty and that section renders nothing.
+function withSchoolCodes(content) {
+  if (!content.courseKey) return content;
+  return { ...content, schoolCodes: schoolCodesForCourse(catalog, content.courseKey) };
+}
+
 const allContent = Object.fromEntries(
-  Object.entries(staticContent).map(([slug, content]) => [slug, mergeRealQuestions(content, realQuestionsBySlug[slug])]),
+  Object.entries(staticContent).map(([slug, content]) => [
+    slug,
+    withSchoolCodes(mergeRealQuestions(content, realQuestionsBySlug[slug])),
+  ]),
 );
 
 // Pull the boilerplate shared with every other page (charset, viewport,

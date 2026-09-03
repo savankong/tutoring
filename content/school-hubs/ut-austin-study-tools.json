@@ -1,0 +1,31 @@
+{
+  "slug": "ut-austin-study-tools",
+  "schoolKey": "ut-austin",
+  "h1": "UT Austin Study Tools",
+  "subhead": "The free practice quizzes and instant-answer camera tool for UT Austin's biggest intro courses — point your phone at any quiz question, get the answer explained in seconds.",
+  "metaTitle": "UT Austin Study Tools & Practice Quizzes | Cambo",
+  "metaDescription": "Free practice quizzes and instant explained answers for UT Austin's most common intro courses — Psych, Econ, Accounting, Bio, Chem, and more.",
+  "faqs": [
+    {
+      "q": "Is Cambo affiliated with UT Austin?",
+      "a": "No. Cambo is an independent study tool, not produced, endorsed, or affiliated with UT Austin."
+    },
+    {
+      "q": "How often are the course codes on this page updated?",
+      "a": "At least once a year, before fall semester — course codes are pulled from each school's official catalog and re-verified annually since schools renumber courses over time."
+    },
+    {
+      "q": "What courses does this cover at UT Austin?",
+      "a": "This page links out to free practice quizzes for UT Austin's most-searched intro courses — things like introductory psychology, macroeconomics, financial accounting, and general biology or chemistry. Pick a course below to start practicing."
+    },
+    {
+      "q": "Do I need to create an account to try a practice quiz?",
+      "a": "No — the practice quizzes on this page are free with no signup required. Creating a free account is only needed for Cambo's camera-capture tool, which gives you an instant explained answer to any question you point your phone at in real time."
+    }
+  ],
+  "internalLinks": [
+    "tcu-study-tools",
+    "smu-study-tools",
+    "asu-study-tools"
+  ]
+}

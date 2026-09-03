@@ -1,0 +1,73 @@
+{
+  "slug": "american-government-practice-quiz",
+  "h1": "American Government Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any American Government exam question for an instant, explained answer — the Constitution and checks and balances made clear, without the guesswork.",
+  "metaTitle": "American Government Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free American Government quiz and practice questions with instant, explained answers. Branches of government, the Constitution, checks and balances, and federalism.",
+  "whyItWorks": "American Government exams often test whether you can match a specific power or process to the right branch or level of government, and it's easy to mix up similar-sounding checks and balances. Cambo explains which branch or clause a scenario actually points to, not just the vocabulary term.",
+  "sampleQuestions": [
+    {
+      "q": "Which branch of the federal government is responsible for interpreting laws and determining their constitutionality?",
+      "options": ["Legislative", "Executive", "Judicial", "Administrative"],
+      "correct": 2,
+      "a": "The judicial branch, headed by the Supreme Court, interprets laws and can strike down those it finds unconstitutional through the power of judicial review."
+    },
+    {
+      "q": "What is the primary purpose of the system of checks and balances?",
+      "options": ["To give the executive branch final authority over the other branches", "To prevent any one branch of government from becoming too powerful", "To speed up the lawmaking process", "To eliminate the need for a judicial branch"],
+      "correct": 1,
+      "a": "Checks and balances give each branch tools to limit the power of the others, preventing any single branch from dominating the federal government."
+    },
+    {
+      "q": "Which of the following is an example of a check the legislative branch has over the executive branch?",
+      "options": ["The Senate's power to confirm presidential appointments", "The president's power to veto legislation", "The Supreme Court's power of judicial review", "The president's power to grant pardons"],
+      "correct": 0,
+      "a": "The Senate's power to confirm (or reject) presidential appointments, such as cabinet members and federal judges, is a direct legislative check on executive power."
+    },
+    {
+      "q": "What term describes the division of power between the federal government and state governments?",
+      "options": ["Separation of powers", "Federalism", "Bicameralism", "Judicial review"],
+      "correct": 1,
+      "a": "Federalism — a system where power is constitutionally divided and shared between a national government and individual state governments."
+    },
+    {
+      "q": "How many amendments make up the Bill of Rights?",
+      "options": ["5", "10", "13", "27"],
+      "correct": 1,
+      "a": "10 — the first ten amendments to the Constitution, ratified in 1791, guaranteeing fundamental individual rights and liberties."
+    },
+    {
+      "q": "What is required for Congress to override a presidential veto?",
+      "options": ["A simple majority vote in the House only", "A two-thirds majority vote in both the House and Senate", "Unanimous consent of the Senate", "Approval from the Supreme Court"],
+      "correct": 1,
+      "a": "A two-thirds majority vote in both the House of Representatives and the Senate is required to override a presidential veto, making it a deliberately high bar."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro American Government course usually cover?",
+      "a": "Typically the structure and powers of the three branches, the Constitution and its amendments, federalism, civil liberties and civil rights, elections, and the roles of political parties and interest groups."
+    },
+    {
+      "q": "What are the three branches of the U.S. federal government?",
+      "a": "Legislative (Congress, which makes laws), Executive (the President, who enforces laws), and Judicial (the courts, which interpret laws)."
+    },
+    {
+      "q": "What's the difference between separation of powers and checks and balances?",
+      "a": "Separation of powers divides governmental authority into three distinct branches with separate functions; checks and balances gives each of those branches specific tools to limit and oversee the others."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Is American Government the same course as American History?",
+      "a": "No — American Government focuses on the structure, function, and processes of the U.S. political system today, while American History covers the broader chronological narrative of events over time, though the two overlap on founding-era topics."
+    },
+    {
+      "q": "Can Cambo help with a question about a specific constitutional amendment or clause?",
+      "a": "Yes — point your phone at a question referencing a specific amendment, clause, or court case and Cambo explains what it means and why the correct answer applies."
+    }
+  ],
+  "internalLinks": ["management-principles-practice-quiz"]
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "tophat-answers",
+  "h1": "Top Hat Answers & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Top Hat question for an instant, explained answer — live in-class polls and clicker-style quizzes, without the guesswork.",
+  "metaTitle": "Top Hat Answers & Practice Questions | Cambo",
+  "metaDescription": "Free practice questions and instant, explained answers for Top Hat in-class polls and quizzes. Multiple choice and short numeric questions across intro-level courses.",
+  "whyItWorks": "Top Hat questions get projected live during lecture and answered on the spot from your phone, so there's no take-home window to look things up in a textbook — you have to work it out in the seconds before the poll closes. Cambo reads the question straight off the projector or your screen and gives an instant, explained answer fast enough to actually use in the moment, the same way it handles any other timed question.",
+  "sampleQuestions": [
+    {
+      "q": "A lecture poll asks: which of Newton's laws explains why a passenger lurches forward when a car suddenly stops?",
+      "options": ["Newton's First Law (inertia)", "Newton's Second Law (F = ma)", "Newton's Third Law (action-reaction)", "The law of conservation of energy"],
+      "correct": 0,
+      "a": "Newton's First Law — an object in motion stays in motion unless acted on by an outside force, so the passenger's body keeps moving forward even after the car stops."
+    },
+    {
+      "q": "Live poll: A solution has a pH of 3. Is it acidic, basic, or neutral?",
+      "options": ["Basic", "Neutral", "Acidic", "Cannot be determined"],
+      "correct": 2,
+      "a": "Acidic — a pH below 7 indicates an acidic solution, and the lower the number, the more acidic it is."
+    },
+    {
+      "q": "Clicker question: What is the mode of the data set {4, 4, 6, 7, 7, 7, 9}?",
+      "options": ["4", "6", "7", "9"],
+      "correct": 2,
+      "a": "7 — the mode is the value that appears most often in the data set, and 7 appears three times, more than any other value."
+    },
+    {
+      "q": "In-class poll: Which market structure is characterized by a single seller with no close substitutes?",
+      "options": ["Perfect competition", "Monopolistic competition", "Oligopoly", "Monopoly"],
+      "correct": 3,
+      "a": "Monopoly — a single seller dominates the entire market and there are no close substitutes for the good, giving that seller significant pricing power."
+    },
+    {
+      "q": "Live quiz: What is the primary function of red blood cells?",
+      "options": ["Fighting infection", "Carrying oxygen throughout the body", "Clotting blood at a wound site", "Producing antibodies"],
+      "correct": 1,
+      "a": "Carrying oxygen — red blood cells contain hemoglobin, which binds oxygen in the lungs and releases it to tissues throughout the body."
+    },
+    {
+      "q": "Clicker question: A car travels 150 miles in 3 hours. What is its average speed?",
+      "options": ["30 mph", "45 mph", "50 mph", "60 mph"],
+      "correct": 2,
+      "a": "50 mph — average speed equals total distance divided by total time, and 150 miles divided by 3 hours is 50 miles per hour."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is Top Hat?",
+      "a": "Top Hat is an in-class polling and engagement platform — instructors project a question during lecture and students answer live from their own phone or laptop, similar to older physical 'clicker' systems but fully app-based."
+    },
+    {
+      "q": "How is Top Hat different from take-home platforms like Connect or MyLab?",
+      "a": "Top Hat questions are answered live, in real time, during a lecture that's happening right now — there's no take-home window or textbook lookup time, unlike homework platforms you complete on your own schedule."
+    },
+    {
+      "q": "What subjects is Top Hat commonly used for?",
+      "a": "It's used broadly across intro-level courses of many kinds, since it's built around live polling and attendance/participation rather than being tied to one specific subject's content."
+    },
+    {
+      "q": "Are Top Hat questions usually multiple choice?",
+      "a": "Mostly multiple choice, along with short numeric-entry and occasional word-answer questions, depending on what the instructor sets up for that lecture."
+    },
+    {
+      "q": "Is Cambo fast enough to use during a live Top Hat poll?",
+      "a": "Cambo is built to give an instant, explained answer as soon as you capture the question — point your phone at the projected question or your screen and get a fast, reasoned answer while the poll is still open."
+    },
+    {
+      "q": "Is Cambo affiliated with Top Hat?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Top Hat."
+    }
+  ],
+  "internalLinks": ["mcgraw-hill-connect-answers", "cengage-mindtap-answers"]
+}

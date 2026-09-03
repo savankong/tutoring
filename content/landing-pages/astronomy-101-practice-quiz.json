@@ -1,0 +1,73 @@
+{
+  "slug": "astronomy-101-practice-quiz",
+  "h1": "Astronomy 101 Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Astronomy 101 exam question for an instant, explained answer — the solar system, stars, and the night sky explained, without the guesswork.",
+  "metaTitle": "Astronomy 101 Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Astronomy 101 quiz and practice questions with instant, explained answers. Solar system, stars, the night sky, and basic cosmology.",
+  "whyItWorks": "Astronomy 101 questions often rely on spatial reasoning — why the moon has phases, why seasons happen — that's easy to visualize wrong even when you've memorized the vocabulary. Cambo explains the geometry and mechanics behind the answer, not just the label.",
+  "sampleQuestions": [
+    {
+      "q": "What causes the Moon to go through phases as seen from Earth?",
+      "options": ["The Earth's shadow falling on the Moon", "Changing amounts of the Moon's sunlit side visible from Earth as it orbits", "The Moon's rotation on its own axis", "Clouds passing in front of the Moon"],
+      "correct": 1,
+      "a": "As the Moon orbits Earth, we see varying portions of its sunlit half — this changing visible fraction creates the phases, unrelated to Earth's shadow (that's what causes a lunar eclipse instead)."
+    },
+    {
+      "q": "Why does Earth experience seasons?",
+      "options": ["Earth's distance from the Sun changes dramatically throughout the year", "Earth's axis is tilted relative to its orbital plane", "The Sun's energy output varies seasonally", "The Moon blocks sunlight at different times of year"],
+      "correct": 1,
+      "a": "Earth's axial tilt (about 23.5 degrees) means different hemispheres receive more direct sunlight at different points in the orbit — not a change in Earth-Sun distance."
+    },
+    {
+      "q": "Which force keeps planets in orbit around the Sun?",
+      "options": ["Magnetism", "Gravity", "Nuclear fusion", "Solar wind"],
+      "correct": 1,
+      "a": "Gravity — the Sun's mass creates a gravitational pull that continuously bends each planet's path into a stable orbit."
+    },
+    {
+      "q": "What is a light-year a measurement of?",
+      "options": ["Time", "Distance", "Brightness", "Mass"],
+      "correct": 1,
+      "a": "Distance — specifically, the distance light travels in one year, used because distances between stars are too vast to conveniently measure in miles or kilometers."
+    },
+    {
+      "q": "What is the primary source of the Sun's energy?",
+      "options": ["Chemical combustion", "Radioactive decay", "Nuclear fusion of hydrogen into helium", "Gravitational compression alone"],
+      "correct": 2,
+      "a": "Nuclear fusion — in the Sun's core, immense pressure and heat fuse hydrogen nuclei into helium, releasing the energy that powers sunlight and heat."
+    },
+    {
+      "q": "Which of the following best describes a galaxy?",
+      "options": ["A single star with orbiting planets", "A massive collection of stars, gas, dust, and dark matter bound by gravity", "The path a planet takes around a star", "A cloud of gas where new stars form"],
+      "correct": 1,
+      "a": "A galaxy is a huge, gravitationally bound system containing billions of stars along with gas, dust, and dark matter — our own galaxy, the Milky Way, is one example."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Astronomy 101 course usually cover?",
+      "a": "Typically the solar system, the phases and motion of the Moon, basic stellar life cycles, the scale of the universe, and an introduction to galaxies and cosmology."
+    },
+    {
+      "q": "Do I need a strong math background for Astronomy 101?",
+      "a": "Most intro-level, gen-ed Astronomy courses are conceptual rather than math-heavy, though some light algebra (like distance-speed-time calculations) may come up."
+    },
+    {
+      "q": "What's the difference between a star and a planet?",
+      "a": "A star generates its own light and heat through nuclear fusion, while a planet doesn't produce its own light — it orbits a star and shines only by reflecting that star's light."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Does Astronomy 101 include an observation or lab component?",
+      "a": "Many sections do, often requiring a few nighttime sky-observation sessions or planetarium visits alongside the lecture material — check your specific syllabus."
+    },
+    {
+      "q": "Can Cambo help with a star chart or diagram-based question?",
+      "a": "Yes — point your phone at a diagram of an orbit, a constellation chart, or a labeled figure from your textbook or exam, and Cambo will read it and explain the answer."
+    }
+  ],
+  "internalLinks": ["environmental-science-practice-quiz"]
+}

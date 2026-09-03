@@ -1,0 +1,107 @@
+{
+  "slug": "us-history-survey-1-practice-quiz",
+  "courseKey": "us-history-survey-1",
+  "h1": "U.S. History Survey I Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any U.S. History I exam question for an instant, explained answer — colonial era through Reconstruction, without the guesswork.",
+  "metaTitle": "U.S. History Survey I Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free U.S. History Survey I quiz and practice questions with instant, explained answers. Colonial era, the Revolution, the early republic, and the Civil War through Reconstruction.",
+  "whyItWorks": "U.S. History I exams often ask you to place events in the right cause-and-effect order or identify why a specific document or event mattered, not just recall a date. Cambo reads the exact question and explains the context and significance behind the correct answer, not just which choice is right.",
+  "sampleQuestions": [
+    {
+      "q": "What was the primary purpose of the Declaration of Independence, adopted in 1776?",
+      "options": [
+        "To establish a new federal system of government for the colonies",
+        "To formally announce and justify the American colonies' separation from Great Britain",
+        "To end the Revolutionary War with Britain",
+        "To abolish slavery in the newly formed United States"
+      ],
+      "correct": 1,
+      "a": "To formally announce and justify the colonies' break from Great Britain — it laid out the philosophical justification for independence and listed grievances against King George III, rather than establishing a government structure, which came later."
+    },
+    {
+      "q": "Why was the Constitutional Convention of 1787 called?",
+      "options": [
+        "To draft the Declaration of Independence",
+        "To address the weaknesses of the Articles of Confederation, including a weak central government",
+        "To negotiate the end of the Revolutionary War",
+        "To organize the Louisiana Purchase"
+      ],
+      "correct": 1,
+      "a": "To address the weaknesses of the Articles of Confederation — the young nation's first governing document left the federal government too weak to tax, regulate commerce, or maintain order effectively, prompting delegates to draft a stronger replacement."
+    },
+    {
+      "q": "The Missouri Compromise of 1820 attempted to address which issue?",
+      "options": [
+        "Trade disputes with Britain",
+        "The balance between free and slave states as new territories entered the Union",
+        "Native American land removal policy",
+        "Tariff disputes between Northern and Southern states"
+      ],
+      "correct": 1,
+      "a": "The balance between free and slave states — it admitted Missouri as a slave state and Maine as a free state, and drew a line across the remaining Louisiana Territory to determine future states' status, temporarily easing sectional tension."
+    },
+    {
+      "q": "What was the immediate cause of the outbreak of the Civil War in 1861?",
+      "options": [
+        "The passage of the Emancipation Proclamation",
+        "The Confederate attack on Fort Sumter",
+        "The election of Andrew Jackson",
+        "The signing of the Missouri Compromise"
+      ],
+      "correct": 1,
+      "a": "The Confederate attack on Fort Sumter, in April 1861 — after several Southern states had already seceded, the bombardment of this Union-held fort in South Carolina marked the start of open military conflict."
+    },
+    {
+      "q": "What was the main purpose of the Emancipation Proclamation, issued by Lincoln in 1863?",
+      "options": [
+        "It immediately and permanently abolished slavery throughout the entire United States",
+        "It declared enslaved people in Confederate-held territory to be free, and reframed the war's purpose to include ending slavery",
+        "It granted formerly enslaved people the right to vote",
+        "It ended the Civil War"
+      ],
+      "correct": 1,
+      "a": "It declared enslaved people in Confederate states to be free and reframed the war's purpose around ending slavery — it did not apply to border states still in the Union, and full, nationwide abolition wasn't achieved until the 13th Amendment."
+    },
+    {
+      "q": "During Reconstruction, what was the primary purpose of the Freedmen's Bureau?",
+      "options": [
+        "To manage federal land sales in the West",
+        "To provide formerly enslaved people with assistance including food, education, and help negotiating labor contracts",
+        "To organize the Southern states' readmission to Congress",
+        "To collect taxes from former Confederate states"
+      ],
+      "correct": 1,
+      "a": "To assist formerly enslaved people transitioning to freedom — the Freedmen's Bureau provided food, medical care, education, and help negotiating fair labor contracts in the postwar South."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What time period does U.S. History Survey I usually cover?",
+      "a": "It typically spans from early European colonization and the colonial era through the Revolution, the early republic, westward expansion, the Civil War, and Reconstruction, usually ending around the late 1870s."
+    },
+    {
+      "q": "Is U.S. History Survey I usually a required gen-ed course?",
+      "a": "Yes — it commonly fulfills a general education history or humanities requirement and is taken by students across many majors, not just history majors."
+    },
+    {
+      "q": "Is U.S. History I usually curved?",
+      "a": "It varies by instructor, and since many sections weight essay and short-answer questions alongside multiple choice, curving practices differ more here than in strictly numeric courses."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Do I need to take U.S. History I before U.S. History II?",
+      "a": "Many programs recommend or require this order since Survey II picks up chronologically where Survey I ends, but some schools allow either course to be taken independently since they don't build on each other's specific content."
+    },
+    {
+      "q": "How many credit hours is U.S. History Survey I usually worth?",
+      "a": "Typically 3 credit hours as a standard lecture course."
+    }
+  ],
+  "internalLinks": [
+    "us-history-survey-2-practice-quiz",
+    "intro-sociology-practice-quiz"
+  ]
+}

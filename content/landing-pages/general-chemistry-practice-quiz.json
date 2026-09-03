@@ -1,0 +1,107 @@
+{
+  "slug": "general-chemistry-practice-quiz",
+  "courseKey": "general-chemistry-1",
+  "h1": "General Chemistry Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any General Chemistry exam question for an instant, explained answer — stoichiometry and bonding without the guesswork.",
+  "metaTitle": "General Chemistry Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free General Chemistry I quiz and practice questions with instant, explained answers. Atomic structure, stoichiometry, periodic trends, and chemical bonding.",
+  "whyItWorks": "General Chemistry questions often hinge on a specific calculation — balancing an equation, converting moles to grams, finding a limiting reactant — where one arithmetic or conceptual slip changes the final answer. Cambo reads the exact problem, including any structure or equation shown, and walks through the calculation step by step.",
+  "sampleQuestions": [
+    {
+      "q": "An atom has 17 protons, 18 neutrons, and 17 electrons. What is its mass number?",
+      "options": [
+        "17",
+        "18",
+        "34",
+        "35"
+      ],
+      "correct": 3,
+      "a": "35 — the mass number is the sum of protons and neutrons (17 + 18 = 35); electrons don't count toward mass number since their mass is negligible."
+    },
+    {
+      "q": "Which type of bond forms when electrons are transferred from one atom to another, such as between sodium and chlorine?",
+      "options": [
+        "Covalent bond",
+        "Ionic bond",
+        "Metallic bond",
+        "Hydrogen bond"
+      ],
+      "correct": 1,
+      "a": "An ionic bond — it forms through the transfer of one or more electrons from a metal (like sodium) to a nonmetal (like chlorine), creating oppositely charged ions that attract each other."
+    },
+    {
+      "q": "In the balanced equation 2H2 + O2 → 2H2O, how many moles of water are produced from 5 moles of O2, assuming excess H2?",
+      "options": [
+        "5 moles",
+        "10 moles",
+        "2.5 moles",
+        "20 moles"
+      ],
+      "correct": 1,
+      "a": "10 moles — the balanced equation shows a 1:2 mole ratio between O2 and H2O, so 5 moles of O2 produces 5 x 2 = 10 moles of water."
+    },
+    {
+      "q": "As you move left to right across a period on the periodic table, atomic radius generally:",
+      "options": [
+        "Increases, because more electron shells are added",
+        "Decreases, because increasing nuclear charge pulls electrons in the same shell closer",
+        "Stays the same across a period",
+        "Increases and then decreases unpredictably"
+      ],
+      "correct": 1,
+      "a": "Atomic radius generally decreases across a period, because protons are added to the nucleus without adding a new electron shell, so the increasing positive charge pulls the existing electrons in more tightly."
+    },
+    {
+      "q": "A reaction combines 2 mol of A with 3 mol of B according to the equation A + 2B → C. Which reactant is the limiting reactant?",
+      "options": [
+        "A, because it has fewer moles",
+        "B, because 2 mol of A would require 4 mol of B, but only 3 mol of B is available",
+        "Neither — they are both fully consumed",
+        "C, because it is the product"
+      ],
+      "correct": 1,
+      "a": "B is the limiting reactant — the equation requires 2 moles of B for every mole of A, so 2 mol of A needs 4 mol of B, but only 3 mol of B is on hand, meaning B runs out first."
+    },
+    {
+      "q": "What is the electron configuration notation for a neutral oxygen atom (atomic number 8)?",
+      "options": [
+        "1s2 2s2 2p4",
+        "1s2 2s2 2p6",
+        "1s2 2s4 2p2",
+        "1s2 2p6"
+      ],
+      "correct": 0,
+      "a": "1s2 2s2 2p4 — with 8 total electrons, the first two fill the 1s orbital, the next two fill the 2s orbital, and the remaining four go into the 2p orbitals."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does General Chemistry I usually cover?",
+      "a": "Atomic structure and electron configuration, periodic trends, chemical bonding (ionic, covalent, and metallic), stoichiometry and balancing equations, states of matter, and an introduction to solutions and gas laws."
+    },
+    {
+      "q": "Does General Chemistry I usually include a lab component?",
+      "a": "Yes — most schools pair the lecture with a required lab section, often as its own 1-credit-hour course, since hands-on lab work is typically part of the science gen-ed requirement it fulfills."
+    },
+    {
+      "q": "Do I need a strong math background for General Chemistry?",
+      "a": "Basic algebra is generally sufficient for General Chemistry I — you'll do a lot of unit conversions and mole calculations, but calculus isn't usually required until later chemistry or physics coursework."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Is General Chemistry I usually curved?",
+      "a": "It's common for large-lecture General Chemistry sections to curve exams, since problem-set-style tests can produce a wide spread of scores, but this varies by instructor and department."
+    },
+    {
+      "q": "How many credit hours is General Chemistry I usually worth?",
+      "a": "Typically 3-4 credit hours for lecture, often with an additional 1 credit hour for the paired lab section."
+    }
+  ],
+  "internalLinks": [
+    "intro-biology-practice-quiz",
+    "college-algebra-practice-quiz"
+  ]
+}

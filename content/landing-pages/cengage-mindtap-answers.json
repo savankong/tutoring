@@ -1,0 +1,103 @@
+{
+  "slug": "cengage-mindtap-answers",
+  "h1": "Cengage MindTap Answers & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Cengage MindTap question for an instant, explained answer — Sociology, History, and gen-ed reading checks, without the guesswork.",
+  "metaTitle": "Cengage MindTap Answers & Practice Questions | Cambo",
+  "metaDescription": "Free practice questions and instant, explained answers for Cengage MindTap quizzes and homework. Sociology, History, and general gen-ed courses.",
+  "whyItWorks": "MindTap reading-comprehension questions usually hinge on a specific passage, date, or term from that unit's assigned reading, so the right answer depends on recognizing exactly what the textbook said rather than general outside knowledge. Cambo reads the exact question and answer choices on your screen and explains which one matches the source material and why the others don't.",
+  "sampleQuestions": [
+    {
+      "q": "In sociology, the term 'socialization' refers to:",
+      "options": [
+        "The process by which individuals learn the norms, values, and behaviors of their society",
+        "A government policy that redistributes wealth",
+        "The study of how societies form political parties",
+        "A method of collecting survey data"
+      ],
+      "correct": 0,
+      "a": "Socialization is the lifelong process through which individuals internalize the norms, values, and behaviors expected within their culture and society."
+    },
+    {
+      "q": "Which event is generally considered the immediate trigger for the start of World War I?",
+      "options": [
+        "The signing of the Treaty of Versailles",
+        "The assassination of Archduke Franz Ferdinand",
+        "The invasion of Poland",
+        "The sinking of the Lusitania"
+      ],
+      "correct": 1,
+      "a": "The assassination of Archduke Franz Ferdinand of Austria-Hungary in June 1914 set off the chain of alliances and declarations that led directly to the outbreak of WWI."
+    },
+    {
+      "q": "According to functionalist theory in sociology, social institutions like schools and families primarily exist to:",
+      "options": [
+        "Create class conflict",
+        "Maintain social stability and meet society's needs",
+        "Enforce a single dominant ideology through force",
+        "Replace the need for government entirely"
+      ],
+      "correct": 1,
+      "a": "Functionalism views institutions as interdependent parts that work together to maintain social order and stability, each meeting a specific societal need."
+    },
+    {
+      "q": "The Emancipation Proclamation, issued in 1863, primarily did which of the following?",
+      "options": [
+        "Ended slavery in all U.S. states immediately",
+        "Declared enslaved people in Confederate-held territory to be free",
+        "Granted full voting rights to formerly enslaved people",
+        "Ended the Civil War"
+      ],
+      "correct": 1,
+      "a": "It declared enslaved people in Confederate-held territory free — it did not immediately free enslaved people in border states that remained in the Union, and full abolition came later with the 13th Amendment."
+    },
+    {
+      "q": "In sociological terms, 'cultural relativism' means:",
+      "options": [
+        "Judging another culture's practices by the standards of your own culture",
+        "Believing all cultures are identical",
+        "Understanding a culture's practices within the context of that culture itself, without outside judgment",
+        "Refusing to study cultures other than your own"
+      ],
+      "correct": 2,
+      "a": "Cultural relativism means evaluating a culture's beliefs and practices based on that culture's own context, rather than judging them against a different culture's standards."
+    },
+    {
+      "q": "The Renaissance, which began in Italy in the 14th century, is best described as a period of:",
+      "options": [
+        "Decline in art and learning",
+        "Renewed interest in classical Greek and Roman art, learning, and humanism",
+        "Total rejection of religious themes in art",
+        "The founding of the first European colonies in the Americas"
+      ],
+      "correct": 1,
+      "a": "The Renaissance marked a revival of interest in classical antiquity and humanist thought, driving major advances in art, science, and literature."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is Cengage MindTap?",
+      "a": "MindTap is Cengage Learning's online course platform that packages a digital textbook, reading activities, and auto-graded quizzes into one interactive courseware experience."
+    },
+    {
+      "q": "What subjects is MindTap most commonly used for?",
+      "a": "It's especially common in Sociology, History, and other general-education courses, where it's often used for reading-comprehension-style quizzes tied to assigned chapters."
+    },
+    {
+      "q": "Are MindTap questions usually multiple choice?",
+      "a": "Mostly, yes — MindTap gen-ed courses lean heavily on multiple-choice reading checks, though some assignments include short-answer or matching questions as well."
+    },
+    {
+      "q": "Does MindTap track how much time I spend reading, not just quiz scores?",
+      "a": "Yes — MindTap's analytics can track engagement with the digital textbook itself (time on page, highlights, etc.) in addition to quiz performance, which is part of why instructors often assign it alongside graded quizzes."
+    },
+    {
+      "q": "Is Cambo affiliated with Cengage Learning?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with Cengage Learning."
+    },
+    {
+      "q": "How is MindTap different from Aplia, which is also a Cengage product?",
+      "a": "Both are made by Cengage, but MindTap is built around general digital-textbook courseware across many subjects, while Aplia is a separate, more specialized platform focused heavily on Economics problem sets — see our dedicated Aplia page for that use case."
+    }
+  ],
+  "internalLinks": ["aplia-answers", "mcgraw-hill-connect-answers"]
+}

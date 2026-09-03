@@ -1,0 +1,73 @@
+{
+  "slug": "management-principles-practice-quiz",
+  "h1": "Management Principles Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Management Principles exam question for an instant, explained answer — planning, leading, and organizing made clear, without the guesswork.",
+  "metaTitle": "Management Principles Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Management Principles quiz and practice questions with instant, explained answers. Planning, organizing, leading, controlling, and leadership styles.",
+  "whyItWorks": "Management Principles exams usually present a workplace scenario and ask which management function or leadership style applies — the trap is that several answers sound plausible. Cambo reads the exact scenario and explains why one function or style fits best, not just which term matches.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the four core management functions involves setting goals and deciding how to achieve them?",
+      "options": ["Organizing", "Planning", "Leading", "Controlling"],
+      "correct": 1,
+      "a": "Planning — the function where managers define objectives and map out the strategy and actions needed to reach them, before any other function begins."
+    },
+    {
+      "q": "A manager who makes decisions unilaterally and closely supervises every task is using which leadership style?",
+      "options": ["Democratic", "Laissez-faire", "Autocratic", "Transformational"],
+      "correct": 2,
+      "a": "Autocratic leadership — the manager retains tight control over decisions with little input from team members."
+    },
+    {
+      "q": "What is the primary purpose of the 'controlling' function in management?",
+      "options": ["Assigning tasks to departments", "Motivating employees toward goals", "Monitoring performance and correcting deviations from goals", "Recruiting new employees"],
+      "correct": 2,
+      "a": "Controlling involves measuring actual performance against planned goals and taking corrective action when results fall short."
+    },
+    {
+      "q": "What does 'span of control' refer to in an organizational structure?",
+      "options": ["The geographic area a company operates in", "The number of employees a manager directly supervises", "The total number of departments in a company", "The length of a manager's employment contract"],
+      "correct": 1,
+      "a": "Span of control is the number of subordinates a manager directly oversees — a wide span means many direct reports, a narrow span means few."
+    },
+    {
+      "q": "According to Maslow's hierarchy of needs, which need must generally be satisfied first?",
+      "options": ["Self-actualization", "Esteem", "Physiological needs", "Belonging"],
+      "correct": 2,
+      "a": "Physiological needs (like food, water, and shelter) sit at the base of Maslow's hierarchy and are generally the first that must be met before higher-level needs become motivating."
+    },
+    {
+      "q": "A leader who inspires employees with a compelling vision and encourages them to exceed their own expectations is best described as which type?",
+      "options": ["Transactional leader", "Transformational leader", "Bureaucratic leader", "Laissez-faire leader"],
+      "correct": 1,
+      "a": "A transformational leader motivates followers through a shared vision and inspiration, aiming for change and growth beyond routine transactions or rewards."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Management Principles course usually cover?",
+      "a": "Typically the four functions of management (planning, organizing, leading, controlling), organizational structure, motivation theories, leadership styles, and decision-making."
+    },
+    {
+      "q": "What are the four functions of management?",
+      "a": "Planning, organizing, leading, and controlling — the foundational framework most intro management courses use to describe what managers actually do."
+    },
+    {
+      "q": "What's the difference between a leader and a manager in this course's terms?",
+      "a": "Management is typically framed around formal functions like planning and controlling, while leadership is framed around influencing and inspiring people — a manager doesn't always lead, and a leader doesn't always hold formal management authority."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Is Management Principles required for all business majors?",
+      "a": "At most business schools, yes — it's typically a foundational core course required regardless of your specific major (marketing, finance, accounting, etc.)."
+    },
+    {
+      "q": "Can Cambo help with a management case-study or scenario question?",
+      "a": "Yes — point your phone at a scenario-based exam question and Cambo identifies which management concept or leadership style applies and explains why."
+    }
+  ],
+  "internalLinks": ["marketing-principles-practice-quiz", "intro-finance-practice-quiz"]
+}

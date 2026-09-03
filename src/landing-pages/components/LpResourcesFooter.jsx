@@ -1,4 +1,4 @@
-import { CAMPAIGN_CATEGORIES } from '../../lib/campaignPages.js';
+import { CAMPAIGN_CATEGORIES, SCHOOL_HUBS } from '../../lib/campaignPages.js';
 
 // Plain <a> tags, not <Link> — landing pages render via renderToStaticMarkup
 // with no React Router context, so react-router-dom's Link would throw.
@@ -27,6 +27,18 @@ function LpResourcesFooter() {
             </div>
           </details>
         ))}
+        <details className="zn-chip" style={{ transform: 'rotate(-0.6deg)' }}>
+          <summary>
+            Campus Study Hubs <span className="zn-chip-count">{SCHOOL_HUBS.length}</span>
+          </summary>
+          <div className="zn-chip-panel">
+            {SCHOOL_HUBS.map((school) => (
+              <a key={school.slug} href={`/${school.slug}/`}>
+                {school.label}
+              </a>
+            ))}
+          </div>
+        </details>
       </div>
     </div>
   );

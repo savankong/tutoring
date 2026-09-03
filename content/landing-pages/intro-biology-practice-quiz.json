@@ -1,0 +1,107 @@
+{
+  "slug": "intro-biology-practice-quiz",
+  "courseKey": "introductory-biology",
+  "h1": "Introductory Biology Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Intro Biology exam question for an instant, explained answer — cells, genetics, and evolution made clear, without the guesswork.",
+  "metaTitle": "Introductory Biology Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Introductory Biology quiz and practice questions with instant, explained answers. Cell biology, genetics, evolution, and ecology basics.",
+  "whyItWorks": "Intro Biology exams often ask you to trace a process step by step — where in the cell something happens, which stage of mitosis you're looking at, how a genetic cross plays out — and getting one step wrong throws off the whole answer. Cambo reads the exact question, including any diagram or Punnett square, and explains each step of the reasoning.",
+  "sampleQuestions": [
+    {
+      "q": "Which organelle is primarily responsible for producing ATP through cellular respiration?",
+      "options": [
+        "The nucleus",
+        "The mitochondrion",
+        "The ribosome",
+        "The Golgi apparatus"
+      ],
+      "correct": 1,
+      "a": "The mitochondrion — often called the 'powerhouse of the cell,' it's where the majority of a cell's ATP is generated through cellular respiration."
+    },
+    {
+      "q": "In a cross between two heterozygous pea plants (Tt x Tt) for a trait where tall (T) is dominant over short (t), what fraction of offspring is expected to be short?",
+      "options": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "0"
+      ],
+      "correct": 0,
+      "a": "1/4 — a Tt x Tt cross produces offspring in a 1 TT : 2 Tt : 1 tt ratio, and only the tt genotype (1 out of 4) expresses the recessive short phenotype."
+    },
+    {
+      "q": "According to the theory of natural selection, which of the following best explains how a population's traits change over time?",
+      "options": [
+        "Individual organisms adapt their traits during their lifetime and pass those changes to offspring",
+        "Random mutations always improve a species over successive generations",
+        "Individuals with heritable traits better suited to their environment tend to survive and reproduce more, passing those traits on more frequently",
+        "All members of a species evolve identical traits at the same rate"
+      ],
+      "correct": 2,
+      "a": "Individuals with heritable traits that improve survival or reproduction in their environment tend to leave more offspring, gradually increasing the frequency of those traits in the population over generations."
+    },
+    {
+      "q": "During which phase of mitosis do sister chromatids separate and move to opposite poles of the cell?",
+      "options": [
+        "Prophase",
+        "Metaphase",
+        "Anaphase",
+        "Telophase"
+      ],
+      "correct": 2,
+      "a": "Anaphase — sister chromatids are pulled apart by the spindle fibers and move toward opposite poles, ensuring each daughter cell receives a full set of chromosomes."
+    },
+    {
+      "q": "A population of finches on an island has a stable food supply, but a drought suddenly makes only large, hard seeds available. Finches with larger beaks survive and reproduce at higher rates. This is an example of:",
+      "options": [
+        "Genetic drift",
+        "Natural selection",
+        "Gene flow",
+        "Artificial selection"
+      ],
+      "correct": 1,
+      "a": "Natural selection — an environmental pressure (the drought limiting food to hard seeds) favors individuals with a heritable trait (larger beaks) that improves survival, shifting the population's traits over time."
+    },
+    {
+      "q": "In an ecosystem's energy pyramid, why does energy decrease at each successive trophic level?",
+      "options": [
+        "Energy is destroyed as it moves between organisms",
+        "Most energy at each level is lost as heat through metabolic processes, leaving less available to the next level",
+        "Producers absorb all available energy, leaving none for consumers",
+        "Energy only flows from consumers back to producers"
+      ],
+      "correct": 1,
+      "a": "Most of the energy consumed at each trophic level is used for metabolic processes and lost as heat, so only a fraction (typically around 10%) is available to be passed on to the next level."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Introductory Biology usually cover?",
+      "a": "Cell structure and function, cellular respiration and photosynthesis, DNA and genetics, mitosis and meiosis, evolution and natural selection, and an overview of ecology and ecosystems."
+    },
+    {
+      "q": "Does Intro Biology usually include a lab component?",
+      "a": "Yes, most schools pair the lecture with a required lab section, often as a separate 1-credit-hour course that fulfills a lab-science gen-ed requirement alongside the lecture."
+    },
+    {
+      "q": "Is Intro Biology usually curved?",
+      "a": "It varies, but large-lecture intro bio sections commonly curve exams given how content-heavy the material is and how much scores can vary across a big class."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Do I need a chemistry background for Intro Biology?",
+      "a": "Most intro-level biology courses don't require chemistry as a prerequisite, though basic chemistry concepts (atoms, molecules, pH) come up briefly when covering topics like cell membranes and metabolism."
+    },
+    {
+      "q": "How many credit hours is Introductory Biology usually worth?",
+      "a": "Typically 3-4 credit hours for the lecture, sometimes bundled with an additional 1 credit hour for the required lab."
+    }
+  ],
+  "internalLinks": [
+    "general-chemistry-practice-quiz",
+    "intro-statistics-practice-quiz"
+  ]
+}

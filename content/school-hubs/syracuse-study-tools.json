@@ -1,0 +1,31 @@
+{
+  "slug": "syracuse-study-tools",
+  "schoolKey": "syracuse",
+  "h1": "Syracuse University Study Tools",
+  "subhead": "The free practice quizzes and instant-answer camera tool for Syracuse University's biggest intro courses — point your phone at any quiz question, get the answer explained in seconds.",
+  "metaTitle": "Syracuse University Study Tools & Practice Quizzes | Cambo",
+  "metaDescription": "Free practice quizzes and instant explained answers for Syracuse University's most common intro courses — Psych, Econ, Accounting, Bio, Chem, and more.",
+  "faqs": [
+    {
+      "q": "Is Cambo affiliated with Syracuse University?",
+      "a": "No. Cambo is an independent study tool, not produced, endorsed, or affiliated with Syracuse University."
+    },
+    {
+      "q": "How often are the course codes on this page updated?",
+      "a": "At least once a year, before fall semester — course codes are pulled from each school's official catalog and re-verified annually since schools renumber courses over time."
+    },
+    {
+      "q": "What courses does this cover at Syracuse University?",
+      "a": "This page links out to free practice quizzes for Syracuse University's most-searched intro courses — things like introductory psychology, macroeconomics, financial accounting, and general biology or chemistry. Pick a course below to start practicing."
+    },
+    {
+      "q": "Do I need to create an account to try a practice quiz?",
+      "a": "No — the practice quizzes on this page are free with no signup required. Creating a free account is only needed for Cambo's camera-capture tool, which gives you an instant explained answer to any question you point your phone at in real time."
+    }
+  ],
+  "internalLinks": [
+    "miami-oh-study-tools",
+    "university-of-miami-study-tools",
+    "penn-state-study-tools"
+  ]
+}

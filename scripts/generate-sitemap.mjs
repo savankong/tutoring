@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadLandingPagesContent } from './landing-pages-content.mjs';
+import { loadSchoolHubsContent } from './school-hubs-content.mjs';
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const SITE_URL = 'https://camboapp.com';
@@ -19,7 +20,13 @@ const landingRoutes = Object.values(allContent).map((content) => ({
   priority: '0.9',
 }));
 
-const routes = [...STATIC_ROUTES, ...landingRoutes];
+const hubContent = loadSchoolHubsContent(rootDir);
+const hubRoutes = Object.values(hubContent).map((content) => ({
+  path: `/${content.slug}/`,
+  priority: '0.8',
+}));
+
+const routes = [...STATIC_ROUTES, ...landingRoutes, ...hubRoutes];
 
 const urls = routes
   .map(

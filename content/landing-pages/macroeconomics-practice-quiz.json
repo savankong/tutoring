@@ -1,0 +1,108 @@
+{
+  "slug": "macroeconomics-practice-quiz",
+  "courseKey": "principles-of-macroeconomics",
+  "h1": "Macroeconomics Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Macroeconomics exam question for an instant, explained answer — GDP, inflation, and policy, without the guesswork.",
+  "metaTitle": "Macroeconomics Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Principles of Macroeconomics quiz and practice questions with instant, explained answers. GDP, inflation, unemployment, fiscal and monetary policy.",
+  "whyItWorks": "Macroeconomics questions usually give you an economic scenario — rising inflation, a recession, a Fed rate move — and ask which policy tool applies and what effect it has, which is easy to get backwards under time pressure. Cambo reads the exact scenario and explains which policy lever is in play and why it moves the economy that direction.",
+  "sampleQuestions": [
+    {
+      "q": "GDP is best defined as:",
+      "options": [
+        "The total value of all goods and services exported by a country",
+        "The market value of all final goods and services produced within a country in a given period",
+        "The total income earned by a country's citizens, including income earned abroad",
+        "The sum of all government spending in a given year"
+      ],
+      "correct": 1,
+      "a": "GDP (Gross Domestic Product) is the total market value of all final goods and services produced within a country's borders during a specific time period, regardless of who owns the resources producing them."
+    },
+    {
+      "q": "A country's unemployment rate falls, but many of the new jobs are part-time positions held by people who want full-time work. This scenario illustrates a limitation of:",
+      "options": [
+        "The GDP deflator",
+        "The unemployment rate as a measure of labor market health",
+        "The Consumer Price Index",
+        "The balance of trade"
+      ],
+      "correct": 1,
+      "a": "The unemployment rate as a measure of labor market health — it counts anyone working part-time as employed, so it can understate underemployment even as the headline rate improves."
+    },
+    {
+      "q": "To fight high inflation, the Federal Reserve raises the federal funds rate. What is the intended effect?",
+      "options": [
+        "To increase the money supply and stimulate borrowing",
+        "To make borrowing more expensive, cooling spending and investment to slow inflation",
+        "To directly lower the prices of consumer goods",
+        "To increase government spending on public projects"
+      ],
+      "correct": 1,
+      "a": "Raising the federal funds rate makes borrowing more expensive, which cools consumer spending and business investment — contractionary monetary policy used to slow an overheating, inflationary economy."
+    },
+    {
+      "q": "During a recession, the government increases spending on infrastructure projects and cuts taxes to boost demand. This is an example of:",
+      "options": [
+        "Contractionary monetary policy",
+        "Expansionary fiscal policy",
+        "Contractionary fiscal policy",
+        "Expansionary monetary policy"
+      ],
+      "correct": 1,
+      "a": "Expansionary fiscal policy — the government uses its own budget tools (spending increases and tax cuts) to boost aggregate demand during an economic downturn."
+    },
+    {
+      "q": "The Consumer Price Index (CPI) is used to measure:",
+      "options": [
+        "The total output of goods and services in an economy",
+        "The unemployment rate across different industries",
+        "The average change over time in prices paid by consumers for a fixed basket of goods and services",
+        "The value of a country's currency relative to others"
+      ],
+      "correct": 2,
+      "a": "The CPI tracks the average change over time in the prices paid by consumers for a representative, fixed basket of goods and services, and is a primary way inflation is measured."
+    },
+    {
+      "q": "A period of two consecutive quarters of declining real GDP is commonly used as an informal definition of:",
+      "options": [
+        "Stagflation",
+        "A recession",
+        "Deflation",
+        "An economic expansion"
+      ],
+      "correct": 1,
+      "a": "A recession — while the official U.S. determination comes from the NBER using broader criteria, two consecutive quarters of negative real GDP growth is the commonly cited rule-of-thumb definition."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Principles of Macroeconomics usually cover?",
+      "a": "GDP and national income accounting, unemployment, inflation and price indexes, aggregate supply and demand, fiscal policy, monetary policy and the Federal Reserve, and often an introduction to international trade and exchange rates."
+    },
+    {
+      "q": "Do I need to take Microeconomics before Macroeconomics?",
+      "a": "It depends on the school — some sequence Micro before Macro, others allow either order or let you take them concurrently. Check your program's specific prerequisite chart."
+    },
+    {
+      "q": "Is Macroeconomics usually curved?",
+      "a": "Many large-lecture sections curve exams, though it varies by instructor — the material is fairly conceptual, so some professors weight it more toward essay/short-answer questions that curve differently than pure multiple choice."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "What's the difference between fiscal policy and monetary policy?",
+      "a": "Fiscal policy is set by the government through spending and taxation decisions. Monetary policy is set by a central bank (the Federal Reserve in the U.S.) through tools like interest rates and the money supply."
+    },
+    {
+      "q": "How many credit hours is Macroeconomics usually worth?",
+      "a": "Typically 3 credit hours as a standalone lecture course, most commonly fulfilling a social science gen-ed or a business-degree core requirement."
+    }
+  ],
+  "internalLinks": [
+    "microeconomics-practice-quiz",
+    "intro-statistics-practice-quiz",
+    "intro-to-business-practice-quiz"
+  ]
+}

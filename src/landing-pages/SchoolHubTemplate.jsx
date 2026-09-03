@@ -1,32 +1,29 @@
-import LpHead from './components/LpHead.jsx';
-import LpHeader from './components/LpHeader.jsx';
+import HubHead from './components/HubHead.jsx';
+import HubHeader from './components/HubHeader.jsx';
+import HubCourseList from './components/HubCourseList.jsx';
 import LpFooter from './components/LpFooter.jsx';
 import LpHero from './components/LpHero.jsx';
 import LpHowItWorks from './components/LpHowItWorks.jsx';
-import LpWhyItWorks from './components/LpWhyItWorks.jsx';
-import LpSampleQA from './components/LpSampleQA.jsx';
-import LpSchoolCodes from './components/LpSchoolCodes.jsx';
 import LpFaq from './components/LpFaq.jsx';
-import LpOfficialSource from './components/LpOfficialSource.jsx';
 import LpRelatedLinks from './components/LpRelatedLinks.jsx';
 import LpCtaFooter from './components/LpCtaFooter.jsx';
 import LpResourcesFooter from './components/LpResourcesFooter.jsx';
 import '../styles/zine.css';
 import '../styles/zine-lp.css';
 
-function LandingPageTemplate({ content, allContent }) {
+// School hub pages are a course-code directory, not a quiz — deliberately a
+// different component tree from LandingPageTemplate.jsx, sharing only the
+// pieces that are genuinely generic (header/footer/CTA/how-it-works/FAQ).
+function SchoolHubTemplate({ content, allContent }) {
   return (
     <div className="zn-root">
-      <LpHead content={content} />
+      <HubHead content={content} />
       <div className="zn-grain" />
-      <LpHeader />
+      <HubHeader />
       <LpHero content={content} />
       <LpHowItWorks />
-      <LpOfficialSource content={content} />
-      <LpWhyItWorks content={content} />
-      <LpSampleQA content={content} />
-      <LpSchoolCodes content={content} />
-      <LpFaq content={content} />
+      <HubCourseList content={content} />
+      {content.faqs && <LpFaq content={content} />}
       <LpRelatedLinks content={content} allContent={allContent} />
       <LpCtaFooter content={content} />
       <LpResourcesFooter />
@@ -35,4 +32,4 @@ function LandingPageTemplate({ content, allContent }) {
   );
 }
 
-export default LandingPageTemplate;
+export default SchoolHubTemplate;

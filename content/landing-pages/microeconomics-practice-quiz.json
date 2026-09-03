@@ -1,0 +1,108 @@
+{
+  "slug": "microeconomics-practice-quiz",
+  "courseKey": "principles-of-microeconomics",
+  "h1": "Microeconomics Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Microeconomics exam question for an instant, explained answer — supply, demand, and market structure, without the guesswork.",
+  "metaTitle": "Microeconomics Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Principles of Microeconomics quiz and practice questions with instant, explained answers. Supply and demand, elasticity, market structures, consumer and producer surplus.",
+  "whyItWorks": "Microeconomics questions usually hand you a graph or a scenario and ask you to predict what happens to price and quantity when one variable shifts — the hard part is knowing whether a curve shifts or just moves along itself. Cambo reads the exact scenario and walks through which curve moves, which way, and why.",
+  "sampleQuestions": [
+    {
+      "q": "If the price of coffee rises and nothing else changes, what happens in the market for tea (a substitute good)?",
+      "options": [
+        "Demand for tea decreases",
+        "Demand for tea increases, shifting the demand curve to the right",
+        "The supply of tea increases",
+        "Nothing changes in the tea market"
+      ],
+      "correct": 1,
+      "a": "Demand for tea increases and the demand curve shifts right — as coffee becomes relatively more expensive, some consumers substitute toward tea instead."
+    },
+    {
+      "q": "A 10% increase in the price of a good leads to a 25% decrease in quantity demanded. This good's demand is best described as:",
+      "options": [
+        "Perfectly inelastic",
+        "Inelastic",
+        "Elastic",
+        "Unit elastic"
+      ],
+      "correct": 2,
+      "a": "Elastic — since the percentage change in quantity demanded (25%) is larger than the percentage change in price (10%), the price elasticity of demand is greater than 1."
+    },
+    {
+      "q": "In a perfectly competitive market, an individual firm is a 'price taker.' What does this mean?",
+      "options": [
+        "The firm sets its own price above the market price to maximize profit",
+        "The firm has no influence over the market price and must accept the prevailing price",
+        "The firm can only sell at a government-mandated price",
+        "The firm sets the market price for all other firms in the industry"
+      ],
+      "correct": 1,
+      "a": "A price taker has no individual influence over the market price because it's one of many firms selling an identical product, so it must sell at the price the market has already established."
+    },
+    {
+      "q": "What is 'consumer surplus'?",
+      "options": [
+        "The total revenue a business earns above its production costs",
+        "The extra output a firm produces beyond consumer demand",
+        "The difference between what consumers are willing to pay and what they actually pay",
+        "The amount of a good left unsold at the end of a selling period"
+      ],
+      "correct": 2,
+      "a": "Consumer surplus is the gap between the maximum price a consumer would be willing to pay for a good and the price they actually pay — it's a measure of the benefit consumers get from a transaction."
+    },
+    {
+      "q": "A single firm is the only seller of a good with no close substitutes and significant barriers to entry. This market structure is called:",
+      "options": [
+        "Perfect competition",
+        "Monopolistic competition",
+        "Oligopoly",
+        "Monopoly"
+      ],
+      "correct": 3,
+      "a": "A monopoly — one firm dominates the entire market, faces no close substitutes, and high barriers keep other firms from entering and competing away its market power."
+    },
+    {
+      "q": "The government imposes a binding price ceiling below the market equilibrium price for apartment rentals. What is the most likely result?",
+      "options": [
+        "A surplus of apartments as landlords build more units",
+        "A shortage of apartments, since quantity demanded exceeds quantity supplied at the capped price",
+        "No effect, since price ceilings only affect sellers",
+        "The market price rises to offset the ceiling"
+      ],
+      "correct": 1,
+      "a": "A shortage — because the ceiling sets price below equilibrium, quantity demanded rises while quantity supplied falls, creating an excess of buyers relative to available apartments at that price."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Principles of Microeconomics usually cover?",
+      "a": "Supply and demand, price elasticity, consumer and producer theory, market structures (perfect competition, monopoly, oligopoly, monopolistic competition), market failures, and the basics of welfare analysis like surplus and deadweight loss."
+    },
+    {
+      "q": "Do I need calculus for Microeconomics?",
+      "a": "Most intro-level sections use algebra and graphing, not calculus — calculus-based treatments of marginal analysis are more common in intermediate microeconomics."
+    },
+    {
+      "q": "Is Microeconomics usually curved?",
+      "a": "It varies by school and instructor, but large-section intro econ courses commonly curve exams given how much the material rewards graph-reading practice, which spreads scores out."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "What's the difference between microeconomics and macroeconomics?",
+      "a": "Microeconomics studies individual decision-makers — households, firms, and specific markets. Macroeconomics studies the economy as a whole, looking at aggregate measures like GDP, inflation, and unemployment."
+    },
+    {
+      "q": "Is Microeconomics a prerequisite for other business or econ courses?",
+      "a": "Usually yes — it's a common prerequisite for intermediate microeconomics, many business electives, and sometimes macroeconomics, depending on the program's sequencing."
+    }
+  ],
+  "internalLinks": [
+    "macroeconomics-practice-quiz",
+    "intro-statistics-practice-quiz",
+    "intro-to-business-practice-quiz"
+  ]
+}

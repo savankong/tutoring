@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { loadLandingPagesContent } from './landing-pages-content.mjs';
+import { loadSchoolHubsContent } from './school-hubs-content.mjs';
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(rootDir, 'dist', 'og');
@@ -69,7 +70,7 @@ function buildSvg(headline) {
 
 mkdirSync(outDir, { recursive: true });
 
-const allContent = loadLandingPagesContent(rootDir);
+const allContent = { ...loadLandingPagesContent(rootDir), ...loadSchoolHubsContent(rootDir) };
 for (const content of Object.values(allContent)) {
   const svg = buildSvg(content.h1);
   const outPath = join(outDir, `${content.slug}.png`);

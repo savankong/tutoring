@@ -1,0 +1,73 @@
+{
+  "slug": "marketing-principles-practice-quiz",
+  "h1": "Marketing Principles Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Marketing Principles exam question for an instant, explained answer — the 4 Ps and consumer behavior made clear, without the guesswork.",
+  "metaTitle": "Marketing Principles Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Marketing Principles quiz and practice questions with instant, explained answers. The 4 Ps, market segmentation, and consumer behavior basics.",
+  "whyItWorks": "Intro Marketing questions love to test whether you can tell similar-sounding terms apart — like differentiation vs. positioning, or the 4 Ps — using a business scenario. Cambo reads the exact scenario and explains which concept applies and why, not just the definition.",
+  "sampleQuestions": [
+    {
+      "q": "Which of the 4 Ps of marketing refers to how and where a product reaches the customer?",
+      "options": ["Product", "Price", "Place", "Promotion"],
+      "correct": 2,
+      "a": "Place (or distribution) covers the channels and locations used to get a product from the company to the customer, like retail stores or e-commerce."
+    },
+    {
+      "q": "A company divides its customers into groups based on age, income, and lifestyle. What is this process called?",
+      "options": ["Market positioning", "Market segmentation", "Product differentiation", "Brand equity building"],
+      "correct": 1,
+      "a": "Market segmentation — dividing a broad market into smaller groups of consumers with shared characteristics so a company can target them more effectively."
+    },
+    {
+      "q": "What is a 'target market'?",
+      "options": ["Every possible customer for a product", "The specific segment of consumers a company decides to focus its marketing efforts on", "A competitor's customer base", "The retail location where a product is sold"],
+      "correct": 1,
+      "a": "A target market is the specific group of consumers a company has chosen to focus its marketing strategy on, usually identified through segmentation."
+    },
+    {
+      "q": "Which pricing strategy sets an initially high price for a new product to maximize revenue from early adopters before lowering it over time?",
+      "options": ["Penetration pricing", "Price skimming", "Competitive pricing", "Cost-plus pricing"],
+      "correct": 1,
+      "a": "Price skimming — charging a premium price at launch to capture value from customers willing to pay more, then gradually lowering the price to reach broader segments."
+    },
+    {
+      "q": "What does 'brand positioning' refer to?",
+      "options": ["The physical shelf location of a product in a store", "How a brand is perceived relative to competitors in the customer's mind", "The legal registration of a trademark", "The internal org chart of a marketing department"],
+      "correct": 1,
+      "a": "Brand positioning is the distinct place a brand occupies in customers' minds relative to competing brands, often built around a specific benefit or value proposition."
+    },
+    {
+      "q": "Which stage of the product life cycle typically sees the highest sales growth and increasing competition?",
+      "options": ["Introduction", "Growth", "Maturity", "Decline"],
+      "correct": 1,
+      "a": "The growth stage — sales rise rapidly as the product gains market acceptance, which also attracts new competitors."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Marketing Principles course usually cover?",
+      "a": "Typically the marketing mix (the 4 Ps), market segmentation and targeting, consumer behavior, branding, pricing strategy, and an overview of the product life cycle."
+    },
+    {
+      "q": "What are the 4 Ps of marketing?",
+      "a": "Product, Price, Place, and Promotion — the core elements a company adjusts to market a product or service effectively, often called the 'marketing mix.'"
+    },
+    {
+      "q": "What's the difference between segmentation and targeting?",
+      "a": "Segmentation is dividing the overall market into distinct groups based on shared traits; targeting is the subsequent decision about which of those segments to actually pursue with marketing efforts."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Do I need a business background to do well in Marketing Principles?",
+      "a": "No — it's typically designed as an entry-level course for business majors and non-majors alike, introducing core concepts without assuming prior business coursework."
+    },
+    {
+      "q": "Can Cambo help with a marketing case-study question?",
+      "a": "Yes — point your phone at a case-study prompt or exam scenario and Cambo will identify which marketing concept applies and explain the reasoning, the same way it handles any practice question."
+    }
+  ],
+  "internalLinks": ["management-principles-practice-quiz", "intro-finance-practice-quiz"]
+}

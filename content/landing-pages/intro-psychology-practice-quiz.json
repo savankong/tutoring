@@ -1,0 +1,107 @@
+{
+  "slug": "intro-psychology-practice-quiz",
+  "courseKey": "intro-psychology",
+  "h1": "Introductory Psychology Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Intro Psych exam question for an instant, explained answer — decode the terminology, not just memorize it, without the guesswork.",
+  "metaTitle": "Introductory Psychology Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Introductory Psychology quiz and practice questions with instant, explained answers. Research methods, cognition, developmental psychology, social psychology, and abnormal psych basics.",
+  "whyItWorks": "Intro Psych exams love near-identical terms that mean very different things — classical vs. operant conditioning, reliability vs. validity, correlation vs. causation — and the trick question is usually about telling two similar concepts apart. Cambo reads the exact question and explains which concept actually applies and why the others don't fit.",
+  "sampleQuestions": [
+    {
+      "q": "A researcher finds that ice cream sales and drowning deaths both rise in the summer. What does this best illustrate?",
+      "options": [
+        "Ice cream sales cause drowning deaths",
+        "Correlation does not imply causation — a third variable (warm weather) likely explains both",
+        "Drowning deaths cause an increase in ice cream sales",
+        "The two variables are unrelated and the pattern is coincidental noise"
+      ],
+      "correct": 1,
+      "a": "Correlation does not imply causation — both variables likely rise because of a confounding third variable, warm weather, which increases both swimming and ice cream consumption."
+    },
+    {
+      "q": "In Pavlov's classic experiment, a dog begins salivating at the sound of a bell that was repeatedly paired with food. What type of learning does this demonstrate?",
+      "options": [
+        "Operant conditioning",
+        "Classical conditioning",
+        "Observational learning",
+        "Habituation"
+      ],
+      "correct": 1,
+      "a": "Classical conditioning — a previously neutral stimulus (the bell) comes to trigger a response (salivation) after being repeatedly paired with a stimulus (food) that already triggered it."
+    },
+    {
+      "q": "A child believes that a tall, narrow glass holds more liquid than a short, wide glass, even after watching the same amount of water poured between them. According to Piaget, this child has not yet developed which ability?",
+      "options": [
+        "Object permanence",
+        "Conservation",
+        "Theory of mind",
+        "Abstract reasoning"
+      ],
+      "correct": 1,
+      "a": "Conservation — the understanding that a quantity stays the same despite changes in its shape or appearance, typically developed during Piaget's concrete operational stage."
+    },
+    {
+      "q": "A personality test gives a person very different scores each time they take it, even though their personality hasn't changed. What is this test lacking?",
+      "options": [
+        "Validity",
+        "Reliability",
+        "Generalizability",
+        "Statistical significance"
+      ],
+      "correct": 1,
+      "a": "Reliability — the consistency of a measure. A test can be reliable without being valid, but inconsistent results across repeated administrations point to a reliability problem specifically."
+    },
+    {
+      "q": "In a study on obedience, participants were told by an authority figure to administer what they believed were increasingly painful shocks to another person. This describes which classic study?",
+      "options": [
+        "The Stanford Prison Experiment",
+        "Milgram's obedience study",
+        "The Asch conformity experiments",
+        "Harlow's attachment studies"
+      ],
+      "correct": 1,
+      "a": "Milgram's obedience study — it demonstrated that a striking majority of ordinary participants would follow an authority figure's instructions to inflict apparent harm on a stranger."
+    },
+    {
+      "q": "Which of the following best describes the medical model of abnormal psychology?",
+      "options": [
+        "Psychological disorders are viewed as illnesses with underlying biological causes that can be diagnosed and treated",
+        "Psychological disorders result entirely from learned behaviors and can be unlearned through conditioning",
+        "Psychological disorders are defined purely by how far a person's behavior deviates from social norms",
+        "Psychological disorders are best explained by unconscious childhood conflicts alone"
+      ],
+      "correct": 0,
+      "a": "The medical model treats psychological disorders as illnesses with identifiable biological or physiological causes, diagnosable through symptoms and treatable — similar to how physical illness is approached."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does Intro to Psychology usually cover?",
+      "a": "Most intro courses cover research methods and statistics, biological psychology, sensation and perception, learning, memory and cognition, developmental psychology, personality, social psychology, and an overview of psychological disorders and treatment."
+    },
+    {
+      "q": "Is Intro Psychology usually a lab science or a gen-ed elective?",
+      "a": "It's typically a 3-credit-hour social/behavioral science gen-ed, though some schools offer a companion 1-credit lab section that fulfills a separate lab-science requirement."
+    },
+    {
+      "q": "Is Intro Psychology usually curved?",
+      "a": "It depends heavily on the instructor and section size, but large-lecture intro courses commonly curve exams, especially multiple-choice midterms, since raw score distributions can vary a lot between test versions."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "What's the difference between clinical psychology and the general psychology covered in this course?",
+      "a": "Intro Psychology surveys the whole field at a broad level — biological, cognitive, developmental, and social psychology included. Clinical psychology is a specific subfield focused on diagnosing and treating mental health disorders, usually studied in depth only in upper-level or graduate coursework."
+    },
+    {
+      "q": "Do I need a math or science prerequisite for Intro Psychology?",
+      "a": "Generally no — it's usually an entry-level course with no prerequisites, though the research-methods and statistics unit does involve some basic quantitative reasoning."
+    }
+  ],
+  "internalLinks": [
+    "intro-sociology-practice-quiz",
+    "intro-statistics-practice-quiz"
+  ]
+}

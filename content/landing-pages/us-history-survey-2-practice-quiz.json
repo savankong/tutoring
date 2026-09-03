@@ -1,0 +1,107 @@
+{
+  "slug": "us-history-survey-2-practice-quiz",
+  "courseKey": "us-history-survey-2",
+  "h1": "U.S. History Survey II Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any U.S. History II exam question for an instant, explained answer — Reconstruction through the modern era, without the guesswork.",
+  "metaTitle": "U.S. History Survey II Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free U.S. History Survey II quiz and practice questions with instant, explained answers. Industrialization, the World Wars, the Cold War, and the civil rights era.",
+  "whyItWorks": "U.S. History II exams often ask you to connect an event to the broader era it belongs to — is this a New Deal program or a Great Society program, does this policy belong to the Cold War or the Gilded Age — and the choices can look similar out of context. Cambo reads the exact question and explains which era and cause it belongs to, not just which answer to pick.",
+  "sampleQuestions": [
+    {
+      "q": "What was the primary goal of the Progressive movement in the late 19th and early 20th centuries?",
+      "options": [
+        "To expand U.S. territory through military conquest",
+        "To address problems caused by industrialization and urbanization through social and political reform",
+        "To restore power to state governments over the federal government",
+        "To end U.S. involvement in international trade"
+      ],
+      "correct": 1,
+      "a": "To address the problems industrialization and urbanization created — Progressives pushed for reforms like trust-busting, labor protections, and government regulation in response to corporate power and urban poverty."
+    },
+    {
+      "q": "What was the main purpose of the New Deal programs enacted under Franklin D. Roosevelt?",
+      "options": [
+        "To prepare the U.S. military for entry into World War II",
+        "To respond to the Great Depression through relief, recovery, and reform programs",
+        "To desegregate public schools",
+        "To end U.S. involvement in the Korean War"
+      ],
+      "correct": 1,
+      "a": "To respond to the Great Depression — the New Deal's relief, recovery, and reform programs aimed to provide jobs, stabilize the economy, and reform the financial system after the 1929 crash."
+    },
+    {
+      "q": "What event directly triggered the United States' entry into World War II?",
+      "options": [
+        "The German invasion of Poland",
+        "The Japanese attack on Pearl Harbor",
+        "The signing of the Treaty of Versailles",
+        "The Lend-Lease Act"
+      ],
+      "correct": 1,
+      "a": "The Japanese attack on Pearl Harbor, in December 1941 — the surprise attack on the U.S. naval base led Congress to declare war on Japan the next day, and Germany and Italy declared war on the U.S. shortly after."
+    },
+    {
+      "q": "What was the primary strategy behind the Cold War policy of containment?",
+      "options": [
+        "Direct military invasion of the Soviet Union",
+        "Preventing the spread of communism to new countries without direct war with the USSR",
+        "Full economic isolation from all foreign nations",
+        "Immediate nuclear disarmament"
+      ],
+      "correct": 1,
+      "a": "Preventing the spread of communism without direct war with the Soviet Union — containment shaped U.S. foreign policy for decades, including interventions in Korea and Vietnam, without a direct U.S.-USSR military conflict."
+    },
+    {
+      "q": "What was the significance of the Civil Rights Act of 1964?",
+      "options": [
+        "It granted women the right to vote",
+        "It outlawed discrimination based on race, color, religion, sex, or national origin in public accommodations and employment",
+        "It ended school segregation for the first time",
+        "It established the Voting Rights Act's protections"
+      ],
+      "correct": 1,
+      "a": "It outlawed discrimination based on race, color, religion, sex, or national origin in public accommodations and employment — a landmark law, distinct from the Voting Rights Act of 1965, which specifically targeted voting discrimination."
+    },
+    {
+      "q": "What event is generally considered the end of the Cold War?",
+      "options": [
+        "The Cuban Missile Crisis",
+        "The fall of the Berlin Wall and subsequent collapse of the Soviet Union",
+        "The Korean War armistice",
+        "The signing of NAFTA"
+      ],
+      "correct": 1,
+      "a": "The fall of the Berlin Wall in 1989 and the Soviet Union's collapse in 1991 — these events marked the end of decades of U.S.-Soviet rivalry and the bipolar Cold War world order."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What time period does U.S. History Survey II usually cover?",
+      "a": "It typically picks up around Reconstruction or the late 1870s and runs through industrialization, the Progressive Era, the World Wars, the Great Depression, the Cold War, the civil rights movement, and into the modern era."
+    },
+    {
+      "q": "Is U.S. History Survey II usually a required gen-ed course?",
+      "a": "Yes — like Survey I, it commonly fulfills a general education history or humanities requirement and is taken by students across many majors."
+    },
+    {
+      "q": "Do I need to take U.S. History I before U.S. History II?",
+      "a": "Many programs recommend or require this order since Survey II picks up chronologically where Survey I ends, but some schools allow either course to be taken independently since they don't build on each other's specific content."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill, Pearson, Cengage, or any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any textbook publisher or university."
+    },
+    {
+      "q": "Is U.S. History II usually curved?",
+      "a": "It varies by instructor, and since many sections weight essay and short-answer questions alongside multiple choice, curving practices differ more here than in strictly numeric courses."
+    },
+    {
+      "q": "How many credit hours is U.S. History Survey II usually worth?",
+      "a": "Typically 3 credit hours as a standard lecture course."
+    }
+  ],
+  "internalLinks": [
+    "us-history-survey-1-practice-quiz",
+    "american-government-practice-quiz"
+  ]
+}

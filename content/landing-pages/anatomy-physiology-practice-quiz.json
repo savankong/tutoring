@@ -1,0 +1,73 @@
+{
+  "slug": "anatomy-physiology-practice-quiz",
+  "h1": "Anatomy & Physiology Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Anatomy & Physiology exam question for an instant, explained answer — body systems and terminology made clear, without the guesswork.",
+  "metaTitle": "Anatomy & Physiology Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Anatomy & Physiology quiz and practice questions with instant, explained answers. Body systems, medical terminology, homeostasis, and cell structure.",
+  "whyItWorks": "A&P is dense with Greek and Latin root words and body systems that all interact with each other, so it's easy to memorize a term without understanding what it actually does in the body. Cambo breaks down the root words and explains how the structure or process fits into the bigger physiological picture, not just which answer is correct.",
+  "sampleQuestions": [
+    {
+      "q": "What is the term for the body's tendency to maintain a stable internal environment despite external changes?",
+      "options": ["Metabolism", "Homeostasis", "Osmosis", "Catabolism"],
+      "correct": 1,
+      "a": "Homeostasis — the body's regulatory systems (like temperature and blood glucose control) constantly adjust to keep internal conditions stable."
+    },
+    {
+      "q": "Which type of tissue is responsible for contraction and movement?",
+      "options": ["Epithelial tissue", "Connective tissue", "Muscle tissue", "Nervous tissue"],
+      "correct": 2,
+      "a": "Muscle tissue — its cells contain contractile proteins (actin and myosin) that shorten to produce movement or force."
+    },
+    {
+      "q": "In anatomical position, which term describes a structure located toward the head?",
+      "options": ["Superior", "Inferior", "Distal", "Proximal"],
+      "correct": 0,
+      "a": "Superior — meaning above or toward the head, as opposed to inferior (below/toward the feet)."
+    },
+    {
+      "q": "Which organelle is primarily responsible for producing ATP through cellular respiration?",
+      "options": ["Golgi apparatus", "Mitochondrion", "Ribosome", "Lysosome"],
+      "correct": 1,
+      "a": "The mitochondrion — often called the 'powerhouse of the cell' because it converts nutrients into usable ATP energy."
+    },
+    {
+      "q": "The autonomic nervous system's 'fight or flight' response is controlled by which division?",
+      "options": ["Parasympathetic division", "Somatic division", "Sympathetic division", "Central division"],
+      "correct": 2,
+      "a": "The sympathetic division — it increases heart rate, dilates airways, and redirects blood flow to prepare the body for a stress response."
+    },
+    {
+      "q": "Which of the following best describes the function of the alveoli in the respiratory system?",
+      "options": ["Filtering air of dust and pathogens", "Producing mucus to trap particles", "Site of gas exchange between air and blood", "Warming and humidifying inhaled air"],
+      "correct": 2,
+      "a": "The alveoli are tiny air sacs where oxygen and carbon dioxide are exchanged between the lungs and the bloodstream."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Anatomy & Physiology course usually cover?",
+      "a": "Typically cell biology, tissue types, and an overview of each major body system — skeletal, muscular, nervous, cardiovascular, respiratory, digestive, and endocrine — along with the medical terminology used to describe them."
+    },
+    {
+      "q": "What's the best way to memorize anatomical terminology?",
+      "a": "Learning common root words, prefixes, and suffixes (like 'cardio-' for heart or '-itis' for inflammation) helps you decode unfamiliar terms instead of memorizing each one individually."
+    },
+    {
+      "q": "Is A&P harder than general biology?",
+      "a": "Most students find it more demanding because of the sheer volume of new vocabulary and the need to understand how systems interact, not just memorize isolated facts."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Do I need to take A&P I before A&P II?",
+      "a": "At most schools, yes — A&P I (typically cells, tissues, and the skeletal, muscular, and nervous systems) is a prerequisite for A&P II (the remaining systems), since the second course builds on foundational terminology and concepts."
+    },
+    {
+      "q": "Can Cambo help with A&P lab practical questions?",
+      "a": "Cambo works best on written questions and diagrams you can photograph, like labeling a diagram or answering a scenario-based question — point your phone at the question for an instant, explained answer."
+    }
+  ],
+  "internalLinks": ["nutrition-practice-quiz", "environmental-science-practice-quiz"]
+}

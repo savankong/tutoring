@@ -1,0 +1,73 @@
+{
+  "slug": "environmental-science-practice-quiz",
+  "h1": "Environmental Science Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Environmental Science exam question for an instant, explained answer — ecosystems, climate, and sustainability made clear, without the guesswork.",
+  "metaTitle": "Environmental Science Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Environmental Science quiz and practice questions with instant, explained answers. Ecosystems, climate change, pollution, and sustainability concepts.",
+  "whyItWorks": "Environmental Science pulls together biology, chemistry, and policy, so questions often ask you to connect a cause (like a pollutant or a land-use change) to a downstream ecological effect. Cambo walks through that chain of cause and effect instead of just naming the correct term.",
+  "sampleQuestions": [
+    {
+      "q": "What term describes all the organisms of different species living and interacting in a given area, along with their physical environment?",
+      "options": ["Population", "Community", "Ecosystem", "Biome"],
+      "correct": 2,
+      "a": "An ecosystem — it includes both the biotic community (living organisms) and the abiotic (non-living) environment they interact with, like soil, water, and climate."
+    },
+    {
+      "q": "Which greenhouse gas is most responsible for human-driven climate change due to the sheer volume released?",
+      "options": ["Methane", "Carbon dioxide", "Nitrous oxide", "Ozone"],
+      "correct": 1,
+      "a": "Carbon dioxide — mainly from burning fossil fuels — is released in far greater quantities than other greenhouse gases, making it the largest overall contributor despite methane being more potent per molecule."
+    },
+    {
+      "q": "What is eutrophication?",
+      "options": ["The gradual warming of ocean water", "Excess nutrient runoff causing algal blooms and oxygen depletion in water", "The buildup of toxins in top predators", "The thinning of the ozone layer"],
+      "correct": 1,
+      "a": "Eutrophication happens when nutrient runoff (often fertilizer) causes rapid algae growth; when the algae die and decompose, the process depletes oxygen and can suffocate aquatic life."
+    },
+    {
+      "q": "Which of these is considered a renewable energy source?",
+      "options": ["Natural gas", "Coal", "Solar power", "Petroleum"],
+      "correct": 2,
+      "a": "Solar power is renewable because sunlight is continuously replenished, unlike fossil fuels (coal, natural gas, and petroleum), which form over millions of years and are extracted faster than they're replaced."
+    },
+    {
+      "q": "What does 'biodiversity' refer to?",
+      "options": ["The total mass of living organisms in an area", "The variety of species, genes, and ecosystems in a given region", "The number of endangered species on a continent", "The rate of population growth in a community"],
+      "correct": 1,
+      "a": "Biodiversity is the variety of life at multiple levels — genetic diversity within species, species diversity within a community, and ecosystem diversity across a region."
+    },
+    {
+      "q": "Which practice best exemplifies sustainable resource use?",
+      "options": ["Harvesting a resource faster than it can naturally regenerate", "Using a resource at a rate that allows it to replenish over time", "Extracting all of a nonrenewable resource as quickly as possible", "Ignoring the long-term impact of resource use on future generations"],
+      "correct": 1,
+      "a": "Sustainability means using a resource at or below the rate it can naturally regenerate, so it remains available for future use."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an intro Environmental Science course cover?",
+      "a": "Typically ecosystems and biomes, population ecology, climate and the carbon cycle, pollution and its sources, natural resource management, and sustainability principles."
+    },
+    {
+      "q": "Is Environmental Science a lab science?",
+      "a": "Many intro Environmental Science courses fulfill a lab-science gen-ed requirement, combining lecture concepts with hands-on labs like water-quality testing or ecosystem sampling."
+    },
+    {
+      "q": "What's the difference between weather and climate in this context?",
+      "a": "Weather is the short-term state of the atmosphere (a single day's temperature or rainfall), while climate is the long-term pattern of weather conditions in a region averaged over decades."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Is Environmental Science the same as Environmental Studies?",
+      "a": "They overlap but differ in emphasis: Environmental Science leans on the natural sciences (biology, chemistry, geology), while Environmental Studies often incorporates more policy, economics, and social science."
+    },
+    {
+      "q": "How is Cambo different from just searching a term online?",
+      "a": "Instead of a generic definition, Cambo reads your exact exam question — options included — and explains why the correct answer applies to that specific scenario."
+    }
+  ],
+  "internalLinks": ["astronomy-101-practice-quiz", "nutrition-practice-quiz"]
+}

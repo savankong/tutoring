@@ -1,0 +1,103 @@
+{
+  "slug": "mcgraw-hill-connect-answers",
+  "h1": "McGraw Hill Connect Answers & Practice Questions",
+  "subhead": "Take a free practice quiz or point your phone at any McGraw Hill Connect question for an instant, explained answer — Psychology, Accounting, and Business concepts, without the guesswork.",
+  "metaTitle": "McGraw Hill Connect Answers & Practice Questions | Cambo",
+  "metaDescription": "Free practice questions and instant, explained answers for McGraw Hill Connect quizzes and homework. Intro Psychology, Accounting, and Business courses.",
+  "whyItWorks": "Connect assignments mix multiple choice with fill-in-the-blank and short numeric entry, and the wording often leans on a specific term or figure straight out of that week's textbook chapter rather than general knowledge. Cambo reads the exact question as it appears on your screen and explains the underlying concept, so the same approach works whether it's a definition, a journal entry, or a case-study scenario.",
+  "sampleQuestions": [
+    {
+      "q": "In operant conditioning, a rat presses a lever and immediately receives a food pellet. This process of strengthening a behavior with a rewarding consequence is called:",
+      "options": [
+        "Classical conditioning",
+        "Positive reinforcement",
+        "Negative punishment",
+        "Extinction"
+      ],
+      "correct": 1,
+      "a": "Positive reinforcement — adding a desirable stimulus (food) immediately after a behavior increases the likelihood that behavior will happen again."
+    },
+    {
+      "q": "A company purchases $2,000 of office supplies on account. What is the correct journal entry?",
+      "options": [
+        "Debit Cash $2,000; Credit Supplies $2,000",
+        "Debit Supplies $2,000; Credit Accounts Payable $2,000",
+        "Debit Accounts Payable $2,000; Credit Supplies $2,000",
+        "Debit Supplies Expense $2,000; Credit Cash $2,000"
+      ],
+      "correct": 1,
+      "a": "Debit Supplies $2,000 (an asset increases) and credit Accounts Payable $2,000 (a liability increases, since the purchase was made on credit rather than paid in cash)."
+    },
+    {
+      "q": "Which stage of Erikson's psychosocial development theory centers on the conflict between intimacy and isolation?",
+      "options": [
+        "Adolescence",
+        "Young adulthood",
+        "Middle adulthood",
+        "Late adulthood"
+      ],
+      "correct": 1,
+      "a": "Young adulthood — Erikson placed the intimacy-versus-isolation stage roughly in the 20s to early 40s, centered on forming close, committed relationships."
+    },
+    {
+      "q": "A firm's mission statement primarily serves to:",
+      "options": [
+        "Report quarterly financial results to shareholders",
+        "Define the organization's core purpose and guide long-term decision-making",
+        "List specific numeric sales targets for the fiscal year",
+        "Satisfy a legal requirement for incorporation"
+      ],
+      "correct": 1,
+      "a": "A mission statement defines the organization's core purpose and values, giving a reference point for strategic decisions — it isn't a financial report or a set of numeric targets."
+    },
+    {
+      "q": "On a company's balance sheet, retained earnings appear under which section?",
+      "options": [
+        "Current assets",
+        "Current liabilities",
+        "Stockholders' equity",
+        "Long-term liabilities"
+      ],
+      "correct": 2,
+      "a": "Stockholders' equity — retained earnings represent accumulated net income kept in the business rather than paid out as dividends."
+    },
+    {
+      "q": "In Maslow's hierarchy of needs, which need must generally be met before a person is strongly motivated by esteem needs?",
+      "options": [
+        "Self-actualization",
+        "Belongingness and love",
+        "Physiological needs only, skipping all others",
+        "None — esteem needs come first"
+      ],
+      "correct": 1,
+      "a": "Belongingness and love needs — Maslow's hierarchy is generally satisfied bottom-up, so social connection needs typically precede esteem needs like confidence and recognition."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is McGraw Hill Connect?",
+      "a": "Connect is McGraw Hill's online homework and assessment platform, used alongside its textbooks for auto-graded quizzes, homework sets, and adaptive study modules (SmartBook)."
+    },
+    {
+      "q": "What subjects is Connect most commonly used for?",
+      "a": "It's especially common in intro Psychology, Accounting, Business, and Intro to Business courses, though McGraw Hill publishes Connect content across many other disciplines too."
+    },
+    {
+      "q": "Does Connect use randomized or algorithmic questions?",
+      "a": "Some Connect assignments, particularly in accounting and quantitative courses, use algorithmically generated numbers so each student's version has different figures — Cambo reads whatever numbers are actually on your screen rather than a generic answer key."
+    },
+    {
+      "q": "What is SmartBook and is it different from a regular Connect quiz?",
+      "a": "SmartBook is Connect's adaptive reading tool — it asks questions as you read and adjusts what it shows next based on what you get right or wrong, distinct from a standard fixed-question homework assignment."
+    },
+    {
+      "q": "Is Cambo affiliated with McGraw Hill?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with McGraw Hill."
+    },
+    {
+      "q": "Can Cambo help with fill-in-the-blank Connect questions, not just multiple choice?",
+      "a": "Yes — point your phone at the question as it appears, including any fill-in-the-blank or short-answer prompt, and Cambo explains the concept and the reasoning behind the answer."
+    }
+  ],
+  "internalLinks": ["pearson-mylab-answers", "cengage-mindtap-answers"]
+}

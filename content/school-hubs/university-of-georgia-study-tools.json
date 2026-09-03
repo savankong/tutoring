@@ -1,0 +1,31 @@
+{
+  "slug": "university-of-georgia-study-tools",
+  "schoolKey": "uga",
+  "h1": "University of Georgia Study Tools",
+  "subhead": "The free practice quizzes and instant-answer camera tool for University of Georgia's biggest intro courses — point your phone at any quiz question, get the answer explained in seconds.",
+  "metaTitle": "University of Georgia Study Tools & Practice Quizzes | Cambo",
+  "metaDescription": "Free practice quizzes and instant explained answers for University of Georgia's most common intro courses — Psych, Econ, Accounting, Bio, Chem, and more.",
+  "faqs": [
+    {
+      "q": "Is Cambo affiliated with University of Georgia?",
+      "a": "No. Cambo is an independent study tool, not produced, endorsed, or affiliated with University of Georgia."
+    },
+    {
+      "q": "How often are the course codes on this page updated?",
+      "a": "At least once a year, before fall semester — course codes are pulled from each school's official catalog and re-verified annually since schools renumber courses over time."
+    },
+    {
+      "q": "What courses does this cover at University of Georgia?",
+      "a": "This page links out to free practice quizzes for University of Georgia's most-searched intro courses — things like introductory psychology, macroeconomics, financial accounting, and general biology or chemistry. Pick a course below to start practicing."
+    },
+    {
+      "q": "Do I need to create an account to try a practice quiz?",
+      "a": "No — the practice quizzes on this page are free with no signup required. Creating a free account is only needed for Cambo's camera-capture tool, which gives you an instant explained answer to any question you point your phone at in real time."
+    }
+  ],
+  "internalLinks": [
+    "auburn-study-tools",
+    "university-of-alabama-study-tools",
+    "florida-study-tools"
+  ]
+}

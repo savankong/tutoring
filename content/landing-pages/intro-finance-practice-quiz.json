@@ -1,0 +1,73 @@
+{
+  "slug": "intro-finance-practice-quiz",
+  "h1": "Introduction to Finance Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Introduction to Finance exam question for an instant, explained answer — time value of money and risk/return made clear, without the guesswork.",
+  "metaTitle": "Introduction to Finance Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Introduction to Finance quiz and practice questions with instant, explained answers. Time value of money, basic valuation, and risk/return concepts.",
+  "whyItWorks": "Intro Finance leans heavily on a handful of formulas — present value, future value, risk-return tradeoff — that are easy to apply mechanically but hard to reason about conceptually. Cambo walks through why a formula applies to a given scenario, not just the plugged-in number.",
+  "sampleQuestions": [
+    {
+      "q": "What core principle explains why a dollar received today is worth more than a dollar received a year from now?",
+      "options": ["Inflation always erases value", "Time value of money — money today can be invested to earn a return", "Taxes reduce future income", "Currency exchange rates fluctuate"],
+      "correct": 1,
+      "a": "Time value of money — a dollar today can be invested and start earning a return immediately, making it worth more than the same dollar received later."
+    },
+    {
+      "q": "As the discount rate used in a present value calculation increases, what happens to the present value of a future cash flow?",
+      "options": ["It increases", "It decreases", "It stays the same", "It becomes negative"],
+      "correct": 1,
+      "a": "The present value decreases — a higher discount rate means future cash flows are discounted more heavily, shrinking their value in today's terms."
+    },
+    {
+      "q": "Generally, what is the relationship between risk and expected return on an investment?",
+      "options": ["Higher risk typically demands higher expected return", "Higher risk always guarantees higher actual return", "Risk and return are unrelated", "Lower risk typically demands higher expected return"],
+      "correct": 0,
+      "a": "Higher risk typically demands higher expected return — investors require greater compensation for taking on more uncertainty, though a higher expected return is never guaranteed."
+    },
+    {
+      "q": "What does diversification primarily help an investor accomplish?",
+      "options": ["Guarantee a profit", "Eliminate all risk", "Reduce unsystematic (company-specific) risk by spreading investments", "Increase the return on every individual asset"],
+      "correct": 2,
+      "a": "Diversification spreads investments across different assets to reduce unsystematic risk — the risk tied to a single company or industry — though it can't eliminate market-wide (systematic) risk."
+    },
+    {
+      "q": "A bond's price and market interest rates typically move in which direction relative to each other?",
+      "options": ["The same direction", "Opposite directions", "They are unrelated", "Bond prices are fixed regardless of rates"],
+      "correct": 1,
+      "a": "Opposite directions — when market interest rates rise, existing bonds with lower fixed rates become less attractive, so their prices fall, and vice versa."
+    },
+    {
+      "q": "What does the term 'liquidity' refer to in finance?",
+      "options": ["How much debt a company carries", "How quickly an asset can be converted to cash without a significant loss in value", "The total value of a company's assets", "The interest rate charged on a loan"],
+      "correct": 1,
+      "a": "Liquidity describes how easily and quickly an asset can be converted into cash without a major price discount — cash itself is the most liquid asset."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What topics does an Introduction to Finance course usually cover?",
+      "a": "Typically time value of money, present and future value calculations, risk and return, basic valuation of stocks and bonds, and an overview of financial markets and institutions."
+    },
+    {
+      "q": "Do I need a strong math background for Intro to Finance?",
+      "a": "Basic algebra is enough for most concepts — the math mainly involves present/future value formulas, which follow a consistent pattern once you understand the underlying logic."
+    },
+    {
+      "q": "What's the difference between present value and future value?",
+      "a": "Present value is what a future sum of money is worth today, discounted for time; future value is what an amount invested today will grow to by a future date."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "Is Intro to Finance required for all business majors?",
+      "a": "At most business schools, yes — it's typically a required foundational course regardless of your specific major, similar to Intro to Management or Intro to Marketing."
+    },
+    {
+      "q": "Can Cambo help with a finance problem that requires a formula?",
+      "a": "Yes — point your phone at a present value, future value, or other calculation-based question and Cambo walks through which formula applies and how to work through it."
+    }
+  ],
+  "internalLinks": ["management-principles-practice-quiz", "marketing-principles-practice-quiz"]
+}

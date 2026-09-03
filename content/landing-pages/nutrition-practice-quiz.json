@@ -1,0 +1,73 @@
+{
+  "slug": "nutrition-practice-quiz",
+  "h1": "Nutrition Practice Quiz & Questions",
+  "subhead": "Take a free practice quiz or point your phone at any Nutrition exam question for an instant, explained answer — macros, micros, and metabolism demystified, without the guesswork.",
+  "metaTitle": "Nutrition Practice Quiz & Questions | Cambo",
+  "metaDescription": "Free Nutrition quiz and practice questions with instant, explained answers. Macronutrients, micronutrients, dietary guidelines, and metabolism basics.",
+  "whyItWorks": "Intro nutrition courses mix hard science (metabolic pathways, nutrient functions) with shifting public guidelines, and questions often hinge on a specific number or exception. Cambo explains not just the right answer but the reasoning behind the recommendation, so the numbers actually stick.",
+  "sampleQuestions": [
+    {
+      "q": "Which macronutrient provides the most calories per gram?",
+      "options": ["Carbohydrates", "Protein", "Fat", "Fiber"],
+      "correct": 2,
+      "a": "Fat provides about 9 calories per gram, more than double the roughly 4 calories per gram provided by carbohydrates or protein."
+    },
+    {
+      "q": "Which vitamin is primarily synthesized by the skin when exposed to sunlight?",
+      "options": ["Vitamin C", "Vitamin D", "Vitamin B12", "Vitamin K"],
+      "correct": 1,
+      "a": "Vitamin D — UV exposure triggers a reaction in the skin that converts a cholesterol derivative into an active form of the vitamin."
+    },
+    {
+      "q": "What is the primary function of dietary fiber?",
+      "options": ["Provides quick energy to muscles", "Builds and repairs body tissue", "Aids digestion and promotes bowel regularity", "Transports fat-soluble vitamins"],
+      "correct": 2,
+      "a": "Fiber isn't digested or absorbed — it adds bulk to stool and supports regular digestion, and soluble fiber also helps moderate blood sugar and cholesterol."
+    },
+    {
+      "q": "Which mineral deficiency is most commonly associated with iron-deficiency anemia?",
+      "options": ["Calcium", "Iron", "Potassium", "Zinc"],
+      "correct": 1,
+      "a": "Iron — it's essential for making hemoglobin, the protein in red blood cells that carries oxygen; too little leads to fatigue and anemia."
+    },
+    {
+      "q": "According to general dietary guidelines, which nutrient should make up the largest portion of a balanced plate?",
+      "options": ["Protein", "Fruits and vegetables", "Added sugars", "Saturated fat"],
+      "correct": 1,
+      "a": "Fruits and vegetables — most current guidelines recommend they fill about half of a balanced plate, alongside grains and protein."
+    },
+    {
+      "q": "What is basal metabolic rate (BMR)?",
+      "options": ["The calories burned during vigorous exercise", "The minimum energy the body needs at complete rest to sustain basic functions", "The total calories consumed in a day", "The rate at which food moves through the digestive tract"],
+      "correct": 1,
+      "a": "BMR is the energy the body needs at rest just to keep vital functions like breathing and circulation running — it typically makes up the largest share of total daily calorie needs."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What does an intro Nutrition course typically cover?",
+      "a": "Macronutrients (carbs, protein, fat), micronutrients (vitamins and minerals), digestion and metabolism, energy balance, and how dietary guidelines apply across the lifespan."
+    },
+    {
+      "q": "What's the difference between macronutrients and micronutrients?",
+      "a": "Macronutrients (carbohydrates, protein, and fat) are needed in large amounts and provide energy; micronutrients (vitamins and minerals) are needed in small amounts and support specific body functions."
+    },
+    {
+      "q": "Are nutrition exams mostly memorization?",
+      "a": "There's a fair amount of memorizing specific nutrients and their functions, but most exams also test whether you can apply that knowledge to a scenario, like identifying a deficiency from a set of symptoms."
+    },
+    {
+      "q": "Is Cambo affiliated with any university?",
+      "a": "No. Cambo is an independent study tool and isn't produced, endorsed, or affiliated with any college or university."
+    },
+    {
+      "q": "How is Nutrition different from a full dietetics program?",
+      "a": "An intro Nutrition gen-ed course covers foundational science and guidelines for a general audience, while a dietetics program goes much deeper into clinical application, medical nutrition therapy, and counseling — usually as part of a dedicated major."
+    },
+    {
+      "q": "Can Cambo help with a nutrient-tracking or meal-planning assignment?",
+      "a": "Cambo is built for practice questions and explanations, not diet tracking — but it can help you understand the concepts (like reading a nutrition label or calculating macronutrient percentages) behind that kind of assignment."
+    }
+  ],
+  "internalLinks": ["anatomy-physiology-practice-quiz", "environmental-science-practice-quiz"]
+}

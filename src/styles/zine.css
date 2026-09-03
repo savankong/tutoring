@@ -861,15 +861,24 @@
   opacity: 0.85;
 }
 
-/* Resources chips */
+/* Resources list — same flush-divider row treatment as the FAQ list above,
+   not a chip/pill/button; each row expands via native <details> into the
+   table-grid link panel. */
 .zn-chip-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  max-width: 900px;
+}
+
+.zn-chip-row > * {
+  border-top: 2.5px solid var(--zn-ink);
+}
+
+.zn-chip-row > *:last-child {
+  border-bottom: 2.5px solid var(--zn-ink);
 }
 
 .zn-chip {
-  border: none;
   background: none;
   padding: 0;
   font: inherit;
@@ -877,42 +886,38 @@
 }
 
 .zn-chip summary {
-  border: 2px solid var(--zn-ink);
-  padding: 12px 16px 11px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: background 0.12s ease, color 0.12s ease;
-}
-
-.zn-chip summary:hover {
-  background: var(--zn-ink);
-  color: var(--zn-paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 2px;
+  font-family: var(--zn-display);
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 25px);
+  letter-spacing: -0.015em;
 }
 
 .zn-chip-count {
-  opacity: 0.55;
-}
-
-.zn-chip[open] summary {
-  background: var(--zn-ink);
-  color: var(--zn-paper);
+  font-family: var(--zn-body);
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 0.5;
+  margin-left: 10px;
 }
 
 .zn-chip-static {
-  border: 2px solid var(--zn-ink);
-  padding: 12px 16px 11px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding: 20px 2px;
+  font-family: var(--zn-display);
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 25px);
+  letter-spacing: -0.015em;
+  opacity: 0.6;
 }
 
 .zn-chip-panel {
-  flex-basis: 100%;
-  margin-top: 16px;
+  margin: 0 0 28px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   border-top: 1.5px solid var(--zn-ink);

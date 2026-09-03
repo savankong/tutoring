@@ -2,8 +2,9 @@ import { CAMPAIGN_CATEGORIES, SCHOOL_HUBS } from '../../lib/campaignPages.js';
 
 // Plain <a> tags, not <Link> — landing pages render via renderToStaticMarkup
 // with no React Router context, so react-router-dom's Link would throw.
-// Same "condensed to categories" chip treatment as the homepage's
-// <ZineResources>, just with plain anchors instead of Link for that reason.
+// Same "condensed to categories" flush-divider list treatment as the
+// homepage's <ZineResources>, just with plain anchors instead of Link for
+// that reason.
 function LpResourcesFooter() {
   return (
     <div id="resources" className="zn-section">
@@ -13,10 +14,13 @@ function LpResourcesFooter() {
         </h2>
       </div>
       <div className="zn-chip-row">
-        {CAMPAIGN_CATEGORIES.map((category, i) => (
-          <details className="zn-chip" key={category.title} style={{ transform: `rotate(${i % 2 === 0 ? -0.7 : 0.5}deg)` }}>
+        {CAMPAIGN_CATEGORIES.map((category) => (
+          <details className="zn-chip" key={category.title}>
             <summary>
-              {category.title} <span className="zn-chip-count">{category.pages.length}</span>
+              <span>
+                {category.title} <span className="zn-chip-count">{category.pages.length}</span>
+              </span>
+              <span className="zn-plus">+</span>
             </summary>
             <div className="zn-chip-panel">
               {category.pages.map((page) => (
@@ -27,9 +31,12 @@ function LpResourcesFooter() {
             </div>
           </details>
         ))}
-        <details className="zn-chip" style={{ transform: 'rotate(-0.6deg)' }}>
+        <details className="zn-chip">
           <summary>
-            Campus Study Hubs <span className="zn-chip-count">{SCHOOL_HUBS.length}</span>
+            <span>
+              Campus Study Hubs <span className="zn-chip-count">{SCHOOL_HUBS.length}</span>
+            </span>
+            <span className="zn-plus">+</span>
           </summary>
           <div className="zn-chip-panel">
             {SCHOOL_HUBS.map((school) => (

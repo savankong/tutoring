@@ -28,9 +28,9 @@ function ZineResources() {
             </div>
           </details>
         ))}
-        <a href="#resources" className="zn-chip-static" style={{ transform: 'rotate(0.8deg)' }}>
+        <span className="zn-chip-static" style={{ transform: 'rotate(0.8deg)' }}>
           Everything else you can photograph
-        </a>
+        </span>
       </div>
     </div>
   );

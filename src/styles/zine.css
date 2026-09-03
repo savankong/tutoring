@@ -920,8 +920,8 @@
   margin: 0 0 28px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  border-top: 1.5px solid var(--zn-ink);
-  border-left: 1.5px solid var(--zn-ink);
+  border-top: 1.5px dotted rgba(20, 19, 16, 0.25);
+  border-left: 1.5px dotted rgba(20, 19, 16, 0.25);
 }
 
 .zn-chip-panel a {
@@ -930,8 +930,8 @@
   font-weight: 500;
   line-height: 1.35;
   padding: 13px 16px;
-  border-right: 1.5px solid var(--zn-ink);
-  border-bottom: 1.5px solid var(--zn-ink);
+  border-right: 1.5px dotted rgba(20, 19, 16, 0.25);
+  border-bottom: 1.5px dotted rgba(20, 19, 16, 0.25);
   transition: background 0.12s ease, color 0.12s ease;
 }
 

@@ -172,7 +172,18 @@ export default async (request) => {
 
   const token = signSession(user.id);
   const checkoutUrl = await checkoutRedirectUrl(request, origin, user);
-  const location = checkoutUrl || new URL('/app', origin).toString();
+  let location = checkoutUrl;
+  if (!location) {
+    // Tags the redirect so Capture.jsx can fire the client-side Plausible
+    // "Signup" goal once it lands (Google's flow has no request body/JS
+    // moment of its own to fire it from, unlike Register.jsx's fetch call).
+    // Skipped when going straight to Stripe checkout instead — that success_url
+    // is shared with existing users' plan upgrades, not worth threading a
+    // signup flag through for this edge case.
+    const appUrl = new URL('/app', origin);
+    if (isNewUser) appUrl.searchParams.set('signup', 'google');
+    location = appUrl.toString();
+  }
   const headers = new Headers({ location });
   headers.append('set-cookie', sessionCookieHeader(token));
   headers.append('set-cookie', clearedOauthRefCookieHeader());

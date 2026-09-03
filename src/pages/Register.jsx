@@ -52,6 +52,9 @@ function Register() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Could not create account.');
       await refresh();
+      if (typeof window.plausible === 'function') {
+        window.plausible('Signup', { props: { method: 'email' } });
+      }
 
       if (plan) {
         const checkoutRes = await fetch('/api/create-checkout-session', {

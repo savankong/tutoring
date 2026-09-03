@@ -115,6 +115,24 @@ function Capture() {
     };
   }, []);
 
+  // Fires the Plausible "Signup" goal for a brand-new Google signup landing
+  // here straight from google-oauth-callback.js's redirect (?signup=google) —
+  // the email/password path fires the same goal client-side in Register.jsx
+  // instead, since that flow already runs JS at the moment of account
+  // creation. Strips the param immediately so a refresh/share of this URL
+  // doesn't double-fire it.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const signup = params.get('signup');
+    if (!signup) return;
+    if (typeof window.plausible === 'function') {
+      window.plausible('Signup', { props: { method: signup } });
+    }
+    params.delete('signup');
+    const query = params.toString();
+    window.history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
+  }, []);
+
   // Only one primary button exists on screen at a time; moving focus to it
   // on every state change means a keyboard, switch, or other assistive
   // input can drive the whole capture -> answer -> next-question loop by

@@ -1,0 +1,57 @@
+name: Guardrails
+
+# System 01 of the Cambo Autopilot plan (wiki "Automation Plan — Cambo
+# Autopilot") — the six deterministic checks in scripts/guardrails/ run on
+# every PR and fail the build rather than warn. This has to exist and be
+# green before anything else in that plan (page forge, social pipeline)
+# can ship content unattended.
+#
+# NOTE: actions/checkout and actions/setup-node below are pinned to their
+# major-version tags (@v4), not an exact commit SHA. System 06 of the same
+# plan calls for pinning every action to a SHA as standard CI hygiene
+# (a supply-chain flaw in a different GitHub Action was disclosed June
+# 2026) — this environment couldn't reach the GitHub API to resolve real
+# SHAs to pin to, and a fabricated hash would silently break the workflow.
+# Pin these to exact SHAs (or wire up Dependabot's github-actions
+# ecosystem, which does this automatically) before relying on this as the
+# only thing standing between an unattended run and production.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  guardrails:
+    name: Guardrail checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run guardrails
+
+  auto-merge:
+    name: Auto-merge risk:low
+    needs: guardrails
+    # Only PRs explicitly labeled risk:low self-merge once green. Anything
+    # unlabeled, or labeled risk:high (new vertical, publisher page, school
+    # hub — see the plan's "always gated" list), just sits there waiting
+    # for Savan; this job only ever adds a merge, never a review bypass.
+    if: contains(github.event.pull_request.labels.*.name, 'risk:low')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"

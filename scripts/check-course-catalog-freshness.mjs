@@ -9,8 +9,12 @@ import { fileURLToPath } from 'node:url';
 // Routine (content/course-catalog.json's meta.verificationCadence) for what
 // actually keeps this current.
 //
-// Usage: node scripts/check-course-catalog-freshness.mjs
-// Exit code is always 0 (informational) — this isn't a CI gate, just a report.
+// Usage: node scripts/check-course-catalog-freshness.mjs [--strict]
+// Without --strict, exit code is always 0 (informational). With --strict
+// (as used by scripts/guardrails/run-all.mjs / .github/workflows/guard.yml),
+// exits 1 if any school is stale — see wiki "Automation Plan — Cambo
+// Autopilot", System 01: this script wired to actually fail the build
+// instead of only printing.
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
 const catalog = JSON.parse(readFileSync(join(rootDir, 'content', 'course-catalog.json'), 'utf-8'));
@@ -44,4 +48,8 @@ for (const { school, months, stale } of rows) {
 console.log(`\n${staleCount} of ${catalog.schools.length} schools need re-verification.`);
 if (staleCount > 0) {
   console.log('Re-verify against each stale school\'s catalogUrl (see content/course-catalog.json), update codes/titles that changed, and bump verifiedAt.');
+}
+
+if (staleCount > 0 && process.argv.includes('--strict')) {
+  process.exit(1);
 }

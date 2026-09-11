@@ -1,0 +1,55 @@
+name: Metrics pull
+
+# System 02 ("Numbers pipeline") of the Cambo Autopilot plan (wiki
+# "Automation Plan — Cambo Autopilot") — nightly pull of Plausible, Stripe/
+# DB, and Anthropic-cost figures into data/metrics/<ISO-week>.json. See
+# scripts/metrics/pull-nightly.mjs for what actually runs.
+#
+# Prerequisites this workflow depends on (see that script's own file
+# headers for details): a Plausible Business plan + PLAUSIBLE_API_KEY, and
+# an Anthropic Admin API key as ANTHROPIC_ADMIN_KEY (not the regular
+# ANTHROPIC_API_KEY captures use). Until both secrets exist, this still
+# runs and commits a file every night — Plausible/Stripe/Anthropic-cost
+# sections just record `{"error": "..."}` instead of real numbers (see
+# pull-nightly.mjs's settle() helper), so the weekly review has something
+# to point at rather than silently having no data at all.
+#
+# NOTE on action pinning: see .github/workflows/guard.yml's header comment
+# — same "pin to a SHA, not @v4" caveat applies here and wasn't resolvable
+# in the environment that authored this file.
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    name: Pull nightly metrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Pull metrics
+        env:
+          PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY }}
+          PLAUSIBLE_SITE_ID: ${{ secrets.PLAUSIBLE_SITE_ID }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          ANTHROPIC_ADMIN_KEY: ${{ secrets.ANTHROPIC_ADMIN_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: node scripts/metrics/pull-nightly.mjs
+      - name: Commit metrics
+        run: |
+          git config user.name "cambo-metrics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/metrics
+          git diff --cached --quiet && echo "No metrics changes to commit." && exit 0
+          git commit -m "Nightly metrics pull ($(date -u +%Y-%m-%d))"
+          git push

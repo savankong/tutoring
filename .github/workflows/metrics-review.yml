@@ -1,0 +1,71 @@
+name: Metrics weekly review
+
+# System 02 ("Numbers pipeline") of the Cambo Autopilot plan — Monday
+# "Decide" + "Act" job. Runs scripts/metrics/weekly-review.mjs, which calls
+# Claude over the last 8 weeks of data/metrics/*.json and produces (a) a
+# written analysis and (b) candidate additions to content/topic-queue.json.
+# This workflow takes that output and does the two things the script
+# itself doesn't: opens a GitHub Issue with the analysis, and opens a PR
+# with the topic-queue.json change (on a fresh branch — never commits
+# straight to main). The PR gets `risk:high` unconditionally: these are
+# AI-suggested topics for a human to sanity-check before they enter the
+# queue System 03 (page forge, not yet built) will eventually read from —
+# see the plan's "always gated" list for new-vertical/publisher/school
+# pages, which is exactly the kind of judgment call a suggested topic list
+# needs before it's queued, not after it's already built into a page.
+#
+# NOTE on action pinning: see .github/workflows/guard.yml's header comment.
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  review:
+    name: Weekly metrics review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run weekly review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/metrics/weekly-review.mjs --issue-out weekly-review-issue.md
+      - name: Open review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Weekly metrics review — $(date -u +%Y-%m-%d)" \
+            --label "metrics-review" \
+            --body-file weekly-review-issue.md
+      - name: Open topic-queue PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -f weekly-review-issue.md
+          if git diff --quiet content/topic-queue.json; then
+            echo "No new topic-queue additions this week."
+            exit 0
+          fi
+          BRANCH="metrics-review/topic-queue-$(date -u +%Y-%m-%d)"
+          git config user.name "cambo-metrics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add content/topic-queue.json
+          git commit -m "Weekly review: queue candidate pages ($(date -u +%Y-%m-%d))"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Weekly review: queue candidate pages ($(date -u +%Y-%m-%d))" \
+            --label "risk:high" \
+            --body "AI-suggested additions to content/topic-queue.json from this week's metrics review — see the linked issue for the full analysis. Labeled risk:high unconditionally: these are suggestions to sanity-check, not vetted topics."

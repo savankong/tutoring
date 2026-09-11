@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "description": "Candidate landing/hub pages for the page-forge automation (System 03 of the Cambo Autopilot plan) to build. Populated by the weekly metrics review (System 02's metrics-review.yml), the state-page expander, or added by hand. Not yet consumed by anything — System 03 (page forge) doesn't exist yet — see wiki 'Automation Plan — Cambo Autopilot'.",
+    "entryShape": {
+      "slug": "proposed URL slug, kebab-case",
+      "vertical": "e.g. 'exam-prep', 'compliance-training', 'publisher-answers', 'state-real-estate' — used to decide riskClass defaults and which existing pages to diff against for duplicate risk",
+      "sourceUrl": "the exam/course/certifying body's own page — page forge researches against this, not memory",
+      "riskClass": "'low' (proven vertical + template, can auto-merge once guardrails pass) or 'high' (new vertical, publisher, school hub — always waits for review, see .github/workflows/guard.yml)",
+      "addedAt": "ISO date this entry was queued",
+      "addedBy": "'weekly-review' | 'state-expander' | 'manual'",
+      "reason": "why this topic — e.g. 'sibling of a top-converting entry page' or 'closes a gap identified in the SEO doc'"
+    }
+  },
+  "queue": []
+}
